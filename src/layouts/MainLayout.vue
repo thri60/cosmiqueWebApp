@@ -22,6 +22,15 @@
             text-color="white"
             label="Home"
           />
+          <q-btn
+            rounded
+            flat
+            :to="{ name: 'auction'}"
+            class="q-mr-xs"
+            color="white"
+            text-color="white"
+            label="AUCTIONS"
+          />
           <q-btn-dropdown
             flat
             color="white"
@@ -63,23 +72,6 @@
           <q-btn
             rounded
             flat
-            :to="{ name: 'auction'}"
-            class="q-mr-xs"
-            color="white"
-            text-color="white"
-            label="AUCTIONS"
-          />
-          <q-btn
-            rounded
-            flat
-            class="q-mr-xs"
-            color="white"
-            text-color="white"
-            label="COMPARE"
-          />
-          <q-btn
-            rounded
-            flat
             class="q-mr-xs"
             color="white"
             text-color="white"
@@ -100,8 +92,16 @@
             color="white"
             text-color="primary"
             icon="shopping_cart"
-            label="CART"
-          ></q-btn>
+            label="CART" />
+          <q-btn
+            rounded
+            class="q-mr-xs btn-fixed-width"
+            align="around"
+            color="white"
+            text-color="primary"
+            icon="person"
+            label="Login" />
+          
         </div>
         <div class="lt-md">
           <q-btn

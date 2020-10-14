@@ -41,7 +41,7 @@
                 </q-img>
                 <q-card-section>
                   <div class="col-12 col-md-5 q-pa-xs">
-                    <b class="text-h4">{{ car.vehicle_name }}</b>
+                    <b class="text-h5 text-primary">{{ car.vehicle_name }}</b>
                   </div>
                   <div class="col-12 col-md-4 q-pa-xs">
                     <i class="fas fa-tachometer-alt"></i> MILEAGE:
