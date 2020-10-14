@@ -136,6 +136,12 @@
           icon="view_carousel"
           label="Auto Inventory"
         >
+          <q-item clickable v-ripple :to="{ name: 'auction' }">
+            <q-item-section avatar>
+              <q-icon color="primary" name="assessment" />
+            </q-item-section>
+            <q-item-section>Auctions</q-item-section>
+          </q-item> 
           <q-item clickable v-ripple>
             <q-item-section avatar>
               <q-icon color="primary" name="assessment" />
