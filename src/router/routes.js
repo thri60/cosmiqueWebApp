@@ -1,4 +1,5 @@
 import indexPage from 'pages/Index.vue'
+import AuctionPage from 'pages/auction_page.vue';
 
 
 const routes = [{
@@ -6,7 +7,8 @@ const routes = [{
         component: () =>
             import ('layouts/MainLayout.vue'),
         children: [
-            { path: '', component: indexPage, name: 'homepage' }
+            { path: '', component: indexPage, name: 'homepage' },
+            { path: '/auctions', name: 'auction', component: AuctionPage }
         ]
     },
 

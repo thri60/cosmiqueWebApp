@@ -29,7 +29,7 @@
             label="Auto Inventory"
           >
             <q-list>
-              <q-item clickable v-close-popup>
+              <q-item clickable :to="{ name: 'auction'}">
                 <q-item-section>
                   <q-item-label>Auction</q-item-label>
                 </q-item-section>
@@ -96,7 +96,16 @@
             color="white"
             text-color="white"
             label="Contact"
-          />
+          /> || &nbsp;
+          <q-btn
+            rounded
+            class="q-mr-xs btn-fixed-width"
+            align="around"
+            color="white"
+            text-color="primary"
+            icon="shopping_cart"
+            label="CART"
+          ></q-btn>
         </div>
         <div class="lt-md">
           <q-btn

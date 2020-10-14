@@ -207,8 +207,8 @@
                 </div>
               </q-card-selection>
               <q-card-section>
-                <input type="hidden" v-model="car.id" />
                 <div>
+                  <input type="hidden" v-model="car.id" />
                   <i class="fas fa-tachometer-alt"></i> MILEAGE: 
                   <b>
                     {{ new Intl.NumberFormat().format(car.odometer_value) }} 
@@ -233,7 +233,7 @@
                     rounded
                     color="yellow-10"
                     text-color="white"
-                  >
+                    size="sm">
                     <b>Bid Now</b>
                   </q-btn>
                 </div>
@@ -241,17 +241,20 @@
                 <q-separator inset />
 
                 <div class="q-mb-xs" v-if="car.buy_it_now > 0">
+                  <br>
                   <q-btn
                     class="full-width"
                     rounded
                     color="yellow-10"
+                    icon-right="shopping_cart" 
+                    size="sm"
                     text-color="white" >
                     Buy it Now <strong> &nbsp; {{ 
                           new Intl.NumberFormat("us-US", {
                             style: "currency",
                             currency: "USD"
                           }).format(car.buy_it_now)
-                       }} </strong>
+                       }}  &nbsp; </strong>
                   </q-btn>
                 </div>
               </q-card-section>
@@ -483,80 +486,89 @@
       transition-hide="flip-up"
     >
       <div class="my-card1">
-          <div class="row ">
-            <strong class="text-purple text-h4 text-bold">Quick Preview</strong>
-            <q-space />
-            <q-btn color="purple" dense flat icon="close" v-close-popup>
-              <q-tooltip content-class="bg-white text-primary">Close</q-tooltip>
-            </q-btn>
-          </div>
+        <div class="row ">
+          <strong class="text-purple text-h4 text-bold">Quick Preview</strong>
+          <q-space />
+          <q-btn color="purple" dense flat icon="close" v-close-popup>
+            <q-tooltip content-class="bg-white text-primary">Close</q-tooltip>
+          </q-btn>
+        </div>
 
-            <div>
-                <q-img
+        <div>
+            <q-img
               :src="image"
               class="lt-md"
               v-for="image in view_selected.images"
               :key="image"
               spinner-color="primary"
-               spinner-size="82px"
-            />
-            </div>
+              spinner-size="82px"/>
+        </div>
 
 
-          <div class="q-pa-md">
-            <q-carousel
-              padding
-              transition-prev="slide-right"
-              transition-next="slide-left"
-              swipeable
-              animated
-              autoplay
-              v-model="slide1"
-              thumbnails
-              infinite
-              arrows
-              spinner-color="primary"
-              spinner-size="82px"
-              class="card1 gt-sm"
+        <div class="q-pa-md">
+          <q-carousel
+            padding
+            transition-prev="slide-right"
+            transition-next="slide-left"
+            swipeable
+            animated
+            autoplay
+            v-model="slide1"
+            thumbnails
+            infinite
+            arrows
+            spinner-color="primary"
+            spinner-size="82px"
+            class="card1 gt-sm"
 
+          >
+            <q-carousel-slide
+              v-for="image in view_selected.images"
+              :key="image"
+              :name="image"
+              :img-src="image"
+              style="height: 100%"
             >
-              <q-carousel-slide
-                v-for="image in view_selected.images"
-                :key="image"
-                :name="image"
-                :img-src="image"
-              >
-               <template v-slot:loading>
-                  <div class="text-primary">
-                    <q-spinner />
-                    <div class="q-mt-md">Loading...</div>
-                  </div>
-                </template>
-              </q-carousel-slide>
-            </q-carousel>
-            <hr />
-            <div class="bg-white">
-              <div class="text-h6">
-                <i class="far fa-calendar-alt"></i> &nbsp; SALE DATE: &nbsp;
-                &nbsp; &nbsp; &nbsp; &nbsp;<b>
-                  view_details_modal.car.sale_date
-                </b>
-              </div>
-              <div class="text-h6">
-                <i class="fas fa-car-crash"> &nbsp;</i>DAMAGE: &nbsp; &nbsp;
-                &nbsp; &nbsp; &nbsp; &nbsp;<b> view_details_modal.car.damage</b>
-              </div>
+              <template v-slot:loading>
+                <div class="text-primary">
+                  <q-spinner />
+                  <div class="q-mt-md">Loading...</div>
+                </div>
+              </template>
+            </q-carousel-slide>
+          </q-carousel>
+          <hr />
+          <div class="bg-white">
+            <div class="text-h6">
+              <i class="far fa-calendar-alt"></i> &nbsp; SALE DATE: &nbsp;
             </div>
-
-            <hr />
-            <q-btn
-              color="primary"
-              text-color="white"
-              label="View more"
-              icon="info"
-              class="full-width"
-            />
+            
+            <div>
+               <b>{{ view_selected.vehicle_name }}</b>                       
+            </div>
+            <div>
+              <b>Make:  {{ view_selected.make }}</b>                                     
+            </div>
+            <div>
+              <b>Model:  {{ view_selected.model }}</b>   
+            </div> 
+            <div>
+              <b>status:  {{ view_selected.damage }}</b>   
+            </div> 
+            <div>
+              <b>start code:  {{ view_selected.start_code }}</b>   
+            </div>
           </div>
+
+          <hr />
+          <q-btn
+            color="primary"
+            text-color="white"
+            label="View more"
+            icon="info"
+            class="full-width"
+          />
+        </div>
 
       </div>
     </q-dialog>
@@ -638,6 +650,7 @@ export default {
   margin: 25px
   border-radius: 50%
   font-size: 12px
+  
 .my-card1
   width: 100%
   max-width: 70%
