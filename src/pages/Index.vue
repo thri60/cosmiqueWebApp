@@ -699,7 +699,6 @@
               <div class="b-nav__logo">
                 <b>
                   Cosmique <span>Autos</span></b>
-                </b>
               </div>
               <p>
                 &copy; 2020.
