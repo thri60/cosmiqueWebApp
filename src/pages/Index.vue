@@ -558,276 +558,273 @@
       </div>
     </div>
 
-    <div class="bg-primary">
-      <div class="">
+    <!--  footer -->
+    <div class="bg-accent text-white">
+      <div>
         <div class="row">
-          <div class="">
-            <ul class="row">
-              <div class="col">
-                Low Prices, No Haggling
-              </div>
-              <div class="col">
-                Largest Car Dealership
-              </div>
-            </ul>
-          </div>
-        </div>
-      </div>
-    </div>
-
-    <div class="bg-grey-9 text-white">
-      <div class="">
-        <div class="row">
-          <div class="bg-grey-10">
-            <aside class="b-info__aside wow zoomInLeft" data-wow-delay="0.3s">
-              <article class="b-info__aside-article">
-                <h3>OPENING HOURS</h3>
+          <div class="bg-grey-10 col-12 col-md">
+            <q-card class="my-card q-pa-md bg-grey-10">
+            <q-card-section class="q-pa-md">
+             <strong>|| <b class="text-primary"> OPENING HOURS </b>  ||</strong>
                 <div class="b-info__aside-article-item">
-                  <h6>Sales Department</h6>
-                  <p>
+                  <b>Sales Department</b>
+                  <p class="text-body2 text-weight-light">
                     Mon-Sat : 8:00am - 5:00pm<br />
                     Sunday is closed
                   </p>
                 </div>
-                <div class="b-info__aside-article-item">
-                  <h6>Service Department</h6>
-                  <p>
+                <div>
+                  <b>Service Department</b>
+                  <p class="text-body2 text-weight-light">
                     Mon-Sat : 8:00am - 5:00pm<br />
                     Sunday is closed
                   </p>
                 </div>
-              </article>
-              <article class="b-info__aside-article">
-                <h3>About us</h3>
-                <p>
+            </q-card-section>
+               <hr>
+            <q-card-section>
+              <strong>|| <b class="text-primary"> About Us </b>  ||</strong>
+                <p class="text-body2 text-weight-light">
                   Vestibulum varius od lio eget conseq uat blandit, lorem auglue
                   comm lodo nisl non ultricies lectus nibh mas lsa Duis
                   scelerisque aliquet. Ante donec libero pede porttitor dacu
                   msan esct venenatis quis.
                 </p>
-              </article>
-              <a href="about.html" class="btn m-btn"
-                >Read More<span class="fa fa-angle-right"></span
-              ></a>
-            </aside>
+                 <q-btn
+                rounded
+                no-caps
+                outline
+                class="q-mr-xs"
+                color="white"
+                text-color="white"
+                label="Read More"
+                icon-right="fa fa-angle-right"
+              />
+            </q-card-section>
+            </q-card>
           </div>
 
-          <div class="row">
-            <div class="col">
-             <strong> |<b class="text-primary"> FROM TWITTER </b>| </strong>
+          <div class="q-pa-md col-12 col-md">
+            <div class="">
+              <strong> ||<b class="text-primary"> FROM TWITTER </b>|| </strong>
+              <div class="q-pa-md row">
+                <div> <q-icon name="fab fa-twitter" />  &nbsp;</div>
+
+                <div class="col text-body2 text-weight-light">
+                  <p class="text-grey-6 ">
+                    Duis scelerisque aliquet ante donec libero pede porttitor
+                    dacu
+                  </p>
+                  <p>3 minutes ago</p>
+                </div>
+              </div>
+              <div class="q-pa-md row">
+                <div> <q-icon name="fab fa-twitter" />  &nbsp;</div>
+
+                <div class="col text-body2 text-weight-light">
+                  <p class="text-grey-6 ">
+                    Duis scelerisque aliquet ante donec libero pede porttitor
+                    dacu
+                  </p>
+                  <p>3 minutes ago</p>
+                </div>
+              </div>
+              <div class="q-pa-md row">
+                <div> <q-icon name="fab fa-twitter" />  &nbsp;</div>
+
+                <div class="col text-body2 text-weight-light">
+                  <p class="text-grey-6 ">
+                    Duis scelerisque aliquet ante donec libero pede porttitor
+                    dacu
+                  </p>
+                  <p>3 minutes ago</p>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="col-12 col-md q-pa-md">
+            <div>
+              <strong> ||<b class="text-primary"> CONTACT US </b>|| </strong>
+              <div class="q-pa-md text-body2 text-weight-light text-grey-6">
               <div class="">
-                <div class="">
-                  <span class="fa fa-twitter"></span>
-                </div>
-                <div class="">
-                  <p>
-                    Duis scelerisque aliquet ante donec libero pede porttitor
-                    dacu
-                  </p>
-                  <span>3 minutes ago</span>
-                </div>
+                 <q-icon name="fa fa-map-marker" />  &nbsp;
+                <b> 0th St, Los Angeles, California, USA</b>
               </div>
-              <div>
-                <div class="">
-                  <span class="fa fa-twitter"></span>
-                </div>
-                <div class="b-info__twitter-article-content">
-                  <p>
-                    Duis scelerisque aliquet ante donec libero pede porttitor
-                    dacu
-                  </p>
-                  <span>14 minutes ago</span>
-                </div>
+              <br>
+              <div class="">
+                  <q-icon name="fa fa-phone-alt" />  &nbsp;
+                <b>Phone: 1-800- 000-000</b>
               </div>
-              <div
-                class="b-info__twitter-article wow zoomInUp"
-                data-wow-delay="0.3s"
+              <br>
+              <div class="">
+                  <q-icon name="fa fa-fax" />  &nbsp;
+                <b>FAX: 1-800- 000-000</b>
+              </div>
+              <br>
+              <div class="">
+                  <q-icon name="fa fa-envelope" />  &nbsp;
+                <b>Email: info@cosmiqueautos.com</b>
+              </div>
+              </div>
+            </div>
+          </div>
+          <div class="col-12 col-md q-pa-md">
+
+            <q-img
+             class="text-center"
+            src="~assets/map.jpg"
+            spinner-color="white"
+           >  <q-btn class="q-pa-md" flat dense text-color="grey-6" label="Open location map" />
+            </q-img>
+
+
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="bg-grey-10 text-grey-6 justify-between">
+      <div class="row">
+        <div class="self-center col-12 col-md-4">
+          <div class="q-pa-md">
+             <q-img
+             class="text-center"
+            v-ripple:primary
+            src="~assets/logo2.png"
+            spinner-color="white"
+            style="width:100px; height:35px"
+          />
+        <br>
+            <b class="text-h4 text-bold text-primary" >Cosmique <span class="text-white">Autos</span></b>
+            <p>
+              &copy; 2020.
+            </p>
+          </div>
+        </div>
+        <div class="col-12 col-md-8">
+          <div>
+            <div class="text-right q-pa-sm">
+              <q-btn round flat color="primary" icon="facebook" />
+              <q-btn round flat color="primary" icon="fab fa-twitter" />
+              <q-btn round flat color="primary" icon="fab fa-google-plus-g" />
+              <q-btn round flat color="primary" icon="fab fa-instagram" />
+              <q-btn round flat color="primary" icon="fab fa-youtube" />
+            </div>
+
+            <div class="text-right q-pa-md">
+              <q-btn
+                :to="{ name: 'homepage' }"
+                rounded
+                no-caps
+                size="sm"
+                flat
+                dense
+                class="q-mr-xs"
+                color="white"
+                text-color="white"
+                label="Home"
+              />
+              <q-btn-dropdown
+                flat
+                no-caps
+                size="sm"
+                dense
+                color="white"
+                text-color="white"
+                label="Auto Inventory"
               >
-                <div class="b-info__twitter-article-icon">
-                  <span class="fa fa-twitter"></span>
-                </div>
-                <div class="b-info__twitter-article-content">
-                  <p>
-                    Duis scelerisque aliquet ante donec libero pede porttitor
-                    dacu
-                  </p>
-                  <span>23 minutes ago</span>
-                </div>
-              </div>
-            </div>
-          </div>
-
-
-
-          <div class="col q-pa-md">
-            <address
-              class="">
-              <strong> |<b class="text-primary"> CONTACT US </b>| </strong>
-              <div class="">
-                <span class="fa fa-map-marker"></span>
-                <em> 0th St, Los Angeles, California, USA</em>
-              </div>
-              <div class="b-info__contacts-item">
-                <span class="fa fa-phone"></span>
-                <em>Phone: 1-800- 000-000</em>
-              </div>
-              <div class="b-info__contacts-item">
-                <span class="fa fa-fax"></span>
-                <em>FAX: 1-800- 000-000</em>
-              </div>
-              <div class="b-info__contacts-item">
-                <span class="fa fa-envelope"></span>
-                <em>Email: info@cosmiqueautos.com</em>
-              </div>
-            </address>
-          </div>
-          <div class="col-md-3 col-xs-6">
-            <address class="b-info__map">
-              <a href="contacts.html">Open Location Map</a>
-            </address>
-          </div>
-        </div>
-      </div>
-    </div>
-    <!--b-info-->
-
-    <div class="bg-grey-10 text-white justify-between">
-      <div class="container">
-        <div class="row">
-          <div class="col-xs-4">
-            <div class="b-footer__company wow fadeInLeft" data-wow-delay="0.3s">
-              <div class="b-nav__logo">
-                <b>
-                  Cosmique <span>Autos</span></b>
-              </div>
-              <p>
-                &copy; 2020.
-              </p>
-            </div>
-          </div>
-          <div class="col-xs-8">
-            <div
-              class="b-footer__content wow fadeInRight"
-              data-wow-delay="0.3s"
-            >
-              <div class="b-footer__content-social">
-                <a href="#"><span class="fa fa-facebook-square"></span></a>
-                <a href="#"><span class="fa fa-twitter-square"></span></a>
-                <a href="#"><span class="fa fa-google-plus-square"></span></a>
-                <a href="#"><span class="fa fa-instagram"></span></a>
-                <a href="#"><span class="fa fa-youtube-square"></span></a>
-                <a href="#"><span class="fa fa-skype"></span></a>
-              </div>
-
-       <div class="text-right">
-          <q-btn
-            :to="{ name: 'homepage' }"
-            rounded
-            no-caps
-            flat
-            dense
-            class="q-mr-xs"
-            color="white"
-            text-color="white"
-            label="Home"
-          />
-          <q-btn-dropdown
-            flat
-            no-caps
-            dense
-            color="white"
-            text-color="white"
-            label="Auto Inventory"
-          >
-            <q-list>
-              <q-item clickable :to="{ name: 'auction'}">
-                <q-item-section>
-                  <q-item-label class="text-h6">Auction</q-item-label>
-                </q-item-section>
-              </q-item>
-              <q-item clickable v-close-popup>
-                <q-item-section>
-                  <q-item-label>New Autos</q-item-label>
-                </q-item-section>
-              </q-item>
-              <q-item clickable v-close-popup>
-                <q-item-section>
-                  <q-item-label>Used Autos</q-item-label>
-                </q-item-section>
-              </q-item>
-            </q-list>
-          </q-btn-dropdown>
-          <q-btn-dropdown
-            flat
-            no-caps
-            dense
-            color="white"
-            text-color="white"
-            label="Auto Parts"
-          >
-            <q-list>
-              <q-item clickable v-close-popup>
-                <q-item-section>
-                  <q-item-label>New Auto Parts</q-item-label>
-                </q-item-section>
-              </q-item>
-              <q-item clickable v-close-popup>
-                <q-item-section>
-                  <q-item-label>Used Auto Parts</q-item-label>
-                </q-item-section>
-              </q-item>
-            </q-list>
-          </q-btn-dropdown>
-          <q-btn
-            rounded
-            no-caps
-            dense
-            flat
-            class="q-mr-xs"
-            color="white"
-            text-color="white"
-            label="Auctions"
-          />
-          <q-btn
-            rounded
-            no-caps
-            dense
-            flat
-            class="q-mr-xs"
-            color="white"
-            text-color="white"
-            label="Compare"
-          />
-          <q-btn
-            dense
-            no-caps
-            rounded
-            flat
-            class="q-mr-xs"
-            color="white"
-            text-color="white"
-            label="Request"
-          />
-          <q-btn
-            rounded
-            no-caps
-            dense
-            flat
-            class="q-mr-xs"
-            color="white"
-            text-color="white"
-            label="Contact"
-          />
-        </div>
+                <q-list>
+                  <q-item clickable :to="{ name: 'auction' }">
+                    <q-item-section>
+                      <q-item-label class="text-h6">Auction</q-item-label>
+                    </q-item-section>
+                  </q-item>
+                  <q-item clickable v-close-popup>
+                    <q-item-section>
+                      <q-item-label>New Autos</q-item-label>
+                    </q-item-section>
+                  </q-item>
+                  <q-item clickable v-close-popup>
+                    <q-item-section>
+                      <q-item-label>Used Autos</q-item-label>
+                    </q-item-section>
+                  </q-item>
+                </q-list>
+              </q-btn-dropdown>
+              <q-btn-dropdown
+                flat
+                no-caps
+                size="sm"
+                dense
+                color="white"
+                text-color="white"
+                label="Auto Parts"
+              >
+                <q-list>
+                  <q-item clickable v-close-popup>
+                    <q-item-section>
+                      <q-item-label>New Auto Parts</q-item-label>
+                    </q-item-section>
+                  </q-item>
+                  <q-item clickable v-close-popup>
+                    <q-item-section>
+                      <q-item-label>Used Auto Parts</q-item-label>
+                    </q-item-section>
+                  </q-item>
+                </q-list>
+              </q-btn-dropdown>
+              <q-btn
+                rounded
+                no-caps
+                size="sm"
+                dense
+                flat
+                class="q-mr-xs"
+                color="white"
+                text-color="white"
+                label="Auctions"
+              />
+              <q-btn
+                rounded
+                no-caps
+                size="sm"
+                dense
+                flat
+                class="q-mr-xs"
+                color="white"
+                text-color="white"
+                label="Compare"
+              />
+              <q-btn
+                dense
+                no-caps
+                rounded
+                size="sm"
+                flat
+                class="q-mr-xs"
+                color="white"
+                text-color="white"
+                label="Request"
+              />
+              <q-btn
+                rounded
+                no-caps
+                dense
+                size="sm"
+                flat
+                class="q-mr-xs"
+                color="white"
+                text-color="white"
+                label="Contact"
+              />
             </div>
           </div>
         </div>
       </div>
     </div>
 
-
-
-
+    <!-- footer -->
 
     <q-dialog
       v-model="view_details_modal"
