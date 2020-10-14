@@ -29,11 +29,6 @@
             label="Auto Inventory"
           >
             <q-list>
-              <q-item clickable :to="{ name: 'auction'}">
-                <q-item-section>
-                  <q-item-label>Auction</q-item-label>
-                </q-item-section>
-              </q-item>
               <q-item clickable v-close-popup>
                 <q-item-section>
                   <q-item-label>New Autos</q-item-label>
@@ -68,6 +63,7 @@
           <q-btn
             rounded
             flat
+            :to="{ name: 'auction'}"
             class="q-mr-xs"
             color="white"
             text-color="white"
@@ -135,13 +131,7 @@
           expand-separator
           icon="view_carousel"
           label="Auto Inventory"
-        >
-          <q-item clickable v-ripple :to="{ name: 'auction' }">
-            <q-item-section avatar>
-              <q-icon color="primary" name="assessment" />
-            </q-item-section>
-            <q-item-section>Auctions</q-item-section>
-          </q-item> 
+        > 
           <q-item clickable v-ripple>
             <q-item-section avatar>
               <q-icon color="primary" name="assessment" />
@@ -155,6 +145,12 @@
             <q-item-section>Used Autos</q-item-section>
           </q-item>
         </q-expansion-item>
+        <q-item clickable v-ripple :to="{ name: 'auction' }">
+          <q-item-section avatar>
+            <q-icon color="primary" name="assessment" />
+          </q-item-section>
+          <q-item-section>Auctions</q-item-section>
+        </q-item>
       </q-list>
     </q-drawer>
     <q-page-container>
