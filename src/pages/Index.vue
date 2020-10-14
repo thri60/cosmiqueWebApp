@@ -20,7 +20,9 @@
       <q-card class="q-pa-md text-center">
         <q-card-section class="bg-primary text-white">
           <span
-            ><b>UNSURE WHICH VEHICLE YOU ARE LOOKING FOR? FIND IT HERE</b></span
+            ><b>
+              | UNSURE WHICH VEHICLE YOU ARE LOOKING FOR? FIND IT HERE |</b
+            ></span
           >
         </q-card-section>
         <q-separator />
@@ -151,7 +153,7 @@
     <div>
       <div class="text-center q-pa-md">
         <q-chip square color="primary" text-color="white">
-          <b class="text-h4 text-bold shadow-3">FEATURED VEHICLES</b>
+          <b class="text-h4 text-bold shadow-3">| FEATURED VEHICLES |</b>
         </q-chip>
       </div>
 
@@ -209,9 +211,9 @@
               <q-card-section>
                 <div>
                   <input type="hidden" v-model="car.id" />
-                  <i class="fas fa-tachometer-alt"></i> MILEAGE: 
+                  <i class="fas fa-tachometer-alt"></i> MILEAGE:
                   <b>
-                    {{ new Intl.NumberFormat().format(car.odometer_value) }} 
+                    {{ new Intl.NumberFormat().format(car.odometer_value) }}
                     {{ car.odometer_type.toUpperCase() }}
                   </b>
                 </div>
@@ -222,18 +224,22 @@
 
                 <hr />
                 <div class="q-mb-xs">
-                  Current Bid: <strong> {{
-                    new Intl.NumberFormat("us-US", {
+                  Current Bid:
+                  <strong>
+                    {{
+                      new Intl.NumberFormat("us-US", {
                         style: "currency",
                         currency: "USD"
                       }).format(car.current_bid_value)
-                    }}</strong> 
+                    }}</strong
+                  >
                   <q-btn
                     class="full-width"
                     rounded
                     color="yellow-10"
                     text-color="white"
-                    size="sm">
+                    size="sm"
+                  >
                     <b>Bid Now</b>
                   </q-btn>
                 </div>
@@ -241,20 +247,26 @@
                 <q-separator inset />
 
                 <div class="q-mb-xs" v-if="car.buy_it_now > 0">
-                  <br>
+                  <br />
                   <q-btn
                     class="full-width"
                     rounded
                     color="yellow-10"
-                    icon-right="shopping_cart" 
+                    icon-right="shopping_cart"
                     size="sm"
-                    text-color="white" >
-                    Buy it Now <strong> &nbsp; {{ 
-                          new Intl.NumberFormat("us-US", {
-                            style: "currency",
-                            currency: "USD"
-                          }).format(car.buy_it_now)
-                       }}  &nbsp; </strong>
+                    text-color="white"
+                  >
+                    Buy it Now
+                    <strong>
+                      &nbsp;
+                      {{
+                        new Intl.NumberFormat("us-US", {
+                          style: "currency",
+                          currency: "USD"
+                        }).format(car.buy_it_now)
+                      }}
+                      &nbsp;
+                    </strong>
                   </q-btn>
                 </div>
               </q-card-section>
@@ -267,11 +279,14 @@
     <br />
     <br />
     <div class="q-pa-md logo text-center">
-      <q-chip square color="primary" text-color="white">
+      <q-chip square color="primary" text-color="white" class=" gt-sm">
         <strong class="text-h4 text-bold text-white shadow-3">
-          MOST RESEARCHED MAKES
+          | MOST RESEARCHED MAKES |
         </strong>
       </q-chip>
+      <strong class="text-h4 text-bold text-primary lt-md">
+        | MOST RESEARCHED MAKES |
+      </strong>
 
       <div class="row justify-center">
         <div class="col-6 col-md-2">
@@ -456,7 +471,7 @@
         <div class="bg-white box q-pa-md b">
           <q-card v-ripple class="shadow-box">
             <q-card-section class="text-center">
-               <q-icon
+              <q-icon
                 class="text-primary"
                 name="fas fa-car-side"
                 style="font-size: 3em;"
@@ -480,6 +495,71 @@
       </div>
     </div>
 
+    <div class="bg-grey-10 text-white">
+      <div class="row q-pa-md">
+        <div class="col-md-4 self-center">
+          <div class="text-center text-bold">
+            <b class="q-pa-md text-primary">LATEST NEWS &amp; DEALS</b>
+            <p class="text-h5"> <strong>| NEWSLETTER SIGNUP |</strong></p>
+          </div>
+        </div>
+        <div class="col-md-8">
+          <div class="q-pa-md">
+              WE SEND GREAT DEALS AND LATEST AUTO NEWS TO OUR SUBSCRIBED USERS
+              EVERY WEEK. ITS FREE SO SUBSCRIBE TODAY!
+            <form @submit.prevent.stop="onSubmit" class="row">
+              <div class="col-12 col-md-5 q-pa-xs">
+                <q-input
+                  ref="name"
+                  hint="Name and surname"
+                  standout
+                  outlined
+                  rounded
+                  dark
+                  dense
+                  v-model="name"
+                  label="Your Name"
+                  lazy-rules
+                  :rules="[
+                    val => (val && val.length > 0) || 'Your Fullname Please'
+                  ]"
+                >
+                  <template v-slot:prepend>
+                    <q-icon name="person" />
+                  </template>
+                </q-input>
+              </div>
+              <div class="col-12 col-md-5 q-pa-xs">
+                <q-input
+                  ref="email"
+                  type="email"
+                  hint="Your Email Address"
+                  outlined
+                  standout
+                  rounded
+                  dark
+                  dense
+                  v-model="email"
+                  label="Your Email"
+                  lazy-rules
+                  :rules="[
+                    val => (val && val.length > 0) || 'Your Email Please'
+                  ]"
+                >
+                  <template v-slot:prepend>
+                    <q-icon name="mail" />
+                  </template>
+                </q-input>
+              </div>
+              <div class="q-pa-xs">
+              <q-btn type="submit" round color="primary" icon="send" />
+              </div>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+
     <q-dialog
       v-model="view_details_modal"
       transition-show="flip-down"
@@ -495,15 +575,15 @@
         </div>
 
         <div>
-            <q-img
-              :src="image"
-              class="lt-md"
-              v-for="image in view_selected.images"
-              :key="image"
-              spinner-color="primary"
-              spinner-size="82px"/>
+          <q-img
+            :src="image"
+            class="lt-md"
+            v-for="image in view_selected.images"
+            :key="image"
+            spinner-color="primary"
+            spinner-size="82px"
+          />
         </div>
-
 
         <div class="q-pa-md">
           <q-carousel
@@ -520,7 +600,6 @@
             spinner-color="primary"
             spinner-size="82px"
             class="card1 gt-sm"
-
           >
             <q-carousel-slide
               v-for="image in view_selected.images"
@@ -528,8 +607,9 @@
               :name="image"
               :img-src="image"
               style="height: 100%"
-              transitions= 'rotate'
-              spinner-color="primary">
+              transitions="rotate"
+              spinner-color="primary"
+            >
               <template v-slot:loading>
                 <q-spinner-gears color="white" />
               </template>
@@ -540,21 +620,21 @@
             <div class="text-h6">
               <i class="far fa-calendar-alt"></i> &nbsp; SALE DATE: &nbsp;
             </div>
-            
+
             <div>
-               <b>{{ view_selected.vehicle_name }}</b>                       
+              <b>{{ view_selected.vehicle_name }}</b>
             </div>
             <div>
-              <b>Make:  {{ view_selected.make }}</b>                                     
+              <b>Make: {{ view_selected.make }}</b>
             </div>
             <div>
-              <b>Model:  {{ view_selected.model }}</b>   
-            </div> 
+              <b>Model: {{ view_selected.model }}</b>
+            </div>
             <div>
-              <b>status:  {{ view_selected.damage }}</b>   
-            </div> 
+              <b>status: {{ view_selected.damage }}</b>
+            </div>
             <div>
-              <b>start code:  {{ view_selected.start_code }}</b>   
+              <b>start code: {{ view_selected.start_code }}</b>
             </div>
           </div>
 
@@ -567,7 +647,6 @@
             class="full-width"
           />
         </div>
-
       </div>
     </q-dialog>
   </div>
@@ -579,6 +658,8 @@ import axios from "axios";
 export default {
   data() {
     return {
+       name: null,
+      email: null,
       slide: 1,
       slide1: 1,
       slide_1: 1,
@@ -626,7 +707,23 @@ export default {
           this.view_selected = response.data.lot;
           this.view_details_modal = true;
         });
-    }
+    },
+
+     onSubmit () {
+      this.$refs.name.validate()
+      this.$refs.email.validate()
+
+      if (this.$refs.name.hasError || this.$refs.email.hasError) {
+        this.formHasError = true
+      }
+      else {
+        this.$q.notify({
+          icon: 'done',
+          color: 'positive',
+          message: 'Submitted'
+        })
+      }
+    },
   },
 
   mounted() {
@@ -648,7 +745,7 @@ export default {
   margin: 25px
   border-radius: 50%
   font-size: 12px
-  
+
 .my-card1
   width: 100%
   max-width: 70%
