@@ -136,6 +136,16 @@
           </q-card-actions>
         </q-card>
       </div>
+      <div>
+        <div class="q-pa-lg flex flex-center">
+          <q-pagination
+            v-model="current"
+            :max="5"
+            @click="pagination"
+          >
+          </q-pagination>
+        </div>
+      </div>
       <div class="col-12 col-md-3 q-pa-md">
         <q-card class="q-pa-md text-center bg-grey-5">
           <q-card-section class="bg-white text-primary">
@@ -182,16 +192,6 @@
           </q-card-section>
           <q-separator />
         </q-card>
-      </div>
-      <div>
-        <div class="q-pa-lg flex flex-center">
-          <q-pagination
-            v-model="current"
-            :max="5"
-            @click="pagination"
-          >
-          </q-pagination>
-        </div>
       </div>
     </div>
   </div>
