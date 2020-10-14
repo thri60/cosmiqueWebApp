@@ -184,15 +184,7 @@
                   </div>
                 </template>
                 <div class="absolute-bottom text-subtitle2 text-center">
-                  <strong class="text-h6"
-                    >Current
-                    {{
-                      new Intl.NumberFormat("us-US", {
-                        style: "currency",
-                        currency: "USD"
-                      }).format(car.buy_it_now)
-                    }}
-                  </strong>
+                  <strong class="text-h6"> {{ car.vehicle_name }} </strong>
                 </div>
               </q-img>
 
@@ -216,29 +208,26 @@
               </q-card-selection>
               <q-card-section>
                 <input type="hidden" v-model="car.id" />
-                <div class="text-h6 text-center q-mb-xs text-primary">
-                  <strong> {{ car.vehicle_name }} </strong> <q-space />
-                </div>
-                <hr />
-
-                <div class="text-h6">
-                  <i class="fas fa-tachometer-alt"></i> &nbsp; MILEAGE: &nbsp;
-                  &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
+                <div>
+                  <i class="fas fa-tachometer-alt"></i> MILEAGE: 
                   <b>
-                    {{ car.odometer_value
-                    }}{{ car.odometer_type.toUpperCase() }}</b
-                  >
+                    {{ new Intl.NumberFormat().format(car.odometer_value) }} 
+                    {{ car.odometer_type.toUpperCase() }}
+                  </b>
                 </div>
-                <div class="text-h6">
-                  <i class="fab fa-keycdn"></i>
-                  &nbsp;START CODE &nbsp; &nbsp; &nbsp; &nbsp;
+                <div>
+                  <i class="fab fa-keycdn"></i> START CODE:
                   <b>{{ car.start_code.toUpperCase() }}</b>
                 </div>
 
                 <hr />
-                <div class="text-h5 q-mb-xs">
-                  Current Bid: &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
-                  <strong>${{ car.current_bid_value }} </strong> USD
+                <div class="q-mb-xs">
+                  Current Bid: <strong> {{
+                    new Intl.NumberFormat("us-US", {
+                        style: "currency",
+                        currency: "USD"
+                      }).format(car.current_bid_value)
+                    }}</strong> 
                   <q-btn
                     class="full-width"
                     rounded
@@ -251,16 +240,18 @@
 
                 <q-separator inset />
 
-                <div class="text-h5 q-mb-xs">
-                  Buy Now for: &nbsp; &nbsp; &nbsp; &nbsp;
-                  <strong> ${{ car.buy_it_now }} </strong> USD
+                <div class="q-mb-xs" v-if="car.buy_it_now > 0">
                   <q-btn
                     class="full-width"
                     rounded
                     color="yellow-10"
-                    text-color="white"
-                  >
-                    Buy it Now
+                    text-color="white" >
+                    Buy it Now <strong> &nbsp; {{ 
+                          new Intl.NumberFormat("us-US", {
+                            style: "currency",
+                            currency: "USD"
+                          }).format(car.buy_it_now)
+                       }} </strong>
                   </q-btn>
                 </div>
               </q-card-section>
