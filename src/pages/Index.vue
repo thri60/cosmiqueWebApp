@@ -528,12 +528,10 @@
               :name="image"
               :img-src="image"
               style="height: 100%"
-            >
+              transitions= 'rotate'
+              spinner-color="primary">
               <template v-slot:loading>
-                <div class="text-primary">
-                  <q-spinner />
-                  <div class="q-mt-md">Loading...</div>
-                </div>
+                <q-spinner-gears color="white" />
               </template>
             </q-carousel-slide>
           </q-carousel>
