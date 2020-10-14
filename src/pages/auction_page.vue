@@ -1,13 +1,22 @@
 <template>
   <div>
-    <div class="q-pa-md">
-      <q-card class="q-pa-md text-center bg-grey-9">
-        <q-card-section class="bg-primary text-white">
-          <span><b>Cosmique Autos (Cars For Sale - Bid Online)</b></span>
-        </q-card-section>
-        <q-separator />
-      </q-card>
-    </div>
+      <div class="q-pa-md text-center bg-white">
+       <q-img dim src="~assets/2.jpg" class="q-pa-md absolute-top bg-transparent banner" style="height:180px">
+          <br>
+          <br>
+          <br>
+          <br>
+          <br>
+         <div round class=" text-primary text-h5 text-bold "> <b>| AUCTION Cars For Sale (Bid Online) |</b> </div>
+
+       </q-img>
+      </div>
+
+    <br>
+    <br>
+    <br>
+    <br>
+
     <div class="q-pa-md row justify-center items-start q-gutter-md">
       <div class="col-12 col-md-8 gt-sm">
         <q-inner-loading :showing="visible">
@@ -241,7 +250,7 @@
             </q-card>
           </div>
 
-          <div class="q-pa-md col-12 col-md">
+          <div class="q-pa-md col-12 col-md self-center">
             <div class="">
               <strong> ||<b class="text-primary"> FROM TWITTER </b>|| </strong>
               <div class="q-pa-md row">
@@ -280,7 +289,7 @@
             </div>
           </div>
 
-          <div class="col-12 col-md q-pa-md">
+          <div class="col-12 col-md q-pa-md ">
             <div>
               <strong> ||<b class="text-primary"> CONTACT US </b>|| </strong>
               <div class="q-pa-md text-body2 text-weight-light text-grey-6">
@@ -513,3 +522,4 @@ export default {
   }
 };
 </script>
+
