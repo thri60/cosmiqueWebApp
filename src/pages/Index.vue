@@ -435,13 +435,13 @@
           <q-card v-ripple class="shadow-box">
             <q-card-section class="text-center">
               <q-icon
-                class="text-primary"
+                class="text-black"
                 name="fas fa-gavel"
                 style="font-size: 2em;"
               />
               <br />
               <q-icon
-                class="text-primary"
+                class="text-black"
                 name="fas fa-car"
                 style="font-size: 3em;"
               />
@@ -454,11 +454,9 @@
         <div class="bg-white box q-pa-md c">
           <q-card v-ripple class="shadow-box">
             <q-card-section class="text-center">
-              <q-icon
-                class="text-primary"
-                name="fas fa-car"
-                style="font-size: 3em;"
-              />
+              <div>
+                <q-img src="~assets/newCar.svg" />
+              </div>
             </q-card-section>
           </q-card>
           <div class="text-center">
@@ -471,11 +469,9 @@
         <div class="bg-white box q-pa-md b">
           <q-card v-ripple class="shadow-box">
             <q-card-section class="text-center">
-              <q-icon
-                class="text-primary"
-                name="fas fa-car-side"
-                style="font-size: 3em;"
-              />
+              <div>
+                <q-img src="~assets/usedCar.svg" />
+              </div>
             </q-card-section>
           </q-card>
           <div class="text-center">
@@ -485,7 +481,9 @@
         <div class="bg-white box q-pa-md c">
           <q-card v-ripple class="shadow-box">
             <q-card-section class="text-center">
-              test card
+              <div>
+                <q-img src="~assets/autopart.svg" />
+              </div>
             </q-card-section>
           </q-card>
           <div class="text-center">
@@ -500,13 +498,13 @@
         <div class="col-md-4 self-center">
           <div class="text-center text-bold">
             <b class="q-pa-md text-primary">LATEST NEWS &amp; DEALS</b>
-            <p class="text-h5"> <strong>| NEWSLETTER SIGNUP |</strong></p>
+            <p class="text-h5"><strong>| NEWSLETTER SIGNUP |</strong></p>
           </div>
         </div>
         <div class="col-md-8">
           <div class="q-pa-md">
-              WE SEND GREAT DEALS AND LATEST AUTO NEWS TO OUR SUBSCRIBED USERS
-              EVERY WEEK. ITS FREE SO SUBSCRIBE TODAY!
+            WE SEND GREAT DEALS AND LATEST AUTO NEWS TO OUR SUBSCRIBED USERS
+            EVERY WEEK. ITS FREE SO SUBSCRIBE TODAY!
             <form @submit.prevent.stop="onSubmit" class="row">
               <div class="col-12 col-md-5 q-pa-xs">
                 <q-input
@@ -552,13 +550,285 @@
                 </q-input>
               </div>
               <div class="q-pa-xs">
-              <q-btn type="submit" round color="primary" icon="send" />
+                <q-btn type="submit" round color="primary" icon="send" />
               </div>
             </form>
           </div>
         </div>
       </div>
     </div>
+
+    <div class="bg-primary">
+      <div class="">
+        <div class="row">
+          <div class="">
+            <ul class="row">
+              <div class="col">
+                Low Prices, No Haggling
+              </div>
+              <div class="col">
+                Largest Car Dealership
+              </div>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="bg-grey-9 text-white">
+      <div class="">
+        <div class="row">
+          <div class="bg-grey-10">
+            <aside class="b-info__aside wow zoomInLeft" data-wow-delay="0.3s">
+              <article class="b-info__aside-article">
+                <h3>OPENING HOURS</h3>
+                <div class="b-info__aside-article-item">
+                  <h6>Sales Department</h6>
+                  <p>
+                    Mon-Sat : 8:00am - 5:00pm<br />
+                    Sunday is closed
+                  </p>
+                </div>
+                <div class="b-info__aside-article-item">
+                  <h6>Service Department</h6>
+                  <p>
+                    Mon-Sat : 8:00am - 5:00pm<br />
+                    Sunday is closed
+                  </p>
+                </div>
+              </article>
+              <article class="b-info__aside-article">
+                <h3>About us</h3>
+                <p>
+                  Vestibulum varius od lio eget conseq uat blandit, lorem auglue
+                  comm lodo nisl non ultricies lectus nibh mas lsa Duis
+                  scelerisque aliquet. Ante donec libero pede porttitor dacu
+                  msan esct venenatis quis.
+                </p>
+              </article>
+              <a href="about.html" class="btn m-btn"
+                >Read More<span class="fa fa-angle-right"></span
+              ></a>
+            </aside>
+          </div>
+
+          <div class="row">
+            <div class="col">
+             <strong> |<b class="text-primary"> FROM TWITTER </b>| </strong>
+              <div class="">
+                <div class="">
+                  <span class="fa fa-twitter"></span>
+                </div>
+                <div class="">
+                  <p>
+                    Duis scelerisque aliquet ante donec libero pede porttitor
+                    dacu
+                  </p>
+                  <span>3 minutes ago</span>
+                </div>
+              </div>
+              <div>
+                <div class="">
+                  <span class="fa fa-twitter"></span>
+                </div>
+                <div class="b-info__twitter-article-content">
+                  <p>
+                    Duis scelerisque aliquet ante donec libero pede porttitor
+                    dacu
+                  </p>
+                  <span>14 minutes ago</span>
+                </div>
+              </div>
+              <div
+                class="b-info__twitter-article wow zoomInUp"
+                data-wow-delay="0.3s"
+              >
+                <div class="b-info__twitter-article-icon">
+                  <span class="fa fa-twitter"></span>
+                </div>
+                <div class="b-info__twitter-article-content">
+                  <p>
+                    Duis scelerisque aliquet ante donec libero pede porttitor
+                    dacu
+                  </p>
+                  <span>23 minutes ago</span>
+                </div>
+              </div>
+            </div>
+          </div>
+
+
+
+          <div class="col q-pa-md">
+            <address
+              class="">
+              <strong> |<b class="text-primary"> CONTACT US </b>| </strong>
+              <div class="">
+                <span class="fa fa-map-marker"></span>
+                <em> 0th St, Los Angeles, California, USA</em>
+              </div>
+              <div class="b-info__contacts-item">
+                <span class="fa fa-phone"></span>
+                <em>Phone: 1-800- 000-000</em>
+              </div>
+              <div class="b-info__contacts-item">
+                <span class="fa fa-fax"></span>
+                <em>FAX: 1-800- 000-000</em>
+              </div>
+              <div class="b-info__contacts-item">
+                <span class="fa fa-envelope"></span>
+                <em>Email: info@cosmiqueautos.com</em>
+              </div>
+            </address>
+          </div>
+          <div class="col-md-3 col-xs-6">
+            <address class="b-info__map">
+              <a href="contacts.html">Open Location Map</a>
+            </address>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!--b-info-->
+
+    <div class="bg-grey-10 text-white justify-between">
+      <div class="container">
+        <div class="row">
+          <div class="col-xs-4">
+            <div class="b-footer__company wow fadeInLeft" data-wow-delay="0.3s">
+              <div class="b-nav__logo">
+                <b>
+                  Cosmique <span>Autos</span></b>
+                </b>
+              </div>
+              <p>
+                &copy; 2020.
+              </p>
+            </div>
+          </div>
+          <div class="col-xs-8">
+            <div
+              class="b-footer__content wow fadeInRight"
+              data-wow-delay="0.3s"
+            >
+              <div class="b-footer__content-social">
+                <a href="#"><span class="fa fa-facebook-square"></span></a>
+                <a href="#"><span class="fa fa-twitter-square"></span></a>
+                <a href="#"><span class="fa fa-google-plus-square"></span></a>
+                <a href="#"><span class="fa fa-instagram"></span></a>
+                <a href="#"><span class="fa fa-youtube-square"></span></a>
+                <a href="#"><span class="fa fa-skype"></span></a>
+              </div>
+
+       <div class="text-right">
+          <q-btn
+            :to="{ name: 'homepage' }"
+            rounded
+            no-caps
+            flat
+            dense
+            class="q-mr-xs"
+            color="white"
+            text-color="white"
+            label="Home"
+          />
+          <q-btn-dropdown
+            flat
+            no-caps
+            dense
+            color="white"
+            text-color="white"
+            label="Auto Inventory"
+          >
+            <q-list>
+              <q-item clickable :to="{ name: 'auction'}">
+                <q-item-section>
+                  <q-item-label class="text-h6">Auction</q-item-label>
+                </q-item-section>
+              </q-item>
+              <q-item clickable v-close-popup>
+                <q-item-section>
+                  <q-item-label>New Autos</q-item-label>
+                </q-item-section>
+              </q-item>
+              <q-item clickable v-close-popup>
+                <q-item-section>
+                  <q-item-label>Used Autos</q-item-label>
+                </q-item-section>
+              </q-item>
+            </q-list>
+          </q-btn-dropdown>
+          <q-btn-dropdown
+            flat
+            no-caps
+            dense
+            color="white"
+            text-color="white"
+            label="Auto Parts"
+          >
+            <q-list>
+              <q-item clickable v-close-popup>
+                <q-item-section>
+                  <q-item-label>New Auto Parts</q-item-label>
+                </q-item-section>
+              </q-item>
+              <q-item clickable v-close-popup>
+                <q-item-section>
+                  <q-item-label>Used Auto Parts</q-item-label>
+                </q-item-section>
+              </q-item>
+            </q-list>
+          </q-btn-dropdown>
+          <q-btn
+            rounded
+            no-caps
+            dense
+            flat
+            class="q-mr-xs"
+            color="white"
+            text-color="white"
+            label="Auctions"
+          />
+          <q-btn
+            rounded
+            no-caps
+            dense
+            flat
+            class="q-mr-xs"
+            color="white"
+            text-color="white"
+            label="Compare"
+          />
+          <q-btn
+            dense
+            no-caps
+            rounded
+            flat
+            class="q-mr-xs"
+            color="white"
+            text-color="white"
+            label="Request"
+          />
+          <q-btn
+            rounded
+            no-caps
+            dense
+            flat
+            class="q-mr-xs"
+            color="white"
+            text-color="white"
+            label="Contact"
+          />
+        </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+
+
+
 
     <q-dialog
       v-model="view_details_modal"
@@ -658,7 +928,7 @@ import axios from "axios";
 export default {
   data() {
     return {
-       name: null,
+      name: null,
       email: null,
       slide: 1,
       slide1: 1,
@@ -709,21 +979,20 @@ export default {
         });
     },
 
-     onSubmit () {
-      this.$refs.name.validate()
-      this.$refs.email.validate()
+    onSubmit() {
+      this.$refs.name.validate();
+      this.$refs.email.validate();
 
       if (this.$refs.name.hasError || this.$refs.email.hasError) {
-        this.formHasError = true
-      }
-      else {
+        this.formHasError = true;
+      } else {
         this.$q.notify({
-          icon: 'done',
-          color: 'positive',
-          message: 'Submitted'
-        })
+          icon: "done",
+          color: "positive",
+          message: "Submitted"
+        });
       }
-    },
+    }
   },
 
   mounted() {
