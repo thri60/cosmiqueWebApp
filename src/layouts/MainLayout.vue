@@ -92,18 +92,16 @@
             text-color="white"
             label="Contact"
           /> || &nbsp;
-          <q-btn
+          <!-- <q-btn
             rounded
-            dense
             class="q-mr-xs btn-fixed-width"
             align="around"
             color="white"
             text-color="primary"
             icon="shopping_cart"
-            label="CART" />
+            label="CART" /> -->
           <q-btn
             rounded
-            dense
             class="q-mr-xs btn-fixed-width"
             align="around"
             color="white"
@@ -115,7 +113,6 @@
         <div class="lt-md">
           <q-btn
             flat
-            dense
             round
             icon="menu"
             aria-label="Menu"
