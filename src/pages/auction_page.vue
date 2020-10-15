@@ -7,6 +7,11 @@
         class="q-pa-md absolute-top bg-transparent banner"
         style="height:180px;"
       >
+      <br>
+      <br>
+      <br>
+      <br>
+      <br>
         <div round class="q-pa-md text-primary text-h5 text-bold q-pb-lg">
           <b>| AUCTION Cars For Sale (Bid Online) |</b>
         </div>
@@ -15,7 +20,7 @@
     <div class="q-pa-md row justify-center items-start q-gutter-md">
       <div class="col-12 col-md-8 gt-sm">
         <div class="q-pa-md q-gutter-md">
-          <q-card class="bg-grey-3 relative-position card-example">
+          <q-card flat class="bg-white relative-position card-example">
             <q-card-section>
               <transition
                 appear

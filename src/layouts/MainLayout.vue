@@ -430,6 +430,13 @@
     </div>
 
     <!-- footer -->
+      <q-page-scroller
+      position="bottom"
+      :scroll-offset="150"
+      :offset="[18, 18]"
+    >
+      <q-btn fab icon="keyboard_arrow_up" color="primary" />
+    </q-page-scroller>
 
   </q-layout>
 </template>

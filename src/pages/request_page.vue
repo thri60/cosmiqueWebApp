@@ -38,8 +38,12 @@
               <div class="col-12 col-md-5 q-pa-md">
                 <q-select
                   rounded
+                  use-input
+                   input-debounce="0"
                   outlined
                   dense
+                  transition-show="flip-up"
+                  transition-hide="flip-down"
                   v-model="model"
                   :options="options"
                   label="Enter Make *"
@@ -52,6 +56,8 @@
                   rounded
                   outlined
                   dense
+                  transition-show="flip-up"
+                  transition-hide="flip-down"
                   v-model="model"
                   :options="options"
                   label="Vehicle Manufacturer Year*"
@@ -66,6 +72,8 @@
                   rounded
                   outlined
                   dense
+                  transition-show="flip-up"
+                  transition-hide="flip-down"
                   v-model="model"
                   :options="options"
                   label="No. of Seats *"
@@ -78,20 +86,8 @@
                   rounded
                   outlined
                   dense
-                  v-model="model"
-                  :options="options"
-                  label="Vehicle Manufacturer Year*"
-                  lazy-rules
-                  :rules="[
-                    val =>
-                      (val && val.length > 0) ||
-                      'Vehicle Manufacturer Year Please'
-                  ]"
-                />
-                <q-select
-                  rounded
-                  outlined
-                  dense
+                  transition-show="flip-up"
+                  transition-hide="flip-down"
                   v-model="model"
                   :options="options"
                   label="Select No. of Gears *"
@@ -101,6 +97,8 @@
                   ]"
                 />
                 <q-select
+                  transition-show="flip-up"
+                  transition-hide="flip-down"
                   rounded
                   outlined
                   dense
@@ -116,6 +114,8 @@
                   rounded
                   outlined
                   dense
+                  transition-show="flip-up"
+                  transition-hide="flip-down"
                   v-model="model"
                   :options="options"
                   label="Select No. of Cylinders *"
@@ -124,12 +124,28 @@
                     val => (val && val.length > 0) || 'Select No. of Cylinders'
                   ]"
                 />
+                <q-select
+                  rounded
+                  outlined
+                  dense
+                  transition-show="flip-up"
+                  transition-hide="flip-down"
+                  v-model="model"
+                  :options="options"
+                  label="Select Fuel Type *"
+                  lazy-rules
+                  :rules="[
+                    val => (val && val.length > 0) || 'Select Fuel Type'
+                  ]"
+                />
               </div>
               <div class="col-12 col-md-5 q-pa-md">
                 <q-select
                   rounded
                   outlined
                   dense
+                  transition-show="flip-up"
+                  transition-hide="flip-down"
                   v-model="model"
                   :options="options"
                   label="Enter Vehicle Model *"
@@ -142,6 +158,8 @@
                   rounded
                   outlined
                   dense
+                  transition-show="flip-up"
+                  transition-hide="flip-down"
                   v-model="model"
                   :options="options"
                   label="Select Body Type *"
@@ -154,6 +172,8 @@
                   rounded
                   outlined
                   dense
+                  transition-show="flip-up"
+                  transition-hide="flip-down"
                   v-model="model"
                   :options="options"
                   label="No. of Doors *"
@@ -164,6 +184,8 @@
                   rounded
                   outlined
                   dense
+                  transition-show="flip-up"
+                  transition-hide="flip-down"
                   v-model="model"
                   :options="options"
                   label="Vehicle Transmission Type *"
@@ -177,6 +199,8 @@
                   rounded
                   outlined
                   dense
+                  transition-show="flip-up"
+                  transition-hide="flip-down"
                   v-model="model"
                   :options="options"
                   label="Select Engine Type *"
@@ -189,24 +213,14 @@
                   rounded
                   outlined
                   dense
+                  transition-show="flip-up"
+                  transition-hide="flip-down"
                   v-model="model"
                   :options="options"
                   label="Enter Engine Capacity *"
                   lazy-rules
                   :rules="[
                     val => (val && val.length > 0) || 'Enter Engine Capacity *'
-                  ]"
-                />
-                  <q-select
-                  rounded
-                  outlined
-                  dense
-                  v-model="model"
-                  :options="options"
-                  label="Select Fuel Type *"
-                  lazy-rules
-                  :rules="[
-                    val => (val && val.length > 0) || 'Select Fuel Type'
                   ]"
                 />
               </div>
@@ -221,72 +235,175 @@
             :done="step > 2"
             :header-nav="step > 2"
           >
-            An ad group contains one or more ads which target a shared set of
-            keywords.
+            Lorem ipsum dolor, sit amet consectetur adipisicing elit. Voluptatum, aspernatur quibusdam! Veniam, quos vero, quidem blanditiis reiciendis quaerat magni repellat quia facere illo nisi dolore voluptates sit praesentium magnam porro.
             <div class="row">
               <div class="col-12 col-md-5 q-pa-md">
-                 <q-checkbox val="ABS" v-model="checkbox" label="ABS" />
-                 <hr>
-                 <q-checkbox val="Alloy_Wheels"  v-model="checkbox" label="Alloy Wheels" />
-                 <hr>
-                 <q-checkbox val="Passenger_Airbag"  v-model="checkbox" label="Passenger Airbag" />
-                 <hr>
-                 <q-checkbox val="Heated_Door_Mirrors"  v-model="checkbox" label="Heated Door Mirrors" />
-                 <hr>
-                 <q-checkbox val="Air_Conditioning"  v-model="checkbox" label="Air Conditioning" />
-                 <hr>
-                 <q-checkbox val="Trip_Computer"  v-model="checkbox" label="Trip Computer" />
-                 <hr>
-                 <q-checkbox val="Side_Airbags"  v-model="checkbox" label="Side Airbags" />
-                 <hr>
-                 <q-checkbox val="Audio_Remote_Control"  v-model="checkbox" label="Audio Remote Control" />
-                 <hr>
-                 <q-checkbox val="Folding-Rear_Seats"  v-model="checkbox" label="Folding Rear Seats" />
-                 <hr>
-                 <q-checkbox val="Central_Locking_Keyless"  v-model="checkbox" label="Central Locking - Keyless" />
-                 <hr>
-                 <q-checkbox val="Weather_Shields"  v-model="checkbox" label="Weather Shields" />
-                 <hr>
-                 <q-checkbox val="Electric_Front_Seats"  v-model="checkbox" label="Electric Front Seats" />
+                <q-checkbox val="ABS" v-model="checkbox" label="ABS" />
+                <hr />
+                <q-checkbox
+                  val="Alloy_Wheels"
+                  v-model="checkbox"
+                  label="Alloy Wheels"
+                />
+                <hr />
+                <q-checkbox
+                  val="Passenger_Airbag"
+                  v-model="checkbox"
+                  label="Passenger Airbag"
+                />
+                <hr />
+                <q-checkbox
+                  val="Heated_Door_Mirrors"
+                  v-model="checkbox"
+                  label="Heated Door Mirrors"
+                />
+                <hr />
+                <q-checkbox
+                  val="Air_Conditioning"
+                  v-model="checkbox"
+                  label="Air Conditioning"
+                />
+                <hr />
+                <q-checkbox
+                  val="Trip_Computer"
+                  v-model="checkbox"
+                  label="Trip Computer"
+                />
+                <hr />
+                <q-checkbox
+                  val="Side_Airbags"
+                  v-model="checkbox"
+                  label="Side Airbags"
+                />
+                <hr />
+                <q-checkbox
+                  val="Audio_Remote_Control"
+                  v-model="checkbox"
+                  label="Audio Remote Control"
+                />
+                <hr />
+                <q-checkbox
+                  val="Folding-Rear_Seats"
+                  v-model="checkbox"
+                  label="Folding Rear Seats"
+                />
+                <hr />
+                <q-checkbox
+                  val="Central_Locking_Keyless"
+                  v-model="checkbox"
+                  label="Central Locking - Keyless"
+                />
+                <hr />
+                <q-checkbox
+                  val="Weather_Shields"
+                  v-model="checkbox"
+                  label="Weather Shields"
+                />
+                <hr />
+                <q-checkbox
+                  val="Electric_Front_Seats"
+                  v-model="checkbox"
+                  label="Electric Front Seats"
+                />
               </div>
               <div class="col-12 col-md-5 q-pa-md">
-                <q-checkbox val="Engine_Immobiliser"  v-model="checkbox" label="Engine Immobiliser" />
-                 <hr>
-                <q-checkbox val="Fog_Lamps"  v-model="checkbox" label="Fog Lamps" />
-                 <hr>
-                <q-checkbox val="GPS_Satellite_Navigation"  v-model="checkbox" label="GPS Satellite Navigation" />
-                 <hr>
-                <q-checkbox val="Headlight_Covers"  v-model="checkbox" label="Headlight Covers" />
-                 <hr>
-                <q-checkbox val="Leather_Seats"  v-model="checkbox" label="Leather Seats" />
-                 <hr>
-                <q-checkbox val="Leather_Trim"  v-model="checkbox" label="Leather Trim" />
-                 <hr>
-                <q-checkbox val="LPG"  v-model="checkbox" label="LPG (Dual Fuel)" />
-                 <hr>
-                <q-checkbox val="Roof_Deflector"  v-model="checkbox" label="Roof Deflector" />
-                 <hr>
-                <q-checkbox val="Rear_Spoiler"  v-model="checkbox" label="Rear Spoiler" />
-                 <hr>
-                <q-checkbox val="Tinted Windows"  v-model="checkbox" label="Tinted Windows" />
-                 <hr>
-                <q-checkbox val="Tow Bar"  v-model="checkbox" label="Tow Bar" />
-                 <hr>
+                <q-checkbox
+                  val="Engine_Immobiliser"
+                  v-model="checkbox"
+                  label="Engine Immobiliser"
+                />
+                <hr />
+                <q-checkbox
+                  val="Fog_Lamps"
+                  v-model="checkbox"
+                  label="Fog Lamps"
+                />
+                <hr />
+                <q-checkbox
+                  val="GPS_Satellite_Navigation"
+                  v-model="checkbox"
+                  label="GPS Satellite Navigation"
+                />
+                <hr />
+                <q-checkbox
+                  val="Headlight_Covers"
+                  v-model="checkbox"
+                  label="Headlight Covers"
+                />
+                <hr />
+                <q-checkbox
+                  val="Leather_Seats"
+                  v-model="checkbox"
+                  label="Leather Seats"
+                />
+                <hr />
+                <q-checkbox
+                  val="Leather_Trim"
+                  v-model="checkbox"
+                  label="Leather Trim"
+                />
+                <hr />
+                <q-checkbox
+                  val="LPG"
+                  v-model="checkbox"
+                  label="LPG (Dual Fuel)"
+                />
+                <hr />
+                <q-checkbox
+                  val="Roof_Deflector"
+                  v-model="checkbox"
+                  label="Roof Deflector"
+                />
+                <hr />
+                <q-checkbox
+                  val="Rear_Spoiler"
+                  v-model="checkbox"
+                  label="Rear Spoiler"
+                />
+                <hr />
+                <q-checkbox
+                  val="Tinted Windows"
+                  v-model="checkbox"
+                  label="Tinted Windows"
+                />
+                <hr />
+                <q-checkbox val="Tow Bar" v-model="checkbox" label="Tow Bar" />
+                <hr />
               </div>
             </div>
-
           </q-step>
 
           <q-step
             :name="3"
-            title="Create an ad"
-            icon="add_comment"
+            caption="How can we contact you?"
+            title="| CONTACT DETAILS |"
+            icon="comment"
             :header-nav="step > 3"
           >
-            Try out different ad text to see what brings in the most customers,
-            and learn how to enhance your ads using features like ad extensions.
-            If you run into any problems with your ads, find out how to tell if
-            they're running and how to resolve approval issues.
+              Lorem ipsum dolor sit amet consectetur adipisicing elit. Laborum vero illo sequi! Adipisci, quos! Vero quas, molestias quo maiores accusantium natus quasi reiciendis dolore cumque earum obcaecati vitae eligendi provident!
+                        <div class="row">
+              <div class="col-12 col-md-5 q-pa-md">
+                <div class="text-h5 text-center text-bold">
+                     Price Range
+              <q-range v-model="price" :min="0" :max="10000" :step="2" label />
+                </div>
+            </div>
+
+
+              <div class="col-12 col-md-5 q-pa-md">
+                <div class="text-h5 text-center text-bold">
+                Vehicle Mileage Range
+              <q-range
+                v-model="mileage"
+                :min="0"
+                :max="3000"
+                :step="10"
+                label
+              />
+                </div>
+
+              </div>
+            </div>
           </q-step>
 
           <template v-slot:navigation>
@@ -295,7 +412,8 @@
                 @click="$refs.stepper.next()"
                 color="primary"
                 rounded
-                 icon-right="fa fa-angle-right"
+                type="submit"
+                icon-right="fa fa-angle-right"
                 :label="step === 3 ? 'Submit Request' : 'Continue'"
               />
               <q-btn
@@ -316,12 +434,15 @@
               class="bg-primary text-white q-px-lg text-h3"
             >
               <template v-slot:avatar>
-                 <q-icon name="fas fa-car fa-2x" />
+                <q-icon name="fas fa-car fa-2x" />
               </template>
 
               Add Vehicle Details...
             </q-banner>
             <q-banner v-else-if="step === 2" class="bg-grey text-white q-px-lg">
+               <template v-slot:avatar>
+                <q-icon name="check" />
+              </template>
               Select Additional Features Of Your Vehicle...
             </q-banner>
             <q-banner v-else class="bg-blue-8 text-white q-px-lg">
@@ -342,6 +463,14 @@ export default {
       model: null,
       options: ["Google", "Facebook", "Twitter", "Apple", "Oracle"],
       checkbox: [],
+       price: {
+        min: 0,
+        max: 10000
+      },
+      mileage: {
+        min: 0,
+        max: 3000
+      },
     };
   }
 };
