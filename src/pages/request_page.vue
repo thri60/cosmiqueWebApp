@@ -28,7 +28,7 @@
         >
           <q-step
             :name="1"
-            title="REQUEST VEHICLE"
+            title="| REQUEST VEHICLE |"
             caption="Select vehicle & add info"
             icon="fas fa-car fa-2x"
             :done="step > 1"
@@ -124,18 +124,6 @@
                     val => (val && val.length > 0) || 'Select No. of Cylinders'
                   ]"
                 />
-                <q-select
-                  rounded
-                  outlined
-                  dense
-                  v-model="model"
-                  :options="options"
-                  label="Select Fuel Type *"
-                  lazy-rules
-                  :rules="[
-                    val => (val && val.length > 0) || 'Select Fuel Type'
-                  ]"
-                />
               </div>
               <div class="col-12 col-md-5 q-pa-md">
                 <q-select
@@ -209,20 +197,83 @@
                     val => (val && val.length > 0) || 'Enter Engine Capacity *'
                   ]"
                 />
+                  <q-select
+                  rounded
+                  outlined
+                  dense
+                  v-model="model"
+                  :options="options"
+                  label="Select Fuel Type *"
+                  lazy-rules
+                  :rules="[
+                    val => (val && val.length > 0) || 'Select Fuel Type'
+                  ]"
+                />
               </div>
             </div>
           </q-step>
 
           <q-step
             :name="2"
-            title="Create an ad group"
-            caption="Optional"
-            icon="create_new_folder"
+            title="| SELECT FEATURES |"
+            caption="Choose vehicle specifications"
+            icon="list"
             :done="step > 2"
             :header-nav="step > 2"
           >
             An ad group contains one or more ads which target a shared set of
             keywords.
+            <div class="row">
+              <div class="col-12 col-md-5 q-pa-md">
+                 <q-checkbox val="ABS" v-model="checkbox" label="ABS" />
+                 <hr>
+                 <q-checkbox val="Alloy_Wheels"  v-model="checkbox" label="Alloy Wheels" />
+                 <hr>
+                 <q-checkbox val="Passenger_Airbag"  v-model="checkbox" label="Passenger Airbag" />
+                 <hr>
+                 <q-checkbox val="Heated_Door_Mirrors"  v-model="checkbox" label="Heated Door Mirrors" />
+                 <hr>
+                 <q-checkbox val="Air_Conditioning"  v-model="checkbox" label="Air Conditioning" />
+                 <hr>
+                 <q-checkbox val="Trip_Computer"  v-model="checkbox" label="Trip Computer" />
+                 <hr>
+                 <q-checkbox val="Side_Airbags"  v-model="checkbox" label="Side Airbags" />
+                 <hr>
+                 <q-checkbox val="Audio_Remote_Control"  v-model="checkbox" label="Audio Remote Control" />
+                 <hr>
+                 <q-checkbox val="Folding-Rear_Seats"  v-model="checkbox" label="Folding Rear Seats" />
+                 <hr>
+                 <q-checkbox val="Central_Locking_Keyless"  v-model="checkbox" label="Central Locking - Keyless" />
+                 <hr>
+                 <q-checkbox val="Weather_Shields"  v-model="checkbox" label="Weather Shields" />
+                 <hr>
+                 <q-checkbox val="Electric_Front_Seats"  v-model="checkbox" label="Electric Front Seats" />
+              </div>
+              <div class="col-12 col-md-5 q-pa-md">
+                <q-checkbox val="Engine_Immobiliser"  v-model="checkbox" label="Engine Immobiliser" />
+                 <hr>
+                <q-checkbox val="Fog_Lamps"  v-model="checkbox" label="Fog Lamps" />
+                 <hr>
+                <q-checkbox val="GPS_Satellite_Navigation"  v-model="checkbox" label="GPS Satellite Navigation" />
+                 <hr>
+                <q-checkbox val="Headlight_Covers"  v-model="checkbox" label="Headlight Covers" />
+                 <hr>
+                <q-checkbox val="Leather_Seats"  v-model="checkbox" label="Leather Seats" />
+                 <hr>
+                <q-checkbox val="Leather_Trim"  v-model="checkbox" label="Leather Trim" />
+                 <hr>
+                <q-checkbox val="LPG"  v-model="checkbox" label="LPG (Dual Fuel)" />
+                 <hr>
+                <q-checkbox val="Roof_Deflector"  v-model="checkbox" label="Roof Deflector" />
+                 <hr>
+                <q-checkbox val="Rear_Spoiler"  v-model="checkbox" label="Rear Spoiler" />
+                 <hr>
+                <q-checkbox val="Tinted Windows"  v-model="checkbox" label="Tinted Windows" />
+                 <hr>
+                <q-checkbox val="Tow Bar"  v-model="checkbox" label="Tow Bar" />
+                 <hr>
+              </div>
+            </div>
 
           </q-step>
 
@@ -271,7 +322,7 @@
               Add Vehicle Details...
             </q-banner>
             <q-banner v-else-if="step === 2" class="bg-grey text-white q-px-lg">
-              The ad group helps you to...
+              Select Additional Features Of Your Vehicle...
             </q-banner>
             <q-banner v-else class="bg-blue-8 text-white q-px-lg">
               The final step is creating the ad...
@@ -289,7 +340,8 @@ export default {
     return {
       step: 1,
       model: null,
-      options: ["Google", "Facebook", "Twitter", "Apple", "Oracle"]
+      options: ["Google", "Facebook", "Twitter", "Apple", "Oracle"],
+      checkbox: [],
     };
   }
 };
