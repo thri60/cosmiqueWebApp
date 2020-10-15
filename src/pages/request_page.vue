@@ -36,10 +36,22 @@
           >
             <div class="row">
               <div class="col-12 col-md-5 q-pa-md">
+                <div class="q-pa-xl text-primary text-h5 text-center text-bold">
+                  YOUR EXPECTED PRICE
+                  <q-range
+                    v-model="price"
+                    :left-label-value="'$' + price.min"
+                    :right-label-value="'$' + price.max"
+                    :min="0"
+                    :max="10000"
+                    :step="2"
+                    label
+                  />
+                </div>
                 <q-select
                   rounded
                   use-input
-                   input-debounce="0"
+                  input-debounce="0"
                   outlined
                   dense
                   transition-show="flip-up"
@@ -60,7 +72,7 @@
                   transition-hide="flip-down"
                   v-model="model"
                   :options="options"
-                  label="Vehicle Manufacturer Year*"
+                  label="Vehicle Manufacturer Year *"
                   lazy-rules
                   :rules="[
                     val =>
@@ -80,6 +92,20 @@
                   lazy-rules
                   :rules="[
                     val => (val && val.length > 0) || 'No. of Seats  Please'
+                  ]"
+                />
+                <q-select
+                  rounded
+                  outlined
+                  dense
+                  transition-show="flip-up"
+                  transition-hide="flip-down"
+                  v-model="model"
+                  :options="options"
+                  label="Select Exterior Color *"
+                  lazy-rules
+                  :rules="[
+                    val => (val && val.length > 0) || 'Select Exterior Color *'
                   ]"
                 />
                 <q-select
@@ -140,6 +166,18 @@
                 />
               </div>
               <div class="col-12 col-md-5 q-pa-md">
+                <div class="q-pa-xl text-primary text-h5 text-center text-bold">
+                  VEHICLE MILEAGE RANGE
+                  <q-range
+                    v-model="mileage"
+                    :left-label-value="mileage.min + ' MI'"
+                    :right-label-value="mileage.max + ' MI'"
+                    :min="0"
+                    :max="3000"
+                    :step="10"
+                    label
+                  />
+                </div>
                 <q-select
                   rounded
                   outlined
@@ -168,6 +206,36 @@
                     val => (val && val.length > 0) || 'Select Body Type'
                   ]"
                 />
+                <q-select
+                  rounded
+                  outlined
+                  dense
+                  transition-show="flip-up"
+                  transition-hide="flip-down"
+                  v-model="model"
+                  :options="options"
+                  label="Enter Seats Color"
+                  lazy-rules
+                  :rules="[
+                    val => (val && val.length > 0) || 'Enter Seats Color'
+                  ]"
+                />
+
+                <q-select
+                  rounded
+                  outlined
+                  dense
+                  transition-show="flip-up"
+                  transition-hide="flip-down"
+                  v-model="model"
+                  :options="options"
+                  label="Select Interior Color *"
+                  lazy-rules
+                  :rules="[
+                    val => (val && val.length > 0) || 'Select Interior Color'
+                  ]"
+                />
+
                 <q-select
                   rounded
                   outlined
@@ -220,7 +288,7 @@
                   label="Enter Engine Capacity *"
                   lazy-rules
                   :rules="[
-                    val => (val && val.length > 0) || 'Enter Engine Capacity *'
+                    val => (val && val.length > 0) || 'Enter Engine Capacity'
                   ]"
                 />
               </div>
@@ -235,7 +303,10 @@
             :done="step > 2"
             :header-nav="step > 2"
           >
-            Lorem ipsum dolor, sit amet consectetur adipisicing elit. Voluptatum, aspernatur quibusdam! Veniam, quos vero, quidem blanditiis reiciendis quaerat magni repellat quia facere illo nisi dolore voluptates sit praesentium magnam porro.
+            Lorem ipsum dolor, sit amet consectetur adipisicing elit.
+            Voluptatum, aspernatur quibusdam! Veniam, quos vero, quidem
+            blanditiis reiciendis quaerat magni repellat quia facere illo nisi
+            dolore voluptates sit praesentium magnam porro.
             <div class="row">
               <div class="col-12 col-md-5 q-pa-md">
                 <q-checkbox val="ABS" v-model="checkbox" label="ABS" />
@@ -380,28 +451,88 @@
             icon="comment"
             :header-nav="step > 3"
           >
-              Lorem ipsum dolor sit amet consectetur adipisicing elit. Laborum vero illo sequi! Adipisci, quos! Vero quas, molestias quo maiores accusantium natus quasi reiciendis dolore cumque earum obcaecati vitae eligendi provident!
-                        <div class="row">
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. Laborum
+            vero illo sequi! Adipisci, quos! Vero quas, molestias quo maiores
+            accusantium natus quasi reiciendis dolore cumque earum obcaecati
+            vitae eligendi provident!
+            <div class="q-pa-md row">
+              <q-input
+                class="full-width"
+                rounded
+                outlined
+                v-model="address"
+                label="Your Current Address *"
+                dense
+                lazy-rules
+                :rules="[
+                  val => (val && val.length > 0) || 'Your Current Address'
+                ]"
+              >
+                <template v-slot:prepend>
+                  <q-icon name="home" />
+                </template>
+              </q-input>
               <div class="col-12 col-md-5 q-pa-md">
-                <div class="text-h5 text-center text-bold">
-                     Price Range
-              <q-range v-model="price" :min="0" :max="10000" :step="2" label />
-                </div>
-            </div>
+                <q-input
 
+                  rounded
+                  outlined
+                  v-model="city"
+                  label="City / State *"
+                  dense
+                  lazy-rules
+                  :rules="[val => (val && val.length > 0) || 'Enter Your City / State Please']"
+                >
+                  <template v-slot:prepend>
+                    <q-icon name="location_city" />
+                  </template>
+                </q-input>
+                <q-input
+                                rounded
+                  outlined
+                  v-model="phone"
+                  type="tel"
+                  label="Enter Your Phone Number *"
+                  dense
+                  lazy-rules
+                  :rules="[val => (val && val.length > 0) || 'Enter Your Phone Number Please']"
+                >
+                  <template v-slot:prepend>
+                    <q-icon name="call" />
+                  </template>
+                </q-input>
+              </div>
 
               <div class="col-12 col-md-5 q-pa-md">
-                <div class="text-h5 text-center text-bold">
-                Vehicle Mileage Range
-              <q-range
-                v-model="mileage"
-                :min="0"
-                :max="3000"
-                :step="10"
-                label
-              />
-                </div>
+                <q-input
+                  rounded
+                  outlined
+                  v-model="zipcode"
+                  label="Zip Code / Country *"
+                  dense
+                  lazy-rules
+                  :rules="[
+                    val => (val && val.length > 0) || 'Zip Code / Country'
+                  ]"
+                >
 
+                </q-input>
+                <q-input
+                  rounded
+                  outlined
+                  v-model="email"
+                  type="email"
+                  label="Enter Your Email Address *"
+                  dense
+                  lazy-rules
+                  :rules="[
+                    val => (val && val.length > 0) || 'Enter Your Email Address Please'
+                  ]"
+                >
+                  <template v-slot:prepend>
+                    <q-icon name="mail" />
+                  </template>
+                </q-input>
               </div>
             </div>
           </q-step>
@@ -440,13 +571,13 @@
               Add Vehicle Details...
             </q-banner>
             <q-banner v-else-if="step === 2" class="bg-grey text-white q-px-lg">
-               <template v-slot:avatar>
+              <template v-slot:avatar>
                 <q-icon name="check" />
               </template>
               Select Additional Features Of Your Vehicle...
             </q-banner>
-            <q-banner v-else class="bg-blue-8 text-white q-px-lg">
-              The final step is creating the ad...
+            <q-banner v-else class="bg-yellow-10 text-white q-px-lg">
+              The final step is telling us how can we contact you...
             </q-banner>
           </template>
         </q-stepper>
@@ -460,17 +591,22 @@ export default {
   data() {
     return {
       step: 1,
+      address: null,
+      city: null,
+      zipcode: null,
+      phone: null,
+      email: null,
       model: null,
       options: ["Google", "Facebook", "Twitter", "Apple", "Oracle"],
       checkbox: [],
-       price: {
+      price: {
         min: 0,
         max: 10000
       },
       mileage: {
         min: 0,
         max: 3000
-      },
+      }
     };
   }
 };

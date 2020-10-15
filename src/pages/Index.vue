@@ -123,15 +123,25 @@
           <div class="row justify-center q-pa-md">
             <div class="col-12 col-md-2 q-pa-md">
               Price Range
-              <q-range v-model="price" :min="0" :max="10000" :step="2" label />
+              <q-range
+                :left-label-value="'$' + price.min"
+                :right-label-value="'$' + price.max"
+                v-model="price"
+                :min="0"
+                :max="10000"
+                :step="2"
+                label
+              />
             </div>
             <div class="col-12 col-md-2 q-pa-md">
               Vehicle Mileage Range
               <q-range
-                v-model="milage"
+                :left-label-value="mileage.min + ' MI'"
+                :right-label-value="mileage.max + ' MI'"
+                v-model="mileage"
                 :min="0"
                 :max="3000"
-                :step="2000"
+                :step="10"
                 label
               />
             </div>
@@ -558,8 +568,6 @@
       </div>
     </div>
 
-
-
     <q-dialog
       v-model="view_details_modal"
       transition-show="flip-down"
@@ -673,7 +681,7 @@ export default {
         min: 0,
         max: 10000
       },
-      milage: {
+      mileage: {
         min: 0,
         max: 3000
       },
