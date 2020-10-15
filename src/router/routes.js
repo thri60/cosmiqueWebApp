@@ -1,5 +1,7 @@
 import indexPage from 'pages/Index.vue'
 import AuctionPage from 'pages/auction_page.vue';
+import RequestPage from 'pages/request_page.vue';
+import ContactPage from 'pages/contact_page.vue';
 
 
 const routes = [{
@@ -8,7 +10,9 @@ const routes = [{
             import ('layouts/MainLayout.vue'),
         children: [
             { path: '', component: indexPage, name: 'homepage' },
-            { path: '/auctions', name: 'auction', component: AuctionPage }
+            { path: '/auctions', name: 'auction', component: AuctionPage },
+            { path: '/request', name: 'request', component: RequestPage },
+            { path: '/Contact', name: 'request', component: ContactPage },
         ]
     },
 
