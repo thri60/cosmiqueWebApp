@@ -1,71 +1,90 @@
 <template>
   <div>
-      <div class="q-pa-md text-center bg-white">
-       <q-img dim src="~assets/2.jpg" class="q-pa-md absolute-top bg-transparent banner" style="height:180px;">
-         <div round class="q-pa-md text-primary text-h5 text-bold q-pb-lg"> <b>| AUCTION Cars For Sale (Bid Online) |</b> </div>
-       </q-img>
-      </div>
+    <div class="q-pa-md text-center bg-white">
+      <q-img
+        dim
+        src="~assets/2.jpg"
+        class="q-pa-md absolute-top bg-transparent banner"
+        style="height:180px;"
+      >
+        <div round class="q-pa-md text-primary text-h5 text-bold q-pb-lg">
+          <b>| AUCTION Cars For Sale (Bid Online) |</b>
+        </div>
+      </q-img>
+    </div>
     <div class="q-pa-md row justify-center items-start q-gutter-md">
       <div class="col-12 col-md-8 gt-sm">
-        <q-inner-loading :showing="visible">
-          <q-spinner-gears size="50px" color="primary" />
-        </q-inner-loading>
-        <transition
-          appear
-          enter-active-class="animated fadeIn"
-          leave-active-class="animated fadeOut"
-        >
-          <div v-show="showSimulatedReturnData">
-            <q-card
-              class="my-card q-pa-md"
-              flat
-              bordered
-              v-for="car in data"
-              :key="car.id">
-              <q-card-section horizontal>
-                <q-img
-                  :src="car.images[0]"
-                  @click="selected(car.id)"
-                  v-ripple
-                  spinner-color="primary"
-                  transitions="rotate"
-                  style="height: 200px; width: 300px"
-                  class="cursor-pointer relative-position"
-                >
-                  <template v-slot:loading>
-                    <q-spinner-gears color="white" />
-                  </template>
-                </q-img>
-                <q-card-section>
-                  <div class="col-12 col-md-5 q-pa-xs">
-                    <b class="text-h5 text-primary">{{ car.vehicle_name }}</b>
+        <div class="q-pa-md q-gutter-md">
+          <q-card class="bg-grey-3 relative-position card-example">
+            <q-card-section>
+              <transition
+                appear
+                enter-active-class="animated fadeIn"
+                leave-active-class="animated fadeOut"
+              >
+                <div v-show="showSimulatedReturnData">
+                  <q-card
+                    class="my-card q-pa-md"
+                    flat
+                    bordered
+                    v-for="car in data"
+                    :key="car.id"
+                  >
+                    <q-card-section horizontal>
+                      <q-img
+                        :src="car.images[0]"
+                        @click="selected(car.id)"
+                        v-ripple
+                        spinner-color="primary"
+                        transitions="rotate"
+                        style="height: 200px; width: 300px"
+                        class="cursor-pointer relative-position"
+                      >
+                        <template v-slot:loading>
+                          <q-spinner-gears color="white" />
+                        </template>
+                      </q-img>
+                      <q-card-section>
+                        <div class="col-12 col-md-5 q-pa-xs">
+                          <b class="text-h5 text-primary">{{
+                            car.vehicle_name
+                          }}</b>
+                        </div>
+                        <div class="col-12 col-md-4 q-pa-xs">
+                          <i class="fas fa-tachometer-alt"></i> MILEAGE:
+                          <b>
+                            {{
+                              new Intl.NumberFormat().format(car.odometer_value)
+                            }}
+                            {{ car.odometer_type.toUpperCase() }}
+                          </b>
+                        </div>
+                        <div class="col-12 col-md-4 q-pa-xs">
+                          <i class="fa fa-cog"></i> DAMAGE:
+                          <b>
+                            {{ car.damage.toUpperCase() }}
+                          </b>
+                        </div>
+                      </q-card-section>
+                    </q-card-section>
+                  </q-card>
+                  <div class="q-pa-lg flex flex-center">
+                    <q-pagination
+                      v-model="current"
+                      :max="5"
+                      @click="pagination"
+                    >
+                    </q-pagination>
                   </div>
-                  <div class="col-12 col-md-4 q-pa-xs">
-                    <i class="fas fa-tachometer-alt"></i> MILEAGE:
-                    <b>
-                      {{ new Intl.NumberFormat().format(car.odometer_value) }}
-                      {{ car.odometer_type.toUpperCase() }}
-                    </b>
-                  </div>
-                  <div class="col-12 col-md-4 q-pa-xs">
-                    <i class="fa fa-cog"></i> DAMAGE:
-                    <b>
-                      {{ car.damage.toUpperCase() }}
-                    </b>
-                  </div>
-                </q-card-section>
-              </q-card-section>
-            </q-card>
-            <div class="q-pa-lg flex flex-center">
-                <q-pagination
-                  v-model="current"
-                  :max="5"
-                  @click="pagination"
-                >
-                </q-pagination>
-              </div>
-          </div>
-        </transition>
+                </div>
+              </transition>
+            </q-card-section>
+
+            <q-inner-loading :showing="visible">
+              <q-spinner-gears size="50px" color="primary" />
+            </q-inner-loading>
+          </q-card>
+        </div>
       </div>
       <div class="lt-md">
         <q-card bordered class="my-card" v-for="car in data" :key="car.id">
@@ -139,13 +158,9 @@
             </q-btn>
           </q-card-actions>
         </q-card>
-         <div>
-        <div class="q-pa-lg flex flex-center">
-            <q-pagination
-              v-model="current"
-              :max="5"
-              @click="pagination"
-            >
+        <div>
+          <div class="q-pa-lg flex flex-center">
+            <q-pagination v-model="current" :max="5" @click="pagination">
             </q-pagination>
           </div>
         </div>
@@ -220,7 +235,9 @@ export default {
     loading_cars() {
       axios
         .get(
-          "https://www.salvagebid.com/rest-api/v1.0/lots/search?page="+ this.current + "&per_page=10&type=car&make=*&model=*&search_id=&search_query=&year_from=2008&year_to=2021&sort_field=&sort_order=&sales_type=*&distance=*&destination_zip=&location_state=*&location_city=*&primary_damage=normal+wear+%26+tear&loss_type=*&title_name=*&exterior_color=*&odometer_min=*&odometer_max=*"
+          "https://www.salvagebid.com/rest-api/v1.0/lots/search?page=" +
+            this.current +
+            "&per_page=10&type=car&make=*&model=*&search_id=&search_query=&year_from=2008&year_to=2021&sort_field=&sort_order=&sales_type=*&distance=*&destination_zip=&location_state=*&location_city=*&primary_damage=normal+wear+%26+tear&loss_type=*&title_name=*&exterior_color=*&odometer_min=*&odometer_max=*"
         )
         .then(response => {
           this.data = response.data.lots;
@@ -233,12 +250,13 @@ export default {
       setTimeout(() => {
         this.visible = false;
         this.showSimulatedReturnData = true;
+        console.log(this.visible);
       }, 3000);
     },
 
     selected(id) {},
 
-    pagination(){
+    pagination() {
       this.loading_cars();
     }
   },
@@ -249,4 +267,3 @@ export default {
   }
 };
 </script>
-
