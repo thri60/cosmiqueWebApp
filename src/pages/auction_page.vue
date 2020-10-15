@@ -1,22 +1,10 @@
 <template>
   <div>
       <div class="q-pa-md text-center bg-white">
-       <q-img dim src="~assets/2.jpg" class="q-pa-md absolute-top bg-transparent banner" style="height:180px">
-          <br>
-          <br>
-          <br>
-          <br>
-          <br>
-         <div round class="q-pa-md text-primary text-h5 text-bold "> <b>| AUCTION Cars For Sale (Bid Online) |</b> </div>
-
+       <q-img dim src="~assets/2.jpg" class="q-pa-md absolute-top bg-transparent banner" style="height:180px;">
+         <div round class="q-pa-md text-primary text-h5 text-bold q-pb-lg"> <b>| AUCTION Cars For Sale (Bid Online) |</b> </div>
        </q-img>
       </div>
-
-    <br>
-    <br>
-    <br>
-    <br>
-
     <div class="q-pa-md row justify-center items-start q-gutter-md">
       <div class="col-12 col-md-8 gt-sm">
         <q-inner-loading :showing="visible">
@@ -68,11 +56,18 @@
                 </q-card-section>
               </q-card-section>
             </q-card>
+            <div class="q-pa-lg flex flex-center">
+                <q-pagination
+                  v-model="current"
+                  :max="5"
+                  @click="pagination"
+                >
+                </q-pagination>
+              </div>
           </div>
         </transition>
       </div>
       <div class="lt-md">
-        <br />
         <q-card bordered class="my-card" v-for="car in data" :key="car.id">
           <q-img :src="car.images[0]" />
 
@@ -144,15 +139,15 @@
             </q-btn>
           </q-card-actions>
         </q-card>
-      </div>
-      <div>
+         <div>
         <div class="q-pa-lg flex flex-center">
-          <q-pagination
-            v-model="current"
-            :max="5"
-            @click="pagination"
-          >
-          </q-pagination>
+            <q-pagination
+              v-model="current"
+              :max="5"
+              @click="pagination"
+            >
+            </q-pagination>
+          </div>
         </div>
       </div>
       <div class="col-12 col-md-3 q-pa-md">
