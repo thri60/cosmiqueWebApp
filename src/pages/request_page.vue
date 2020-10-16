@@ -39,11 +39,11 @@
                 <div class="q-pa-xl text-primary text-h5 text-center text-bold">
                   YOUR EXPECTED PRICE
                   <q-range
-                    v-model="price"
-                    :left-label-value="'$' + price.min"
-                    :right-label-value="'$' + price.max"
-                    :min="0"
-                    :max="10000"
+                    v-model="form.price"
+                    :left-label-value="'$' + form.price.min"
+                    :right-label-value="'$' + form.price.max"
+                    :min="500"
+                    :max="50000"
                     :step="2"
                     label
                   />
@@ -56,7 +56,7 @@
                   dense
                   transition-show="flip-up"
                   transition-hide="flip-down"
-                  v-model="model"
+                  v-model="form.make"
                   :options="options"
                   label="Enter Make *"
                   lazy-rules
@@ -70,7 +70,7 @@
                   dense
                   transition-show="flip-up"
                   transition-hide="flip-down"
-                  v-model="model"
+                  v-model="form.vehicle_year"
                   :options="options"
                   label="Vehicle Manufacturer Year *"
                   lazy-rules
@@ -86,7 +86,7 @@
                   dense
                   transition-show="flip-up"
                   transition-hide="flip-down"
-                  v-model="model"
+                  v-model="form.seats"
                   :options="options"
                   label="No. of Seats *"
                   lazy-rules
@@ -100,7 +100,7 @@
                   dense
                   transition-show="flip-up"
                   transition-hide="flip-down"
-                  v-model="model"
+                  v-model="form.exterior_color"
                   :options="options"
                   label="Select Exterior Color *"
                   lazy-rules
@@ -114,7 +114,7 @@
                   dense
                   transition-show="flip-up"
                   transition-hide="flip-down"
-                  v-model="model"
+                  v-model="form.gears"
                   :options="options"
                   label="Select No. of Gears *"
                   lazy-rules
@@ -128,7 +128,7 @@
                   rounded
                   outlined
                   dense
-                  v-model="model"
+                  v-model="form.drive_type"
                   :options="options"
                   label="Select Drive Type *"
                   lazy-rules
@@ -142,7 +142,7 @@
                   dense
                   transition-show="flip-up"
                   transition-hide="flip-down"
-                  v-model="model"
+                  v-model="form.cylinders"
                   :options="options"
                   label="Select No. of Cylinders *"
                   lazy-rules
@@ -156,7 +156,7 @@
                   dense
                   transition-show="flip-up"
                   transition-hide="flip-down"
-                  v-model="model"
+                  v-model="form.fuel"
                   :options="options"
                   label="Select Fuel Type *"
                   lazy-rules
@@ -169,9 +169,9 @@
                 <div class="q-pa-xl text-primary text-h5 text-center text-bold">
                   VEHICLE MILEAGE RANGE
                   <q-range
-                    v-model="mileage"
-                    :left-label-value="mileage.min + ' MI'"
-                    :right-label-value="mileage.max + ' MI'"
+                    v-model="form.mileage"
+                    :left-label-value="form.mileage.min + ' MI'"
+                    :right-label-value="form.mileage.max + ' MI'"
                     :min="0"
                     :max="3000"
                     :step="10"
@@ -184,7 +184,7 @@
                   dense
                   transition-show="flip-up"
                   transition-hide="flip-down"
-                  v-model="model"
+                  v-model="form.model"
                   :options="options"
                   label="Enter Vehicle Model *"
                   lazy-rules
@@ -196,9 +196,10 @@
                   rounded
                   outlined
                   dense
+                  val="body_type"
                   transition-show="flip-up"
                   transition-hide="flip-down"
-                  v-model="model"
+                  v-model="form.body_type"
                   :options="options"
                   label="Select Body Type *"
                   lazy-rules
@@ -212,7 +213,7 @@
                   dense
                   transition-show="flip-up"
                   transition-hide="flip-down"
-                  v-model="model"
+                  v-model="form.seat_color"
                   :options="options"
                   label="Enter Seats Color"
                   lazy-rules
@@ -227,7 +228,7 @@
                   dense
                   transition-show="flip-up"
                   transition-hide="flip-down"
-                  v-model="model"
+                  v-model="form.interior_color"
                   :options="options"
                   label="Select Interior Color *"
                   lazy-rules
@@ -242,7 +243,7 @@
                   dense
                   transition-show="flip-up"
                   transition-hide="flip-down"
-                  v-model="model"
+                  v-model="form.doors"
                   :options="options"
                   label="No. of Doors *"
                   lazy-rules
@@ -254,7 +255,7 @@
                   dense
                   transition-show="flip-up"
                   transition-hide="flip-down"
-                  v-model="model"
+                  v-model="form.transmission"
                   :options="options"
                   label="Vehicle Transmission Type *"
                   lazy-rules
@@ -269,7 +270,7 @@
                   dense
                   transition-show="flip-up"
                   transition-hide="flip-down"
-                  v-model="model"
+                  v-model="form.engine"
                   :options="options"
                   label="Select Engine Type *"
                   lazy-rules
@@ -283,7 +284,7 @@
                   dense
                   transition-show="flip-up"
                   transition-hide="flip-down"
-                  v-model="model"
+                  v-model="form.engine_capacity"
                   :options="options"
                   label="Enter Engine Capacity *"
                   lazy-rules
@@ -460,7 +461,7 @@
                 class="full-width"
                 rounded
                 outlined
-                v-model="address"
+                v-model="form.address"
                 label="Your Current Address *"
                 dense
                 lazy-rules
@@ -477,7 +478,7 @@
 
                   rounded
                   outlined
-                  v-model="city"
+                  v-model="form.city"
                   label="City / State *"
                   dense
                   lazy-rules
@@ -490,7 +491,7 @@
                 <q-input
                                 rounded
                   outlined
-                  v-model="phone"
+                  v-model="form.phone"
                   type="tel"
                   label="Enter Your Phone Number *"
                   dense
@@ -507,7 +508,7 @@
                 <q-input
                   rounded
                   outlined
-                  v-model="zipcode"
+                  v-model="form.zipcode"
                   label="Zip Code / Country *"
                   dense
                   lazy-rules
@@ -520,7 +521,7 @@
                 <q-input
                   rounded
                   outlined
-                  v-model="email"
+                  v-model="form.email"
                   type="email"
                   label="Enter Your Email Address *"
                   dense
@@ -538,7 +539,7 @@
           </q-step>
 
           <template v-slot:navigation>
-            <q-stepper-navigation class="text-right">
+            <q-stepper-navigation>
               <q-btn
                 @click="$refs.stepper.next()"
                 color="primary"
@@ -574,7 +575,7 @@
               <template v-slot:avatar>
                 <q-icon name="check" />
               </template>
-              Select Additional Features Of Your Vehicle...
+              Select Additional Features Of the Vehicle...
             </q-banner>
             <q-banner v-else class="bg-yellow-10 text-white q-px-lg">
               The final step is telling us how can we contact you...
@@ -590,24 +591,60 @@
 export default {
   data() {
     return {
-      step: 1,
+      form: {
       address: null,
       city: null,
       zipcode: null,
       phone: null,
       email: null,
+      make: null,
+      seats: null,
+      vehicle_year: null,
+      exterior_color: null,
+      gears: null,
+      drive_type: null,
+      cylinders: null,
+      fuel: null,
       model: null,
-      options: ["Google", "Facebook", "Twitter", "Apple", "Oracle"],
-      checkbox: [],
-      price: {
-        min: 0,
-        max: 10000
+      body_type: null,
+      seat_color: null,
+      interior_color: null,
+      doors: null,
+      transmission: null,
+      engine: null,
+      engine_capacity: null,
+        price: {
+        min: 500,
+        max: 50000
       },
       mileage: {
         min: 0,
         max: 3000
       }
+      },
+      step: 1,
+
+      options: ["Google", "Facebook", "Twitter", "Apple", "Oracle"],
+      checkbox: [],
+
     };
-  }
+  },
+
+  methods: {
+     onSubmit() {
+      this.$refs.form.validate();
+
+
+      if (this.$refs.form.hasError) {
+        this.formHasError = true;
+      } else {
+        this.$q.notify({
+          icon: "done",
+          color: "positive",
+          message: "Submitted"
+        });
+      }
+    }
+  },
 };
 </script>
