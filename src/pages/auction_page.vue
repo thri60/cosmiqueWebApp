@@ -91,6 +91,8 @@
                       v-model="current"
                       :max="6"
                       @click="pagination"
+                      :scroll-offset="150"
+                      :offset="[18, 18]"
                     >
                     </q-pagination>
                   </div>
