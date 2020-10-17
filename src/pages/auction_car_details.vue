@@ -5,9 +5,10 @@
         dim
         src="~assets/2.jpg"
         class="q-pa-md bg-transparent banner"
-        style="height:100px;">
+        style="height:100px;"
+      >
         <div round class="q-pa-md text-white text-h5 text-bold q-pa-lg">
-          <b>| {{ view_selected.lot.vehicle_name }} (Details) |</b><br>
+          <b>| {{ view_selected.lot.vehicle_name }} (Details) |</b><br />
           <b>| VIN:: {{ view_selected.lot.vin }} |</b>
         </div>
       </q-img>
@@ -46,21 +47,50 @@
           </q-carousel>
           <hr />
         </div>
+        <div class="q-pa-md">
+          <q-card flat bordered class="bg-grey-3">
+            <q-card-section>
+              <div class="text-h5 q-mb-xs text-primary">
+                <strong> {{ view_selected.lot.vehicle_name }} </strong>
+                <q-space />
+              </div>
+                          <div class="text-h6">
+                <i class="fas fa-tachometer-alt"></i> &nbsp; MILEAGE &nbsp;
+                &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
+                <b>
+                  {{ view_selected.lot.odometer_value
+                  }}{{ view_selected.lot.odometer_type.toUpperCase() }}</b
+                >
+              </div>
+              <div class="text-h6">
+                <i class="fab fa-keycdn"></i>
+                &nbsp;START CODE &nbsp; &nbsp; &nbsp; &nbsp;
+                <b>{{ view_selected.lot.start_code.toUpperCase() }}</b>
+              </div>
+              <div class="text-h6">
+                <i class="fas fa-car-crash"> &nbsp;</i>DAMAGE: &nbsp; &nbsp;
+                &nbsp; &nbsp; &nbsp; &nbsp;<b>
+                  {{ view_selected.lot.damage }}</b
+                >
+              </div>
+            </q-card-section>
+          </q-card>
+        </div>
       </div>
-      <div  class="col-12 col-md-4 q-pa-md">
+      <div class="col-12 col-md-4 q-pa-md">
         <q-card bordered class="bg-grey-2 text-primary my-card">
           <q-card-section>
             <div class="text-h6">BID INFORMATION</div>
             <div class="text-h7">
               CURRENT BID
-                <span class="text-h6">
-                    {{
-                        new Intl.NumberFormat("us-US", {
-                        style: "currency",
-                        currency: "USD"
-                        }).format(view_selected.lot.current_bid_value)
-                    }}
-                </span>
+              <span class="text-h6">
+                {{
+                  new Intl.NumberFormat("us-US", {
+                    style: "currency",
+                    currency: "USD"
+                  }).format(view_selected.lot.current_bid_value)
+                }}
+              </span>
             </div>
           </q-card-section>
 
@@ -68,10 +98,17 @@
 
           <q-card-section>
             <q-card-section>
-                <div class="col-12 col-md-4 q-pa-xs">
-                  Enter Your Maximum Possible Bid: <br>
-                  <q-input v-model="view_selected.lot.current_bid_value" type="number" align="right" standout prefix="$"  suffix="USD"  />
-                </div>
+              <div class="col-12 col-md-4 q-pa-xs">
+                Enter Your Maximum Possible Bid: <br />
+                <q-input
+                  v-model="view_selected.lot.current_bid_value"
+                  type="number"
+                  align="right"
+                  standout
+                  prefix="$"
+                  suffix="USD"
+                />
+              </div>
             </q-card-section>
           </q-card-section>
         </q-card>
@@ -90,7 +127,7 @@ export default {
     return {
       view_selected: {},
       slide: 1,
-      possible_bid: ''
+      possible_bid: ""
     };
   },
 
