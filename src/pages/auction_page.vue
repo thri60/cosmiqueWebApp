@@ -5,16 +5,21 @@
         dim
         src="~assets/2.jpg"
         class="q-pa-md bg-transparent banner"
+<<<<<<< HEAD
         style="height:100px;"
       >
       <br>
         <div round class="q-pa-md text-primary text-h5 text-bold q-pb-lg">
+=======
+        style="height:150px;">
+        <div round class="q-pa-md text-primary text-h5 text-bold q-pa-lg">
+>>>>>>> 6db83294afb3bf1480f091843cdb334cbb9f43bf
           <b>| AUCTION Cars For Sale (Bid Online) |</b>
         </div>
       </q-img>
     </div>
     <div class="q-pa-md row justify-center items-start q-gutter-md">
-      <div class="col-12 col-md-8 gt-sm">
+      <div class="col-12 col-md-8 gt-xs">
         <div class="q-pa-md q-gutter-md">
           <q-card flat class="bg-white relative-position card-example">
             <q-card-section>
@@ -47,24 +52,43 @@
                       </q-img>
                       <q-card-section>
                         <div class="col-12 col-md-5 q-pa-xs">
-                          <b class="text-h5 text-primary">{{
-                            car.vehicle_name
-                          }}</b>
+                          <b class="text-h5 text-primary">
+                            {{ car.vehicle_name }}</b>
                         </div>
                         <div class="col-12 col-md-4 q-pa-xs">
                           <i class="fas fa-tachometer-alt"></i> MILEAGE:
-                          <b>
-                            {{
-                              new Intl.NumberFormat().format(car.odometer_value)
-                            }}
+                          <b class="text-primary">
+                            {{ new Intl.NumberFormat().format(car.odometer_value) }}
                             {{ car.odometer_type.toUpperCase() }}
                           </b>
                         </div>
                         <div class="col-12 col-md-4 q-pa-xs">
-                          <i class="fa fa-cog"></i> DAMAGE:
-                          <b>
-                            {{ car.damage.toUpperCase() }}
-                          </b>
+                          <i class="fa fa-cog"></i> START CODE:
+                          <b class="text-primary">{{ car.start_code }}</b>
+                        </div>
+                        <div class="col-12 col-md-4 q-pa-xs">
+                          <i class="fa fa-calendar"></i> SALE DATE:
+                          <b class="text-primary">{{ car.sale_date }}</b>
+                        </div>
+                        <div class="col-12 col-md-4 q-pa-xs">
+                           <q-btn color="primary" text-color="white" rounded class="full-width">
+                              CURRENT BID {{
+                                new Intl.NumberFormat("us-US", {
+                                  style: "currency",
+                                  currency: "USD"
+                                }).format(car.current_bid_value)
+                              }}  
+                           </q-btn>                          
+                        </div>
+                        <div class="col-12 col-md-4 q-pa-xs" v-if="car.buy_it_now > 0">
+                           <q-btn color="primary" text-color="white" rounded class="full-width">
+                              BUY IT NOW {{
+                                new Intl.NumberFormat("us-US", {
+                                  style: "currency",
+                                  currency: "USD"
+                                }).format(car.buy_it_now)
+                              }}  
+                           </q-btn>                          
                         </div>
                       </q-card-section>
                     </q-card-section>
@@ -89,7 +113,7 @@
       </div>
       <div class="lt-md">
         <q-card bordered class="my-card" v-for="car in data" :key="car.id">
-          <q-img :src="car.images[0]" />
+          <q-img :src="car.images[0]" @click="selected(car.id)"/>
 
           <q-card-section>
             <q-btn
@@ -236,9 +260,7 @@ export default {
     loading_cars() {
       axios
         .get(
-          "https://www.salvagebid.com/rest-api/v1.0/lots/search?page=" +
-            this.current +
-            "&per_page=10&type=car&make=*&model=*&search_id=&search_query=&year_from=2008&year_to=2021&sort_field=&sort_order=&sales_type=*&distance=*&destination_zip=&location_state=*&location_city=*&primary_damage=normal+wear+%26+tear&loss_type=*&title_name=*&exterior_color=*&odometer_min=*&odometer_max=*"
+          "https://www.salvagebid.com/rest-api/v1.0/lots/search?page=1&per_page=" + this.current + "&type=CAR&make=*&model=*&search_id=&search_query=&year_from=1920&year_to=2021&sort_field=&sort_order=&sales_type=*&distance=*&destination_zip=&location_state=*&location_city=*&primary_damage=*&loss_type=*&title_name=*&exterior_color=*&odometer_min=*&odometer_max=*"
         )
         .then(response => {
           this.data = response.data.lots;
@@ -251,11 +273,15 @@ export default {
       setTimeout(() => {
         this.visible = false;
         this.showSimulatedReturnData = true;
-        console.log(this.visible);
       }, 3000);
     },
 
-    selected(id) {},
+    selected(id) {
+      this.$router.push({
+        name: "auction_car_details",
+        params: { selected_car: id }
+      });
+    },
 
     pagination() {
       this.loading_cars();

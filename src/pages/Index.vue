@@ -653,6 +653,7 @@
             label="View more"
             icon="info"
             class="full-width"
+            @click="picked_car(view_selected.id)"
           />
         </div>
       </div>
@@ -715,6 +716,13 @@ export default {
           this.view_selected = response.data.lot;
           this.view_details_modal = true;
         });
+    },
+
+    picked_car(id){
+      this.$router.push({
+        name: "auction_car_details",
+        params: { selected_car: id }
+      });
     },
 
     onSubmit() {
