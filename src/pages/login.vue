@@ -5,7 +5,7 @@
         <q-card square class="shadow-24" style="min-width:350px;">
            <q-form @submit.prevent.stop="onSubmit" >
           <q-card-section class="bg-primary">
-            <h4 class="text-h5 text-bold text-white q-my-md">SIGN IN</h4>
+            <h4 class="text-h5 text-bold text-white q-my-md">LOGIN</h4>
           </q-card-section>
           <q-card-section>
               <q-input
@@ -76,6 +76,7 @@
           </q-card-actions>
           <q-card-section class="text-center q-pa-sm">
             <p class="text-grey-6">Forgot your password?</p>
+           <a href="/register"> <p  class="text-grey-6">Dont have an account yet? </p></a>
           </q-card-section>
            </q-form>
         </q-card>

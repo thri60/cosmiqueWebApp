@@ -119,7 +119,7 @@
             <q-btn unelevated rounded color="primary" class="full-width text-white" label="Get Started" />
           </q-card-actions>
           <q-card-section class="text-center q-pa-sm">
-            <p class="text-grey-6">Return to login</p>
+             <a href="/login"> <p  class="text-grey-6">Return to login</p></a>
           </q-card-section>
         </q-card>
       </div>

@@ -43,11 +43,6 @@
             <q-list>
               <q-item clickable v-close-popup>
                 <q-item-section>
-                  <q-item-label>New Autos</q-item-label>
-                </q-item-section>
-              </q-item>
-              <q-item clickable v-close-popup>
-                <q-item-section>
                   <q-item-label>Used Autos</q-item-label>
                 </q-item-section>
               </q-item>
@@ -108,7 +103,9 @@
             color="white"
             text-color="primary"
             icon="person"
-            label="Login" />
+            label="Login"
+             :to="{ name: 'login'}" />
+
 
         </div>
         <div class="lt-md">
@@ -331,6 +328,18 @@
                 text-color="white"
                 label="Home"
               />
+                            <q-btn
+                rounded
+                no-caps
+                size="sm"
+                dense
+                flat
+                :to="{ name: 'auction' }"
+                class="q-mr-xs"
+                color="white"
+                text-color="white"
+                label="Auctions"
+              />
               <q-btn-dropdown
                 flat
                 no-caps
@@ -341,16 +350,6 @@
                 label="Auto Inventory"
               >
                 <q-list>
-                  <q-item clickable :to="{ name: 'auction' }">
-                    <q-item-section>
-                      <q-item-label class="text-h6">Auction</q-item-label>
-                    </q-item-section>
-                  </q-item>
-                  <q-item clickable v-close-popup>
-                    <q-item-section>
-                      <q-item-label>New Autos</q-item-label>
-                    </q-item-section>
-                  </q-item>
                   <q-item clickable v-close-popup>
                     <q-item-section>
                       <q-item-label>Used Autos</q-item-label>
@@ -380,28 +379,6 @@
                   </q-item>
                 </q-list>
               </q-btn-dropdown>
-              <q-btn
-                rounded
-                no-caps
-                size="sm"
-                dense
-                flat
-                class="q-mr-xs"
-                color="white"
-                text-color="white"
-                label="Auctions"
-              />
-              <q-btn
-                rounded
-                no-caps
-                size="sm"
-                dense
-                flat
-                class="q-mr-xs"
-                color="white"
-                text-color="white"
-                label="Compare"
-              />
               <q-btn
                 dense
                 no-caps
