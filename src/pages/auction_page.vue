@@ -106,7 +106,7 @@
       </div>
       <div class="lt-md">
         <q-card bordered class="my-card" v-for="car in data" :key="car.id">
-          <q-img :src="car.images[0]" />
+          <q-img :src="car.images[0]" @click="selected(car.id)"/>
 
           <q-card-section>
             <q-btn

@@ -48,21 +48,31 @@
         </div>
       </div>
       <div class="col-12 col-md-4 q-pa-md">
-        <div>
-            <b>{{ view_selected.lot.vehicle_name }}</b>
-        </div>
-        <div>
-            <b>Make: {{ view_selected.lot.make }}</b>
-        </div>
-        <div>
-            <b>Model: {{ view_selected.lot.model }}</b>
-        </div>
-        <div>
-            <b>status: {{ view_selected.lot.damage }}</b>
-        </div>
-        <div>
-            <b>start code: {{ view_selected.lot.start_code }}</b>
-        </div>
+        <q-card dark bordered class="bg-grey-9 my-card">
+          <q-card-section>
+            <div class="text-h6">{{ view_selected.lot.vehicle_name }}</div>
+            <div class="text-subtitle2">
+              VIN Number:: {{ view_selected.lot.vin }}
+            </div>
+          </q-card-section>
+
+          <q-separator dark inset />
+
+          <q-card-section>
+            <div class="text-h6">BID INFORMATION</div>
+            <q-card-section>
+                CURRENT BID
+                <span class="text-h6">
+                    {{
+                        new Intl.NumberFormat("us-US", {
+                        style: "currency",
+                        currency: "USD"
+                        }).format(view_selected.lot.current_bid_value)
+                    }}
+                </span>
+            </q-card-section>
+          </q-card-section>
+        </q-card>
       </div>
     </div>
   </div>
@@ -118,10 +128,9 @@ export default {
 };
 </script>
 <style lang="sass" scoped>
- .my-card1
-    width: 100%
-    max-width: 70%
-    background-color: white
-    padding: 20px
-
+.my-card1
+   width: 100%
+   max-width: 70%
+   background-color: white
+   padding: 20px
 </style>
