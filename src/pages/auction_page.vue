@@ -5,15 +5,8 @@
         dim
         src="~assets/2.jpg"
         class="q-pa-md bg-transparent banner"
-<<<<<<< HEAD
-        style="height:100px;"
-      >
-      <br>
-        <div round class="q-pa-md text-primary text-h5 text-bold q-pb-lg">
-=======
         style="height:150px;">
         <div round class="q-pa-md text-primary text-h5 text-bold q-pa-lg">
->>>>>>> 6db83294afb3bf1480f091843cdb334cbb9f43bf
           <b>| AUCTION Cars For Sale (Bid Online) |</b>
         </div>
       </q-img>
@@ -77,8 +70,8 @@
                                   style: "currency",
                                   currency: "USD"
                                 }).format(car.current_bid_value)
-                              }}  
-                           </q-btn>                          
+                              }}
+                           </q-btn>
                         </div>
                         <div class="col-12 col-md-4 q-pa-xs" v-if="car.buy_it_now > 0">
                            <q-btn color="primary" text-color="white" rounded class="full-width">
@@ -87,8 +80,8 @@
                                   style: "currency",
                                   currency: "USD"
                                 }).format(car.buy_it_now)
-                              }}  
-                           </q-btn>                          
+                              }}
+                           </q-btn>
                         </div>
                       </q-card-section>
                     </q-card-section>
