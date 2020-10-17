@@ -50,9 +50,19 @@
         <div class="q-pa-md">
           <q-card flat bordered class="bg-grey-3">
             <q-card-section>
+              <div class="text-h4 q-mb-xs">
+                <strong> VEHICLE DETAILS</strong>
+                <q-space />
+              </div>
               <div class="text-h5 q-mb-xs text-primary">
                 <strong> {{ view_selected.lot.vehicle_name }} </strong>
                 <q-space />
+              </div>
+                   <div class="text-h6">
+              &nbsp;</i>VIN: &nbsp; &nbsp;
+                &nbsp; &nbsp; &nbsp; &nbsp;<b>
+                  {{ view_selected.lot.vin }}</b
+                >
               </div>
                           <div class="text-h6">
                 <i class="fas fa-tachometer-alt"></i> &nbsp; MILEAGE &nbsp;
@@ -73,6 +83,7 @@
                   {{ view_selected.lot.damage }}</b
                 >
               </div>
+
             </q-card-section>
           </q-card>
         </div>
