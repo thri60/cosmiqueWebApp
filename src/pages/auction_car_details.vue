@@ -1,14 +1,14 @@
 <template>
   <div>
-    <div class="q-pa-md text-center bg-white">
+    <div class="text-center bg-white">
       <q-img
         dim
         src="~assets/2.jpg"
         class="q-pa-md bg-transparent banner"
-        style="height:150px;"
-      >
-        <div round class="q-pa-md text-primary text-h5 text-bold q-pa-lg">
-          <b>| AUCTION Cars For Sale (Bid Online) |</b>
+        style="height:100px;">
+        <div round class="q-pa-md text-white text-h5 text-bold q-pa-lg">
+          <b>| {{ view_selected.lot.vehicle_name }} (Details) |</b><br>
+          <b>| VIN:: {{ view_selected.lot.vin }} |</b>
         </div>
       </q-img>
     </div>
@@ -47,8 +47,8 @@
           <hr />
         </div>
       </div>
-      <div class="col-12 col-md-4 q-pa-md">
-        <q-card dark bordered class="bg-grey-9 my-card">
+      <div  class="col-12 col-md-4 q-pa-md">
+        <q-card bordered class="bg-grey-2 text-primary my-card">
           <q-card-section>
             <div class="text-h6">{{ view_selected.lot.vehicle_name }}</div>
             <div class="text-subtitle2">
