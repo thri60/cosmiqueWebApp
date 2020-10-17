@@ -1,10 +1,10 @@
 <template>
   <q-page>
-    <div class="q-pa-md text-center bg-white">
+    <div class="text-center bg-white">
       <q-img
         dim
         src="~assets/2.jpg"
-        class="q-pa-md absolute-top bg-transparent banner"
+        class="q-pa-md bg-transparent banner"
         style="height:100px"
       >
         <br />
@@ -545,8 +545,8 @@
                 color="primary"
                 rounded
                 type="submit"
-                icon-right="fa fa-angle-right"
-                :label="step === 3 ? 'Submit Request' : 'Continue'"
+                :icon-right="step === 3 ? 'send' : 'fa fa-angle-right'"
+               :label="step === 3 ? 'Submit Request' : 'Continue'"
               />
               <q-btn
                 v-if="step > 1"

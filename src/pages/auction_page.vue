@@ -1,16 +1,12 @@
 <template>
   <div>
-    <div class="q-pa-md text-center bg-white">
+    <div class="text-center bg-white">
       <q-img
         dim
         src="~assets/2.jpg"
-        class="q-pa-md absolute-top bg-transparent banner"
-        style="height:180px;"
+        class="q-pa-md bg-transparent banner"
+        style="height:100px;"
       >
-      <br>
-      <br>
-      <br>
-      <br>
       <br>
         <div round class="q-pa-md text-primary text-h5 text-bold q-pb-lg">
           <b>| AUCTION Cars For Sale (Bid Online) |</b>
