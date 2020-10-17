@@ -169,37 +169,38 @@
       <q-list bordered class="rounded-borders">
         <q-expansion-item
           expand-separator
-          icon="perm_identity"
+          icon="money"
           label="Sales Department"
+          header-class="text-h5 text-primary text-bold"
         >
           <q-card>
             <q-card-section>
-                   <div class="row">
-        <div class="col-12 col-md-4 q-pa-md">
-          <div class="text-h6 text-center text-primary text-bold">
-               <i class="text-primary fas fa-language"></i>  &nbsp;  LANGUAGE
-          </div>
-          <div class="text-center">
-            English
-          </div>
-        </div>
-        <div class="col-12 col-md-4 q-pa-md">
-          <div class="text-h6 text-center text-primary text-bold">
-            <i class="text-primary fas fa-phone-alt"></i> PHONE NUMBER
-          </div>
-          <div class="text-center">
-            1-800- 000-0000
-          </div>
-        </div>
-        <div class="col-12 col-md-4 q-pa-md">
-          <div class="text-h6 text-center text-primary text-bold">
-            <i class="text-primary fas fa-envelope"></i> EMAIL ADDRESS
-          </div>
-          <div class="text-center">
-            sales@cosmiqueautos.com
-          </div>
-        </div>
-      </div>
+              <div class="row">
+                <div class="col-12 col-md-4 q-pa-md">
+                  <div class="text-h6 text-center text-primary text-bold">
+                    <i class="text-primary fas fa-language"></i> &nbsp; LANGUAGE
+                  </div>
+                  <div class="text-center">
+                    English
+                  </div>
+                </div>
+                <div class="col-12 col-md-4 q-pa-md">
+                  <div class="text-h6 text-center text-primary text-bold">
+                    <i class="text-primary fas fa-phone-alt"></i> PHONE NUMBER
+                  </div>
+                  <div class="text-center">
+                    1-800- 000-0000
+                  </div>
+                </div>
+                <div class="col-12 col-md-4 q-pa-md">
+                  <div class="text-h6 text-center text-primary text-bold">
+                    <i class="text-primary fas fa-envelope"></i> EMAIL ADDRESS
+                  </div>
+                  <div class="text-center">
+                    sales@cosmiqueautos.com
+                  </div>
+                </div>
+              </div>
             </q-card-section>
           </q-card>
         </q-expansion-item>
@@ -208,46 +209,154 @@
 
         <q-expansion-item
           expand-separator
-          icon="signal_wifi_off"
-          label="Wifi settings"
+          icon="support_agent"
+          label="Customer Support Department"
+          header-class="text-h5 text-primary text-bold"
         >
           <q-card>
             <q-card-section>
-              Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quidem,
-              eius reprehenderit eos corrupti commodi magni quaerat ex numquam,
-              dolorum officiis modi facere maiores architecto suscipit iste
-              eveniet doloribus ullam aliquid.
-            </q-card-section>
-          </q-card>
-        </q-expansion-item>
-
-            <q-separator />
-
-        <q-expansion-item
-          expand-separator
-          icon="drafts"
-          label="Drafts"
-          header-class="text-purple"
-        >
-          <q-card>
-            <q-card-section>
-              Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quidem,
-              eius reprehenderit eos corrupti commodi magni quaerat ex numquam,
-              dolorum officiis modi facere maiores architecto suscipit iste
-              eveniet doloribus ullam aliquid.
+              <div class="row">
+                <div class="col-12 col-md-4 q-pa-md">
+                  <div class="text-h6 text-center text-primary text-bold">
+                    <i class="text-primary fas fa-language"></i> &nbsp; LANGUAGE
+                  </div>
+                  <div class="text-center">
+                    English
+                  </div>
+                </div>
+                <div class="col-12 col-md-4 q-pa-md">
+                  <div class="text-h6 text-center text-primary text-bold">
+                    <i class="text-primary fas fa-phone-alt"></i> PHONE NUMBER
+                  </div>
+                  <div class="text-center">
+                    1-800- 000-0000
+                  </div>
+                </div>
+                <div class="col-12 col-md-4 q-pa-md">
+                  <div class="text-h6 text-center text-primary text-bold">
+                    <i class="text-primary fas fa-envelope"></i> EMAIL ADDRESS
+                  </div>
+                  <div class="text-center">
+                    help@cosmiqueautos.com
+                  </div>
+                </div>
+              </div>
             </q-card-section>
           </q-card>
         </q-expansion-item>
 
         <q-separator />
 
-        <q-expansion-item icon="assessment" label="Disabled">
+        <q-expansion-item
+          expand-separator
+          icon="directions_boat"
+          label="Transportation Department"
+          header-class="text-h5 text-primary text-bold"
+        >
           <q-card>
             <q-card-section>
-              Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quidem,
-              eius reprehenderit eos corrupti commodi magni quaerat ex numquam,
-              dolorum officiis modi facere maiores architecto suscipit iste
-              eveniet doloribus ullam aliquid.
+              <div class="row">
+                <div class="col-12 col-md-4 q-pa-md">
+                  <div class="text-h6 text-center text-primary text-bold">
+                    <i class="text-primary fas fa-language"></i> &nbsp; LANGUAGE
+                  </div>
+                  <div class="text-center">
+                    English
+                  </div>
+                </div>
+                <div class="col-12 col-md-4 q-pa-md">
+                  <div class="text-h6 text-center text-primary text-bold">
+                    <i class="text-primary fas fa-phone-alt"></i> PHONE NUMBER
+                  </div>
+                  <div class="text-center">
+                    1-800- 000-0000
+                  </div>
+                </div>
+                <div class="col-12 col-md-4 q-pa-md">
+                  <div class="text-h6 text-center text-primary text-bold">
+                    <i class="text-primary fas fa-envelope"></i> EMAIL ADDRESS
+                  </div>
+                  <div class="text-center">
+                    shipping@cosmiqueautos.com
+                  </div>
+                </div>
+              </div>
+            </q-card-section>
+          </q-card>
+        </q-expansion-item>
+
+        <q-separator />
+
+        <q-expansion-item
+          icon="article"
+          label="Collection Department"
+          header-class="text-h5 text-primary text-bold"
+        >
+          <q-card>
+            <q-card-section>
+              <div class="row">
+                <div class="col-12 col-md-4 q-pa-md">
+                  <div class="text-h6 text-center text-primary text-bold">
+                    <i class="text-primary fas fa-language"></i> &nbsp; LANGUAGE
+                  </div>
+                  <div class="text-center">
+                    English
+                  </div>
+                </div>
+                <div class="col-12 col-md-4 q-pa-md">
+                  <div class="text-h6 text-center text-primary text-bold">
+                    <i class="text-primary fas fa-phone-alt"></i> PHONE NUMBER
+                  </div>
+                  <div class="text-center">
+                    1-800- 000-0000
+                  </div>
+                </div>
+                <div class="col-12 col-md-4 q-pa-md">
+                  <div class="text-h6 text-center text-primary text-bold">
+                    <i class="text-primary fas fa-envelope"></i> EMAIL ADDRESS
+                  </div>
+                  <div class="text-center">
+                    collection@cosmiqueautos.com
+                  </div>
+                </div>
+              </div>
+            </q-card-section>
+          </q-card>
+        </q-expansion-item>
+                <q-separator />
+        <q-expansion-item
+          icon="support_agent"
+          label="Technical Support"
+          header-class="text-h5 text-primary text-bold"
+        >
+          <q-card>
+            <q-card-section>
+              <div class="row">
+                <div class="col-12 col-md-4 q-pa-md">
+                  <div class="text-h6 text-center text-primary text-bold">
+                    <i class="text-primary fas fa-language"></i> &nbsp; LANGUAGE
+                  </div>
+                  <div class="text-center">
+                    English
+                  </div>
+                </div>
+                <div class="col-12 col-md-4 q-pa-md">
+                  <div class="text-h6 text-center text-primary text-bold">
+                    <i class="text-primary fas fa-phone-alt"></i> PHONE NUMBER
+                  </div>
+                  <div class="text-center">
+                    1-800- 000-0000
+                  </div>
+                </div>
+                <div class="col-12 col-md-4 q-pa-md">
+                  <div class="text-h6 text-center text-primary text-bold">
+                    <i class="text-primary fas fa-envelope"></i> EMAIL ADDRESS
+                  </div>
+                  <div class="text-center">
+                    support@cosmiqueautos.com
+                  </div>
+                </div>
+              </div>
             </q-card-section>
           </q-card>
         </q-expansion-item>
