@@ -389,6 +389,7 @@
                 color="white"
                 text-color="white"
                 label="Request"
+                 :to="{ name: 'request'}"
               />
               <q-btn
                 rounded
@@ -400,6 +401,7 @@
                 color="white"
                 text-color="white"
                 label="Contact"
+                 :to="{ name: 'contact'}"
               />
             </div>
           </div>
