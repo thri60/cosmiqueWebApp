@@ -59,10 +59,8 @@
                 <q-space />
               </div>
                    <div class="text-h6">
-              &nbsp;</i>VIN: &nbsp; &nbsp;
-                &nbsp; &nbsp; &nbsp; &nbsp;<b>
-                  {{ view_selected.lot.vin }}</b
-                >
+                     VIN: <b>
+                  {{ view_selected.lot.vin }}</b>
               </div>
                           <div class="text-h6">
                 <i class="fas fa-tachometer-alt"></i> &nbsp; MILEAGE &nbsp;
