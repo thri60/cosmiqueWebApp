@@ -28,42 +28,42 @@
         <q-separator />
         <q-card-section>
           <div class="row justify-center q-pa-md">
-            <div class="col-12 col-md-2 q-pa-md">
+            <div class="col-12 col-sm-2 q-pa-md">
               <q-card class="my-card">
                 <q-card-section>
                   <q-img src="~assets/pickUp.svg" />
                 </q-card-section>
               </q-card>
             </div>
-            <div class="col-12 col-md-2 q-pa-md">
+            <div class="col-12 col-sm-2 q-pa-md">
               <q-card class="my-card">
                 <q-card-section>
                   <q-img src="~assets/SUV.svg" />
                 </q-card-section>
               </q-card>
             </div>
-            <div class="col-12 col-md-2 q-pa-md">
+            <div class="col-12 col-sm-2 q-pa-md">
               <q-card class="my-card">
                 <q-card-section>
                   <q-img src="~assets/Coupe.svg" />
                 </q-card-section>
               </q-card>
             </div>
-            <div class="col-12 col-md-2 q-pa-md">
+            <div class="col-12 col-sm-2 q-pa-md">
               <q-card class="my-card">
                 <q-card-section>
                   <q-img src="~assets/convertable.svg" />
                 </q-card-section>
               </q-card>
             </div>
-            <div class="col-12 col-md-2 q-pa-md">
+            <div class="col-12 col-sm-2 q-pa-md">
               <q-card class="my-card">
                 <q-card-section>
                   <q-img src="~assets/sedan.svg" />
                 </q-card-section>
               </q-card>
             </div>
-            <div class="col-12 col-md-2 q-pa-md">
+            <div class="col-12 col-sm-2 q-pa-md">
               <q-card class="my-card">
                 <q-card-section>
                   <q-img src="~assets/miniCar.svg" />
@@ -77,6 +77,7 @@
               <q-select
                 rounded
                 outlined
+                dense
                 v-model="form.make"
                 :options="makeOptions"
                 label="Any Make"
@@ -86,6 +87,7 @@
               <q-select
                 rounded
                 outlined
+                dense
                 v-model="form.make"
                 :options="makeOptions"
                 label="Any Model"
@@ -95,6 +97,7 @@
               <q-select
                 rounded
                 outlined
+                dense
                 v-model="form.make"
                 :options="makeOptions"
                 label="Vehicle Status"
@@ -104,6 +107,7 @@
               <q-select
                 rounded
                 outlined
+                dense
                 v-model="form.make"
                 :options="makeOptions"
                 label="Min Year"
@@ -113,6 +117,7 @@
               <q-select
                 rounded
                 outlined
+                dense
                 v-model="form.make"
                 :options="makeOptions"
                 label="Max Year"
@@ -575,10 +580,10 @@
     >
       <div class="my-card1">
         <div class="row ">
-          <strong class="text-purple text-h4 text-bold">Quick Preview</strong>
+          <strong class="text-primary text-h4 text-bold">Quick Preview</strong>
           <q-space />
-          <q-btn color="purple" dense flat icon="close" v-close-popup>
-            <q-tooltip content-class="bg-white text-primary">Close</q-tooltip>
+          <q-btn color="primary" dense flat icon="close" v-close-popup>
+            <q-tooltip content-class="bg-primary text-white">Close</q-tooltip>
           </q-btn>
         </div>
 

@@ -92,7 +92,7 @@ export default {
     return {
       email: "",
       username: "",
-       password: '',
+       password: "",
       isPwd: true,
     };
   },

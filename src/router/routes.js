@@ -2,7 +2,7 @@ import indexPage from 'pages/Index.vue'
 import AuctionPage from 'pages/auction_page.vue';
 import RequestPage from 'pages/request_page.vue';
 import ContactPage from 'pages/contact_page.vue';
-
+import aboutPage from 'pages/about_page.vue';
 import loginPage from 'pages/login.vue';
 import registerPage from 'pages/register.vue';
 
@@ -19,6 +19,7 @@ const routes = [{
             { path: '/auctions', name: 'auction', component: AuctionPage },
             { path: '/request', name: 'request', component: RequestPage },
             { path: '/contact', name: 'contact', component: ContactPage },
+            { path: '/about', name: 'about', component: aboutPage },
             { path: '/login', name: 'login', component: loginPage },
             { path: '/register', name: 'register', component: registerPage },
             { path: '/auction_car_details', name: 'auction_car_details', component: CarDetailPage, props: true },
