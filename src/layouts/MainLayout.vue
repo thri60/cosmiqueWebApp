@@ -19,7 +19,6 @@
         </q-toolbar-title>
 
         <div class="gt-sm">
-<<<<<<< HEAD
           <div v-if="!$auth.check()" >
             <q-btn
               :to="{ name: 'homepage' }"
@@ -120,103 +119,6 @@
               label="CART"
             />
           </div>
-=======
-          <q-btn
-            :to="{ name: 'homepage' }"
-            rounded
-            flat
-            dense
-            class="q-mr-xs"
-            color="white"
-            text-color="white"
-            label="Home"
-          />
-          <q-btn
-            rounded
-            flat
-            dense
-            :to="{ name: 'auction' }"
-            class="q-mr-xs"
-            color="white"
-            text-color="white"
-            label="AUCTIONS"
-          />
-          <q-btn-dropdown
-            flat
-            dense
-            color="white"
-            text-color="white"
-            label="Auto Inventory"
-          >
-            <q-list>
-              <q-item clickable v-close-popup>
-                <q-item-section>
-                  <q-item-label>Used Autos</q-item-label>
-                </q-item-section>
-              </q-item>
-            </q-list>
-          </q-btn-dropdown>
-          <q-btn-dropdown
-            flat
-            dense
-            color="white"
-            text-color="white"
-            label="Auto Parts"
-          >
-            <q-list>
-              <q-item clickable v-close-popup>
-                <q-item-section>
-                  <q-item-label>New Auto Parts</q-item-label>
-                </q-item-section>
-              </q-item>
-              <q-item clickable v-close-popup>
-                <q-item-section>
-                  <q-item-label>Used Auto Parts</q-item-label>
-                </q-item-section>
-              </q-item>
-            </q-list>
-          </q-btn-dropdown>
-          <q-btn
-            rounded
-            flat
-            dense
-            class="q-mr-xs"
-            color="white"
-            text-color="white"
-            label="Request"
-            :to="{ name: 'request' }"
-          />
-          <q-btn
-            rounded
-            flat
-            dense
-            class="q-mr-xs"
-            color="white"
-            text-color="white"
-            label="Contact"
-            :to="{ name: 'contact' }"
-          />
-          || &nbsp;
-          <!-- <q-btn
-            rounded
-            class="q-mr-xs btn-fixed-width"
-            align="around"
-            color="white"
-            text-color="primary"
-            icon="shopping_cart"
-            label="CART" /> -->
-          <q-btn
-            rounded
-             size="sm"
-            class="q-mr-xs btn-fixed-width"
-            align="around"
-            color="white"
-            text-color="primary"
-            icon="person"
-            label="Login"
-            :to="{ name: 'login' }"
-          />
->>>>>>> 96735b6de80ed33cc2be388159804a154f674785
         </div>
         <div class="lt-md">
           <q-btn
@@ -527,10 +429,6 @@
       </div>
     </div>
     <!-- footer -->
-<<<<<<< HEAD
-=======
-
->>>>>>> 96735b6de80ed33cc2be388159804a154f674785
     <q-page-scroller position="bottom" :scroll-offset="150" :offset="[18, 18]">
       <q-btn fab icon="keyboard_arrow_up" color="primary" />
     </q-page-scroller>
