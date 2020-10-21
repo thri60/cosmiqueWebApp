@@ -2,7 +2,7 @@
    <q-page class="row justify-center items-center">
     <div class="column q-pa-lg">
       <div class="row">
-      <q-card square class="shadow-24" style="min-width:350px;">
+      <q-card round class="shadow-24" style="min-width:350px;">
           <q-card-section class="bg-primary">
             <h4 class="text-bold text-h5 text-white q-my-md">Registration</h4>
           </q-card-section>

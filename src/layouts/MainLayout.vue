@@ -85,6 +85,16 @@
             class="q-mr-xs"
             color="white"
             text-color="white"
+            label="About"
+            :to="{ name: 'about'}"
+          />
+          <q-btn
+            rounded
+            flat
+            dense
+            class="q-mr-xs"
+            color="white"
+            text-color="white"
             label="Contact"
             :to="{ name: 'contact'}"
           /> || &nbsp;
@@ -390,6 +400,18 @@
                 text-color="white"
                 label="Request"
                  :to="{ name: 'request'}"
+              />
+              <q-btn
+                dense
+                no-caps
+                rounded
+                size="sm"
+                flat
+                class="q-mr-xs"
+                color="white"
+                text-color="white"
+                label="About"
+                 :to="{ name: 'about'}"
               />
               <q-btn
                 rounded

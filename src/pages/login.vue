@@ -1,8 +1,8 @@
 <template>
   <q-page class="row justify-center items-center">
-    <div>
+    <div  class="column q-pa-lg">
       <div class="row">
-        <q-card square class="shadow-24" style="min-width:350px;">
+        <q-card class="shadow-24" style="min-width:350px;">
            <q-form @submit.prevent.stop="onSubmit" >
           <q-card-section class="bg-primary">
             <h4 class="text-h5 text-bold text-white q-my-md">LOGIN</h4>
