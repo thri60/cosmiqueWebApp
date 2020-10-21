@@ -1,6 +1,6 @@
 <template>
   <q-layout  view="lhr Lpr fFf">
-    <q-header reveal elevated class="q-py-sm ">
+    <q-header reveal elevated class="q-py-sm">
       <q-toolbar>
         <q-toolbar-title>
           <div style="padding: 4px">
@@ -23,16 +23,6 @@
             text-color="white"
             label="Home"
           />
-          <q-btn
-            rounded
-            flat
-            dense
-            :to="{ name: 'auction'}"
-            class="q-mr-xs"
-            color="white"
-            text-color="white"
-            label="AUCTIONS"
-          />
           <q-btn-dropdown
             flat
             dense
@@ -40,7 +30,12 @@
             text-color="white"
             label="Auto Inventory"
           >
-            <q-list>
+            <q-list class="bg-primary text-white">
+               <q-item clickable v-close-popup>
+                <q-item-section>
+                  <q-item-label @click="$router.replace('/auction')"> Auction</q-item-label>
+                </q-item-section>
+              </q-item>
               <q-item clickable v-close-popup>
                 <q-item-section>
                   <q-item-label>Used Autos</q-item-label>
@@ -55,7 +50,7 @@
             text-color="white"
             label="Auto Parts"
           >
-            <q-list>
+            <q-list class="bg-primary text-white">
               <q-item clickable v-close-popup>
                 <q-item-section>
                   <q-item-label>New Auto Parts</q-item-label>
@@ -75,29 +70,39 @@
             class="q-mr-xs"
             color="white"
             text-color="white"
-            label="Request"
-            :to="{ name: 'request'}"
+            label="shipping"
+            :to="{ name: 'shipping'}"
           />
-          <q-btn
-            rounded
+          <q-btn-dropdown
             flat
             dense
-            class="q-mr-xs"
             color="white"
             text-color="white"
-            label="About"
-            :to="{ name: 'about'}"
-          />
-          <q-btn
-            rounded
-            flat
-            dense
-            class="q-mr-xs"
-            color="white"
-            text-color="white"
-            label="Contact"
-            :to="{ name: 'contact'}"
-          /> || &nbsp;
+            label="Support"
+          >
+            <q-list class="bg-primary text-white">
+              <q-item clickable v-close-popup>
+                <q-item-section >
+                  <q-item-label @click="$router.replace('/about')">About Us</q-item-label>
+                </q-item-section>
+              </q-item>
+              <q-item clickable v-close-popup>
+                <q-item-section >
+                  <q-item-label @click="$router.replace('/contact')">Contact Us</q-item-label>
+                </q-item-section>
+              </q-item>
+              <q-item clickable v-close-popup>
+                <q-item-section >
+                  <q-item-label @click="$router.replace('/faq')">FAQ</q-item-label>
+                </q-item-section>
+              </q-item>
+              <q-item clickable v-close-popup>
+                <q-item-section >
+                  <q-item-label @click="$router.replace('/request')">Make a Vehicle Request</q-item-label>
+                </q-item-section>
+              </q-item>
+            </q-list>
+          </q-btn-dropdown>|| &nbsp;
           <!-- <q-btn
             rounded
             class="q-mr-xs btn-fixed-width"

@@ -148,10 +148,45 @@
           </ul>
         </div>
         <div class="col-12 col-md-6 q-pa-md">
-             <p class="text-weight-bold text-grey-9 text-h5">
+          <p class="text-weight-bold text-grey-9 text-h5">
             <span class="text-primary">| &nbsp;</span> MORE INFO
             <span class="text-primary">&nbsp;&nbsp; |</span>
           </p>
+          <div>
+             <q-list class="rounded-borders bg-grey-1">
+      <q-expansion-item
+        header-class="text-bold text-h6 text-grey-8"
+        label="Fair Price for Everyone"
+        expand-icon-class="text-primary"
+
+      >
+        <q-card>
+          <q-card-section>
+            Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quidem, eius reprehenderit eos corrupti
+            commodi magni quaerat ex numquam, dolorum officiis modi facere maiores architecto suscipit iste
+            eveniet doloribus ullam aliquid.
+          </q-card-section>
+        </q-card>
+      </q-expansion-item>
+
+        <q-separator class="q-pa-md bg-grey-3" />
+
+
+      <q-expansion-item
+       header-class="text-bold text-h6 text-grey-8"
+        label="Large Number of Vehicles"
+        expand-icon-class="text-primary"
+      >
+        <q-card>
+          <q-card-section>
+            Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quidem, eius reprehenderit eos corrupti
+            commodi magni quaerat ex numquam, dolorum officiis modi facere maiores architecto suscipit iste
+            eveniet doloribus ullam aliquid.
+          </q-card-section>
+        </q-card>
+      </q-expansion-item>
+    </q-list>
+          </div>
           </div>
         </div>
       </div>

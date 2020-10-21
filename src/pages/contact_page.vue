@@ -172,6 +172,7 @@
           icon="money"
           label="Sales Department"
           header-class="text-h5 text-primary text-bold"
+          expand-icon-class="text-primary"
         >
           <q-card>
             <q-card-section>
@@ -212,6 +213,7 @@
           icon="support_agent"
           label="Customer Support Department"
           header-class="text-h5 text-primary text-bold"
+          expand-icon-class="text-primary"
         >
           <q-card>
             <q-card-section>
@@ -252,6 +254,7 @@
           icon="directions_boat"
           label="Transportation Department"
           header-class="text-h5 text-primary text-bold"
+          expand-icon-class="text-primary"
         >
           <q-card>
             <q-card-section>
@@ -291,6 +294,7 @@
           icon="article"
           label="Collection Department"
           header-class="text-h5 text-primary text-bold"
+          expand-icon-class="text-primary"
         >
           <q-card>
             <q-card-section>
@@ -328,6 +332,7 @@
           icon="support_agent"
           label="Technical Support"
           header-class="text-h5 text-primary text-bold"
+          expand-icon-class="text-primary"
         >
           <q-card>
             <q-card-section>
