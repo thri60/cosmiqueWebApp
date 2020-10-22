@@ -129,6 +129,27 @@
             />
           </div>
           <div v-else>
+            <q-btn-dropdown label="My Auction Center" class="q-ml-lg bg-tertiary" no-caps flat>
+              <q-list bordered separator>
+                <q-item clickable v-ripple >
+                  <q-item-section>Bidding Limit</q-item-section>
+                </q-item>
+                <q-item clickable v-ripple>
+                  <q-item-section>Watch-list</q-item-section>
+                </q-item>
+                <q-item clickable v-ripple>
+                  <q-item-section>Saved Searches</q-item-section>
+                </q-item>
+                <q-item clickable v-ripple>
+                  <q-item-section>My Bids</q-item-section>
+                </q-item>
+                <q-item clickable v-ripple  @click.native="logout">
+                  <q-item-section>
+                    <q-item-label>Transactions</q-item-label>
+                  </q-item-section>
+                </q-item>
+              </q-list>
+            </q-btn-dropdown>
             <q-btn-dropdown :label="this.$auth.user().full_name" icon="person_pin" class="q-ml-lg bg-tertiary" no-caps flat>
               <q-list bordered separator>
                 <q-item clickable v-ripple >
@@ -145,7 +166,7 @@
                 </q-item>
                 <q-item clickable v-ripple  @click.native="logout">
                   <q-item-section>
-                    <q-item-label overline>Account Logout</q-item-label>
+                    <q-item-label>Account Logout</q-item-label>
                   </q-item-section>
                 </q-item>
               </q-list>
