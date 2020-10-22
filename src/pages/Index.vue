@@ -704,7 +704,7 @@ export default {
 
   methods: {
     loading_cars() {
-      axios
+      this.axios
         .get(
           "https://www.salvagebid.com/rest-api/v1.0/lots/search?page=1&per_page=26&type=car&make=*&model=*&search_id=&search_query=&year_from=2008&year_to=2021&sort_field=&sort_order=&sales_type=*&distance=*&destination_zip=&location_state=*&location_city=*&primary_damage=normal+wear+%26+tear&loss_type=*&title_name=*&exterior_color=*&odometer_min=*&odometer_max=*"
         )
@@ -715,7 +715,7 @@ export default {
 
     selected(id) {
       // console.log(id);
-      axios
+      this.axios
         .get("https://www.salvagebid.com/rest-api/v2/lots/" + id)
         .then(response => {
           this.view_selected = response.data.lot;
@@ -723,7 +723,7 @@ export default {
         });
     },
 
-    picked_car(id){
+    picked_car(id) {
       this.$router.push({
         name: "auction_car_details",
         params: { selected_car: id }

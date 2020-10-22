@@ -309,7 +309,6 @@
 </template>
 
 <script>
-import axios from "axios";
 
 export default {
   data() {
@@ -341,7 +340,7 @@ export default {
 
   methods: {
     loading_cars() {
-      axios
+      this.axios
         .get(
           "https://www.salvagebid.com/rest-api/v1.0/lots/search?page=" +
             this.current +

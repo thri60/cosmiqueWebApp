@@ -6,9 +6,8 @@ import shippingPage from 'pages/shipping_page.vue';
 import aboutPage from 'pages/about_page.vue';
 import loginPage from 'pages/login.vue';
 import registerPage from 'pages/register.vue';
-
-
 import CarDetailPage from 'pages/auction_car_details.vue';
+import dashboardPage from 'pages/dashboard';
 
 
 const routes = [{
@@ -25,6 +24,9 @@ const routes = [{
             { path: '/login', name: 'login', component: loginPage },
             { path: '/register', name: 'register', component: registerPage },
             { path: '/auction_car_details', name: 'auction_car_details', component: CarDetailPage, props: true },
+
+            // auth pages
+            { path: 'account/dashboard', name: 'dashboard', component: dashboardPage, meta: { auth: true } },
         ]
     },
 

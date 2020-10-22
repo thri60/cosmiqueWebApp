@@ -59,14 +59,12 @@
                 <q-space />
               </div>
                    <div class="text-h6">
-              &nbsp;</i>VIN: &nbsp; &nbsp;
-                &nbsp; &nbsp; &nbsp; &nbsp;<b>
+                 VIN: <b>
                   {{ view_selected.lot.vin }}</b
                 >
               </div>
                           <div class="text-h6">
-                <i class="fas fa-tachometer-alt"></i> &nbsp; MILEAGE &nbsp;
-                &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
+                <i class="fas fa-tachometer-alt"></i> MILEAGE 
                 <b>
                   {{ view_selected.lot.odometer_value
                   }}{{ view_selected.lot.odometer_type.toUpperCase() }}</b
@@ -74,12 +72,11 @@
               </div>
               <div class="text-h6">
                 <i class="fab fa-keycdn"></i>
-                &nbsp;START CODE &nbsp; &nbsp; &nbsp; &nbsp;
+                START CODE 
                 <b>{{ view_selected.lot.start_code.toUpperCase() }}</b>
               </div>
               <div class="text-h6">
-                <i class="fas fa-car-crash"> &nbsp;</i>DAMAGE: &nbsp; &nbsp;
-                &nbsp; &nbsp; &nbsp; &nbsp;<b>
+                <i class="fas fa-car-crash"> </i> DAMAGE: <b> 
                   {{ view_selected.lot.damage }}</b
                 >
               </div>
@@ -128,8 +125,6 @@
   </div>
 </template>
 <script>
-import axios from "axios";
-import { response } from "@websanova/vue-auth/drivers/auth/bearer";
 
 export default {
   props: ["selected_car"],
@@ -145,7 +140,7 @@ export default {
   methods: {
     load_car_details() {
       this.showLoading();
-      axios
+      this.axios
         .get("https://www.salvagebid.com/rest-api/v2/lots/" + this.selected_car)
         .then(response => {
           this.view_selected = response.data;

@@ -1,53 +1,49 @@
 <template>
   <q-page class="row justify-center items-center">
-    <div  class="column q-pa-lg">
+    <div class="column q-pa-lg">
       <div class="row">
         <q-card class="shadow-24" style="min-width:350px;">
-           <q-form @submit.prevent.stop="onSubmit" >
           <q-card-section class="bg-primary">
             <h4 class="text-h5 text-bold text-white q-my-md">LOGIN</h4>
           </q-card-section>
           <q-card-section>
-              <q-input
-                class="q-pa-md"
-                dense
-                square
-                clearable
-                v-model="email"
-                type="email"
-                label="Email"
-                :rules="[
-                    val => (val && val.length > 0) || 'Your Email Please'
-                  ]"
-              >
-                <template v-slot:prepend>
-                  <q-icon name="email" />
-                </template>
-              </q-input>
-              <q-input
-                class="q-pa-md"
-                dense
-                square
-                clearable
-                v-model="password"
-                label="Password"
-                :type="isPwd ? 'password' : 'text'"
-                :rules="[
-                    val => (val && val.length > 0) || 'Your Password Please'
-                  ]"
-              >
-                <template v-slot:prepend>
-                  <q-icon name="lock" />
-                </template>
-                <template v-slot:append>
-                  <q-icon
-                    :name="isPwd ? 'visibility_off' : 'visibility'"
-                    class="cursor-pointer"
-                    @click="isPwd = !isPwd"
-                  />
-                </template>
-              </q-input>
-
+            <q-input
+              class="q-pa-md"
+              dense
+              square
+              clearable
+              v-model="form.email"
+              type="email"
+              label="Email"
+              :rules="[val => (val && val.length > 0) || 'Your Email Please']"
+            >
+              <template v-slot:prepend>
+                <q-icon name="email" />
+              </template>
+            </q-input>
+            <q-input
+              class="q-pa-md"
+              dense
+              square
+              clearable
+              v-model="form.password"
+              label="Password"
+              :type="isPwd ? 'password' : 'text'"
+              :rules="[
+                val => (val && val.length > 0) || 'Your Password Please'
+              ]"
+            >
+              <template v-slot:prepend>
+                <q-icon name="lock" />
+              </template>
+              <template v-slot:append>
+                <q-icon
+                  :name="isPwd ? 'visibility_off' : 'visibility'"
+                  class="cursor-pointer"
+                  @click="isPwd = !isPwd"
+                />
+              </template>
+            </q-input>
           </q-card-section>
           <q-card-section>
             <div class="text-center q-pa-md q-gutter-md">
@@ -72,13 +68,15 @@
               color="primary"
               class="full-width text-white"
               label="Sign In"
+              @click="login"
             />
           </q-card-actions>
           <q-card-section class="text-center q-pa-sm">
             <p class="text-grey-6">Forgot your password?</p>
-           <a href="/register"> <p  class="text-grey-6">Dont have an account yet? </p></a>
+            <a href="/register">
+              <p class="text-grey-6">Dont have an account yet?</p></a
+            >
           </q-card-section>
-           </q-form>
         </q-card>
       </div>
     </div>
@@ -87,30 +85,73 @@
 
 <script>
 export default {
-  name: "Login",
   data() {
     return {
-      email: "",
-      username: "",
-       password: "",
-      isPwd: true,
+      form: {
+        email: "",
+        password: ""
+      },
+      isPwd: true
     };
   },
-    methods: {
-        onSubmit() {
-      this.$refs.email.validate();
-      this.$refs.password.validate();
-
-      if (this.$refs.email.hasError || this.$refs.password.hasError) {
-        this.formHasError = true;
-      } else {
+  methods: {
+    login() {
+      if (this.form.email == "") {
         this.$q.notify({
-          icon: "done",
-          color: "positive",
-          message: "Submitted"
+          color: "negative",
+          position: "top",
+          message: "email field is empty",
+          icon: "error"
         });
       }
+      if (this.form.password == "") {
+        this.$q.notify({
+          color: "negative",
+          position: "top",
+          message: "password field is empty",
+          icon: "error"
+        });
+      }
+
+      this.axios.post('auth/login', this.form).then(response => {
+        if (response.data.status == false) {
+          this.$q.notify({
+            message: response.data.message,
+            color: "negative",
+            position: "top",
+            icon: "error"
+          });
+          console.log(response.data);
+        } else {
+          this.$auth.login({
+            url: "/auth/login",
+            redirect: "/account/dashboard",
+            data: this.form,
+            success: response => {
+              this.$auth.user(response.data.user);
+              this.$auth.token("access_token", response.data.token);
+              this.$q.notify({
+                message: "you have been logged in successfully!",
+                color: "purple",
+                icon: "person",
+                position: "top"
+              });
+            },
+            error: error => {
+              this.loading = false;
+
+              this.$q.notify({
+                message: response.data.message,
+                icon: "error",
+                color: "negative",
+                position: "top"
+              });
+            },
+            fetchUser: false
+          });
+        }
+      });
     }
-  },
+  }
 };
 </script>
