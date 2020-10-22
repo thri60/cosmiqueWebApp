@@ -35,14 +35,11 @@
               dense
               color="white"
               text-color="white"
-              label="Auto Inventory"
-            >
+              label="Auto Inventory" >
               <q-list class="bg-primary text-white">
-                <q-item clickable v-close-popup>
+                <q-item clickable :to="{ name: 'auction' }">
                   <q-item-section>
-                    <q-item-label @click="$router.replace('/auction')">
-                      Auction</q-item-label
-                    >
+                    <q-item-label>Auction</q-item-label>
                   </q-item-section>
                 </q-item>
                 <q-item clickable v-close-popup>
@@ -132,15 +129,27 @@
             />
           </div>
           <div v-else>
-            <q-btn
-              rounded
-              class="q-mr-xs btn-fixed-width"
-              align="around"
-              color="white"
-              text-color="primary"
-              icon="shopping_cart"
-              label="CART"
-            />
+            <q-btn-dropdown :label="this.$auth.user().full_name" icon="person_pin" class="q-ml-lg bg-tertiary" no-caps flat>
+              <q-list bordered separator>
+                <q-item clickable v-ripple >
+                  <q-item-section>Contact Information</q-item-section>
+                </q-item>
+                <q-item clickable v-ripple>
+                  <q-item-section>Billing Information</q-item-section>
+                </q-item>
+                <q-item clickable v-ripple>
+                  <q-item-section>Password and Login</q-item-section>
+                </q-item>
+                <q-item clickable v-ripple>
+                  <q-item-section>Document and IDs</q-item-section>
+                </q-item>
+                <q-item clickable v-ripple  @click.native="logout">
+                  <q-item-section>
+                    <q-item-label overline>Account Logout</q-item-label>
+                  </q-item-section>
+                </q-item>
+              </q-list>
+            </q-btn-dropdown>
           </div>
         </div>
         <div class="lt-md">
