@@ -1,12 +1,12 @@
 <template>
   <q-list bordered>
-    <q-item clickable v-ripple>
+    <q-item clickable v-ripple :to="{ name:'bidding_account_limit'}">
       <q-item-section avatar>
         <q-icon color="primary" name="assessment" />
       </q-item-section>
       <q-item-section>Bidding Limit</q-item-section>
     </q-item>
-    <q-item clickable v-ripple>
+    <q-item clickable v-ripple :to="{ name: 'watch_list'}">
       <q-item-section avatar>
         <q-icon color="primary" name="assessment" />
       </q-item-section>
