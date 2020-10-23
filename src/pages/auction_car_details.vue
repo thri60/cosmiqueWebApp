@@ -64,7 +64,7 @@
                 >
               </div>
                           <div class="text-h6">
-                <i class="fas fa-tachometer-alt"></i> MILEAGE 
+                <i class="fas fa-tachometer-alt"></i> MILEAGE
                 <b>
                   {{ view_selected.lot.odometer_value
                   }}{{ view_selected.lot.odometer_type.toUpperCase() }}</b
@@ -72,11 +72,11 @@
               </div>
               <div class="text-h6">
                 <i class="fab fa-keycdn"></i>
-                START CODE 
+                START CODE
                 <b>{{ view_selected.lot.start_code.toUpperCase() }}</b>
               </div>
               <div class="text-h6">
-                <i class="fas fa-car-crash"> </i> DAMAGE: <b> 
+                <i class="fas fa-car-crash"> </i> DAMAGE: <b>
                   {{ view_selected.lot.damage }}</b
                 >
               </div>
@@ -111,6 +111,8 @@
                 <q-input
                   v-model="view_selected.lot.current_bid_value"
                   type="number"
+                  dense
+                  rounded
                   align="right"
                   standout
                   prefix="$"
@@ -157,7 +159,7 @@ export default {
       this.timer = setTimeout(() => {
         this.$q.loading.hide();
         this.timer = void 0;
-      }, 5000);
+      }, 50);
     }
   },
 
