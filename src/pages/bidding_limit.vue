@@ -20,24 +20,24 @@
           <q-card-section>
              <q-slider
                 v-model="bidding_limit"
-                :min="4"
-                :max="100"
+                :min="500"
+                :max="100000"
                 :step="4"
                 label
-                :label-value="'$: ' + bidding_limit + 'px'"
+                :label-value="(bidding_limit).toLocaleString('en-US', {
+                      style: 'currency',
+                      currency: 'USD',
+                    })"
                 label-always
                 color="orange"
               />
           </q-card-section>
         </q-card>
         <div class="col-12 col-md-3 q-pa-md">
-          <q-input
-              v-model.number="bidding_limit"
-              type="number"
-              filled
-              label="Bidding Limit ?"
-              style="max-width: 200px"
-            />
+          <span class="text-h6">{{ (bidding_limit).toLocaleString('en-US', {
+                      style: 'currency',
+                      currency: 'USD',
+                    }) }}</span>
         </div>
       </div>
     </div>
