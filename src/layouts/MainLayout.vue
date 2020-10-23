@@ -255,10 +255,10 @@
             <q-separator inset />
             <q-btn-dropdown label="My Auction Center" icon="fas fa-gavel" class="q-ml-lg bg-tertiary q-pa-md" no-caps flat>
               <q-list bordered separator>
-                <q-item clickable v-ripple >
+                <q-item clickable v-ripple :to="{ name: 'bidding_account_limit'}">
                   <q-item-section>Bidding Limit</q-item-section>
                 </q-item>
-                <q-item clickable v-ripple>
+                <q-item clickable v-ripple :to="{ name: 'watch_list' }">
                   <q-item-section>Watch-list</q-item-section>
                 </q-item>
                 <q-item clickable v-ripple>

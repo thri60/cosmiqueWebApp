@@ -52,7 +52,7 @@ export default {
   },
   data() {
     return {
-      bidding_limit: 10,
+      bidding_limit: 500,
     };
   }
 };
