@@ -16,6 +16,7 @@
               type="email"
               label="Email"
               :rules="[val => (val && val.length > 0) || 'Your Email Please']"
+              @keyup.enter="login"
             >
               <template v-slot:prepend>
                 <q-icon name="email" />
@@ -29,6 +30,7 @@
               v-model="form.password"
               label="Password"
               :type="isPwd ? 'password' : 'text'"
+              @keyup.enter="login"
               :rules="[
                 val => (val && val.length > 0) || 'Your Password Please'
               ]"

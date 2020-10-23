@@ -186,7 +186,7 @@
     </q-header>
     <q-drawer v-model="leftDrawerOpen" bordered content-class="bg-grey-1">
       <q-list>
-        <q-item-label header class="text-grey-8">
+        <q-item-label header class="text-grey-8 q-pa-md">
           Cosmique Autos
         </q-item-label>
          <q-separator />
@@ -231,7 +231,49 @@
           </q-item>
         </div>
         <div v-else>
-
+          <q-btn-dropdown :label="this.$auth.user().full_name" icon="person_pin" class="q-ml-lg bg-tertiary q-pa-md" no-caps flat>
+              <q-list bordered separator>
+                <q-item clickable v-ripple >
+                  <q-item-section>Contact Information</q-item-section>
+                </q-item>
+                <q-item clickable v-ripple>
+                  <q-item-section>Billing Information</q-item-section>
+                </q-item>
+                <q-item clickable v-ripple>
+                  <q-item-section>Password and Login</q-item-section>
+                </q-item>
+                <q-item clickable v-ripple>
+                  <q-item-section>Document and IDs</q-item-section>
+                </q-item>
+                <q-item clickable v-ripple  @click.native="logout">
+                  <q-item-section>
+                    <q-item-label>Account Logout</q-item-label>
+                  </q-item-section>
+                </q-item>
+              </q-list>
+            </q-btn-dropdown>
+            <q-separator inset />
+            <q-btn-dropdown label="My Auction Center" icon="fas fa-gavel" class="q-ml-lg bg-tertiary q-pa-md" no-caps flat>
+              <q-list bordered separator>
+                <q-item clickable v-ripple >
+                  <q-item-section>Bidding Limit</q-item-section>
+                </q-item>
+                <q-item clickable v-ripple>
+                  <q-item-section>Watch-list</q-item-section>
+                </q-item>
+                <q-item clickable v-ripple>
+                  <q-item-section>Saved Searches</q-item-section>
+                </q-item>
+                <q-item clickable v-ripple>
+                  <q-item-section>My Bids</q-item-section>
+                </q-item>
+                <q-item clickable v-ripple  @click.native="logout">
+                  <q-item-section>
+                    <q-item-label>Transactions</q-item-label>
+                  </q-item-section>
+                </q-item>
+              </q-list>
+            </q-btn-dropdown>
         </div>
       </q-list>
     </q-drawer>
