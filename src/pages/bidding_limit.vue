@@ -18,19 +18,27 @@
             </div>
           </q-card-section>
           <q-card-section>
-            <q-range
-              v-model="rangeSnap"
-              :min="0"
-              :max="100"
-              :step="5"
-              drag-range
-              label
-              markers
-              snap
-              color="lime"
-            />
+             <q-slider
+                v-model="bidding_limit"
+                :min="4"
+                :max="100"
+                :step="4"
+                label
+                :label-value="'$: ' + bidding_limit + 'px'"
+                label-always
+                color="orange"
+              />
           </q-card-section>
         </q-card>
+        <div class="col-12 col-md-3 q-pa-md">
+          <q-input
+              v-model.number="bidding_limit"
+              type="number"
+              filled
+              label="Bidding Limit ?"
+              style="max-width: 200px"
+            />
+        </div>
       </div>
     </div>
   </div>
@@ -44,10 +52,7 @@ export default {
   },
   data() {
     return {
-      rangeSnap: {
-        min: 300,
-        max: 40000
-      }
+      bidding_limit: 10,
     };
   }
 };
