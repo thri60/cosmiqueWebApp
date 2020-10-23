@@ -1,5 +1,5 @@
 <template>
-  <q-page class="row justify-center items-center">
+  <q-page class="row justify-center items-center login_bg">
     <div class="column q-pa-lg">
       <div class="row">
         <q-card round class="shadow-24" style="min-width:350px;">

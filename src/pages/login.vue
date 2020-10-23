@@ -1,5 +1,5 @@
 <template>
-  <q-page class="row justify-center items-center">
+  <q-page class="row justify-center items-center login_bg">
     <div class="column q-pa-lg">
       <div class="row">
         <q-card class="shadow-24" style="min-width:350px;">
@@ -157,3 +157,13 @@ export default {
   }
 };
 </script>
+
+<style lang="css">
+.login_bg{
+  background-image: url("/bg2.webp");
+  background-position:  0 0;
+  background-repeat: no-repeat;
+  /* background-size: auto; */
+}
+
+</style>
