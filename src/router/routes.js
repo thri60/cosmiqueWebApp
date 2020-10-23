@@ -7,7 +7,7 @@ import aboutPage from 'pages/about_page.vue';
 import loginPage from 'pages/login.vue';
 import registerPage from 'pages/register.vue';
 import CarDetailPage from 'pages/auction_car_details.vue';
-import dashboardPage from 'pages/dashboard';
+import biddingLimitPage from 'pages/bidding_limit';
 
 
 const routes = [{
@@ -26,7 +26,7 @@ const routes = [{
             { path: '/auction_car_details', name: 'auction_car_details', component: CarDetailPage, props: true },
 
             // auth pages
-            { path: 'account/dashboard', name: 'dashboard', component: dashboardPage, meta: { auth: true } },
+            { path: 'account/bidding_account_limit', name: 'dashboard', component: biddingLimitPage, meta: { auth: true } },
         ]
     },
 

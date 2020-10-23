@@ -189,6 +189,7 @@
         <q-item-label header class="text-grey-8">
           Cosmique Autos
         </q-item-label>
+         <q-separator />
         <div v-if="!$auth.check()">
           <q-item clickable v-ripple :to="{ name: 'homepage' }">
             <q-item-section avatar>
@@ -221,7 +222,7 @@
             </q-item-section>
             <q-item-section>Auctions</q-item-section>
           </q-item>
-          <hr >
+           <q-separator />
           <q-item clickable v-ripple :to="{ name: 'login' }">
             <q-item-section avatar>
               <q-icon color="primary" name="assessment" />

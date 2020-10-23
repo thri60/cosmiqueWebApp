@@ -125,7 +125,7 @@ export default {
         } else {
           this.$auth.login({
             url: "/auth/login",
-            redirect: "/account/dashboard",
+            redirect: "/account/bidding_account_limit",
             data: this.form,
             success: response => {
               this.$auth.user(response.data.user);
