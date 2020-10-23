@@ -74,7 +74,7 @@
           <q-card-section class="text-center q-pa-sm">
             <p class="text-grey-6">Forgot your password?</p>
             <a href="/register">
-              <p class="text-grey-6">Dont have an account yet?</p></a
+              <p class="text-grey-6">Don't have an account yet?</p></a
             >
           </q-card-section>
         </q-card>
@@ -125,7 +125,7 @@ export default {
         } else {
           this.$auth.login({
             url: "/auth/login",
-            redirect: "/account/dashboard",
+            redirect: "/account/bidding_account_limit",
             data: this.form,
             success: response => {
               this.$auth.user(response.data.user);
