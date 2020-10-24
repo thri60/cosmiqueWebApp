@@ -143,7 +143,7 @@ export default {
     load_car_details() {
       this.showLoading();
       this.axios
-        .get("https://www.salvagebid.com/rest-api/v2/lots/" + this.selected_car)
+        .get('https://cors-anywhere.herokuapp.com/' + "https://www.salvagebid.com/rest-api/v2/lots/" + this.selected_car)
         .then(response => {
           this.view_selected = response.data;
         });
