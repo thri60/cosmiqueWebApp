@@ -179,114 +179,116 @@
         rounded-borders
       >
         <div class="row q-col-gutter-x-xs q-col-gutter-y q-pa-xs">
-          <div
-            class="col-12 col-md-4 q-pa-md"
-            v-for="car in data"
-            :key="car.id"
-          >
-            <q-card class="my-card">
-              <q-img
-                :src="car.images[0]"
-                @click="selected(car.id)"
-                v-ripple
-                class="cursor-pointer relative-position"
-              >
-                <q-tooltip content-class="bg-primary text-white text-bold "
-                  >Click to Preview</q-tooltip
+          <q-intersection>
+            <div
+              class="col-12 col-md-4 q-pa-md"
+              v-for="car in data"
+              :key="car.id"
+            >
+              <q-card class="my-card">
+                <q-img
+                  :src="car.images[0]"
+                  @click="selected(car.id)"
+                  v-ripple
+                  class="cursor-pointer relative-position"
                 >
-                <template v-slot:loading>
-                  <div class="text-primary">
-                    <q-spinner />
-                    <div class="q-mt-md">Loading...</div>
+                  <q-tooltip content-class="bg-primary text-white text-bold "
+                    >Click to Preview</q-tooltip
+                  >
+                  <template v-slot:loading>
+                    <div class="text-primary">
+                      <q-spinner />
+                      <div class="q-mt-md">Loading...</div>
+                    </div>
+                  </template>
+                  <div class="absolute-bottom text-subtitle2 text-center">
+                    <strong class="text-h6"> {{ car.vehicle_name }} </strong>
                   </div>
-                </template>
-                <div class="absolute-bottom text-subtitle2 text-center">
-                  <strong class="text-h6"> {{ car.vehicle_name }} </strong>
-                </div>
-              </q-img>
+                </q-img>
 
-              <q-card-selection>
-                <div class="row">
-                  <q-rating
-                    v-model="car.id"
-                    max="1"
-                    size="2em"
-                    color="primary"
-                    color-selected="primary"
-                    icon="favorite_border"
-                    icon-selected="favorite"
-                    icon-half="favorite"
-                    no-dimming
-                  />
-                  <q-space />
+                <q-card-selection>
+                  <div class="row">
+                    <q-rating
+                      v-model="car.id"
+                      max="1"
+                      size="2em"
+                      color="primary"
+                      color-selected="primary"
+                      icon="favorite_border"
+                      icon-selected="favorite"
+                      icon-half="favorite"
+                      no-dimming
+                    />
+                    <q-space />
 
-                  <q-btn flat round color="primary" icon="share" />
-                </div>
-              </q-card-selection>
-              <q-card-section>
-                <div>
-                  <input type="hidden" v-model="car.id" />
-                  <i class="fas fa-tachometer-alt"></i> MILEAGE:
-                  <b>
-                    {{ new Intl.NumberFormat().format(car.odometer_value) }}
-                    {{ car.odometer_type.toUpperCase() }}
-                  </b>
-                </div>
-                <div>
-                  <i class="fab fa-keycdn"></i> START CODE:
-                  <b>{{ car.start_code.toUpperCase() }}</b>
-                </div>
+                    <q-btn flat round color="primary" icon="share" />
+                  </div>
+                </q-card-selection>
+                <q-card-section>
+                  <div>
+                    <input type="hidden" v-model="car.id" />
+                    <i class="fas fa-tachometer-alt"></i> MILEAGE:
+                    <b>
+                      {{ new Intl.NumberFormat().format(car.odometer_value) }}
+                      {{ car.odometer_type.toUpperCase() }}
+                    </b>
+                  </div>
+                  <div>
+                    <i class="fab fa-keycdn"></i> START CODE:
+                    <b>{{ car.start_code.toUpperCase() }}</b>
+                  </div>
 
-                <hr />
-                <div class="q-mb-xs">
-                  Current Bid:
-                  <strong>
-                    {{
-                      new Intl.NumberFormat("us-US", {
-                        style: "currency",
-                        currency: "USD"
-                      }).format(car.current_bid_value)
-                    }}</strong
-                  >
-                  <q-btn
-                    class="full-width"
-                    rounded
-                    color="yellow-10"
-                    text-color="white"
-                    size="sm"
-                  >
-                    <b>Bid Now</b>
-                  </q-btn>
-                </div>
-
-                <q-separator inset />
-
-                <div class="q-mb-xs" v-if="car.buy_it_now > 0">
-                  <br />
-                  <q-btn
-                    class="full-width"
-                    rounded
-                    color="yellow-10"
-                    icon-right="shopping_cart"
-                    size="sm"
-                    text-color="white"
-                  >
-                    Buy it Now
+                  <hr />
+                  <div class="q-mb-xs">
+                    Current Bid:
                     <strong>
-                      &nbsp;
                       {{
                         new Intl.NumberFormat("us-US", {
                           style: "currency",
                           currency: "USD"
-                        }).format(car.buy_it_now)
-                      }}
-                      &nbsp;
-                    </strong>
-                  </q-btn>
-                </div>
-              </q-card-section>
-            </q-card>
-          </div>
+                        }).format(car.current_bid_value)
+                      }}</strong
+                    >
+                    <q-btn
+                      class="full-width"
+                      rounded
+                      color="yellow-10"
+                      text-color="white"
+                      size="sm"
+                    >
+                      <b>Bid Now</b>
+                    </q-btn>
+                  </div>
+
+                  <q-separator inset />
+
+                  <div class="q-mb-xs" v-if="car.buy_it_now > 0">
+                    <br />
+                    <q-btn
+                      class="full-width"
+                      rounded
+                      color="yellow-10"
+                      icon-right="shopping_cart"
+                      size="sm"
+                      text-color="white"
+                    >
+                      Buy it Now
+                      <strong>
+                        &nbsp;
+                        {{
+                          new Intl.NumberFormat("us-US", {
+                            style: "currency",
+                            currency: "USD"
+                          }).format(car.buy_it_now)
+                        }}
+                        &nbsp;
+                      </strong>
+                    </q-btn>
+                  </div>
+                </q-card-section>
+              </q-card>
+            </div>
+          </q-intersection>
         </div>
       </q-scroll-area>
     </div>
@@ -706,7 +708,7 @@ export default {
     loading_cars() {
       this.axios
         .get(
-          "https://www.salvagebid.com/rest-api/v1.0/lots/search?page=1&per_page=26&type=car&make=*&model=*&search_id=&search_query=&year_from=2008&year_to=2021&sort_field=&sort_order=&sales_type=*&distance=*&destination_zip=&location_state=*&location_city=*&primary_damage=normal+wear+%26+tear&loss_type=*&title_name=*&exterior_color=*&odometer_min=*&odometer_max=*"
+          "https://www.salvagebid.com/rest-api/v1.0/lots/search?page=1&per_page=26&type=car&make=*&model=*&search_id=&search_query=&year_from=2008&year_to=2021&sort_field=&sort_order=&sales_type=*&distance=*&destination_zip=&location_state=*&location_city=*&primary_damage=normal+wear+%26+tear&loss_type=*&title_name=*&exterior_color=*&odometer_min=*&odometer_max=*",
         )
         .then(response => {
           this.data = response.data.lots;

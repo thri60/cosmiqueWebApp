@@ -163,7 +163,7 @@ export default {
   background-image: url("/bg2.webp");
   background-position:  0 0;
   background-repeat: no-repeat;
-  /* background-size: auto; */
+  background-size: auto;
 }
 
 </style>

@@ -131,16 +131,16 @@
           <div v-else>
             <q-btn-dropdown label="My Auction Center" class="q-ml-lg bg-tertiary" no-caps flat>
               <q-list bordered separator>
-                <q-item clickable v-ripple >
+                <q-item clickable v-ripple :to="{ name: 'bidding_account_limit'}">
                   <q-item-section>Bidding Limit</q-item-section>
                 </q-item>
-                <q-item clickable v-ripple>
+                <q-item clickable v-ripple :to="{ name: 'watch_list' }">
                   <q-item-section>Watch-list</q-item-section>
                 </q-item>
-                <q-item clickable v-ripple>
+                <q-item clickable v-ripple :to="{ name: 'saved_searches' }">
                   <q-item-section>Saved Searches</q-item-section>
                 </q-item>
-                <q-item clickable v-ripple>
+                <q-item clickable v-ripple :to="{ name: 'my_bids'}">
                   <q-item-section>My Bids</q-item-section>
                 </q-item>
                 <q-item clickable v-ripple  @click.native="logout">
@@ -152,16 +152,16 @@
             </q-btn-dropdown>
             <q-btn-dropdown :label="this.$auth.user().full_name" icon="person_pin" class="q-ml-lg bg-tertiary" no-caps flat>
               <q-list bordered separator>
-                <q-item clickable v-ripple >
+                <q-item clickable v-ripple :to="{ name: 'contact_information'}">
                   <q-item-section>Contact Information</q-item-section>
                 </q-item>
-                <q-item clickable v-ripple>
+                <q-item clickable v-ripple :to="{ name: 'billing_information' }">
                   <q-item-section>Billing Information</q-item-section>
                 </q-item>
-                <q-item clickable v-ripple>
+                <q-item clickable v-ripple :to="{ name: 'password_login'}">
                   <q-item-section>Password and Login</q-item-section>
                 </q-item>
-                <q-item clickable v-ripple>
+                <q-item clickable v-ripple :to="{ name: 'documents_and_ids'}">
                   <q-item-section>Document and IDs</q-item-section>
                 </q-item>
                 <q-item clickable v-ripple  @click.native="logout">
@@ -233,16 +233,16 @@
         <div v-else>
           <q-btn-dropdown :label="this.$auth.user().full_name" icon="person_pin" class="q-ml-lg bg-tertiary q-pa-md" no-caps flat>
               <q-list bordered separator>
-                <q-item clickable v-ripple >
+                <q-item clickable v-ripple :to="{ name: 'contact_information'}">
                   <q-item-section>Contact Information</q-item-section>
                 </q-item>
-                <q-item clickable v-ripple>
+                <q-item clickable v-ripple :to="{ name: 'billing_information' }">
                   <q-item-section>Billing Information</q-item-section>
                 </q-item>
-                <q-item clickable v-ripple>
+                <q-item clickable v-ripple :to="{ name: 'password_login'}">
                   <q-item-section>Password and Login</q-item-section>
                 </q-item>
-                <q-item clickable v-ripple>
+                <q-item clickable v-ripple :to="{ name: 'documents_and_ids'}">
                   <q-item-section>Document and IDs</q-item-section>
                 </q-item>
                 <q-item clickable v-ripple  @click.native="logout">
@@ -261,10 +261,10 @@
                 <q-item clickable v-ripple :to="{ name: 'watch_list' }">
                   <q-item-section>Watch-list</q-item-section>
                 </q-item>
-                <q-item clickable v-ripple>
+                <q-item clickable v-ripple :to="{ name: 'saved_searches' }">
                   <q-item-section>Saved Searches</q-item-section>
                 </q-item>
-                <q-item clickable v-ripple>
+                <q-item clickable v-ripple :to="{ name: 'my_bids'}">
                   <q-item-section>My Bids</q-item-section>
                 </q-item>
                 <q-item clickable v-ripple  @click.native="logout">

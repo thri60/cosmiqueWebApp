@@ -9,6 +9,13 @@ import registerPage from 'pages/register.vue';
 import CarDetailPage from 'pages/auction_car_details.vue';
 import biddingLimitPage from 'pages/bidding_limit';
 import watchListPage from 'pages/watchlist';
+import savedSearchesPage from 'pages/saved_searches';
+import myBidsPage from 'pages/my_bids';
+import transactionPage from 'pages/transactions';
+import contactInfoPage from 'pages/contact_information';
+import billing_informationPage from 'pages/billing_information';
+import password_loginPage from 'pages/password_login';
+import documentInfoPage from 'pages/document_ids';
 
 
 const routes = [{
@@ -29,6 +36,13 @@ const routes = [{
             // auth pages
             { path: 'account/bidding_account_limit', name: 'bidding_account_limit', component: biddingLimitPage, meta: { auth: true } },
             { path: 'account/watch_list', name: 'watch_list', component: watchListPage, meta: { auth: true } },
+            { path: 'account/saved_searches', name: 'saved_searches', component: savedSearchesPage, meta: { auth: true } },
+            { path: 'account/my_bids', name: 'my_bids', component: myBidsPage, meta: { auth: true } },
+            { path: 'account/transactions', name: 'transactions', component: transactionPage, meta: { auth: true } },
+            { path: 'account/contact_information', name: 'contact_information', component: contactInfoPage, meta: { auth: true } },
+            { path: 'account/billing_information', name: 'billing_information', component: billing_informationPage, meta: { auth: true } },
+            { path: 'account/password_loginPage', name: 'password_login', component: password_loginPage, meta: { auth: true } },
+            { path: 'account/documents_and_ids', name: 'documents_and_ids', component: documentInfoPage, meta: { auth: true } },
         ]
     },
 
