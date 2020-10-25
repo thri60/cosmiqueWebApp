@@ -39,12 +39,12 @@
               <q-list class="bg-primary text-white">
                 <q-item clickable :to="{ name: 'auction' }">
                   <q-item-section>
-                    <q-item-label>Auction</q-item-label>
+                    <q-item-label class="text-white">Auction</q-item-label>
                   </q-item-section>
                 </q-item>
                 <q-item clickable v-close-popup>
                   <q-item-section>
-                    <q-item-label>Used Autos</q-item-label>
+                    <q-item-label class="text-white">Used Autos</q-item-label>
                   </q-item-section>
                 </q-item>
               </q-list>
@@ -59,12 +59,12 @@
               <q-list class="bg-primary text-white">
                 <q-item clickable v-close-popup>
                   <q-item-section>
-                    <q-item-label>New Auto Parts</q-item-label>
+                    <q-item-label class="text-white">New Auto Parts</q-item-label>
                   </q-item-section>
                 </q-item>
                 <q-item clickable v-close-popup>
                   <q-item-section>
-                    <q-item-label>Used Auto Parts</q-item-label>
+                    <q-item-label class="text-white">Used Auto Parts</q-item-label>
                   </q-item-section>
                 </q-item>
               </q-list>
@@ -87,32 +87,26 @@
               label="Support"
             >
               <q-list class="bg-primary text-white">
-                <q-item clickable v-close-popup>
+                <q-item clickable :to="{ name: 'about'} ">
                   <q-item-section>
-                    <q-item-label @click="$router.replace('/about')"
-                      >About Us</q-item-label
+                    <q-item-label class="text-white">About Us</q-item-label
                     >
+                  </q-item-section>
+                </q-item>
+                <q-item clickable :to="{ name: 'contact'} ">
+                  <q-item-section>
+                    <q-item-label class="text-white">Contact Us</q-item-label>
                   </q-item-section>
                 </q-item>
                 <q-item clickable v-close-popup>
                   <q-item-section>
-                    <q-item-label @click="$router.replace('/contact')"
-                      >Contact Us</q-item-label
+                    <q-item-label class="text-white">FAQ</q-item-label
                     >
                   </q-item-section>
                 </q-item>
-                <q-item clickable v-close-popup>
+                <q-item clickable :to="{ name: 'request'} ">
                   <q-item-section>
-                    <q-item-label @click="$router.replace('/faq')"
-                      >FAQ</q-item-label
-                    >
-                  </q-item-section>
-                </q-item>
-                <q-item clickable v-close-popup>
-                  <q-item-section>
-                    <q-item-label @click="$router.replace('/request')"
-                      >Make a Vehicle Request</q-item-label
-                    >
+                    <q-item-label class="text-white">Make a Vehicle Request</q-item-label>
                   </q-item-section>
                 </q-item>
               </q-list>

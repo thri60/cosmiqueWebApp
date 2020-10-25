@@ -7,7 +7,6 @@
       <q-intersection>
         <span class="text-h6">Increase My Bidding Limit</span>
         <q-banner inline-actions rounded class="bg-grey text-white">
-          Your Available Bidding Limit is $0 <br />
           To place a bid you must first set your Bidding Limit to $4,000 USD
           with a security deposit of $400 USD
         </q-banner>
