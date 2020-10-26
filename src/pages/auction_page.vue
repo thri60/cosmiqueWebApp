@@ -342,10 +342,10 @@ export default {
     loading_cars() {
       this.axios
         .get(
-          'https://cors-anywhere.herokuapp.com/' +
+          "https://cors-anywhere.herokuapp.com/" +
           "https://www.salvagebid.com/rest-api/v1.0/lots/search?page=" +
-            this.current +
-            "&per_page=26&type=CAR&make=*&model=*&search_id=&search_query=&year_from=1920&year_to=2021&sort_field=&sort_order=&sales_type=*&distance=*&destination_zip=&location_state=*&location_city=*&primary_damage=*&loss_type=*&title_name=*&exterior_color=*&odometer_min=*&odometer_max=*"
+          this.current +
+          "&per_page=26&type=CAR&make=*&model=*&search_id=&search_query=&year_from=1920&year_to=2021&sort_field=&sort_order=&sales_type=*&distance=*&destination_zip=&location_state=*&location_city=*&primary_damage=*&loss_type=*&title_name=*&exterior_color=*&odometer_min=*&odometer_max=*"
         )
         .then(response => {
           this.data = response.data.lots;

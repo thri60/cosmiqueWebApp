@@ -205,7 +205,7 @@
                 </div>
               </q-img>
 
-              <q-card-selection>
+              <q-card-section>
                 <div class="row">
                   <q-rating
                     v-model="car.id"
@@ -222,7 +222,7 @@
 
                   <q-btn flat round color="primary" icon="share" />
                 </div>
-              </q-card-selection>
+              </q-card-section>
               <q-card-section>
                 <div>
                   <input type="hidden" v-model="car.id" />
@@ -254,6 +254,7 @@
                     color="yellow-10"
                     text-color="white"
                     size="sm"
+                    @click="view_selected_cars(car.id)"
                   >
                     <b>Bid Now</b>
                   </q-btn>
@@ -269,8 +270,8 @@
                     color="yellow-10"
                     icon-right="shopping_cart"
                     size="sm"
-                    text-color="white"
-                  >
+                    @click="view_selected_cars(car.id)"
+                    text-color="white">
                     Buy it Now
                     <strong>
                       &nbsp;
@@ -718,6 +719,13 @@ export default {
         .then(response => {
           this.data = response.data.lots;
         });
+    },
+
+    view_selected_cars(id){
+      this.$router.push({
+        name: "auction_car_details",
+        params: { selected_car: id }
+      });
     },
 
     selected(id) {

@@ -15,7 +15,7 @@
                 rounded
                 class="q-pa-md"
                 outlined
-                v-model="form.current_email"
+                v-model="updateEmail.current_email"
                 readonly
                 type="text"
               />
@@ -23,7 +23,7 @@
                 rounded
                 class="q-pa-md"
                 outlined
-                v-model="form.new_mail"
+                v-model="updateEmail.new_mail"
                 type="text"
                 label="New Email"
                 :rules="[val => (val && val.length > 0) || 'Your new email']"
@@ -36,12 +36,12 @@
                 rounded
                 class="q-pa-md"
                 outlined
-                v-model="form.password"
+                v-model="updateEmail.password"
                 unelevated
                 :type="isPwd ? 'password' : 'text'"
-                label="New Password"
+                label="Current Password"
                 :rules="[
-                  val => (val && val.length > 0) || 'Your Password Please'
+                  val => (val && val.length > 0) || 'Your current password'
                 ]"
               >
                 <template v-slot:prepend>
@@ -60,6 +60,7 @@
                 rounded
                 text-color="white"
                 label="change email"
+                @click="change_email"
               />
             </q-card-section>
           </q-card>
@@ -134,13 +135,21 @@ export default {
   components: {
     sidebar
   },
+
   data() {
     return {
       isPwd: true,
+      updateEmail:{},
       form: {
         current_email: this.$auth.user().email
       }
     };
-  }
+  },
+
+  methods: {
+    change_email(){
+      
+    }
+  },
 };
 </script>
