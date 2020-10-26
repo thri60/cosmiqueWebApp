@@ -8,12 +8,12 @@
         style="height:150px;"
       >
         <div round class="q-pa-md text-white text-h5 text-bold q-pa-lg">
-          <b>| AUCTION Cars For Sale (Bid Online) |</b>
+          AUCTION Cars For Sale (Bid Online)
         </div>
       </q-img>
     </div>
     <div class="q-pa-md row justify-center items-start q-gutter-md">
-      <div class="col-12 col-md-8 gt-xs">
+      <div class="col-12 col-md-8 gt-sm">
         <div class="q-pa-md q-gutter-md">
           <q-card flat class="bg-white relative-position card-example">
             <q-card-section>
@@ -72,6 +72,7 @@
                             text-color="white"
                             rounded
                             class="full-width"
+                            @click="selected(car.id)"
                           >
                             CURRENT BID
                             {{
@@ -91,6 +92,7 @@
                             text-color="white"
                             rounded
                             class="full-width"
+                            @click="selected(car.id)"
                           >
                             BUY IT NOW
                             {{
@@ -175,7 +177,7 @@
           <q-separator />
 
           <q-card-actions>
-            <q-btn flat round icon="bookmark" />
+            <q-btn flat round icon="bookmark"  />
             Current Bid:
             <strong>
               {{
@@ -191,6 +193,7 @@
               color="yellow-10"
               text-color="white"
               size="sm"
+              @click="selected(car.id)"
             >
               <b>Bid Now</b>
             </q-btn>
@@ -205,7 +208,7 @@
       </div>
       <div class="col-12 col-md-3 q-pa-lg text-center">
         <q-card  class="text-center bg-grey-3">
-          <b class="q-pa-lg text-h5 text-bold text-primary"> | REFINE YOUR SEARCH |</b>
+          <b class="q-pa-lg text-h6 text-bold text-primary"> | REFINE YOUR SEARCH |</b>
           <q-card-section>
             <q-select
               rounded
@@ -300,8 +303,6 @@
           <div class="q-pa-md">
             <q-btn rounded icon-right="send" color="primary" text-color="white" label="Filter Vehicles" />
           </div>
-
-
         </q-card>
       </div>
     </div>
