@@ -165,6 +165,7 @@
           </q-card-section>
           <q-card-section>
              <flip-countdown :deadline="view_selected.lot.sale_date.date" />
+             <!-- {{view_selected.lot.sale_date.date}} -->
           </q-card-section>
         </q-card>
         <br />
