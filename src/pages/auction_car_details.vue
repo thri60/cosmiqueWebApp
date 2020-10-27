@@ -105,6 +105,20 @@
               </div>
             </q-card-section>
           </q-card>
+          <br />
+          <q-card class="my-card bg-grey-4 text-primary">
+            <q-card-section>
+              <div class="text-h6">VIN Details</div>
+                <div class="row" v-for="sales in view_selected.vin_details" :key="sales">
+                   <div class="col-3">
+                        <b>{{ sales.label }}:: </b>
+                   </div>
+                   <div class="col-8">
+                        <b>{{ sales.value }}</b>
+                   </div>
+                </div>
+            </q-card-section>
+          </q-card>
         </div>
       </div>
       <div class="col-12 col-md-4 q-pa-md">
@@ -154,24 +168,34 @@
           </q-card-section>
         </q-card>
         <br />
-        <q-card bordered class="bg-grey-2 text-primary my-card ">
-          <q-card-section>
-            <div class="text-h6">Sale Information</div>
-          </q-card-section>
-          <q-separator dark inset />
+        <q-card bordered class="bg-grey-2 my-card text-primary">
           <q-card-section>
             <q-card-section>
-              <div class="col-12 col-md-4 q-pa-xs">
-                <div class="row">
-                  <div class="col-12 col-6">
-                    Auction Location:
-                  </div>
-                  <div class="col-12 col-6">
-                    {{ view_selected.sale_information.label }}
-                  </div>
+                <div class="text-h6">Sale Information</div>
+                <div class="row" v-for="sales in view_selected.sale_information" :key="sales">
+                   <div class="col-4">
+                        <b>{{ sales.label }}:: </b>
+                   </div>
+                   <div class="col-8">
+                        <b>{{ sales.value }}</b>
+                   </div>
                 </div>
-                {{ view_selected.sale_information }}
-              </div>
+            </q-card-section>
+          </q-card-section>
+        </q-card>
+        <br />
+        <q-card bordered class="bg-grey-2 my-card text-primary">
+          <q-card-section>
+            <q-card-section>
+                <div class="text-h6">IAA Condition Details Stock</div>
+                <div class="row" v-for="sales in view_selected.iaa_condition" :key="sales">
+                   <div class="col-4">
+                        <b>{{ sales.label }}:: </b>
+                   </div>
+                   <div class="col-8">
+                        <b>{{ sales.value }}</b>
+                   </div>
+                </div>
             </q-card-section>
           </q-card-section>
         </q-card>
@@ -249,7 +273,7 @@ export default {
 <style lang="sass" scoped>
 .my-card1
    width: 100%
-   max-width: 70%
+   height: 100%
    background-color: white
    padding: 20px
 </style>
