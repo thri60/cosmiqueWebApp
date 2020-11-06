@@ -16,6 +16,7 @@ import contactInfoPage from 'pages/contact_information';
 import billing_informationPage from 'pages/billing_information';
 import password_loginPage from 'pages/password_login';
 import documentInfoPage from 'pages/document_ids';
+import faqPage from "pages/faq_page.vue";
 
 
 const routes = [{
@@ -32,6 +33,7 @@ const routes = [{
             { path: '/login', name: 'login', component: loginPage },
             { path: '/register', name: 'register', component: registerPage },
             { path: '/auction_car_details', name: 'auction_car_details', component: CarDetailPage, props: true },
+            { path: '/faq', name: 'faq', component: faqPage },
 
             // auth pages
             { path: 'account/bidding_account_limit', name: 'bidding_account_limit', component: biddingLimitPage, meta: { auth: true } },

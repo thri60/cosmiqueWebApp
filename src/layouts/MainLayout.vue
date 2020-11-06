@@ -36,15 +36,15 @@
               color="white"
               text-color="white"
               label="Auto Inventory" >
-              <q-list class="bg-primary text-white">
+              <q-list class="bg-white text-primary">
                 <q-item clickable :to="{ name: 'auction' }">
                   <q-item-section>
-                    <q-item-label class="text-white">Auction</q-item-label>
+                    <q-item-label>Auction</q-item-label>
                   </q-item-section>
                 </q-item>
                 <q-item clickable v-close-popup>
                   <q-item-section>
-                    <q-item-label class="text-white">Used Autos</q-item-label>
+                    <q-item-label>Used Autos</q-item-label>
                   </q-item-section>
                 </q-item>
               </q-list>
@@ -56,15 +56,15 @@
               text-color="white"
               label="Auto Parts"
             >
-              <q-list class="bg-primary text-white">
+              <q-list class="bg-white text-primary">
                 <q-item clickable v-close-popup>
                   <q-item-section>
-                    <q-item-label class="text-white">New Auto Parts</q-item-label>
+                    <q-item-label>New Auto Parts</q-item-label>
                   </q-item-section>
                 </q-item>
                 <q-item clickable v-close-popup>
                   <q-item-section>
-                    <q-item-label class="text-white">Used Auto Parts</q-item-label>
+                    <q-item-label>Used Auto Parts</q-item-label>
                   </q-item-section>
                 </q-item>
               </q-list>
@@ -79,6 +79,16 @@
               label="shipping"
               :to="{ name: 'shipping' }"
             />
+            <q-btn
+              rounded
+              flat
+              dense
+              class="q-mr-xs"
+              color="white"
+              text-color="white"
+              label="Request"
+              :to="{ name: 'request' }"
+            />
             <q-btn-dropdown
               flat
               dense
@@ -86,27 +96,22 @@
               text-color="white"
               label="Support"
             >
-              <q-list class="bg-primary text-white">
+              <q-list class="bg-white text-primary">
                 <q-item clickable :to="{ name: 'about'} ">
                   <q-item-section>
-                    <q-item-label class="text-white">About Us</q-item-label
+                    <q-item-label>About Us</q-item-label
                     >
                   </q-item-section>
                 </q-item>
                 <q-item clickable :to="{ name: 'contact'} ">
                   <q-item-section>
-                    <q-item-label class="text-white">Contact Us</q-item-label>
+                    <q-item-label>Contact Us</q-item-label>
                   </q-item-section>
                 </q-item>
-                <q-item clickable v-close-popup>
+                <q-item clickable :to="{ name: 'faq'} ">
                   <q-item-section>
-                    <q-item-label class="text-white">FAQ</q-item-label
+                    <q-item-label>FAQ</q-item-label
                     >
-                  </q-item-section>
-                </q-item>
-                <q-item clickable :to="{ name: 'request'} ">
-                  <q-item-section>
-                    <q-item-label class="text-white">Make a Vehicle Request</q-item-label>
                   </q-item-section>
                 </q-item>
               </q-list>
