@@ -5,7 +5,7 @@
         dim
         src="~assets/2.jpg"
         class="q-pa-md bg-transparent banner"
-        style="height:150px;"
+        style="height:100px;"
       >
         <div round class="q-pa-md text-white text-h5 text-bold q-pa-lg">
           AUCTION Cars For Sale (Bid Online)
@@ -201,9 +201,9 @@
         </q-card>
         <div>
           <div class="q-pa-lg flex flex-center">
-            <q-pagination 
-                v-model="current" 
-                @click="pagination" 
+            <q-pagination
+                v-model="current"
+                @click="pagination"
                 :max="100"
                 color="primary"
                 :max-pages="6"
