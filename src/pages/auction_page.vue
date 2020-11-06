@@ -109,11 +109,11 @@
                   <div class="q-pa-lg flex flex-center">
                     <q-pagination
                       v-model="current"
-                      :max="6"
-                      @click="pagination"
-                      :scroll-offset="150"
-                      :offset="[18, 18]"
-                    >
+                      :max="100"
+                      color="primary"
+                      :max-pages="6"
+                      :boundary-numbers="false"
+                      @click="pagination">
                     </q-pagination>
                   </div>
                 </div>
@@ -201,8 +201,13 @@
         </q-card>
         <div>
           <div class="q-pa-lg flex flex-center">
-            <q-pagination v-model="current" :max="5" @click="pagination">
-            </q-pagination>
+            <q-pagination 
+                v-model="current" 
+                @click="pagination" 
+                :max="100"
+                color="primary"
+                :max-pages="6"
+                :boundary-numbers="false" />
           </div>
         </div>
       </div>
@@ -371,7 +376,7 @@ export default {
 
     pagination() {
       this.loading_cars();
-      console.log(this.current);
+      window.scrollTop(0)
     }
   },
 

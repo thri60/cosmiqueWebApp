@@ -9,17 +9,17 @@
         "test": "echo \"No test specified\" && exit 0"
     },
     "dependencies": {
-        "@quasar/extras": "^1.0.0",
+        "@quasar/extras": "^1.9.10",
         "@websanova/vue-auth": "^2.21.14-beta",
         "axios": "^0.18.1",
         "core-js": "^3.6.5",
-        "quasar": "^1.0.0",
+        "quasar": "^1.14.3",
         "vue-axios": "^2.1.5",
         "vue2-dropzone": "^3.6.0",
         "vue2-flip-countdown": "^0.11.1"
     },
     "devDependencies": {
-        "@quasar/app": "^2.0.0"
+        "@quasar/app": "^2.1.6"
     },
     "browserslist": [
         "last 10 Chrome versions",

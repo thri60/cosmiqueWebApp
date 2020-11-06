@@ -78,8 +78,8 @@
                 rounded
                 outlined
                 dense
-                v-model="form.make"
-                :options="makeOptions"
+                v-model="form.vehicleType"
+                :options="vehicleTypeOptions"
                 label="Any Make"
               />
             </div>
@@ -692,30 +692,33 @@ export default {
         min: 0,
         max: 3000
       },
-
       thumbStyle: {
         right: "2px",
         borderRadius: "5px",
         backgroundColor: "#de483d",
         width: "5px",
         opacity: 0.75
-      }
+      },
+      vehicleTypeOptions:[
+        'All Vehicles',
+        'Cars',
+        'Trucks',
+        'Motorcycles',
+        'Trailers',
+        'Buses'
+      ],
+      makeOptions:[
+        'All'
+      ]
     };
   },
 
   methods: {
     loading_cars() {
-      var config = {
-         headers: {
-          'Access-Control-Allow-Origin': '*',
-       }
-      };
       this.axios
         .get(
           'https://cors-anywhere.herokuapp.com/' +
-          "https://www.salvagebid.com/rest-api/v1.0/lots/search?page=1&per_page=26&type=car&make=*&model=*&search_id=&search_query=&year_from=2008&year_to=2021&sort_field=&sort_order=&sales_type=*&distance=*&destination_zip=&location_state=*&location_city=*&primary_damage=normal+wear+%26+tear&loss_type=*&title_name=*&exterior_color=*&odometer_min=*&odometer_max=*",
-          config
-        )
+          "https://www.salvagebid.com/rest-api/v1.0/lots/search?page=1&per_page=26&type=car&make=*&model=*&search_id=&search_query=&year_from=2008&year_to=2021&sort_field=&sort_order=&sales_type=*&distance=*&destination_zip=&location_state=*&location_city=*&primary_damage=normal+wear+%26+tear&loss_type=*&title_name=*&exterior_color=*&odometer_min=*&odometer_max=*")
         .then(response => {
           this.data = response.data.lots;
         });

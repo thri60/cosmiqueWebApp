@@ -159,13 +159,13 @@
           </q-card-section>
         </q-card>
         <br />
-        <q-card class="my-card text-center bg-grey-6">
+        <q-card class="my-card text-center bg-grey-6" v-if="view_selected.lot.auction_in_progress == false">
           <q-card-section>
             <div class="text-subtitle2">Live Auction Starts In</div>
           </q-card-section>
           <q-card-section>
              <flip-countdown :deadline="view_selected.lot.sale_date.date" />
-             <!-- {{view_selected.lot.sale_date.date}} -->
+             {{view_selected.lot.sale_date.date}}
           </q-card-section>
         </q-card>
         <br />
