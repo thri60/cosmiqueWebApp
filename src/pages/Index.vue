@@ -8,6 +8,7 @@
         v-model="slide"
         thumbnails
         infinite
+        class="img-slide"
       >
         <q-carousel-slide :name="1" img-src="~assets/1.jpg" />
         <q-carousel-slide :name="2" img-src="~assets/2.jpg" />
@@ -776,6 +777,10 @@ export default {
 </script>
 
 <style lang="sass" scoped>
+.img-slide
+  width: 100%
+  height: 450px
+
 .my-content > div
   padding: 10px 15px
   background: rgba(86,61,124,.15)
