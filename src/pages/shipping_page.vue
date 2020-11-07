@@ -47,7 +47,7 @@
             transition-next="jump-up"
           >
             <q-tab-panel name="shipping_calculator">
-              <div class="text-h4 q-mb-md">Alarms</div>
+              <div class="text-h4 q-mb-md">Shipping Calculator</div>
               <p>
                 Lorem ipsum dolor sit, amet consectetur adipisicing elit. Quis
                 praesentium cumque magnam odio iure quidem, quod illum numquam
