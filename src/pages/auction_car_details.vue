@@ -164,7 +164,7 @@
             <div class="text-subtitle2">Live Auction Starts In</div>
           </q-card-section>
           <q-card-section>
-             <flip-countdown :deadline="view_selected.lot.sale_date.date" />
+             <flip-countdown deadline="2020-11-06 06:30:00.000000" />
              {{view_selected.lot.sale_date.date}}
           </q-card-section>
         </q-card>
