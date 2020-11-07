@@ -4,12 +4,13 @@
       <q-toolbar>
         <q-toolbar-title>
           <div style="padding: 4px">
-            <b
-              ><q-img
+              <q-img
                 src="~assets/logo.png"
-                style="height: 14px; max-width: 50px"
+                style="height: 35px; max-width: 100px"
               />
-              Cosmique Autos</b
+                <br>
+              <b class="text-h4 text-bold text-black"
+              >Cosmique <span class="text-white">Autos</span></b
             >
             <br />
             <p style="font-size: 10px">

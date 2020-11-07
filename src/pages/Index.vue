@@ -431,12 +431,12 @@
           <q-card v-ripple class="shadow-box">
             <q-card-section class="text-center">
               <div>
-                <q-img src="~assets/newCar.svg" />
+                <q-img src="~assets/autopart.svg" />
               </div>
             </q-card-section>
           </q-card>
           <div class="text-center">
-            <strong class="text-primary text-h6 text-bold">NEW CARS</strong>
+            <strong class="text-primary text-h6 text-bold">AUTO PARTS</strong>
           </div>
         </div>
       </div>
@@ -483,7 +483,7 @@
         </div>
       </div>
       <div class="col-12 col-md-2">
-        <div class="bg-white box q-pa-md b">
+        <div class="bg-white box q-pa-md">
           <q-card v-ripple class="shadow-box">
             <q-card-section class="text-center">
               <div>
@@ -492,7 +492,7 @@
             </q-card-section>
           </q-card>
           <div class="text-center">
-            <strong class="text-primary text-h6 text-bold">USED CARS</strong>
+            <strong class="text-primary text-h6 text-bold">USED DEALERSHIP CARS</strong>
           </div>
         </div>
         <br />
@@ -501,12 +501,12 @@
           <q-card v-ripple class="shadow-box">
             <q-card-section class="text-center">
               <div>
-                <q-img src="~assets/autopart.svg" />
+                <q-img src="~assets/hot-deal.svg" />
               </div>
             </q-card-section>
           </q-card>
           <div class="text-center">
-            <strong class="text-primary text-h6 text-bold">AUTO PARTS</strong>
+            <strong class="text-primary text-h6 text-bold">HOT DEALS</strong>
           </div>
         </div>
       </div>
