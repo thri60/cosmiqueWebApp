@@ -48,7 +48,7 @@
           <hr />
         </div>
         <div class="q-pa-md">
-          <q-card class="my-card bg-grey-3">
+          <q-card class="my-card bg-grey-2">
             <q-card-section>
               <img
                 class="clearvin__logo"
@@ -73,9 +73,9 @@
             </q-card-section>
           </q-card>
           <br />
-          <q-card flat bordered class="bg-grey-3">
+          <q-card flat bordered class="bg-grey-2">
             <q-card-section>
-              <div class="text-h6 q-mb-xs">
+              <div class="text-h5 text-primary q-mb-xs">
                 <strong> VEHICLE DETAILS</strong>
                 <q-space />
               </div>
@@ -106,12 +106,12 @@
             </q-card-section>
           </q-card>
           <br />
-          <q-card class="my-card bg-grey-4 text-primary">
+          <q-card bordered flat class="my-card bg-grey-2">
             <q-card-section>
-              <div class="text-h6">VIN Details</div>
+              <div class="text-h5 text-bold text-primary">VIN Details</div>
                 <div class="row" v-for="sales in view_selected.vin_details" :key="sales">
-                   <div class="col-3">
-                        <b>{{ sales.label }}:: </b>
+                   <div class="col-3 text-primary">
+                        <b>{{ sales.label }} </b>
                    </div>
                    <div class="col-8">
                         <b>{{ sales.value }}</b>
@@ -169,13 +169,13 @@
           </q-card-section>
         </q-card>
         <br />
-        <q-card bordered class="bg-grey-2 my-card text-primary">
+        <q-card bordered flat class="bg-blue-2 my-card">
           <q-card-section>
             <q-card-section>
-                <div class="text-h6">Sale Information</div>
+                <div class="text-h5 text-bold">Sale Information</div>
                 <div class="row" v-for="sales in view_selected.sale_information" :key="sales">
-                   <div class="col-4">
-                        <b>{{ sales.label }}:: </b>
+                   <div class="col-4 text-primary">
+                        <b>{{ sales.label }} </b>
                    </div>
                    <div class="col-8">
                         <b>{{ sales.value }}</b>
@@ -185,13 +185,13 @@
           </q-card-section>
         </q-card>
         <br />
-        <q-card bordered class="bg-grey-2 my-card text-primary">
+        <q-card bordered flat class="bg-green-2 my-card">
           <q-card-section>
             <q-card-section>
-                <div class="text-h6">IAA Condition Details Stock</div>
+                <div class="text-h5 text-bold">IAA Condition Details Stock</div>
                 <div class="row" v-for="sales in view_selected.iaa_condition" :key="sales">
-                   <div class="col-4">
-                        <b>{{ sales.label }}:: </b>
+                   <div class="col-4 text-primary">
+                        <b>{{ sales.label }} </b>
                    </div>
                    <div class="col-8">
                         <b>{{ sales.value }}</b>
@@ -238,7 +238,7 @@ export default {
 
     showLoading() {
       this.$q.loading.show({
-        message: "First message. Gonna change it in 3 seconds..."
+        message: "Car Detail Loading. Gonna change it in 3 seconds..."
       });
 
       this.timer = setTimeout(() => {
@@ -247,7 +247,7 @@ export default {
           spinnerColor: "red",
           messageColor: "black",
           backgroundColor: "yellow",
-          message: "Updated message"
+          message: "Here it is!"
         });
 
         this.timer = setTimeout(() => {

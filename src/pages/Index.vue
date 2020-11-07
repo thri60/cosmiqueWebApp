@@ -389,6 +389,7 @@
           />
         </div>
         <q-btn
+          to="auction"
           style="width:60%"
           rounded
           color="yellow-10"
