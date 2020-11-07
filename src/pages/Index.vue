@@ -271,7 +271,8 @@
                     icon-right="shopping_cart"
                     size="sm"
                     @click="view_selected_cars(car.id)"
-                    text-color="white">
+                    text-color="white"
+                  >
                     Buy it Now
                     <strong>
                       &nbsp;
@@ -401,53 +402,9 @@
     <br />
     <br />
 
-    <div class="q-pa-xl bg-primary text-white gt-sm">
-      <div>
-        <div>
-          <div class="a">
-            <div class="text-center">
-              <strong class="text-h6 text-white"
-                >WORLD LEADING CAR DEALER</strong
-              >
-              <p>
-                <strong class="text-h4 text-bold text-white"
-                  >WELCOME TO COSMIQUE AUTOS</strong
-                >
-              </p>
-            </div>
-            <p>
-              Curabitur libero. Donec facilisis velit eudsl est. Phasellus
-              consequat. Aenean vita quam. Vivamus et nunc. Nunc consequat sem
-              velde metus imperdiet lacinia. Dui estter neque molestie necd
-              dignissim ac hendrerit quis purus. Etiam sit amet vec convallis
-              massa scelerisque mattis. Sed placerat leo nec.
-            </p>
-            <p>
-              Ipsum midne ultrices magn eu tempor quam dolor eustrl sem. Donec
-              quis dolel Donec pede quam placerat alterl tristique faucibus
-              posuere lobortis.
-            </p>
-            <ul>
-              <p>
-                <span class="fa fa-check"></span>Donec facilisis velit eu est
-                phasellus consequat
-              </p>
-              <p>
-                <span class="fa fa-check"></span>Aenean vitae quam. Vivamus et
-                nunc nunc consequat
-              </p>
-              <p>
-                <span class="fa fa-check"></span>Sem vel metus imperdiet lacinia
-                enean
-              </p>
-              <p>
-                <span class="fa fa-check"></span>Dapibus aliquam augue fusce
-                eleifend quisque tels
-              </p>
-            </ul>
-          </div>
-        </div>
-        <div class="bg-white box q-pa-md b">
+    <div class="q-pa-md row bg-primary text-white gt-sm">
+      <div class="col-12 col-md-2">
+        <div class="bg-white q-pa-md box">
           <q-card v-ripple class="shadow-box">
             <q-card-section class="text-center">
               <q-icon
@@ -467,7 +424,9 @@
             <strong class="text-primary text-h6 text-bold">AUCTION CARS</strong>
           </div>
         </div>
-        <div class="bg-white box q-pa-md c">
+        <br />
+        <br />
+        <div class="bg-white q-pa-md box">
           <q-card v-ripple class="shadow-box">
             <q-card-section class="text-center">
               <div>
@@ -480,8 +439,49 @@
           </div>
         </div>
       </div>
-      <br />
-      <div>
+      <div class="col-12 col-md-8">
+        <div>
+          <div class="text-center">
+            <strong class="text-h6 text-white">WORLD LEADING CAR DEALER</strong>
+            <p>
+              <strong class="text-h4 text-bold text-white"
+                >WELCOME TO COSMIQUE AUTOS</strong
+              >
+            </p>
+          </div>
+          <p>
+            Curabitur libero. Donec facilisis velit eudsl est. Phasellus
+            consequat. Aenean vita quam. Vivamus et nunc. Nunc consequat sem
+            velde metus imperdiet lacinia. Dui estter neque molestie necd
+            dignissim ac hendrerit quis purus. Etiam sit amet vec convallis
+            massa scelerisque mattis. Sed placerat leo nec.
+          </p>
+          <p>
+            Ipsum midne ultrices magn eu tempor quam dolor eustrl sem. Donec
+            quis dolel Donec pede quam placerat alterl tristique faucibus
+            posuere lobortis.
+          </p>
+          <ul>
+            <p>
+              <span class="fa fa-check"></span>Donec facilisis velit eu est
+              phasellus consequat
+            </p>
+            <p>
+              <span class="fa fa-check"></span>Aenean vitae quam. Vivamus et
+              nunc nunc consequat
+            </p>
+            <p>
+              <span class="fa fa-check"></span>Sem vel metus imperdiet lacinia
+              enean
+            </p>
+            <p>
+              <span class="fa fa-check"></span>Dapibus aliquam augue fusce
+              eleifend quisque tels
+            </p>
+          </ul>
+        </div>
+      </div>
+      <div class="col-12 col-md-2">
         <div class="bg-white box q-pa-md b">
           <q-card v-ripple class="shadow-box">
             <q-card-section class="text-center">
@@ -494,6 +494,8 @@
             <strong class="text-primary text-h6 text-bold">USED CARS</strong>
           </div>
         </div>
+        <br />
+        <br />
         <div class="bg-white box q-pa-md c">
           <q-card v-ripple class="shadow-box">
             <q-card-section class="text-center">
@@ -699,17 +701,15 @@ export default {
         width: "5px",
         opacity: 0.75
       },
-      vehicleTypeOptions:[
-        'All Vehicles',
-        'Cars',
-        'Trucks',
-        'Motorcycles',
-        'Trailers',
-        'Buses'
+      vehicleTypeOptions: [
+        "All Vehicles",
+        "Cars",
+        "Trucks",
+        "Motorcycles",
+        "Trailers",
+        "Buses"
       ],
-      makeOptions:[
-        'All'
-      ]
+      makeOptions: ["All"]
     };
   },
 
@@ -717,14 +717,15 @@ export default {
     loading_cars() {
       this.axios
         .get(
-          'https://cors-anywhere.herokuapp.com/' +
-          "https://www.salvagebid.com/rest-api/v1.0/lots/search?page=1&per_page=26&type=car&make=*&model=*&search_id=&search_query=&year_from=2008&year_to=2021&sort_field=&sort_order=&sales_type=*&distance=*&destination_zip=&location_state=*&location_city=*&primary_damage=normal+wear+%26+tear&loss_type=*&title_name=*&exterior_color=*&odometer_min=*&odometer_max=*")
+          "https://cors-anywhere.herokuapp.com/" +
+            "https://www.salvagebid.com/rest-api/v1.0/lots/search?page=1&per_page=26&type=car&make=*&model=*&search_id=&search_query=&year_from=2008&year_to=2021&sort_field=&sort_order=&sales_type=*&distance=*&destination_zip=&location_state=*&location_city=*&primary_damage=normal+wear+%26+tear&loss_type=*&title_name=*&exterior_color=*&odometer_min=*&odometer_max=*"
+        )
         .then(response => {
           this.data = response.data.lots;
         });
     },
 
-    view_selected_cars(id){
+    view_selected_cars(id) {
       this.$router.push({
         name: "auction_car_details",
         params: { selected_car: id }
@@ -734,7 +735,11 @@ export default {
     selected(id) {
       // console.log(id);
       this.axios
-        .get('https://cors-anywhere.herokuapp.com/' + "https://www.salvagebid.com/rest-api/v2/lots/" + id)
+        .get(
+          "https://cors-anywhere.herokuapp.com/" +
+            "https://www.salvagebid.com/rest-api/v2/lots/" +
+            id
+        )
         .then(response => {
           this.view_selected = response.data.lot;
           this.view_details_modal = true;
@@ -808,20 +813,4 @@ export default {
   margin: 25px
   border-radius: 50%
   font-size: 12px
-
-div.a
-  position: absolute
-  left: 250px
-  width: 685px
-   top: auto
-    border: 3px solid blue
-    text-align: center
-
-div.b
-  position: absolute;
-  left: auto;
-
-div.c
-  position: relative;
-  left: 950px;
 </style>
