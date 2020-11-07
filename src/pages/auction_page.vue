@@ -221,7 +221,7 @@
               dense
               outlined
               v-model="form.make"
-              :options="makeOptions"
+              :options="vehicleTypeOptions"
               label="Select a Make"
               class="q-pa-sm"
             />
@@ -233,6 +233,7 @@
               :options="makeOptions"
               label="Select a Model"
               class="q-pa-sm"
+              @filter="loadingMakeOptions"
             />
             <div class="q-pa-md text-primary text-center text-bold">
               YOUR EXPECTED PRICE
@@ -339,8 +340,18 @@ export default {
           max: 3000
         }
       },
-      makeOptions: [],
-      current: 1
+      makeOptions: [
+        'All'
+      ],
+      current: 1,
+      vehicleTypeOptions:[
+        'All Vehicles', 
+        'Cars',           
+        'Trucks',           
+        'Motorcycles',           
+        'Trailers',           
+        'Buses'
+      ],
     };
   },
 
@@ -365,6 +376,15 @@ export default {
         this.visible = false;
         this.showSimulatedReturnData = true;
       }, 3000);
+    },
+
+    loadingMakeOptions(val, update){
+      this.axios.get('https://cors-anywhere.herokuapp.com/' + 'https://www.salvagebid.com/rest-api/v1.0/vehicles/makes?types=*&query=')
+        .then( response => {
+          response.data.forEach(element => {
+            this.vehicleTypeOptions = "'" + element.label + "'"
+          });
+      })
     },
 
     selected(id) {
