@@ -200,28 +200,42 @@
           <q-expansion-item
             :content-inset-level="0.5"
             expand-separator
-            icon="view_carousel"
+            icon="directions_car"
             label="Auto Inventory"
+          >
+            <q-item clickable v-ripple>
+              <q-item-section avatar>
+                <q-icon color="primary" name="directions_car" />
+              </q-item-section>
+              <q-item-section>New Autos</q-item-section>
+            </q-item>
+            <q-item :to="{ name: 'auction' }" clickable v-ripple>
+              <q-item-section avatar>
+                <q-icon color="primary" name="gavel" />
+              </q-item-section>
+              <q-item-section>Auctions</q-item-section>
+            </q-item>
+          </q-expansion-item>
+          <q-expansion-item
+            :content-inset-level="0.5"
+            expand-separator
+            icon="view_carousel"
+            label="Auto Parts"
           >
             <q-item clickable v-ripple>
               <q-item-section avatar>
                 <q-icon color="primary" name="assessment" />
               </q-item-section>
-              <q-item-section>New Autos</q-item-section>
+              <q-item-section>New Auto Parts</q-item-section>
             </q-item>
-            <q-item clickable v-ripple>
+            <q-item :to="{ name: '' }" clickable v-ripple>
               <q-item-section avatar>
                 <q-icon color="primary" name="assessment" />
               </q-item-section>
-              <q-item-section>Used Autos</q-item-section>
+              <q-item-section>Used Auto Parts</q-item-section>
             </q-item>
           </q-expansion-item>
-          <q-item clickable v-ripple :to="{ name: 'auction' }">
-            <q-item-section avatar>
-              <q-icon color="primary" name="assessment" />
-            </q-item-section>
-            <q-item-section>Auctions</q-item-section>
-          </q-item>
+
            <q-separator />
           <q-item clickable v-ripple :to="{ name: 'login' }">
             <q-item-section avatar>
