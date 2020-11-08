@@ -1,15 +1,16 @@
 <template>
   <q-layout view="lhr Lpr fFf">
-    <q-header reveal elevated class="q-py-sm">
+    <q-header reveal elevated >
       <q-toolbar>
         <q-toolbar-title>
-          <div style="padding: 4px">
+          <div>
             <q-img
               src="~assets/logo.png"
-              style="height: 35px; max-width: 100px"
+              style="height: 25px; max-width: 100px"
+              class="q-py-sm"
             />
             <br />
-            <b class="text-h4 text-bold text-black"
+            <b class="text-h6 text-bold text-black"
               >Cosmique <span class="text-white">Autos</span></b
             >
             <br />
