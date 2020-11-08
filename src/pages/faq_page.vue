@@ -14,15 +14,15 @@
       </q-img>
     </div>
 
-    <br />
+
 
     <div class="q-pa-md">
-      <q-list bordered separator class="rounded-borders">
+      <q-list bordered separator class="rounded-borders q-mt-md">
         <q-expansion-item
           expand-separator
           icon="info"
           label="HOW TO BUY"
-          header-class="text-bold bg-grey-2"
+          header-class="text-bold text-h6 bg-grey-2"
           default-opened
         >
           <q-card>
@@ -123,7 +123,7 @@
           expand-separator
           icon="perm_identity"
           label="REGISTRATION QUESTIONS"
-          header-class="text-bold bg-grey-2"
+          header-class="text-bold text-h6 bg-grey-2"
         >
           <q-card>
             <q-card-section>
@@ -177,7 +177,7 @@
           expand-separator
           icon="money"
           label="PAYMENT QUESTIONS"
-          header-class="text-bold  bg-grey-2"
+          header-class="text-bold text-h6 bg-grey-2"
         >
           <q-card>
             <q-card-section>
@@ -254,7 +254,7 @@
           expand-separator
           icon="gavel attach_money"
           label="BIDDING/BUYING PROCESS"
-          header-class="text-bold  bg-grey-2"
+          header-class="text-bold text-h6 bg-grey-2"
         >
           <q-card>
             <q-card-section>
@@ -269,7 +269,7 @@
         <q-expansion-item
           icon="directions_car"
           label="“ORDER A CAR” PROCESS"
-          header-class="text-bold bg-grey-2"
+          header-class="text-bold text-h6 bg-grey-2"
         >
           <q-card>
             <q-card-section>
@@ -284,7 +284,7 @@
         <q-expansion-item
           icon="directions_boat"
           label="SHIPPING"
-          header-class="text-bold bg-grey-2"
+          header-class="text-bold text-h6 bg-grey-2"
         >
           <q-card>
             <q-card-section>
@@ -299,7 +299,7 @@
         <q-expansion-item
           icon="assessment"
           label="OTHER QUESTIONS"
-          header-class="text-bold bg-grey-2"
+          header-class="text-bold text-h6 bg-grey-2"
         >
           <q-card>
             <q-card-section>
@@ -312,21 +312,72 @@
         </q-expansion-item>
       </q-list>
 
-      <br />
-      <br />
 
-      <q-list bordered class="rounded-borders">
+      <q-list bordered class="rounded-borders q-mt-md">
         <q-expansion-item
           expand-separator
           label="	Safety Advice"
-          header-class="text-bold bg-grey-3"
+          icon="error"
+          header-class="text-bold text-h6 bg-grey-3"
         >
           <q-card>
             <q-card-section>
-              Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quidem,
-              eius reprehenderit eos corrupti commodi magni quaerat ex numquam,
-              dolorum officiis modi facere maiores architecto suscipit iste
-              eveniet doloribus ullam aliquid.
+              <p class="text-primary text-bold text-h5">
+                Scams and frauds to watch out for
+              </p>
+              <q-list separator bordered class="rounded-borders">
+                <q-expansion-item
+                  expand-separator
+                  header-class="text-bold bg-grey-2"
+                  label="OVERVIEW"
+                  default-opened
+                >
+                  <q-card>
+                    <q-card-section>
+                      Lorem ipsum dolor sit amet, consectetur adipisicing elit.
+                      Quidem, eius reprehenderit eos corrupti commodi magni
+                      quaerat ex numquam, dolorum officiis modi facere maiores
+                      architecto suscipit iste eveniet doloribus ullam aliquid.
+                    </q-card-section>
+                  </q-card>
+                </q-expansion-item>
+
+                <q-expansion-item
+                  expand-separator
+                  header-class="text-bold bg-grey-2"
+                  label="DECEPTIVE EMAILS"
+                  default-opened
+                >
+                  <q-card>
+                    <q-card-section>
+                      Lorem ipsum dolor sit amet, consectetur adipisicing elit.
+                      Quidem, eius reprehenderit eos corrupti commodi magni
+                      quaerat ex numquam, dolorum officiis modi facere maiores
+                      architecto suscipit iste eveniet doloribus ullam aliquid.
+                    </q-card-section>
+                  </q-card>
+                </q-expansion-item>
+
+                <q-expansion-item
+                  expand-separator
+                  label="PAYMENTS DETAILS"
+                  header-class="text-bold bg-grey-2"
+                  default-opened
+                >
+                  <q-card>
+                    <q-card-section>
+                      Lorem ipsum dolor sit amet, consectetur adipisicing elit.
+                      Quidem, eius reprehenderit eos corrupti commodi magni
+                      quaerat ex numquam, dolorum officiis modi facere maiores
+                      architecto suscipit iste eveniet doloribus ullam aliquid.
+                    </q-card-section>
+                  </q-card>
+                </q-expansion-item>
+              </q-list>
+              <p>
+                Questions? Call us +1 800000000 (8:00am to 5:00pm GMT) Send an
+                email <a href="mailto:help@cosmiqueautos.com">help@cosmiqueautos.com</a>
+              </p>
             </q-card-section>
           </q-card>
         </q-expansion-item>

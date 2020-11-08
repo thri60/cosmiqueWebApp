@@ -82,10 +82,7 @@
                 <q-icon name="fab fa-facebook-f" size="1.2rem" />
               </q-btn>
               <q-btn dense round color="red-8">
-                <q-icon name="fab fa-google-plus-g" size="1.2rem" />
-              </q-btn>
-              <q-btn dense round color="light-blue-5">
-                <q-icon name="fab fa-twitter" size="1.2rem" />
+                <q-icon name="fab fa-google" size="1.2rem" />
               </q-btn>
             </div>
           </q-card-section>
