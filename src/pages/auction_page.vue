@@ -113,7 +113,8 @@
                       color="primary"
                       :max-pages="6"
                       :boundary-numbers="false"
-                      @click="pagination">
+                      @click="pagination"
+                    >
                     </q-pagination>
                   </div>
                 </div>
@@ -177,7 +178,7 @@
           <q-separator />
 
           <q-card-actions>
-            <q-btn flat round icon="bookmark"  />
+            <q-btn flat round icon="bookmark" />
             Current Bid:
             <strong>
               {{
@@ -202,18 +203,21 @@
         <div>
           <div class="q-pa-lg flex flex-center">
             <q-pagination
-                v-model="current"
-                @click="pagination"
-                :max="100"
-                color="primary"
-                :max-pages="6"
-                :boundary-numbers="false" />
+              v-model="current"
+              @click="pagination"
+              :max="100"
+              color="primary"
+              :max-pages="6"
+              :boundary-numbers="false"
+            />
           </div>
         </div>
       </div>
       <div class="col-12 col-md-3 q-pa-lg text-center">
-        <q-card  class="text-center bg-grey-3">
-          <b class="q-pa-lg text-h6 text-bold text-primary"> | REFINE YOUR SEARCH |</b>
+        <q-card class="text-center bg-grey-3">
+          <b class="q-pa-lg text-h6 text-bold text-primary">
+            | REFINE YOUR SEARCH |</b
+          >
           <q-card-section>
             <q-select
               rounded
@@ -224,6 +228,7 @@
               :options="vehicleTypeOptions"
               label="Select a Make"
               class="q-pa-sm"
+              @filter="loadingMakeOptions"
             />
             <q-select
               rounded
@@ -233,7 +238,6 @@
               :options="makeOptions"
               label="Select a Model"
               class="q-pa-sm"
-              @filter="loadingMakeOptions"
             />
             <div class="q-pa-md text-primary text-center text-bold">
               YOUR EXPECTED PRICE
@@ -307,7 +311,13 @@
           </q-card-section>
           <q-separator />
           <div class="q-pa-md">
-            <q-btn rounded icon-right="send" color="primary" text-color="white" label="Filter Vehicles" />
+            <q-btn
+              rounded
+              icon-right="send"
+              color="primary"
+              text-color="white"
+              label="Filter Vehicles"
+            />
           </div>
         </q-card>
       </div>
@@ -316,7 +326,6 @@
 </template>
 
 <script>
-
 export default {
   data() {
     return {
@@ -340,18 +349,16 @@ export default {
           max: 3000
         }
       },
-      makeOptions: [
-        'All'
-      ],
+      makeOptions: ["All"],
       current: 1,
-      vehicleTypeOptions:[
-        'All Vehicles', 
-        'Cars',           
-        'Trucks',           
-        'Motorcycles',           
-        'Trailers',           
-        'Buses'
-      ],
+      vehicleTypeOptions: [
+        "All Vehicles",
+        "Cars",
+        "Trucks",
+        "Motorcycles",
+        "Trailers",
+        "Buses"
+      ]
     };
   },
 
@@ -360,9 +367,9 @@ export default {
       this.axios
         .get(
           "https://cors-anywhere.herokuapp.com/" +
-          "https://www.salvagebid.com/rest-api/v1.0/lots/search?page=" +
-          this.current +
-          "&per_page=26&type=CAR&make=*&model=*&search_id=&search_query=&year_from=1920&year_to=2021&sort_field=&sort_order=&sales_type=*&distance=*&destination_zip=&location_state=*&location_city=*&primary_damage=*&loss_type=*&title_name=*&exterior_color=*&odometer_min=*&odometer_max=*"
+            "https://www.salvagebid.com/rest-api/v1.0/lots/search?page=" +
+            this.current +
+            "&per_page=26&type=CAR&make=*&model=*&search_id=&search_query=&year_from=1920&year_to=2021&sort_field=&sort_order=&sales_type=*&distance=*&destination_zip=&location_state=*&location_city=*&primary_damage=*&loss_type=*&title_name=*&exterior_color=*&odometer_min=*&odometer_max=*"
         )
         .then(response => {
           this.data = response.data.lots;
@@ -378,13 +385,20 @@ export default {
       }, 3000);
     },
 
-    loadingMakeOptions(val, update){
-      this.axios.get('https://cors-anywhere.herokuapp.com/' + 'https://www.salvagebid.com/rest-api/v1.0/vehicles/makes?types=*&query=')
-        .then( response => {
-          response.data.forEach(element => {
-            this.vehicleTypeOptions = "'" + element.label + "'"
-          });
-      })
+    loadingMakeOptions(val, update) {
+      if (val === "") {
+        update(() => {
+          // this.options = stringOptions;
+        });
+        return;
+      }
+
+      update(() => {
+        const needle = val.toLowerCase();
+        // this.options = stringOptions.filter(
+        //   v => v.toLowerCase().indexOf(needle) > -1
+        // );
+      });
     },
 
     selected(id) {
@@ -396,7 +410,7 @@ export default {
 
     pagination() {
       this.loading_cars();
-      window.scrollTop(0)
+      window.scrollTop(0);
     }
   },
 
