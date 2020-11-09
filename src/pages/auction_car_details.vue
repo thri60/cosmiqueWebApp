@@ -424,4 +424,10 @@ export default {
   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
   border-radius: 25px;
   border: 2px solid #f76d2b;
+
+
+// .zoom:hover
+//   transform: scale(1.1); /* (150% zoom - Note: if the zoom is too large, it will go outside of the viewport) */
+//   position: absolute-center
+
 </style>
