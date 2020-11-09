@@ -226,38 +226,43 @@
               outlined
               v-model="form.make"
               :options="vehicleTypeOptions"
-              label="Select a Make"
-              class="q-pa-sm"
               @filter="loadingMakeOptions"
-            />
+              label="Select a Make"
+              class="q-pa-sm" />
             <q-select
               rounded
               dense
               outlined
               v-model="form.model"
-              :options="makeOptions"
+              :options="modelOptions"
+              @filter="loadingMakeOptions"
               label="Select a Model"
+              class="q-pa-sm" />
+            <q-select
+              rounded
+              outlined
+              dense
+              v-model="form.max_year"
+              :options="yearOptionMax"
+              label="Max Year"
               class="q-pa-sm"
             />
-            <div class="q-pa-md text-primary text-center text-bold">
-              YOUR EXPECTED PRICE
-              <q-range
-                v-model="form.price"
-                :left-label-value="'$' + form.price.min"
-                :right-label-value="'$' + form.price.max"
-                :min="500"
-                :max="50000"
-                :step="2"
-                label
-              />
-            </div>
+            <q-select
+              rounded
+              outlined
+              dense
+              v-model="form.min_year"
+              :options="yearOptionMin"
+              label="Min Year"
+              class="q-pa-sm"
+            />
             <q-select
               rounded
               outlined
               dense
               v-model="form.status"
-              :options="makeOptions"
-              label="Vehicle Status"
+              :options="salesTypeOptions"
+              label="Sales type"
               class="q-pa-sm"
             />
             <q-select
@@ -285,24 +290,6 @@
               rounded
               outlined
               dense
-              v-model="form.max_year"
-              :options="makeOptions"
-              label="Max Year"
-              class="q-pa-sm"
-            />
-            <q-select
-              rounded
-              outlined
-              dense
-              v-model="form.min_year"
-              :options="makeOptions"
-              label="Min Year"
-              class="q-pa-sm"
-            />
-            <q-select
-              rounded
-              outlined
-              dense
               v-model="form.fuel"
               :options="makeOptions"
               label="Fuel Type"
@@ -326,6 +313,7 @@
 </template>
 
 <script>
+import { response } from '@websanova/vue-auth/drivers/auth/bearer';
 export default {
   data() {
     return {
@@ -351,13 +339,85 @@ export default {
       },
       makeOptions: ["All"],
       current: 1,
+      modelOptions: [],
       vehicleTypeOptions: [
-        "All Vehicles",
-        "Cars",
-        "Trucks",
-        "Motorcycles",
-        "Trailers",
-        "Buses"
+        "Acura",
+        "Alfa Romeo",
+        "Aston Martin",
+        "Audi",
+        "Bentley",
+        "Changzhou",
+        "Cherokee",
+        "Chevrolet",
+        "Chrysler",
+        "BMW",
+        "Buick",
+        "Cadillac",
+        "Datsun",
+        "Ferrari",
+        "Fiat",
+        "Ford",
+        "GMC",
+        "Honda",
+        "Hyundai",
+        "Infiniti",
+        "Isuzu",
+        "Jaguar",
+        "Jeep",
+        "Kia",
+        "Lexus",
+        "Mazda",
+        "Mercedes",
+        "Mercedes Benz",
+        "Mitsubishi",
+        "Nissan",
+        "Opel",
+        "Suzuki",
+        "Subaru",
+        "Tesla",
+        "Toyota",
+        "Volkswagen",
+        "Volvo",
+      ],
+      yearOptionMax:[
+        "2021",
+        "2020",
+        "2019",
+        "2018",
+        "2017",
+        "2016",
+        "2015",
+        "2014",
+        "2013",
+        "2012",
+        "2011",
+        "2010",
+        "2009",
+        "2008",
+        "2007",
+        "2006",
+      ],
+      yearOptionMin: [
+        "2021",
+        "2020",
+        "2019",
+        "2018",
+        "2017",
+        "2016",
+        "2015",
+        "2014",
+        "2013",
+        "2012",
+        "2011",
+        "2010",
+        "2009",
+        "2008",
+        "2007",
+        "2006",
+      ],
+      salesTypeOptions: [
+        "All",
+        "Au"
       ]
     };
   },
@@ -367,7 +427,7 @@ export default {
       this.axios
         .get(
           "https://cors-anywhere.herokuapp.com/" +
-            "https://www.salvagebid.com/rest-api/v1.0/lots/search?page=" +
+          "http://184.72.35.251/rest-api/v1.0/lots/search?page=" +
             this.current +
             "&per_page=26&type=CAR&make=*&model=*&search_id=&search_query=&year_from=1920&year_to=2021&sort_field=&sort_order=&sales_type=*&distance=*&destination_zip=&location_state=*&location_city=*&primary_damage=*&loss_type=*&title_name=*&exterior_color=*&odometer_min=*&odometer_max=*"
         )
@@ -388,16 +448,34 @@ export default {
     loadingMakeOptions(val, update) {
       if (val === "") {
         update(() => {
-          // this.options = stringOptions;
+          this.axios.get(
+            'https://cors-anywhere.herokuapp.com/'+
+            'http://184.72.35.251/rest-api/v1.0/vehicles/models?types=CAR&makes='+ this.form.make +'&query='
+          ).then( response => {
+              this.axios.post('cosmique/make_options', {data: response.data})
+                .then( response => {
+                  console.log(response.data);
+                  this.modelOptions = response.data
+                })
+          })
         });
         return;
       }
 
       update(() => {
         const needle = val.toLowerCase();
-        // this.options = stringOptions.filter(
-        //   v => v.toLowerCase().indexOf(needle) > -1
-        // );
+        this.axios.get(
+            'https://cors-anywhere.herokuapp.com/'+
+            'http://184.72.35.251/rest-api/v1.0/vehicles/models?types=CAR&makes='+ this.form.make +'&query='
+          ).then( response => {
+              this.axios.post('cosmique/make_options', {data: response.data})
+                .then( response => {
+                  this.modelOptions = response.data
+                  this.modelOptions = modelOptions.filter(
+                      v => v.toLowerCase().indexOf(needle) > -1
+                    );
+                })
+          })
       });
     },
 

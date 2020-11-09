@@ -720,7 +720,7 @@ export default {
       this.axios
         .get(
           "https://cors-anywhere.herokuapp.com/" +
-            "https://www.salvagebid.com/rest-api/v1.0/lots/search?page=1&per_page=26&type=car&make=*&model=*&search_id=&search_query=&year_from=2008&year_to=2021&sort_field=&sort_order=&sales_type=*&distance=*&destination_zip=&location_state=*&location_city=*&primary_damage=normal+wear+%26+tear&loss_type=*&title_name=*&exterior_color=*&odometer_min=*&odometer_max=*"
+            "http://184.72.35.251/rest-api/v1.0/lots/search?page=1&per_page=26&type=car&make=*&model=*&search_id=&search_query=&year_from=2008&year_to=2021&sort_field=&sort_order=&sales_type=*&distance=*&destination_zip=&location_state=*&location_city=*&primary_damage=normal+wear+%26+tear&loss_type=*&title_name=*&exterior_color=*&odometer_min=*&odometer_max=*"
         )
         .then(response => {
           this.data = response.data.lots;
@@ -739,7 +739,7 @@ export default {
       this.axios
         .get(
           "https://cors-anywhere.herokuapp.com/" +
-            "https://www.salvagebid.com/rest-api/v2/lots/" +
+            "http://184.72.35.251/rest-api/v2/lots/" +
             id
         )
         .then(response => {
