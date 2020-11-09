@@ -109,14 +109,18 @@
           <q-card bordered flat class="my-card bg-grey-2">
             <q-card-section>
               <div class="text-h5 text-bold text-primary">VIN Details</div>
-                <div class="row" v-for="sales in view_selected.vin_details" :key="sales">
-                   <div class="col-3 text-primary">
-                        <b>{{ sales.label }} </b>
-                   </div>
-                   <div class="col-8">
-                        <b>{{ sales.value }}</b>
-                   </div>
+              <div
+                class="row"
+                v-for="sales in view_selected.vin_details"
+                :key="sales"
+              >
+                <div class="col-3 text-primary">
+                  <b>{{ sales.label }} </b>
                 </div>
+                <div class="col-8">
+                  <b>{{ sales.value }}</b>
+                </div>
+              </div>
             </q-card-section>
           </q-card>
         </div>
@@ -159,28 +163,35 @@
           </q-card-section>
         </q-card>
         <br />
-        <q-card class="my-card text-center bg-grey-6" v-if="view_selected.lot.auction_in_progress == false">
+        <q-card
+          class="my-card text-center bg-grey-6"
+          v-if="view_selected.lot.auction_in_progress == false"
+        >
           <q-card-section>
             <div class="text-subtitle2">Live Auction Starts In</div>
           </q-card-section>
           <q-card-section>
-             <flip-countdown deadline="2020-11-06 06:30:00.000000" />
-             {{view_selected.lot.sale_date.date}}
+            <flip-countdown deadline="2020-11-06 06:30:00.000000" />
+            {{ view_selected.lot.sale_date.date }}
           </q-card-section>
         </q-card>
         <br />
         <q-card bordered flat class="bg-blue-2 my-card">
           <q-card-section>
             <q-card-section>
-                <div class="text-h5 text-bold">Sale Information</div>
-                <div class="row" v-for="sales in view_selected.sale_information" :key="sales">
-                   <div class="col-4 text-primary">
-                        <b>{{ sales.label }} </b>
-                   </div>
-                   <div class="col-8">
-                        <b>{{ sales.value }}</b>
-                   </div>
+              <div class="text-h5 text-bold">Sale Information</div>
+              <div
+                class="row"
+                v-for="sales in view_selected.sale_information"
+                :key="sales"
+              >
+                <div class="col-4 text-primary">
+                  <b>{{ sales.label }} </b>
                 </div>
+                <div class="col-8">
+                  <b>{{ sales.value }}</b>
+                </div>
+              </div>
             </q-card-section>
           </q-card-section>
         </q-card>
@@ -188,26 +199,157 @@
         <q-card bordered flat class="bg-green-2 my-card">
           <q-card-section>
             <q-card-section>
-                <div class="text-h5 text-bold">IAA Condition Details Stock</div>
-                <div class="row" v-for="sales in view_selected.iaa_condition" :key="sales">
-                   <div class="col-4 text-primary">
-                        <b>{{ sales.label }} </b>
-                   </div>
-                   <div class="col-8">
-                        <b>{{ sales.value }}</b>
-                   </div>
+              <div class="text-h5 text-bold">IAA Condition Details Stock</div>
+              <div
+                class="row"
+                v-for="sales in view_selected.iaa_condition"
+                :key="sales"
+              >
+                <div class="col-4 text-primary">
+                  <b>{{ sales.label }} </b>
                 </div>
+                <div class="col-8">
+                  <b>{{ sales.value }}</b>
+                </div>
+              </div>
             </q-card-section>
           </q-card-section>
         </q-card>
+      </div>
+    </div>
+
+    <div class="q-pa-lg">
+      <div class="bg bg-grey-3 q-pa-md">
+      <div class="text-center">
+        <!-- <p class="text-bold">FIND OUT MORE</p> -->
+        <p class="text-bold text-h5 text-white bg-primary"> RELATED VEHICLES ON SALE</p>
+      </div>
+      <q-separator />
+      <div class="row q-pa-md">
+        <div class="col-12 col-md-4 q-pa-md">
+          <q-card>
+            <q-img
+              v-ripple
+              class="cursor-pointer relative-position"
+              src="~assets/3.jpg"
+            >
+              <div class="absolute-bottom text-subtitle2 text-center">
+                <strong class="text-h6">CAR NAME </strong>
+              </div>
+            </q-img>
+
+            <q-card-section>
+              <div>
+                <i class="fas fa-tachometer-alt"></i> MILEAGE:
+                <b>
+                </b>
+              </div>
+              <div>
+                <i class="fab fa-keycdn"></i> START CODE:
+                <b>{{}}</b>
+              </div>
+
+              <hr />
+              <div class="q-mb-xs">
+                <q-btn
+                  class="full-width"
+                  rounded
+                  color="primary"
+                  text-color="white"
+                  size="sm"
+                >
+                  <b>View Vehicle</b>
+                </q-btn>
+              </div>
+            </q-card-section>
+          </q-card>
+        </div>
+        <div class="col-12 col-md-4 q-pa-md">
+          <q-card>
+            <q-img
+              v-ripple
+              class="cursor-pointer relative-position"
+              src="~assets/4.jpg"
+            >
+              <div class="absolute-bottom text-subtitle2 text-center">
+                <strong class="text-h6">CAR NAME </strong>
+              </div>
+            </q-img>
+
+            <q-card-section>
+              <div>
+                <i class="fas fa-tachometer-alt"></i> MILEAGE:
+                <b>
+                </b>
+              </div>
+              <div>
+                <i class="fab fa-keycdn"></i> START CODE:
+                <b>{{}}</b>
+              </div>
+
+              <hr />
+              <div class="q-mb-xs">
+                <q-btn
+                  class="full-width"
+                  rounded
+                  color="primary"
+                  text-color="white"
+                  size="sm"
+                >
+                  <b>View Vehicle</b>
+                </q-btn>
+              </div>
+            </q-card-section>
+          </q-card>
+        </div>
+        <div class="col-12 col-md-4 q-pa-md">
+          <q-card>
+            <q-img
+              v-ripple
+              class="cursor-pointer relative-position"
+              src="~assets/3.jpg"
+            >
+              <div class="absolute-bottom text-subtitle2 text-center">
+                <strong class="text-h6">CAR NAME </strong>
+              </div>
+            </q-img>
+
+            <q-card-section>
+              <div>
+                <i class="fas fa-tachometer-alt"></i> MILEAGE:
+                <b>
+                </b>
+              </div>
+              <div>
+                <i class="fab fa-keycdn"></i> START CODE:
+                <b>{{}}</b>
+              </div>
+
+              <hr />
+              <div class="q-mb-xs">
+                <q-btn
+                  class="full-width"
+                  rounded
+                  color="primary"
+                  text-color="white"
+                  size="sm"
+                >
+                  <b>View Vehicle</b>
+                </q-btn>
+              </div>
+            </q-card-section>
+          </q-card>
+        </div>
+
+      </div>
       </div>
     </div>
   </div>
 </template>
 <script>
 import { QSpinnerGears } from "quasar";
-import { date } from 'quasar';
-import FlipCountdown from 'vue2-flip-countdown';
+import { date } from "quasar";
+import FlipCountdown from "vue2-flip-countdown";
 
 export default {
   props: ["selected_car"],
@@ -238,7 +380,7 @@ export default {
 
     showLoading() {
       this.$q.loading.show({
-        message: "Car Detail Loading. Gonna change it in 3 seconds..."
+        message: "Car Detail Loading..."
       });
 
       this.timer = setTimeout(() => {
@@ -277,4 +419,9 @@ export default {
    height: 100%
    background-color: white
    padding: 20px
+.bg
+  // background-image: linear-gradient(to bottom right, grey, white);
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+  border-radius: 25px;
+  border: 2px solid #f76d2b;
 </style>
