@@ -1,6 +1,6 @@
 <template>
   <q-layout view="lhr Lpr fFf">
-    <q-header reveal elevated >
+    <q-header reveal elevated>
       <q-toolbar>
         <q-toolbar-title>
           <div>
@@ -57,7 +57,7 @@
               dense
               color="white"
               text-color="white"
-              label="Auto Parts"
+              label="Auto Parts Inventory"
             >
               <q-list class="bg-white text-primary">
                 <q-item clickable v-close-popup>
@@ -160,7 +160,12 @@
                   </q-btn-dropdown>
                 </q-item>
                 <q-item clickable>
-                  <q-btn-dropdown no-caps flat dense label="Auto Parts">
+                  <q-btn-dropdown
+                    no-caps
+                    flat
+                    dense
+                    label="Auto Parts Inventory"
+                  >
                     <q-list bordered separator>
                       <q-item clickable v-close-popup>
                         <q-item-section>
@@ -324,7 +329,7 @@
             :content-inset-level="0.5"
             expand-separator
             icon="view_carousel"
-            label="Auto Parts"
+            label="Auto Parts Inventory"
           >
             <q-item clickable v-ripple>
               <q-item-section avatar>
@@ -349,7 +354,13 @@
           </q-item>
         </div>
         <div v-else>
-          <q-btn-dropdown class="q-ml-lg bg-tertiary q-pa-md" icon="list" flat no-caps label="Menu">
+          <q-btn-dropdown
+            class="q-ml-lg bg-tertiary q-pa-md"
+            icon="list"
+            flat
+            no-caps
+            label="Menu"
+          >
             <q-list>
               <q-item clickable :to="{ name: 'homepage' }">
                 <q-item-section>
@@ -375,7 +386,7 @@
               </q-item>
               <q-separator />
               <q-item clickable>
-                <q-btn-dropdown no-caps flat dense label="Auto Parts">
+                <q-btn-dropdown no-caps flat dense label="Auto Parts Inventory">
                   <q-list>
                     <q-item clickable v-close-popup>
                       <q-item-section>
@@ -426,7 +437,7 @@
               </q-item>
             </q-list>
           </q-btn-dropdown>
-            <q-separator />
+          <q-separator />
           <q-btn-dropdown
             :label="this.$auth.user().full_name"
             icon="person_pin"
@@ -668,18 +679,6 @@
                 text-color="white"
                 label="Home"
               />
-              <q-btn
-                rounded
-                no-caps
-                size="sm"
-                dense
-                flat
-                :to="{ name: 'auction' }"
-                class="q-mr-xs"
-                color="white"
-                text-color="white"
-                label="Auctions"
-              />
               <q-btn-dropdown
                 flat
                 no-caps
@@ -690,6 +689,11 @@
                 label="Auto Inventory"
               >
                 <q-list>
+                  <q-item clickable :to="{ name: 'auction' }">
+                    <q-item-section>
+                      <q-item-label>Auction</q-item-label>
+                    </q-item-section>
+                  </q-item>
                   <q-item clickable v-close-popup>
                     <q-item-section>
                       <q-item-label>Used Autos</q-item-label>
@@ -704,7 +708,7 @@
                 dense
                 color="white"
                 text-color="white"
-                label="Auto Parts"
+                label="Auto Parts Inventory"
               >
                 <q-list>
                   <q-item clickable v-close-popup>
@@ -720,41 +724,52 @@
                 </q-list>
               </q-btn-dropdown>
               <q-btn
-                dense
-                no-caps
-                rounded
-                size="sm"
                 flat
-                class="q-mr-xs"
+                no-caps
+                size="sm"
+                dense
+                color="white"
+                text-color="white"
+                label="Shipping"
+                :to="{ name: 'shipping' }"
+              />
+              <q-btn
+                flat
+                no-caps
+                size="sm"
+                dense
                 color="white"
                 text-color="white"
                 label="Request"
                 :to="{ name: 'request' }"
               />
-              <q-btn
-                dense
-                no-caps
-                rounded
-                size="sm"
+              <q-btn-dropdown
                 flat
-                class="q-mr-xs"
+                no-caps
+                size="sm"
+                dense
                 color="white"
                 text-color="white"
-                label="About"
-                :to="{ name: 'about' }"
-              />
-              <q-btn
-                rounded
-                no-caps
-                dense
-                size="sm"
-                flat
-                class="q-mr-xs"
-                color="white"
-                text-color="white"
-                label="Contact"
-                :to="{ name: 'contact' }"
-              />
+                label="Support"
+              >
+                <q-list >
+                  <q-item clickable :to="{ name: 'about' }">
+                    <q-item-section>
+                      <q-item-label>About Us</q-item-label>
+                    </q-item-section>
+                  </q-item>
+                  <q-item clickable :to="{ name: 'contact' }">
+                    <q-item-section>
+                      <q-item-label>Contact Us</q-item-label>
+                    </q-item-section>
+                  </q-item>
+                  <q-item clickable :to="{ name: 'faq' }">
+                    <q-item-section>
+                      <q-item-label>FAQ</q-item-label>
+                    </q-item-section>
+                  </q-item>
+                </q-list>
+              </q-btn-dropdown>
             </div>
           </div>
         </div>
