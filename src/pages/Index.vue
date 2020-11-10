@@ -74,17 +74,7 @@
           </div>
 
           <div class="row justify-center q-pa-md">
-            <div class="col-12 col-md-2 q-pa-md">
-              <q-select
-                rounded
-                outlined
-                dense
-                v-model="form.vehicleType"
-                :options="vehicleTypeOptions"
-                label="Any Make"
-              />
-            </div>
-            <div class="col-12 col-md-2 q-pa-md">
+            <div class="col-12 col-md-3 q-pa-md">
               <q-select
                 rounded
                 outlined
@@ -95,7 +85,7 @@
                 label="Any Model"
               />
             </div>
-            <div class="col-12 col-md-2 q-pa-md">
+            <div class="col-12 col-md-3 q-pa-md">
               <q-select
                 rounded
                 outlined
@@ -106,7 +96,7 @@
                 @filter="loadingModelOptions"
               />
             </div>
-            <div class="col-12 col-md-2 q-pa-md">
+            <div class="col-12 col-md-3 q-pa-md">
               <q-select
                 rounded
                 outlined
@@ -116,7 +106,7 @@
                 label="Min Year"
               />
             </div>
-            <div class="col-12 col-md-2 q-pa-md">
+            <div class="col-12 col-md-3 q-pa-md">
               <q-select
                 rounded
                 outlined
@@ -666,7 +656,7 @@ export default {
         model: "",
         max_year: "",
         min_year: "",
-        salesTypes: "",
+        types: "",
       },
       data: [],
       view_selected: {},
@@ -872,19 +862,31 @@ export default {
       if (this.form.model === "") {
         this.form.model = "*";
       }
-      if (this.form.salesType === "") {
-        this.form.salesType = "*";
-      }
-      if (this.form.odometer === "") {
-        this.form.odometer = "*";
-      }
       if (this.form.max_year === "") {
-        this.form.max_year = "*"
+        this.form.max_year = "2020"
       } 
       if (this.form.min_year === "") {
-        this.form.min_year = "*"
+        this.form.min_year = "2006"
       }
-      this.$router.push({ name: 'search'})
+      this.axios
+        .get(
+          "https://cors-anywhere.herokuapp.com/" +
+          "http://184.72.35.251/rest-api/v1.0/lots/search?page=1&per_page=26&type=car&make="
+          + this.form.make + 
+          "&model="
+          + this.form.model +
+          "&search_id=*&search_query=*&year_from="
+          + this.form.min_year + 
+          "&year_to="
+          +this.form.max_year +
+          "&sort_field=&sort_order=&sales_type=*&distance=*&destination_zip=&location_state=*&location_city=*&primary_damage=*&loss_type=*&title_name=*&exterior_color=*&odometer_min=*&odometer_max=*"
+        )
+        .then(response => {
+          this.$router.push({
+            name: "search",
+            params: { search_data: response.data }
+          });
+        });
     }
   },
 

@@ -295,7 +295,6 @@
 </template>
 
 <script>
-import { response } from "@websanova/vue-auth/drivers/auth/bearer";
 export default {
   data() {
     return {

@@ -26,7 +26,7 @@ const routes = [{
             import ('layouts/MainLayout.vue'),
         children: [
             { path: '', component: indexPage, name: 'homepage' },
-            { path: '/search_results', name: 'search', component: SearchResultsPage },
+            { path: '/search_results', name: 'search', component: SearchResultsPage, props: true },
             { path: '/auction', name: 'auction', component: AuctionPage },
             { path: '/request', name: 'request', component: RequestPage },
             { path: '/contact', name: 'contact', component: ContactPage },
