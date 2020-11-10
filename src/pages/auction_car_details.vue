@@ -208,18 +208,19 @@
                         <b>{{ sales.value }}</b>
                    </div>
                    <hr>
-              <div class="text-h5 text-bold">IAA Condition Details Stock</div>
-              <div
-                class="row"
-                v-for="sales in view_selected.iaa_condition"
-                :key="sales"
-              >
-                <div class="col-4 text-primary">
-                  <b>{{ sales.label }} </b>
-                </div>
-                <div class="col-8">
-                  <b>{{ sales.value }}</b>
-                </div>
+                  <div class="text-h5 text-bold">IAA Condition Details Stock</div>
+                    <div
+                      class="row"
+                      v-for="sales in view_selected.iaa_condition"
+                      :key="sales"
+                    >
+                      <div class="col-4 text-primary">
+                        <b>{{ sales.label }} </b>
+                      </div>
+                      <div class="col-8">
+                        <b>{{ sales.value }}</b>
+                      </div>
+                    </div>
               </div>
             </q-card-section>
           </q-card-section>
