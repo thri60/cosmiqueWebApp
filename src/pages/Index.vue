@@ -74,84 +74,52 @@
           </div>
 
           <div class="row justify-center q-pa-md">
-            <div class="col-12 col-md-2 q-pa-md">
-              <q-select
-                rounded
-                outlined
-                dense
-                v-model="form.vehicleType"
-                :options="vehicleTypeOptions"
-                label="Any Make"
-              />
-            </div>
-            <div class="col-12 col-md-2 q-pa-md">
+            <div class="col-12 col-md-3 q-pa-md">
               <q-select
                 rounded
                 outlined
                 dense
                 v-model="form.make"
                 :options="makeOptions"
+                @filter="loadingModelOptions"
                 label="Any Model"
               />
             </div>
-            <div class="col-12 col-md-2 q-pa-md">
+            <div class="col-12 col-md-3 q-pa-md">
               <q-select
                 rounded
                 outlined
                 dense
-                v-model="form.make"
-                :options="makeOptions"
-                label="Vehicle Status"
+                v-model="form.model"
+                :options="modelOptions"
+                label="Vehicle Model"
+                @filter="loadingModelOptions"
               />
             </div>
-            <div class="col-12 col-md-2 q-pa-md">
+            <div class="col-12 col-md-3 q-pa-md">
               <q-select
                 rounded
                 outlined
                 dense
-                v-model="form.make"
-                :options="makeOptions"
+                v-model="form.min_year"
+                :options="yearOptionMin"
                 label="Min Year"
               />
             </div>
-            <div class="col-12 col-md-2 q-pa-md">
+            <div class="col-12 col-md-3 q-pa-md">
               <q-select
                 rounded
                 outlined
                 dense
-                v-model="form.make"
-                :options="makeOptions"
+                v-model="form.max_year"
+                :options="yearOptionMax"
                 label="Max Year"
               />
             </div>
           </div>
 
           <div class="row justify-center q-pa-md">
-            <div class="col-12 col-md-2 q-pa-md">
-              Price Range
-              <q-range
-                :left-label-value="'$' + price.min"
-                :right-label-value="'$' + price.max"
-                v-model="price"
-                :min="0"
-                :max="10000"
-                :step="2"
-                label
-              />
-            </div>
-            <div class="col-12 col-md-2 q-pa-md">
-              Vehicle Mileage Range
-              <q-range
-                :left-label-value="mileage.min + ' MI'"
-                :right-label-value="mileage.max + ' MI'"
-                v-model="mileage"
-                :min="0"
-                :max="3000"
-                :step="10"
-                label
-              />
-            </div>
-            <div class="col-12 col-md-4 q-pa-md">
+            <div class="col-12 col-md-12 q-pa-md">
               <q-btn
                 v-ripple:primary
                 style="width:60%"
@@ -159,6 +127,7 @@
                 color="yellow-10"
                 text-color="white"
                 label="SEARCH"
+                @click="searchQuery"
               />
             </div>
           </div>
@@ -493,7 +462,9 @@
             </q-card-section>
           </q-card>
           <div class="text-center">
-            <strong class="text-primary text-h6 text-bold">USED DEALERSHIP CARS</strong>
+            <strong class="text-primary text-h6 text-bold"
+              >USED DEALERSHIP CARS</strong
+            >
           </div>
         </div>
         <br />
@@ -672,8 +643,6 @@
 </template>
 
 <script>
-import axios from "axios";
-
 export default {
   data() {
     return {
@@ -682,20 +651,18 @@ export default {
       slide: 1,
       slide1: 1,
       slide_1: 1,
-      form: {},
+      form: {
+        make: "",
+        model: "",
+        max_year: "",
+        min_year: "",
+        types: "",
+      },
       data: [],
       view_selected: {},
       autoplay: true,
       makeOptions: [],
       view_details_modal: false,
-      price: {
-        min: 0,
-        max: 10000
-      },
-      mileage: {
-        min: 0,
-        max: 3000
-      },
       thumbStyle: {
         right: "2px",
         borderRadius: "5px",
@@ -711,13 +678,89 @@ export default {
         "Trailers",
         "Buses"
       ],
-      makeOptions: ["All"]
+      makeOptions: [
+        "Acura",
+        "Alfa Romeo",
+        "Aston Martin",
+        "Audi",
+        "Bentley",
+        "Changzhou",
+        "Cherokee",
+        "Chevrolet",
+        "Chrysler",
+        "BMW",
+        "Buick",
+        "Cadillac",
+        "Datsun",
+        "Ferrari",
+        "Fiat",
+        "Ford",
+        "GMC",
+        "Honda",
+        "Hyundai",
+        "Infiniti",
+        "Isuzu",
+        "Jaguar",
+        "Jeep",
+        "Kia",
+        "Lexus",
+        "Mazda",
+        "Mercedes",
+        "Mercedes Benz",
+        "Mitsubishi",
+        "Nissan",
+        "Opel",
+        "Suzuki",
+        "Subaru",
+        "Tesla",
+        "Toyota",
+        "Volkswagen",
+        "Volvo"
+      ],
+      yearOptionMax: [
+        "2021",
+        "2020",
+        "2019",
+        "2018",
+        "2017",
+        "2016",
+        "2015",
+        "2014",
+        "2013",
+        "2012",
+        "2011",
+        "2010",
+        "2009",
+        "2008",
+        "2007",
+        "2006"
+      ],
+      yearOptionMin: [
+        "2021",
+        "2020",
+        "2019",
+        "2018",
+        "2017",
+        "2016",
+        "2015",
+        "2014",
+        "2013",
+        "2012",
+        "2011",
+        "2010",
+        "2009",
+        "2008",
+        "2007",
+        "2006"
+      ],
+      salesTypeOptions: ["Auction Only", "Buy It Now"],
+      modelOptions: []
     };
   },
 
   methods: {
-    loading_cars() {
-      this.axios
+    async loading_cars() {
+      return this.axios
         .get(
           "https://cors-anywhere.herokuapp.com/" +
             "http://184.72.35.251/rest-api/v1.0/lots/search?page=1&per_page=26&type=car&make=*&model=*&search_id=&search_query=&year_from=2008&year_to=2021&sort_field=&sort_order=&sales_type=*&distance=*&destination_zip=&location_state=*&location_city=*&primary_damage=normal+wear+%26+tear&loss_type=*&title_name=*&exterior_color=*&odometer_min=*&odometer_max=*"
@@ -734,9 +777,8 @@ export default {
       });
     },
 
-    selected(id) {
-      // console.log(id);
-      this.axios
+    async selected(id) {
+      return this.axios
         .get(
           "https://cors-anywhere.herokuapp.com/" +
             "http://184.72.35.251/rest-api/v2/lots/" +
@@ -768,6 +810,83 @@ export default {
           message: "Submitted"
         });
       }
+    },
+
+    loadingModelOptions(val, update) {
+      if (val === "") {
+        update(() => {
+          this.axios
+            .get(
+              "https://cors-anywhere.herokuapp.com/" +
+                "http://184.72.35.251/rest-api/v1.0/vehicles/models?types=CAR&makes=" +
+                this.form.make +
+                "&query="
+            )
+            .then(response => {
+              this.axios
+                .post("cosmique/make_options", { data: response.data })
+                .then(response => {
+                  this.modelOptions = response.data;
+                });
+            });
+        });
+        return;
+      }
+
+      update(() => {
+        const needle = val.toLowerCase();
+        this.axios
+          .get(
+            "https://cors-anywhere.herokuapp.com/" +
+              "http://184.72.35.251/rest-api/v1.0/vehicles/models?types=CAR&makes=" +
+              this.form.make +
+              "&query="
+          )
+          .then(response => {
+            this.axios
+              .post("cosmique/make_options", { data: response.data })
+              .then(response => {
+                this.modelOptions = response.data;
+                this.modelOptions = modelOptions.filter(
+                  v => v.toLowerCase().indexOf(needle) > -1
+                );
+              });
+          });
+      });
+    },
+
+    searchQuery(){
+      if (this.form.make === "") {
+        this.form.make = "*";
+      }
+      if (this.form.model === "") {
+        this.form.model = "*";
+      }
+      if (this.form.max_year === "") {
+        this.form.max_year = "2020"
+      } 
+      if (this.form.min_year === "") {
+        this.form.min_year = "2006"
+      }
+      this.axios
+        .get(
+          "https://cors-anywhere.herokuapp.com/" +
+          "http://184.72.35.251/rest-api/v1.0/lots/search?page=1&per_page=26&type=car&make="
+          + this.form.make + 
+          "&model="
+          + this.form.model +
+          "&search_id=*&search_query=*&year_from="
+          + this.form.min_year + 
+          "&year_to="
+          +this.form.max_year +
+          "&sort_field=&sort_order=&sales_type=*&distance=*&destination_zip=&location_state=*&location_city=*&primary_damage=*&loss_type=*&title_name=*&exterior_color=*&odometer_min=*&odometer_max=*"
+        )
+        .then(response => {
+          this.$router.push({
+            name: "search",
+            params: { search_data: response.data }
+          });
+        });
     }
   },
 

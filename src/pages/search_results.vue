@@ -8,11 +8,11 @@
         style="height:100px;"
       >
         <div round class="q-pa-md text-white text-h5 text-bold q-pa-lg">
-          AUCTION Cars For Sale (Bid Online)
+          Search Results
         </div>
       </q-img>
     </div>
-    <div class="q-pa-md row justify-center items-start q-gutter-md">
+     <div class="q-pa-md row justify-center items-start q-gutter-md">
       <div class="col-12 col-md-8 gt-sm">
         <div class="q-pa-md q-gutter-md">
           <q-card flat class="bg-white relative-position card-example">
@@ -295,7 +295,10 @@
 </template>
 
 <script>
+
 export default {
+    props: ["search_data"],
+
   data() {
     return {
       data: [],
@@ -396,21 +399,12 @@ export default {
         "2006"
       ],
       salesTypeOptions: ["Auction Only", "Buy It Now"]
-    };
+    }
   },
 
   methods: {
     loading_cars() {
-      this.axios
-        .get(
-          "https://cors-anywhere.herokuapp.com/" +
-            "http://184.72.35.251/rest-api/v1.0/lots/search?page=" +
-            this.current +
-            "&per_page=26&type=CAR&make=*&model=*&search_id=&search_query=&year_from=1920&year_to=2021&sort_field=&sort_order=&sales_type=*&distance=*&destination_zip=&location_state=*&location_city=*&primary_damage=*&loss_type=*&title_name=*&exterior_color=*&odometer_min=*&odometer_max=*"
-        )
-        .then(response => {
-          this.data = response.data.lots;
-        });
+      this.data = this.search_data.lots
     },
 
     showTextLoading() {
@@ -530,5 +524,5 @@ export default {
     this.loading_cars();
     this.showTextLoading();
   }
-};
+}
 </script>

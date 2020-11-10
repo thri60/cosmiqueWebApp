@@ -164,7 +164,7 @@
         </q-card>
         <br />
         <q-card
-          class="my-card text-center bg-grey-6"
+          class="my-card text-center bg-grey-3"
           v-if="view_selected.lot.auction_in_progress == false"
         >
           <q-card-section>
@@ -176,7 +176,7 @@
           </q-card-section>
         </q-card>
         <br />
-        <q-card bordered flat class="bg-blue-2 my-card">
+        <q-card bordered flat class="bg-grey-3 my-card">
           <q-card-section>
             <q-card-section>
               <div class="text-h5 text-bold">Sale Information</div>
@@ -196,7 +196,7 @@
           </q-card-section>
         </q-card>
         <br />
-        <q-card bordered flat class="bg-green-2 my-card">
+        <q-card bordered flat class="bg-grey-3 my-card">
           <q-card-section>
             <q-card-section>
               <div class="text-h5 text-bold">IAA Condition Details Stock</div>
@@ -205,8 +205,8 @@
                 v-for="sales in view_selected.iaa_condition"
                 :key="sales"
               >
-                <div class="col-4 text-primary">
-                  <b>{{ sales.label }} </b>
+                <div class="col-4">
+                  <b>{{ sales.label }}:: </b>
                 </div>
                 <div class="col-8">
                   <b>{{ sales.value }}</b>
@@ -220,128 +220,56 @@
 
     <div class="q-pa-lg">
       <div class="bg bg-grey-3 q-pa-md">
-      <div class="text-center">
-        <!-- <p class="text-bold">FIND OUT MORE</p> -->
-        <p class="text-bold text-h5 text-white bg-primary"> RELATED VEHICLES ON SALE</p>
-      </div>
-      <q-separator />
-      <div class="row q-pa-md">
-        <div class="col-12 col-md-4 q-pa-md">
-          <q-card>
-            <q-img
-              v-ripple
-              class="cursor-pointer relative-position"
-              src="~assets/3.jpg"
-            >
-              <div class="absolute-bottom text-subtitle2 text-center">
-                <strong class="text-h6">CAR NAME </strong>
-              </div>
-            </q-img>
-
-            <q-card-section>
-              <div>
-                <i class="fas fa-tachometer-alt"></i> MILEAGE:
-                <b>
-                </b>
-              </div>
-              <div>
-                <i class="fab fa-keycdn"></i> START CODE:
-                <b>{{}}</b>
-              </div>
-
-              <hr />
-              <div class="q-mb-xs">
-                <q-btn
-                  class="full-width"
-                  rounded
-                  color="primary"
-                  text-color="white"
-                  size="sm"
-                >
-                  <b>View Vehicle</b>
-                </q-btn>
-              </div>
-            </q-card-section>
-          </q-card>
+        <div class="text-center">
+          <!-- <p class="text-bold">FIND OUT MORE</p> -->
+          <p class="text-bold text-h5 text-white bg-primary">
+            RELATED VEHICLES ON SALE
+          </p>
         </div>
-        <div class="col-12 col-md-4 q-pa-md">
-          <q-card>
-            <q-img
-              v-ripple
-              class="cursor-pointer relative-position"
-              src="~assets/4.jpg"
-            >
-              <div class="absolute-bottom text-subtitle2 text-center">
-                <strong class="text-h6">CAR NAME </strong>
-              </div>
-            </q-img>
+        <q-separator />
+        <div class="row q-pa-md">
+          <div class="col-12 col-md-4 q-pa-md" v-for="similar in similar_selections" :key="similar.id">
+            <q-card>
+              <q-img
+                v-ripple
+                class="cursor-pointer relative-position"
+                :src="similar.images[0]"
+              >
+                <div class="absolute-bottom text-subtitle2 text-center">
+                  <strong class="text-h6">{{ similar.vehicle_name }}</strong>
+                </div>
+              </q-img>
 
-            <q-card-section>
-              <div>
-                <i class="fas fa-tachometer-alt"></i> MILEAGE:
-                <b>
-                </b>
-              </div>
-              <div>
-                <i class="fab fa-keycdn"></i> START CODE:
-                <b>{{}}</b>
-              </div>
+              <q-card-section>
+                <div>
+                  <i class="fas fa-tachometer-alt"></i> MILEAGE:
+                  <b>
+                    {{ new Intl.NumberFormat().format(similar.odometer_value) }} 
+                    {{ similar.odometer_type.toUpperCase() }}
+                  </b>
+                </div>
+                <div>
+                  <i class="fab fa-keycdn"></i> VIN:
+                  <b>{{ similar.vin }} </b>
+                </div>
 
-              <hr />
-              <div class="q-mb-xs">
-                <q-btn
-                  class="full-width"
-                  rounded
-                  color="primary"
-                  text-color="white"
-                  size="sm"
-                >
-                  <b>View Vehicle</b>
-                </q-btn>
-              </div>
-            </q-card-section>
-          </q-card>
+                <hr />
+                <div class="q-mb-xs">
+                  <q-btn
+                    class="full-width"
+                    rounded
+                    color="primary"
+                    text-color="white"
+                    size="sm"
+                    @click="selected(similar.id)"
+                  >
+                    <b>View Vehicle</b>
+                  </q-btn>
+                </div>
+              </q-card-section>
+            </q-card>
+          </div>
         </div>
-        <div class="col-12 col-md-4 q-pa-md">
-          <q-card>
-            <q-img
-              v-ripple
-              class="cursor-pointer relative-position"
-              src="~assets/3.jpg"
-            >
-              <div class="absolute-bottom text-subtitle2 text-center">
-                <strong class="text-h6">CAR NAME </strong>
-              </div>
-            </q-img>
-
-            <q-card-section>
-              <div>
-                <i class="fas fa-tachometer-alt"></i> MILEAGE:
-                <b>
-                </b>
-              </div>
-              <div>
-                <i class="fab fa-keycdn"></i> START CODE:
-                <b>{{}}</b>
-              </div>
-
-              <hr />
-              <div class="q-mb-xs">
-                <q-btn
-                  class="full-width"
-                  rounded
-                  color="primary"
-                  text-color="white"
-                  size="sm"
-                >
-                  <b>View Vehicle</b>
-                </q-btn>
-              </div>
-            </q-card-section>
-          </q-card>
-        </div>
-
-      </div>
       </div>
     </div>
   </div>
@@ -360,21 +288,61 @@ export default {
     return {
       view_selected: {},
       slide: 1,
-      possible_bid: ""
+      possible_bid: "",
+      similar_selections: {}
     };
   },
 
   methods: {
-    load_car_details() {
-      this.showLoading();
-      this.axios
+    async load_car_details() {
+      return this.axios
         .get(
           "https://cors-anywhere.herokuapp.com/" +
-            "https://www.salvagebid.com/rest-api/v2/lots/" +
+            "http://184.72.35.251/rest-api/v2/lots/" +
             this.selected_car
         )
         .then(response => {
           this.view_selected = response.data;
+          this.showLoading();
+          this.$q.cookies.set("selected_car", this.selected_car);
+        });
+    },
+
+    async loadingSimilarCars(){
+      return this.axios.get(
+        "https://cors-anywhere.herokuapp.com/" +
+        "https://www.salvagebid.com/rest-api/v1.0/lots/"
+        + this.$q.cookies.get("selected_car") +
+        "/similar"
+      ).then( response => {
+        this.similar_selections = response.data
+        console.log(response.data);
+      })
+    },
+
+    find_id_storage() {
+      this.axios
+        .get(
+          "https://cors-anywhere.herokuapp.com/" +
+            "http://184.72.35.251/rest-api/v2/lots/" +
+            this.$q.cookies.get("selected_car")
+        )
+        .then(response => {
+          this.view_selected = response.data;
+          this.showLoading();
+        });
+    },
+
+    async selected(id) {
+      return this.axios
+        .get(
+          "https://cors-anywhere.herokuapp.com/" +
+            "http://184.72.35.251/rest-api/v2/lots/" + id
+        )
+        .then(response => {
+          this.view_selected = response.data;
+          this.showLoading();
+          this.$q.cookies.set("selected_car", this.selected_car);
         });
     },
 
@@ -389,7 +357,7 @@ export default {
           spinnerColor: "red",
           messageColor: "black",
           backgroundColor: "yellow",
-          message: "Here it is!"
+          message: "updating content!"
         });
 
         this.timer = setTimeout(() => {
@@ -403,6 +371,8 @@ export default {
   mounted() {
     this.load_car_details();
     this.showLoading();
+    this.find_id_storage();
+    this.loadingSimilarCars();
   },
 
   beforeDestroy() {
@@ -429,5 +399,4 @@ export default {
 // .zoom:hover
 //   transform: scale(1.1); /* (150% zoom - Note: if the zoom is too large, it will go outside of the viewport) */
 //   position: absolute-center
-
 </style>
