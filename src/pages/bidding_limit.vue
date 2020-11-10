@@ -3,18 +3,18 @@
     <div class="col-12 col-md-3 q-pa-md gt-sm">
       <sidebar />
     </div>
-    <div class="col-12 col-md-7 q-pa-md">
+    <div class="col-12 col-md-9 q-pa-md">
       <q-intersection>
-        <span class="text-h6">Increase My Bidding Limit</span>
-        <q-banner inline-actions rounded class="bg-grey text-white">
+        <span class="text-h4 text-primary text-bold">Increase My Bidding Limit</span>
+        <q-banner inline-actions rounded class="bg-grey-3 text-black">
           To place a bid you must first set your Bidding Limit to $4,000 USD
           with a security deposit of $400 USD
         </q-banner>
         <div class="q-pt-lg">
           <q-card class="my-card">
             <q-card-section>
-              <div class="text-subtitle2">
-                Move slider to adjust Bidding Limit
+              <div class="text-center text-grey-9">
+                Move slider to adjust <span class="text-bold text-black"> Bidding Limit  </span>
               </div>
             </q-card-section>
             <q-card-section>
