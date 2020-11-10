@@ -196,6 +196,7 @@
                    <div class="col-8">
                         <b>{{ sales.value }}</b>
                    </div>
+                   <hr>
                 </div>
             </q-card-section>
           </q-card-section>
@@ -223,9 +224,8 @@ export default {
   },
 
   methods: {
-    load_car_details() {
-      this.showLoading();
-      this.axios
+    async load_car_details() {
+      return this.axios
         .get(
           "https://cors-anywhere.herokuapp.com/" +
             "https://www.salvagebid.com/rest-api/v2/lots/" +
@@ -233,7 +233,20 @@ export default {
         )
         .then(response => {
           this.view_selected = response.data;
+          this.showLoading();
+          this.$q.cookies.set('selected_car', this.selected_car)
         });
+    },
+
+    find_id_storage(){
+       this.axios.get(
+          "https://cors-anywhere.herokuapp.com/" +
+            "https://www.salvagebid.com/rest-api/v2/lots/" +
+            this.$q.cookies.get('selected_car')
+       ).then( response => {
+         this.view_selected = response.data;
+         this.showLoading();
+       })
     },
 
     showLoading() {
@@ -247,7 +260,7 @@ export default {
           spinnerColor: "red",
           messageColor: "black",
           backgroundColor: "yellow",
-          message: "Here it is!"
+          message: "updating content!"
         });
 
         this.timer = setTimeout(() => {
@@ -261,6 +274,7 @@ export default {
   mounted() {
     this.load_car_details();
     this.showLoading();
+    this.find_id_storage();
   },
 
   beforeDestroy() {

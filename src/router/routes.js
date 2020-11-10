@@ -17,6 +17,7 @@ import billing_informationPage from 'pages/billing_information';
 import password_loginPage from 'pages/password_login';
 import documentInfoPage from 'pages/document_ids';
 import faqPage from "pages/faq_page.vue";
+import SearchResultsPage from "pages/search_results.vue";
 
 
 const routes = [{
@@ -25,6 +26,7 @@ const routes = [{
             import ('layouts/MainLayout.vue'),
         children: [
             { path: '', component: indexPage, name: 'homepage' },
+            { path: '/search_results', name: 'search', component: SearchResultsPage },
             { path: '/auction', name: 'auction', component: AuctionPage },
             { path: '/request', name: 'request', component: RequestPage },
             { path: '/contact', name: 'contact', component: ContactPage },

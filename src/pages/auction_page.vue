@@ -228,7 +228,8 @@
               :options="vehicleTypeOptions"
               @filter="loadingMakeOptions"
               label="Select a Make"
-              class="q-pa-sm" />
+              class="q-pa-sm"
+            />
             <q-select
               rounded
               dense
@@ -237,7 +238,8 @@
               :options="modelOptions"
               @filter="loadingMakeOptions"
               label="Select a Model"
-              class="q-pa-sm" />
+              class="q-pa-sm"
+            />
             <q-select
               rounded
               outlined
@@ -260,7 +262,7 @@
               rounded
               outlined
               dense
-              v-model="form.status"
+              v-model="form.salesTypes"
               :options="salesTypeOptions"
               label="Sales type"
               class="q-pa-sm"
@@ -269,30 +271,9 @@
               rounded
               outlined
               dense
-              v-model="form.type"
-              :options="makeOptions"
-              label="Vehicle Type"
-              class="q-pa-sm"
-            />
-            <div class="q-pa-md text-primary text-center text-bold">
-              VEHICLE MILEAGE RANGE
-              <q-range
-                v-model="form.mileage"
-                :left-label-value="form.mileage.min + ' MI'"
-                :right-label-value="form.mileage.max + ' MI'"
-                :min="0"
-                :max="3000"
-                :step="10"
-                label
-              />
-            </div>
-            <q-select
-              rounded
-              outlined
-              dense
-              v-model="form.fuel"
-              :options="makeOptions"
-              label="Fuel Type"
+              v-model="form.odometer"
+              :options="odometerOptions"
+              label="Odometer"
               class="q-pa-sm"
             />
           </q-card-section>
@@ -303,6 +284,7 @@
               icon-right="send"
               color="primary"
               text-color="white"
+              @click="filterSearch"
               label="Filter Vehicles"
             />
           </div>
@@ -313,7 +295,7 @@
 </template>
 
 <script>
-import { response } from '@websanova/vue-auth/drivers/auth/bearer';
+import { response } from "@websanova/vue-auth/drivers/auth/bearer";
 export default {
   data() {
     return {
@@ -323,21 +305,20 @@ export default {
       form: {
         make: "",
         model: "",
-        type: "",
-        status: "",
         max_year: "",
         min_year: "",
-        fuel: "",
-        price: {
-          min: 500,
-          max: 50000
-        },
-        mileage: {
-          min: 0,
-          max: 3000
-        }
+        salesTypes: "",
+        salesTypes: "",
+        odometer: ""
       },
-      makeOptions: ["All"],
+      odometerOptions: [
+        "All",
+        "Under 10,000 Miles",
+        "Under 25,000 Miles",
+        "Under 50,000 Miles",
+        "Under 100,000 Miles",
+        "Over 100,000 Miles"
+      ],
       current: 1,
       modelOptions: [],
       vehicleTypeOptions: [
@@ -377,9 +358,9 @@ export default {
         "Tesla",
         "Toyota",
         "Volkswagen",
-        "Volvo",
+        "Volvo"
       ],
-      yearOptionMax:[
+      yearOptionMax: [
         "2021",
         "2020",
         "2019",
@@ -395,7 +376,7 @@ export default {
         "2009",
         "2008",
         "2007",
-        "2006",
+        "2006"
       ],
       yearOptionMin: [
         "2021",
@@ -413,12 +394,9 @@ export default {
         "2009",
         "2008",
         "2007",
-        "2006",
+        "2006"
       ],
-      salesTypeOptions: [
-        "All",
-        "Au"
-      ]
+      salesTypeOptions: ["Auction Only", "Buy It Now"]
     };
   },
 
@@ -427,7 +405,7 @@ export default {
       this.axios
         .get(
           "https://cors-anywhere.herokuapp.com/" +
-          "http://184.72.35.251/rest-api/v1.0/lots/search?page=" +
+            "http://184.72.35.251/rest-api/v1.0/lots/search?page=" +
             this.current +
             "&per_page=26&type=CAR&make=*&model=*&search_id=&search_query=&year_from=1920&year_to=2021&sort_field=&sort_order=&sales_type=*&distance=*&destination_zip=&location_state=*&location_city=*&primary_damage=*&loss_type=*&title_name=*&exterior_color=*&odometer_min=*&odometer_max=*"
         )
@@ -448,34 +426,43 @@ export default {
     loadingMakeOptions(val, update) {
       if (val === "") {
         update(() => {
-          this.axios.get(
-            'https://cors-anywhere.herokuapp.com/'+
-            'http://184.72.35.251/rest-api/v1.0/vehicles/models?types=CAR&makes='+ this.form.make +'&query='
-          ).then( response => {
-              this.axios.post('cosmique/make_options', {data: response.data})
-                .then( response => {
-                  console.log(response.data);
-                  this.modelOptions = response.data
-                })
-          })
+          this.axios
+            .get(
+              "https://cors-anywhere.herokuapp.com/" +
+                "http://184.72.35.251/rest-api/v1.0/vehicles/models?types=CAR&makes=" +
+                this.form.make +
+                "&query="
+            )
+            .then(response => {
+              this.axios
+                .post("cosmique/make_options", { data: response.data })
+                .then(response => {
+                  this.modelOptions = response.data;
+                });
+            });
         });
         return;
       }
 
       update(() => {
         const needle = val.toLowerCase();
-        this.axios.get(
-            'https://cors-anywhere.herokuapp.com/'+
-            'http://184.72.35.251/rest-api/v1.0/vehicles/models?types=CAR&makes='+ this.form.make +'&query='
-          ).then( response => {
-              this.axios.post('cosmique/make_options', {data: response.data})
-                .then( response => {
-                  this.modelOptions = response.data
-                  this.modelOptions = modelOptions.filter(
-                      v => v.toLowerCase().indexOf(needle) > -1
-                    );
-                })
-          })
+        this.axios
+          .get(
+            "https://cors-anywhere.herokuapp.com/" +
+              "http://184.72.35.251/rest-api/v1.0/vehicles/models?types=CAR&makes=" +
+              this.form.make +
+              "&query="
+          )
+          .then(response => {
+            this.axios
+              .post("cosmique/make_options", { data: response.data })
+              .then(response => {
+                this.modelOptions = response.data;
+                this.modelOptions = modelOptions.filter(
+                  v => v.toLowerCase().indexOf(needle) > -1
+                );
+              });
+          });
       });
     },
 
@@ -489,6 +476,54 @@ export default {
     pagination() {
       this.loading_cars();
       window.scrollTop(0);
+    },
+
+    filterSearch() {
+      if (this.form.make === "") {
+        this.form.make = "*";
+      }
+      if (this.form.model === "") {
+        this.form.model = "*";
+      }
+      if (this.form.salesType === "") {
+        this.form.salesType = "*";
+      }
+      if (this.form.odometer === "") {
+        this.form.odometer = "*";
+      } else if (this.form.odometer === "Under 10,000 Miles") {
+        this.form.odometer = 10000;
+      } else if (this.form.odometer === "Under 25,000 Miles") {
+        this.form.odometer = 25000;
+      } else if (this.form.odometer === "Under 50,000 Miles") {
+        this.form.odometer = 50000;
+      } else if (this.form.odometer === "Under 100,000 Miles") {
+        this.form.odometer = 100000;
+      } else {
+        this.form.odometer = 100000;
+      }
+      this.axios
+        .get(
+          "https://cors-anywhere.herokuapp.com/" +
+          "http://184.72.35.251/rest-api/v1.0/lots/search?page=1&per_page=26&type=CAR&make=" +
+            this.form.make +
+            "&model=" +
+            this.form.model +
+            "&search_id=&search_query=&year_from=" +
+            this.form.yearOptionMin +
+            "&year_to=" +
+            this.form.yearOptionMax +
+            "&sort_field=&sort_order=&sales_type=*&distance=*&destination_zip=&location_state=*&location_city=*&primary_damage=*&loss_type=collision&title_name=*&exterior_color=*&odometer_min=*&odometer_max=" +
+            this.form.odometer
+        )
+        .then(response => {
+          this.visible = true;
+          this.showSimulatedReturnData = false;
+          setTimeout(() => {
+            this.visible = false;
+            this.showSimulatedReturnData = true;
+            this.data = response.data.lots;
+          }, 3000);
+        });
     }
   },
 
