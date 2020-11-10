@@ -15,7 +15,7 @@
               v-model="form.email"
               type="email"
               label="Email"
-              :rules="[val => (val && val.length > 0) || 'Your Email Please']"
+              :rules="[val => (val && val.length > 0) || 'Your Email is Required']"
               @keyup.enter="login"
             >
               <template v-slot:prepend>
@@ -31,7 +31,7 @@
               :type="isPwd ? 'password' : 'text'"
               @keyup.enter="login"
               :rules="[
-                val => (val && val.length > 0) || 'Your Password Please'
+                val => (val && val.length > 0) || 'Your Password is Required'
               ]"
             >
               <template v-slot:prepend>

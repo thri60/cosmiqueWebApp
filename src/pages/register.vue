@@ -15,7 +15,7 @@
               v-model="form.fullname"
               label="Full Name"
               :rules="[
-                val => (val && val.length > 0) || 'Your Full Name Please'
+                val => (val && val.length > 0) || 'Your Full Name is Required'
               ]"
             >
               <template v-slot:prepend>
@@ -30,7 +30,7 @@
               v-model="form.email"
               type="email"
               label="Email"
-              :rules="[val => (val && val.length > 0) || 'Your Email Please']"
+              :rules="[val => (val && val.length > 0) || 'Your Email is Required']"
             >
               <template v-slot:prepend>
                 <q-icon name="email" />
@@ -45,7 +45,7 @@
               type="tel"
               label="Phone Number"
               :rules="[
-                val => (val && val.length > 0) || 'Your Phone Number  Please'
+                val => (val && val.length > 0) || 'Your Phone Number  is Required'
               ]"
             >
               <template v-slot:prepend>
