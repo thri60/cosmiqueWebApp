@@ -60,7 +60,7 @@
           </q-item>
           </q-list>
           </q-btn-dropdown> -->
-           <q-btn rounded ripple color="primary" text-color="white" label="Make a Search"  style="width:80%"/>
+           <q-btn rounded ripple :to="{ name: 'search' }" color="primary" text-color="white" label="Make a Search"  style="width:80%"/>
 
         </q-card-section>
       </q-card>

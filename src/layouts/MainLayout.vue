@@ -238,7 +238,7 @@
                 <q-item clickable v-ripple :to="{ name: 'my_bids' }">
                   <q-item-section>My Bids</q-item-section>
                 </q-item>
-                <q-item clickable v-ripple @click.native="logout">
+                <q-item clickable v-ripple :to="{ name: 'transactions' }">
                   <q-item-section>
                     <q-item-label>Transactions</q-item-label>
                   </q-item-section>

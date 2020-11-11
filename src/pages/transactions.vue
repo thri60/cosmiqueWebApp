@@ -22,47 +22,7 @@
           <p class="text-grey-9">
             Sorry! You haven't made any transactions yet.
           </p>
-          <q-btn-dropdown
-            rounded
-            ripple
-            color="primary"
-            label="Check Inventory"
-          >
-            <q-list separator>
-              <q-item clickable>
-                <q-btn-dropdown no-caps flat dense label="Auto Inventory">
-                  <q-list class="bg-white">
-                    <q-item clickable :to="{ name: 'auction' }">
-                      <q-item-section>
-                        <q-item-label>Auction</q-item-label>
-                      </q-item-section>
-                    </q-item>
-                    <q-item clickable v-close-popup>
-                      <q-item-section>
-                        <q-item-label>Used Autos</q-item-label>
-                      </q-item-section>
-                    </q-item>
-                  </q-list>
-                </q-btn-dropdown>
-              </q-item>
-              <q-item clickable>
-                <q-btn-dropdown no-caps flat dense label="Auto Parts Inventory">
-                  <q-list>
-                    <q-item clickable v-close-popup>
-                      <q-item-section>
-                        <q-item-label>New Auto Parts</q-item-label>
-                      </q-item-section>
-                    </q-item>
-                    <q-item clickable v-close-popup>
-                      <q-item-section>
-                        <q-item-label>Used Auto Parts</q-item-label>
-                      </q-item-section>
-                    </q-item>
-                  </q-list>
-                </q-btn-dropdown>
-              </q-item>
-            </q-list>
-          </q-btn-dropdown>
+          <q-btn rounded :to="{ name: 'search' }" color="primary" text-color="white" label="Check Inventory" />
         </q-card-section>
       </q-card>
     </div>
