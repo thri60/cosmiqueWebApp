@@ -97,7 +97,7 @@
             />
           </q-card-actions>
           <q-card-section class="text-center q-pa-sm">
-            <a href="/login"> <p class="text-grey-6">Return to login</p></a>
+             <q-btn no-caps dense class="text-grey-8" size="md" flat :to="{ name: 'login' }" label="Already have an account? Kindly return to login" />
           </q-card-section>
         </q-card>
       </div>

@@ -532,7 +532,7 @@
               </q-card-section>
             </q-card>
           </div>
-         <div class="col-12 col-md q-pa-md">
+          <div class="col-12 col-md q-pa-md">
             <strong>|| <b class="text-primary"> About Us </b> ||</strong>
             <p class="text-body2 text-weight-light">
               Vestibulum varius od lio eget conseq uat blandit, lorem auglue
@@ -580,50 +580,24 @@
             </div>
           </div>
           <div class="q-pa-md col-12 col-md">
-            <q-scroll-area style="height: 150px; max-width: 300px;">
-              <div class="q-py-xs">
-                <div class="">
-                  <strong>
-                    ||<b class="text-primary"> FROM TWITTER </b>||
-                  </strong>
-                  <div class="q-pa-md row">
-                    <div><q-icon name="fab fa-twitter" /> &nbsp;</div>
-
-                    <div class="col text-body2 text-weight-light">
-                      <p class="text-grey-6 ">
-                        Duis scelerisque aliquet ante donec libero pede
-                        porttitor dacu
-                      </p>
-                      <p>3 minutes ago</p>
-                    </div>
-                  </div>
-                  <div class="q-pa-md row">
-                    <div><q-icon name="fab fa-twitter" /> &nbsp;</div>
-
-                    <div class="col text-body2 text-weight-light">
-                      <p class="text-grey-6 ">
-                        Duis scelerisque aliquet ante donec libero pede
-                        porttitor dacu
-                      </p>
-                      <p>3 minutes ago</p>
-                    </div>
-                  </div>
-                  <div class="q-pa-md row">
-                    <div><q-icon name="fab fa-twitter" /> &nbsp;</div>
-
-                    <div class="col text-body2 text-weight-light">
-                      <p class="text-grey-6 ">
-                        Duis scelerisque aliquet ante donec libero pede
-                        porttitor dacu
-                      </p>
-                      <p>3 minutes ago</p>
-                    </div>
-                  </div>
+            <div class="q-py-xs">
+              <div class="">
+                <strong> ||<b class="text-primary"> Get Started </b>|| </strong>
+                <div v-if="!$auth.check()">
+                <p class="text-body2 text-weight-light">
+                  Join our Customer base and get access to bidding, and other amazing feautures today!
+                </p>
+                 <q-btn outline icon-right="person" :to="{ name: 'register' }" rounded text-color="white" label="Register Now" />
+                </div>
+                <div v-else>
+                <p class="text-body text-weight-light">
+                   Welcome to cosmique Autos
+                  </p>
+                   <p class="text-primary text-bold">{{this.$auth.user().full_name}}</p>
                 </div>
               </div>
-            </q-scroll-area>
+            </div>
           </div>
-
         </div>
       </div>
     </div>

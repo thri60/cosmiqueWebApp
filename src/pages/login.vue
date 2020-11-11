@@ -70,10 +70,9 @@
             />
           </q-card-actions>
           <q-card-section class="text-center q-pa-sm">
-            <p class="text-grey-6">Forgot your password?</p>
-            <a href="/register">
-              <p class="text-grey-6">Don't have an account yet?</p></a
-            >
+             <q-btn no-caps dense class="text-grey-8" size="md" flat :to="{ name: '' }" label="Forgot your password?" />
+             <q-space />
+             <q-btn no-caps dense class="text-grey-8" size="md" flat :to="{ name: 'register' }" label="Don't have an account yet?" />
           </q-card-section>
         </q-card>
       </div>
