@@ -227,7 +227,7 @@
           </p>
         </div>
         <q-separator />
-        <q-scroll-area style="height: 400px; max-width: 1000px; margin: auto;">
+        <q-scroll-area style="height: 400px; max-width: 1200px; margin: auto;">
           <div class="q-py-xs">
             <div class="row q-pa-md">
               <div
