@@ -864,7 +864,7 @@ export default {
       }
       if (this.form.max_year === "") {
         this.form.max_year = "2020"
-      } 
+      }
       if (this.form.min_year === "") {
         this.form.min_year = "2006"
       }
@@ -872,11 +872,11 @@ export default {
         .get(
           "https://cors-anywhere.herokuapp.com/" +
           "http://184.72.35.251/rest-api/v1.0/lots/search?page=1&per_page=26&type=car&make="
-          + this.form.make + 
+          + this.form.make +
           "&model="
           + this.form.model +
           "&search_id=*&search_query=*&year_from="
-          + this.form.min_year + 
+          + this.form.min_year +
           "&year_to="
           +this.form.max_year +
           "&sort_field=&sort_order=&sales_type=*&distance=*&destination_zip=&location_state=*&location_city=*&primary_damage=*&loss_type=*&title_name=*&exterior_color=*&odometer_min=*&odometer_max=*"

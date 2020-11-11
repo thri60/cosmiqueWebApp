@@ -593,7 +593,8 @@
                 <p class="text-body text-weight-light">
                    Welcome to cosmique Autos
                   </p>
-                   <p class="text-primary text-bold">{{this.$auth.user().full_name}}</p>
+                   <p class="text-primary text-bold"> <q-icon name="person_pin" size="sm"/>
+                    {{this.$auth.user().full_name}}</p>
                 </div>
               </div>
             </div>
