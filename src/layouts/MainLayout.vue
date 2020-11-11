@@ -528,67 +528,29 @@
                     Sunday is closed
                   </p>
                 </div>
-              </q-card-section>
-              <hr />
-              <q-card-section>
-                <strong>|| <b class="text-primary"> About Us </b> ||</strong>
-                <p class="text-body2 text-weight-light">
-                  Vestibulum varius od lio eget conseq uat blandit, lorem auglue
-                  comm lodo nisl non ultricies lectus nibh mas lsa Duis
-                  scelerisque aliquet. Ante donec libero pede porttitor dacu
-                  msan esct venenatis quis.
-                </p>
-                <q-btn
-                  rounded
-                  no-caps
-                  outline
-                  class="q-mr-xs"
-                  color="white"
-                  text-color="white"
-                  label="Read More"
-                  icon-right="fa fa-angle-right"
-                />
+                <hr />
               </q-card-section>
             </q-card>
           </div>
-
-          <div class="q-pa-md col-12 col-md">
-            <div class="">
-              <strong> ||<b class="text-primary"> FROM TWITTER </b>|| </strong>
-              <div class="q-pa-md row">
-                <div><q-icon name="fab fa-twitter" /> &nbsp;</div>
-
-                <div class="col text-body2 text-weight-light">
-                  <p class="text-grey-6 ">
-                    Duis scelerisque aliquet ante donec libero pede porttitor
-                    dacu
-                  </p>
-                  <p>3 minutes ago</p>
-                </div>
-              </div>
-              <div class="q-pa-md row">
-                <div><q-icon name="fab fa-twitter" /> &nbsp;</div>
-
-                <div class="col text-body2 text-weight-light">
-                  <p class="text-grey-6 ">
-                    Duis scelerisque aliquet ante donec libero pede porttitor
-                    dacu
-                  </p>
-                  <p>3 minutes ago</p>
-                </div>
-              </div>
-              <div class="q-pa-md row">
-                <div><q-icon name="fab fa-twitter" /> &nbsp;</div>
-
-                <div class="col text-body2 text-weight-light">
-                  <p class="text-grey-6 ">
-                    Duis scelerisque aliquet ante donec libero pede porttitor
-                    dacu
-                  </p>
-                  <p>3 minutes ago</p>
-                </div>
-              </div>
-            </div>
+         <div class="col-12 col-md q-pa-md">
+            <strong>|| <b class="text-primary"> About Us </b> ||</strong>
+            <p class="text-body2 text-weight-light">
+              Vestibulum varius od lio eget conseq uat blandit, lorem auglue
+              comm lodo nisl non ultricies lectus nibh mas lsa Duis scelerisque
+              aliquet. Ante donec libero pede porttitor dacu msan esct venenatis
+              quis.
+            </p>
+            <q-btn
+              rounded
+              no-caps
+              outline
+              :to="{ name: 'about' }"
+              class="q-mr-xs"
+              color="white"
+              text-color="white"
+              label="Read More"
+              icon-right="fa fa-angle-right"
+            />
           </div>
 
           <div class="col-12 col-md q-pa-md">
@@ -617,21 +579,51 @@
               </div>
             </div>
           </div>
-          <div class="col-12 col-md q-pa-md">
-            <q-img
-              class="text-center"
-              src="~assets/map.jpg"
-              spinner-color="white"
-            >
-              <q-btn
-                class="q-pa-md"
-                flat
-                dense
-                text-color="grey-6"
-                label="Open location map"
-              />
-            </q-img>
+          <div class="q-pa-md col-12 col-md">
+            <q-scroll-area style="height: 150px; max-width: 300px;">
+              <div class="q-py-xs">
+                <div class="">
+                  <strong>
+                    ||<b class="text-primary"> FROM TWITTER </b>||
+                  </strong>
+                  <div class="q-pa-md row">
+                    <div><q-icon name="fab fa-twitter" /> &nbsp;</div>
+
+                    <div class="col text-body2 text-weight-light">
+                      <p class="text-grey-6 ">
+                        Duis scelerisque aliquet ante donec libero pede
+                        porttitor dacu
+                      </p>
+                      <p>3 minutes ago</p>
+                    </div>
+                  </div>
+                  <div class="q-pa-md row">
+                    <div><q-icon name="fab fa-twitter" /> &nbsp;</div>
+
+                    <div class="col text-body2 text-weight-light">
+                      <p class="text-grey-6 ">
+                        Duis scelerisque aliquet ante donec libero pede
+                        porttitor dacu
+                      </p>
+                      <p>3 minutes ago</p>
+                    </div>
+                  </div>
+                  <div class="q-pa-md row">
+                    <div><q-icon name="fab fa-twitter" /> &nbsp;</div>
+
+                    <div class="col text-body2 text-weight-light">
+                      <p class="text-grey-6 ">
+                        Duis scelerisque aliquet ante donec libero pede
+                        porttitor dacu
+                      </p>
+                      <p>3 minutes ago</p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </q-scroll-area>
           </div>
+
         </div>
       </div>
     </div>
@@ -752,7 +744,7 @@
                 text-color="white"
                 label="Support"
               >
-                <q-list >
+                <q-list>
                   <q-item clickable :to="{ name: 'about' }">
                     <q-item-section>
                       <q-item-label>About Us</q-item-label>

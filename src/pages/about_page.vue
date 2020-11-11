@@ -53,7 +53,6 @@
             src="~assets/1.jpg"
             spinner-color="white"
             square
-            style="height: 345px; width: 550px"
           />
         </div>
       </div>
@@ -69,15 +68,14 @@
         </p>
       </div>
       <div class="row q-pa-md">
-        <div class="col-12 col-md-6 q-pa-md">
+        <div class="col-12 col-md-6 q-pa-xl">
           <q-img
             class="q-pa-xl"
             src="~assets/3.jpg"
             spinner-color="white"
             square
-            style="height: 200px; width: 350px"
           />
-          <div class="q-pa-md">
+          <div>
             <p class="text-body2 text-grey-7">WE OFFER</p>
             <p class=" text-h5 text-bold text-grey-9">
               <span class="text-primary">|</span> Low Prices, No Haggling
@@ -91,18 +89,18 @@
             </p>
           </div>
         </div>
-        <div class="col-12 col-md-6 q-pa-md">
+        <div class="col-12 col-md-6 q-pa-xl">
           <q-img
             class="q-pa-xl"
             src="~assets/1.jpg"
             spinner-color="white"
             square
-            style="height: 200px; width: 350px"
+
           />
-          <div class="q-pa-md">
+          <div>
             <p class="text-body2 text-grey-7">WE ARE THE</p>
             <p class=" text-h5 text-bold text-grey-9">
-              <span class="text-primary">|</span> Largest Car Dealership
+              <span class="text-primary">|</span> Largest Car and Auto Parts Dealership
             </p>
             <q-separator />
             <p class="text-justify text-grey-6">
