@@ -83,7 +83,7 @@
           <q-card-section>
              <q-btn  rounded color="primary" text-color="white" label="Update Information" no-caps style="width:60%" />
              <br>
-              <q-btn no-caps flat dense text-color="black" label="Cancel" />
+              <q-btn @click="payment" no-caps flat dense text-color="black" label="Cancel" />
           </q-card-section>
         </q-card>
       </div>
