@@ -227,49 +227,61 @@
           </p>
         </div>
         <q-separator />
-        <div class="row q-pa-md">
-          <div class="col-12 col-md-4 q-pa-md" v-for="similar in similar_selections" :key="similar.id">
-            <q-card>
-              <q-img
-                v-ripple
-                class="cursor-pointer relative-position"
-                :src="similar.images[0]"
+        <q-scroll-area style="height: 400px; max-width: 1000px; margin: auto;">
+          <div class="q-py-xs">
+            <div class="row q-pa-md">
+              <div
+                class="col-12 col-md-4 q-pa-md"
+                v-for="similar in similar_selections"
+                :key="similar.id"
               >
-                <div class="absolute-bottom text-subtitle2 text-center">
-                  <strong class="text-h6">{{ similar.vehicle_name }}</strong>
-                </div>
-              </q-img>
-
-              <q-card-section>
-                <div>
-                  <i class="fas fa-tachometer-alt"></i> MILEAGE:
-                  <b>
-                    {{ new Intl.NumberFormat().format(similar.odometer_value) }}
-                    {{ similar.odometer_type.toUpperCase() }}
-                  </b>
-                </div>
-                <div>
-                  <i class="fab fa-keycdn"></i> VIN:
-                  <b>{{ similar.vin }} </b>
-                </div>
-
-                <hr />
-                <div class="q-mb-xs">
-                  <q-btn
-                    class="full-width"
-                    rounded
-                    color="primary"
-                    text-color="white"
-                    size="sm"
-                    @click="selected(similar.id)"
+                <q-card>
+                  <q-img
+                    v-ripple
+                    class="cursor-pointer relative-position"
+                    :src="similar.images[0]"
                   >
-                    <b>View Vehicle</b>
-                  </q-btn>
-                </div>
-              </q-card-section>
-            </q-card>
+                    <div class="absolute-bottom text-subtitle2 text-center">
+                      <strong class="text-h6">{{
+                        similar.vehicle_name
+                      }}</strong>
+                    </div>
+                  </q-img>
+
+                  <q-card-section>
+                    <div>
+                      <i class="fas fa-tachometer-alt"></i> MILEAGE:
+                      <b>
+                        {{
+                          new Intl.NumberFormat().format(similar.odometer_value)
+                        }}
+                        {{ similar.odometer_type.toUpperCase() }}
+                      </b>
+                    </div>
+                    <div>
+                      <i class="fab fa-keycdn"></i> VIN:
+                      <b>{{ similar.vin }} </b>
+                    </div>
+
+                    <hr />
+                    <div class="q-mb-xs">
+                      <q-btn
+                        class="full-width"
+                        rounded
+                        color="primary"
+                        text-color="white"
+                        size="sm"
+                        @click="selected(similar.id)"
+                      >
+                        <b>View Vehicle</b>
+                      </q-btn>
+                    </div>
+                  </q-card-section>
+                </q-card>
+              </div>
+            </div>
           </div>
-        </div>
+        </q-scroll-area>
       </div>
     </div>
   </div>
@@ -308,16 +320,18 @@ export default {
         });
     },
 
-    async loadingSimilarCars(){
-      return this.axios.get(
-        "https://cors-anywhere.herokuapp.com/" +
-        "https://www.salvagebid.com/rest-api/v1.0/lots/"
-        + this.$q.cookies.get("selected_car") +
-        "/similar"
-      ).then( response => {
-        this.similar_selections = response.data
-        console.log(response.data);
-      })
+    async loadingSimilarCars() {
+      return this.axios
+        .get(
+          "https://cors-anywhere.herokuapp.com/" +
+            "https://www.salvagebid.com/rest-api/v1.0/lots/" +
+            this.$q.cookies.get("selected_car") +
+            "/similar"
+        )
+        .then(response => {
+          this.similar_selections = response.data;
+          console.log(response.data);
+        });
     },
 
     find_id_storage() {
@@ -337,7 +351,8 @@ export default {
       return this.axios
         .get(
           "https://cors-anywhere.herokuapp.com/" +
-            "http://184.72.35.251/rest-api/v2/lots/" + id
+            "http://184.72.35.251/rest-api/v2/lots/" +
+            id
         )
         .then(response => {
           this.view_selected = response.data;

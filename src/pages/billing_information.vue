@@ -66,7 +66,7 @@
                   v-model="card.name"
                   :label="this.$auth.user().full_name"
                   hint="Name on Card"
-                  disable
+                  readonly
                 />
                 <br />
                 <q-input
@@ -75,6 +75,7 @@
                   rounded
                   class="q-pa-sm"
                   outlined
+                  mask="#### #### #### #### ####"
                   v-model="card.cardnumber"
                   label="Enter Your Card Number"
                   hint="Card Number"
@@ -125,6 +126,7 @@
                 <q-input
                   dense
                   rounded
+                  autogrow
                   class="q-pa-sm"
                   outlined
                   v-model="card.address"
@@ -222,7 +224,7 @@ export default {
         cvv: "",
         address: "",
         city: "",
-        state: null,
+        state: "Abuja (FCT)",
         zipcode: "",
         country: "Nigeria"
       },

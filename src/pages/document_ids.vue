@@ -3,9 +3,10 @@
     <div class="col-12 col-md-3 q-pa-md gt-sm">
       <sidebar />
     </div>
-    <div class="col-12 col-md-7 q-pa-md">
-      <div class="q-gutter-y-md">
-      <q-card>
+    <div class="col-12 col-md-9 q-pa-md">
+      <p class="text-bold text-h4 text-primary">Documents and IDs</p>
+      <div class="q-gutter-y-md q-pa-md">
+      <q-card >
         <q-tabs
           v-model="tab"
           dense
@@ -37,7 +38,7 @@
                         <div class="text-subtitle2">You do not have any documents yet</div>
                       </q-card-section>
                       <q-card-section>
-                          <q-btn rounded color="primary text-center" :to="{ name: 'auction'}" label="find a vehicle" />
+                          <q-btn rounded color="primary text-center" :to="{ name: 'search'}" label="find a vehicle" />
                       </q-card-section>
                     </q-card>
                   </div>
@@ -103,7 +104,7 @@ export default {
       setTimeout(() => {
         this.visible = false
         this.showReturnData = true
-      }, 3000)
+      }, 700)
     }
   },
 

@@ -47,7 +47,7 @@
       <q-item-section avatar>
         <q-icon color="primary" name="assessment" />
       </q-item-section>
-      <q-item-section>Password and Login</q-item-section>
+      <q-item-section>Email and Password</q-item-section>
     </q-item>
     <q-item clickable v-ripple :to="{ name: 'documents_and_ids'}">
       <q-item-section avatar>
