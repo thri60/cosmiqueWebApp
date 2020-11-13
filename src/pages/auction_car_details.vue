@@ -32,9 +32,8 @@
             class="card1"
           >
             <q-carousel-slide
-              v-for="image in view_selected.lot.images"
-              :key="image"
               :name="image"
+              v-for="(image, index) in view_selected.lot.images" :key="index"
               :img-src="image"
               style="height: 100%"
               transitions="rotate"
@@ -181,15 +180,18 @@
             <q-card-section>
               <div class="text-h5 text-bold">Sale Information</div>
               <div
-                class="row"
-                v-for="sales in view_selected.sale_information"
-                :key="sales"
-              >
+                v-for="(item, index) in view_selected.sale_information" :key="index"
+                class="row">
                 <div class="col-4 text-primary">
-                  <b>{{ sales.label }} </b>
+                  <b>{{ item.label }}</b>
                 </div>
                 <div class="col-8">
-                  <b>{{ sales.value }}</b>
+                  <b v-if="item.value.address == null">{{ item.value }}</b>
+                  <b v-else>
+                    {{ item.value.address }},
+                    {{ item.value.city }},
+                    {{ item.value.state }}
+                  </b>
                 </div>
               </div>
             </q-card-section>
@@ -310,8 +312,8 @@ export default {
       return this.axios
         .get(
           "https://cors-anywhere.herokuapp.com/" +
-            "http://184.72.35.251/rest-api/v2/lots/" +
-            this.selected_car
+          "http://184.72.35.251/rest-api/v2/lots/" +
+          this.selected_car
         )
         .then(response => {
           this.view_selected = response.data;
@@ -324,13 +326,12 @@ export default {
       return this.axios
         .get(
           "https://cors-anywhere.herokuapp.com/" +
-            "https://www.salvagebid.com/rest-api/v1.0/lots/" +
-            this.$q.cookies.get("selected_car") +
-            "/similar"
+          "http://184.72.35.251/rest-api/v1.0/lots/" +
+          this.selected_car +
+          "/similar"
         )
         .then(response => {
           this.similar_selections = response.data;
-          console.log(response.data);
         });
     },
 
@@ -351,8 +352,7 @@ export default {
       return this.axios
         .get(
           "https://cors-anywhere.herokuapp.com/" +
-            "http://184.72.35.251/rest-api/v2/lots/" +
-            id
+          "http://184.72.35.251/rest-api/v2/lots/" + id
         )
         .then(response => {
           this.view_selected = response.data;

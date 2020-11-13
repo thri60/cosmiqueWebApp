@@ -1,20 +1,39 @@
 <template>
   <div>
     <div class="q-pa-md">
-      <q-carousel
-        swipeable
-        animated
-        autoplay
-        v-model="slide"
-        thumbnails
-        infinite
-        class="img-slide"
-      >
-        <q-carousel-slide :name="1" img-src="~assets/1.jpg" />
-        <q-carousel-slide :name="2" img-src="~assets/2.jpg" />
-        <q-carousel-slide :name="3" img-src="~assets/3.jpg" />
-        <q-carousel-slide :name="4" img-src="~assets/4.jpg" />
-      </q-carousel>
+      <div class="lt-md">
+        <q-responsive :ratio="16 / 9" style="width: 500px; max-width: 100%;">
+          <q-carousel
+            swipeable
+            animated
+            navigation
+            arrows
+            v-model="slide"
+            infinite
+          >
+            <q-carousel-slide :name="1" img-src="~assets/1.jpg" />
+            <q-carousel-slide :name="2" img-src="~assets/2.jpg" />
+            <q-carousel-slide :name="3" img-src="~assets/3.jpg" />
+            <q-carousel-slide :name="4" img-src="~assets/4.jpg" />
+          </q-carousel>
+        </q-responsive>
+      </div>
+      <div class="gt-sm">
+        <q-carousel
+          swipeable
+          animated
+          autoplay
+          v-model="slide"
+          thumbnails
+          infinite
+          class="img-slide"
+        >
+          <q-carousel-slide :name="1" img-src="~assets/1.jpg" />
+          <q-carousel-slide :name="2" img-src="~assets/2.jpg" />
+          <q-carousel-slide :name="3" img-src="~assets/3.jpg" />
+          <q-carousel-slide :name="4" img-src="~assets/4.jpg" />
+        </q-carousel>
+      </div>
     </div>
 
     <div class="q-pa-md">
@@ -656,7 +675,7 @@ export default {
         model: "",
         max_year: "",
         min_year: "",
-        types: "",
+        types: ""
       },
       data: [],
       view_selected: {},
@@ -855,7 +874,7 @@ export default {
       });
     },
 
-    searchQuery(){
+    searchQuery() {
       if (this.form.make === "") {
         this.form.make = "*";
       }
@@ -863,23 +882,23 @@ export default {
         this.form.model = "*";
       }
       if (this.form.max_year === "") {
-        this.form.max_year = "2020"
+        this.form.max_year = "2020";
       }
       if (this.form.min_year === "") {
-        this.form.min_year = "2006"
+        this.form.min_year = "2006";
       }
       this.axios
         .get(
           "https://cors-anywhere.herokuapp.com/" +
-          "http://184.72.35.251/rest-api/v1.0/lots/search?page=1&per_page=26&type=car&make="
-          + this.form.make +
-          "&model="
-          + this.form.model +
-          "&search_id=*&search_query=*&year_from="
-          + this.form.min_year +
-          "&year_to="
-          +this.form.max_year +
-          "&sort_field=&sort_order=&sales_type=*&distance=*&destination_zip=&location_state=*&location_city=*&primary_damage=*&loss_type=*&title_name=*&exterior_color=*&odometer_min=*&odometer_max=*"
+            "http://184.72.35.251/rest-api/v1.0/lots/search?page=1&per_page=26&type=car&make=" +
+            this.form.make +
+            "&model=" +
+            this.form.model +
+            "&search_id=*&search_query=*&year_from=" +
+            this.form.min_year +
+            "&year_to=" +
+            this.form.max_year +
+            "&sort_field=&sort_order=&sales_type=*&distance=*&destination_zip=&location_state=*&location_city=*&primary_damage=*&loss_type=*&title_name=*&exterior_color=*&odometer_min=*&odometer_max=*"
         )
         .then(response => {
           this.$router.push({
@@ -898,8 +917,9 @@ export default {
 
 <style lang="sass" scoped>
 .img-slide
-  width: 100%
-  height: 450px
+  width: auto
+  max-height: 100%
+  position: relative
 
 .my-content > div
   padding: 10px 15px
