@@ -4,7 +4,7 @@
       <sidebar />
     </div>
     <div class="col-12 col-md-9 q-pa-md">
-            <p class="text-bold text-h4 text-primary">Email and Password</p>
+      <p class="text-bold text-h4 text-primary">Email and Password</p>
       <div class="row">
         <div class="col-12 col-md-6 q-pa-md">
           <q-card class="my-card">
@@ -23,7 +23,7 @@
                 type="text"
                 :label="this.$auth.user().email"
               />
-              <br>
+              <br />
               <q-input
                 rounded
                 dense
@@ -33,13 +33,15 @@
                 type="text"
                 hint="New Email"
                 label="Enter New Email"
-                :rules="[val => (val && val.length > 0) || 'New email is required']"
+                :rules="[
+                  val => (val && val.length > 0) || 'New email is required'
+                ]"
               >
                 <template v-slot:prepend>
                   <q-icon name="alternate_email" />
                 </template>
               </q-input>
-              <br>
+              <br />
               <q-input
                 rounded
                 dense
@@ -65,7 +67,7 @@
                   />
                 </template>
               </q-input>
-              <br>
+              <br />
               <q-btn
                 color="primary full-width"
                 rounded
@@ -130,7 +132,7 @@
                   />
                 </template>
               </q-input>
-              <br>
+              <br />
               <q-btn
                 color="primary full-width"
                 rounded
@@ -155,7 +157,7 @@ export default {
   data() {
     return {
       isPwd: true,
-      updateEmail:{},
+      updateEmail: {},
       form: {
         current_email: this.$auth.user().email
       }
@@ -163,9 +165,7 @@ export default {
   },
 
   methods: {
-    change_email(){
-
-    }
-  },
+    change_email() {}
+  }
 };
 </script>

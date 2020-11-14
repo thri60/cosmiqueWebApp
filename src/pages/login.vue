@@ -15,7 +15,9 @@
               v-model="form.email"
               type="email"
               label="Email"
-              :rules="[val => (val && val.length > 0) || 'Your Email is Required']"
+              :rules="[
+                val => (val && val.length > 0) || 'Your Email is Required'
+              ]"
               @keyup.enter="login"
             >
               <template v-slot:prepend>
@@ -60,19 +62,39 @@
             <q-btn
               dense
               rounded
-              unelevated
               type="submit"
               size="lg"
+              :loading="submitting"
               color="primary"
               class="full-width text-white"
               label="Sign In"
               @click="login"
-            />
+            >
+              <template v-slot:loading>
+                <q-spinner-facebook />
+              </template>
+            </q-btn>
           </q-card-actions>
           <q-card-section class="text-center q-pa-sm">
-             <q-btn no-caps dense class="text-grey-8" size="md" flat :to="{ name: '' }" label="Forgot your password?" />
-             <q-space />
-             <q-btn no-caps dense class="text-grey-8" size="md" flat :to="{ name: 'register' }" label="Don't have an account yet?" />
+            <q-btn
+              no-caps
+              dense
+              class="text-grey-8"
+              size="md"
+              flat
+              :to="{ name: '' }"
+              label="Forgot your password?"
+            />
+            <q-space />
+            <q-btn
+              no-caps
+              dense
+              class="text-grey-8"
+              size="md"
+              flat
+              :to="{ name: 'register' }"
+              label="Don't have an account yet?"
+            />
           </q-card-section>
         </q-card>
       </div>
@@ -88,10 +110,24 @@ export default {
         email: "",
         password: ""
       },
-      isPwd: true
+      isPwd: true,
+      submitting: false
     };
   },
   methods: {
+      login () {
+      this.submitting = true
+
+      // Simulating a delay here.
+      // When we are done, we reset "submitting"
+      // Boolean to false to restore the
+      // initial state.
+      setTimeout(() => {
+        // delay simulated, we are done,
+        // now restoring submit to its initial state
+        this.submitting = false
+      }, 3000)
+    },
     login() {
       if (this.form.email == "") {
         this.$q.notify({
@@ -110,7 +146,7 @@ export default {
         });
       }
 
-      this.axios.post('auth/login', this.form).then(response => {
+      this.axios.post("auth/login", this.form).then(response => {
         if (response.data.status == false) {
           this.$q.notify({
             message: response.data.message,
@@ -154,11 +190,10 @@ export default {
 </script>
 
 <style lang="css">
-.login_bg{
+.login_bg {
   background-image: url("/bg2.webp");
-  background-position:  0 0;
+  background-position: 0 0;
   background-repeat: no-repeat;
   background-size: auto;
 }
-
 </style>

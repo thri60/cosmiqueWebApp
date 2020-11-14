@@ -293,9 +293,9 @@
         </div>
       </q-toolbar>
     </q-header>
-    <q-drawer v-model="leftDrawerOpen" bordered content-class="bg-grey-1">
+    <q-drawer v-model="leftDrawerOpen" bordered content-class="text-primary" >
       <q-list>
-        <q-item-label header class="text-grey-8 q-pa-md">
+        <q-item-label header class="text-white q-pa-md bg-primary">
           Cosmique Autos
         </q-item-label>
         <q-separator />
@@ -467,7 +467,7 @@
           </q-btn-dropdown>
           <q-separator inset />
           <q-btn-dropdown
-            label="My Auction Center"
+            label="My Transaction Center"
             icon="fas fa-gavel"
             class="q-ml-lg bg-tertiary q-pa-md"
             no-caps
