@@ -167,12 +167,12 @@
                     label="Auto Parts Inventory"
                   >
                     <q-list bordered separator>
-                      <q-item clickable v-close-popup>
+                      <q-item clickable :to="{ name: 'newParts' }">
                         <q-item-section>
                           <q-item-label>New Auto Parts</q-item-label>
                         </q-item-section>
                       </q-item>
-                      <q-item clickable v-close-popup>
+                      <q-item clickable :to="{ name: 'oldParts' }">
                         <q-item-section>
                           <q-item-label>Used Auto Parts</q-item-label>
                         </q-item-section>

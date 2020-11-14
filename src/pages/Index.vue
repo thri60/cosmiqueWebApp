@@ -395,19 +395,12 @@
     <div class="q-pa-md row bg-primary text-white gt-sm">
       <div class="col-12 col-md-2">
         <div class="bg-white q-pa-md box">
-          <q-card v-ripple class="shadow-box">
-            <q-card-section class="text-center">
-              <q-icon
-                class="text-black"
-                name="fas fa-gavel"
-                style="font-size: 2em;"
-              />
-              <br />
-              <q-icon
-                class="text-black"
-                name="fas fa-car"
-                style="font-size: 3em;"
-              />
+          <q-card v-ripple>
+            <q-card-section>
+              <q-btn :to="{ name: 'auction' }" size="35px" round color="white">
+                <q-icon class="text-black" name="fas fa-gavel" />
+                <q-icon class="text-black" name="fas fa-car" />
+              </q-btn>
             </q-card-section>
           </q-card>
           <div class="text-center">
@@ -417,11 +410,11 @@
         <br />
         <br />
         <div class="bg-white q-pa-md box">
-          <q-card v-ripple class="shadow-box">
+          <q-card v-ripple>
             <q-card-section class="text-center">
-              <div>
+              <q-btn :to="{ name: 'search' }" size="35px" round color="white">
                 <q-img src="~assets/autopart.svg" />
-              </div>
+              </q-btn>
             </q-card-section>
           </q-card>
           <div class="text-center">
@@ -473,11 +466,11 @@
       </div>
       <div class="col-12 col-md-2">
         <div class="bg-white box q-pa-md">
-          <q-card v-ripple class="shadow-box">
+          <q-card v-ripple>
             <q-card-section class="text-center">
-              <div>
-                <q-img src="~assets/usedCar.svg" />
-              </div>
+              <q-btn :to="{ name: '' }" size="35px" round color="white">
+                <q-img src="~assets/usedcar.svg" />
+              </q-btn>
             </q-card-section>
           </q-card>
           <div class="text-center">
@@ -489,11 +482,11 @@
         <br />
         <br />
         <div class="bg-white box q-pa-md c">
-          <q-card v-ripple class="shadow-box">
+          <q-card v-ripple>
             <q-card-section class="text-center">
-              <div>
+              <q-btn :to="{ name: 'search' }" size="35px" round color="white">
                 <q-img src="~assets/hot-deal.svg" />
-              </div>
+              </q-btn>
             </q-card-section>
           </q-card>
           <div class="text-center">
