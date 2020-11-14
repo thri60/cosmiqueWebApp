@@ -19,7 +19,7 @@ import documentInfoPage from 'pages/document_ids';
 import faqPage from "pages/faq_page.vue";
 import SearchResultsPage from "pages/search_results.vue";
 import newPartsPage from "pages/newPartsPage.vue";
-import oldPartsPage from "pages/oldPartsPage.vue";
+import usedPartsPage from "pages/usedPartsPage.vue";
 
 
 const routes = [{
@@ -49,7 +49,7 @@ const routes = [{
             },
             { path: "/faq", name: "faq", component: faqPage },
             { path: "/newParts", name: "newParts", component: newPartsPage },
-            { path: "/oldParts", name: "oldParts", component: oldPartsPage },
+            { path: "/usedParts", name: "usedParts", component: usedPartsPage },
 
             // auth pages
             {

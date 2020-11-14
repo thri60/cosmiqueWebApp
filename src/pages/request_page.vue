@@ -479,10 +479,10 @@
                   rounded
                   outlined
                   v-model="form.city"
-                  label="City / State *"
+                  label="City and State *"
                   dense
                   lazy-rules
-                  :rules="[val => (val && val.length > 0) || 'Enter Your City / State Please']"
+                  :rules="[val => (val && val.length > 0) || 'Enter Your City and State is required']"
                 >
                   <template v-slot:prepend>
                     <q-icon name="location_city" />
@@ -496,7 +496,7 @@
                   label="Enter Your Phone Number *"
                   dense
                   lazy-rules
-                  :rules="[val => (val && val.length > 0) || 'Enter Your Phone Number Please']"
+                  :rules="[val => (val && val.length > 0) || 'Enter Your Phone Number is required']"
                 >
                   <template v-slot:prepend>
                     <q-icon name="call" />
@@ -509,11 +509,11 @@
                   rounded
                   outlined
                   v-model="form.zipcode"
-                  label="Zip Code / Country *"
+                  label="Zip Code*"
                   dense
                   lazy-rules
                   :rules="[
-                    val => (val && val.length > 0) || 'Zip Code / Country'
+                    val => (val && val.length > 0) || 'Zip Code is required'
                   ]"
                 >
 
@@ -527,7 +527,7 @@
                   dense
                   lazy-rules
                   :rules="[
-                    val => (val && val.length > 0) || 'Enter Your Email Address Please'
+                    val => (val && val.length > 0) || 'Enter Your Email Address is required'
                   ]"
                 >
                   <template v-slot:prepend>

@@ -1,14 +1,15 @@
 <template>
   <div>
-    <div class="text-center bg-white">
+     <div class="q-pt-none">
       <q-img
         dim
-        src="~assets/2.jpg"
+        src="~assets/auction.jpg"
         class="q-pa-md bg-transparent banner"
-        style="height:100px;"
+        style="height:100px"
       >
-        <div round class="q-pa-md text-white text-h5 text-bold q-pa-lg">
-          AUCTION Cars For Sale (Bid Online)
+        <br />
+        <div round class="q-pa-md text-white text-h5 text-bold ">
+          <b>| AUCTION Cars For Sale (Bid Online) |</b>
         </div>
       </q-img>
     </div>

@@ -17,6 +17,7 @@
     <br />
 
     <div class="q-pa-xl gt-sm">
+      <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Nobis vero illum corrupti maiores consequatur sit consequuntur iste incidunt, ea tempora, doloribus quae minima voluptatibus debitis. Cumque distinctio dignissimos sint ipsa?</p>
       <q-splitter>
         <template v-slot:before>
           <q-tabs v-model="tab" vertical class="text-primary">

@@ -65,7 +65,7 @@
                     <q-item-label>New Auto Parts</q-item-label>
                   </q-item-section>
                 </q-item>
-                <q-item clickable :to="{name:'oldParts'}">
+                <q-item clickable :to="{name:'usedParts'}">
                   <q-item-section>
                     <q-item-label>Used Auto Parts</q-item-label>
                   </q-item-section>
@@ -172,7 +172,7 @@
                           <q-item-label>New Auto Parts</q-item-label>
                         </q-item-section>
                       </q-item>
-                      <q-item clickable :to="{ name: 'oldParts' }">
+                      <q-item clickable :to="{ name: 'usedParts' }">
                         <q-item-section>
                           <q-item-label>Used Auto Parts</q-item-label>
                         </q-item-section>
@@ -683,7 +683,7 @@
                       <q-item-label>New Auto Parts</q-item-label>
                     </q-item-section>
                   </q-item>
-                  <q-item clickable :to="{name: 'oldParts'}"p>
+                  <q-item clickable :to="{name: 'usedParts'}"p>
                     <q-item-section>
                       <q-item-label>Used Auto Parts</q-item-label>
                     </q-item-section>

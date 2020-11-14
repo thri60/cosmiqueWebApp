@@ -1,6 +1,6 @@
 <template>
   <q-page padding>
-        <div class="q-pt-none">
+           <div class="q-pt-none">
       <q-img
         dim
         src="~assets/1.jpg"
@@ -9,7 +9,7 @@
       >
         <br />
         <div round class="q-pa-md text-white text-h5 text-bold ">
-          <b>| New Auto Parts |</b>
+          <b>| Used Auto Parts |</b>
         </div>
       </q-img>
     </div>
