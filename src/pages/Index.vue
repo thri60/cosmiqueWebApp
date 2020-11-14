@@ -468,7 +468,7 @@
         <div class="bg-white box q-pa-md">
           <q-card v-ripple>
             <q-card-section class="text-center">
-              <q-btn :to="{ name: '' }" size="35px" round color="white">
+              <q-btn :to="{ name: 'usedCars' }" size="35px" round color="white">
                 <q-img src="~assets/usedcar.svg" />
               </q-btn>
             </q-card-section>

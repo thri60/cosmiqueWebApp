@@ -45,7 +45,7 @@
                     <q-item-label>Auction</q-item-label>
                   </q-item-section>
                 </q-item>
-                <q-item clickable v-close-popup>
+                <q-item clickable :to="{name: 'usedCars'}">
                   <q-item-section>
                     <q-item-label>Used Autos</q-item-label>
                   </q-item-section>
@@ -60,12 +60,12 @@
               label="Auto Parts Inventory"
             >
               <q-list class="bg-white text-primary">
-                <q-item clickable v-close-popup>
+                <q-item clickable :to="{name: 'newParts'}">
                   <q-item-section>
                     <q-item-label>New Auto Parts</q-item-label>
                   </q-item-section>
                 </q-item>
-                <q-item clickable v-close-popup>
+                <q-item clickable :to="{name:'oldParts'}">
                   <q-item-section>
                     <q-item-label>Used Auto Parts</q-item-label>
                   </q-item-section>
@@ -661,7 +661,7 @@
                       <q-item-label>Auction</q-item-label>
                     </q-item-section>
                   </q-item>
-                  <q-item clickable v-close-popup>
+                  <q-item clickable :to="{name: 'usedCars'}">
                     <q-item-section>
                       <q-item-label>Used Autos</q-item-label>
                     </q-item-section>
@@ -678,12 +678,12 @@
                 label="Auto Parts Inventory"
               >
                 <q-list>
-                  <q-item clickable v-close-popup>
+                  <q-item clickable :to="{name: 'newParts'}">
                     <q-item-section>
                       <q-item-label>New Auto Parts</q-item-label>
                     </q-item-section>
                   </q-item>
-                  <q-item clickable v-close-popup>
+                  <q-item clickable :to="{name: 'oldParts'}"p>
                     <q-item-section>
                       <q-item-label>Used Auto Parts</q-item-label>
                     </q-item-section>

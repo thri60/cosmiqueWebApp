@@ -47,23 +47,30 @@
             transition-next="jump-up"
           >
             <q-tab-panel name="shipping_calculator">
-              <div class="text-h4 q-mb-md">Shipping Calculator</div>
-              <p>
-                Lorem ipsum dolor sit, amet consectetur adipisicing elit. Quis
-                praesentium cumque magnam odio iure quidem, quod illum numquam
-                possimus obcaecati commodi minima assumenda consectetur culpa
-                fuga nulla ullam. In, libero.
-              </p>
-              <p>
-                Lorem ipsum dolor sit, amet consectetur adipisicing elit. Quis
-                praesentium cumque magnam odio iure quidem, quod illum numquam
-                possimus obcaecati commodi minima assumenda consectetur culpa
-                fuga nulla ullam. In, libero.
-              </p>
+
+              <q-card class="my-card row">
+                <q-card-section class="text center">
+              <div class="text-h5 text-bold text-center">SHIPPING CALCULATOR</div>
+                </q-card-section>
+              <q-separator />
+              <q-card-section class="col">
+                <q-select rounded dense outlined v-model="departurePort" :options="departurePorts" label="Port of Departure" hint="Port of Departure" />
+                <q-select rounded dense outlined v-model="destinationCountry" :options="destinationCountries" label="Destination Country" hint="Destination Country" readonly/>
+                <q-select rounded dense outlined v-model="destinationPort" :options="destinationPorts" label="Destination Port" hint="Destination Port"/>
+                <q-select rounded dense outlined v-model="service" :options="services" label="Services" hint="services" />
+              </q-card-section>
+              <q-separator vertical />
+              <q-card-section class="col">
+              <p>For ocean shipping to this destination, kindly refer to our Transportation Department <a href="mailto:shipping@cosmiqueautos.com">shipping@cosmiqueautos.com</a> </p>
+              <q-separator />
+              <div>OCEAN COST: </div>
+              </q-card-section>
+              </q-card>
+
             </q-tab-panel>
             <q-tab-panel name="Ground_transport">
               <div class="row q-pa-md text-justify">
-                <div class="col-12 col-md-6 q-pa-md">
+                <div class="col-12 col-md-8 q-pa-md">
                   <div class="text-h5 text-bold q-mb-md">
                     Ground Transportation process by Truck
                   </div>
@@ -82,12 +89,12 @@
                     praesentium illo accusamus repudiandae reiciendis!
                   </p>
                 </div>
-                <div class="col-12 col-md-6 q-pa-md">
+                <div class="col-12 col-md-4 q-pa-md">
                   <q-img
                     src="~assets/truck.png"
                     spinner-color="white"
                     square
-                    style="height: 280px; width: 400px"
+
                   />
                 </div>
               </div>
@@ -166,7 +173,6 @@
                     src="~assets/cartruck.png"
                     spinner-color="white"
                     square
-                    style="height: 150px; width: 200px"
                   />
                 </div>
               </div>
@@ -253,7 +259,6 @@
                               src="~assets/cartruck.png"
                               spinner-color="white"
                               square
-                              style="height: 80px; width: 100px"
                             />
                           </div>
                         </div>
@@ -277,7 +282,6 @@
                               src="~assets/ship.png"
                               spinner-color="white"
                               square
-                              style="height: 80px; width: 155px"
                             />
                           </div>
                           <div class="col-12 col-md-8 q-pa-md">
@@ -318,7 +322,6 @@
                               src="~assets/container.png"
                               spinner-color="white"
                               square
-                              style="height: 80px; width: 155px"
                             />
                           </div>
                           <div class="col-12 col-md-8 q-pa-md">
@@ -349,7 +352,7 @@
                               src="~assets/plane.png"
                               spinner-color="white"
                               square
-                              style="height: 130px; width: 260px"
+
                             />
                           </div>
                           <div class="col-12 col-md-8 q-pa-md">
@@ -497,13 +500,24 @@
         header-class="text-primary text-h5 text-bold"
 
       >
-        <q-card>
-          <q-card-section>
-            Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quidem, eius reprehenderit eos corrupti
-            commodi magni quaerat ex numquam, dolorum officiis modi facere maiores architecto suscipit iste
-            eveniet doloribus ullam aliquid.
-          </q-card-section>
-        </q-card>
+              <q-card class="my-card row">
+                <q-card-section class="text center">
+              <div class="text-h5 text-bold text-center">SHIPPING CALCULATOR</div>
+                </q-card-section>
+              <q-separator />
+              <q-card-section class="col-12 col-md-6">
+                <q-select rounded dense outlined v-model="departurePort" :options="departurePorts" label="Port of Departure" hint="Port of Departure" />
+                <q-select rounded dense outlined v-model="destinationCountry" :options="destinationCountries" label="Destination Country" hint="Destination Country" readonly/>
+                <q-select rounded dense outlined v-model="destinationPort" :options="destinationPorts" label="Destination Port" hint="Destination Port"/>
+                <q-select rounded dense outlined v-model="service" :options="services" label="Services" hint="services" />
+              </q-card-section>
+              <q-separator vertical />
+              <q-card-section class="col-12 col-md-6">
+              <p>For ocean shipping to this destination, kindly refer to our Transportation Department <a href="mailto:shipping@cosmiqueautos.com">shipping@cosmiqueautos.com</a> </p>
+              <q-separator />
+              <div>OCEAN COST: </div>
+              </q-card-section>
+              </q-card>
       </q-expansion-item>
 
           <q-separator />
@@ -721,7 +735,6 @@
                               src="~assets/cartruck.png"
                               spinner-color="white"
                               square
-                              style="height: 80px; width: 100px"
                             />
                           </div>
                         </div>
@@ -745,7 +758,6 @@
                               src="~assets/ship.png"
                               spinner-color="white"
                               square
-                              style="height: 80px; width: 155px"
                             />
                           </div>
                           <div class="col-12 col-md-8 q-pa-md">
@@ -786,7 +798,6 @@
                               src="~assets/container.png"
                               spinner-color="white"
                               square
-                              style="height: 80px; width: 155px"
                             />
                           </div>
                           <div class="col-12 col-md-8 q-pa-md">
@@ -817,7 +828,6 @@
                               src="~assets/plane.png"
                               spinner-color="white"
                               square
-                              style="height: 130px; width: 260px"
                             />
                           </div>
                           <div class="col-12 col-md-8 q-pa-md">
@@ -969,6 +979,17 @@ export default {
   data() {
     return {
       tab: "shipping_calculator",
+      departurePort: "New York, NJ",
+      destinationCountry: 'Nigeria',
+      destinationPort: 'Lagos Port',
+     service: 'RORO',
+      // options
+      departurePorts:[],
+      destinationCountries:['Nigeria'],
+      destinationPorts:['Lagos Port', 'Port Harcourt'],
+      services:['RORO', 'RORO Forklift', 'RORO Towable', "20' Container", "40' Container (3 cars)", "40' Container (4 cars)", "Consolidation"],
+
+
     };
   },
 };
