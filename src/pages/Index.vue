@@ -11,10 +11,10 @@
             v-model="slide"
             infinite
           >
-            <q-carousel-slide :name="1" img-src="~assets/1.jpg" />
-            <q-carousel-slide :name="2" img-src="~assets/2.jpg" />
-            <q-carousel-slide :name="3" img-src="~assets/3.jpg" />
-            <q-carousel-slide :name="4" img-src="~assets/4.jpg" />
+            <q-carousel-slide :name="2" img-src="~assets/auction.jpg" />
+            <q-carousel-slide :name="1" img-src="~assets/2.jpg" />
+            <q-carousel-slide :name="3" img-src="~assets/1.jpg" />
+            <q-carousel-slide :name="4" img-src="~assets/ship.jpg" />
           </q-carousel>
         </q-responsive>
       </div>
@@ -28,10 +28,10 @@
           infinite
           class="img-slide"
         >
-          <q-carousel-slide :name="1" img-src="~assets/1.jpg" />
-          <q-carousel-slide :name="2" img-src="~assets/2.jpg" />
-          <q-carousel-slide :name="3" img-src="~assets/3.jpg" />
-          <q-carousel-slide :name="4" img-src="~assets/4.jpg" />
+          <q-carousel-slide :name="2" img-src="~assets/auction.jpg" />
+          <q-carousel-slide :name="1" img-src="~assets/2.jpg" />
+          <q-carousel-slide :name="3" img-src="~assets/1.jpg" />
+          <q-carousel-slide :name="4" img-src="~assets/ship.jpg" />
         </q-carousel>
       </div>
     </div>
