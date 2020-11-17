@@ -20,7 +20,7 @@
       <q-card v-else class="my-card text-center q-pa-xl">
         <q-card-section>
           <q-icon name="search" size="4em" color="primary" />
-          <p class="text-bold text-h5">Saved Searches are emptyy</p>
+          <p class="text-bold text-h5">Saved Searches are empty</p>
           <p class="text-grey-9">
             Sorry! You Haven't Saved Any Search Yet
           </p>

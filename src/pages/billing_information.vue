@@ -64,7 +64,6 @@
                   class="q-pa-sm"
                   outlined
                   v-model="card.name"
-                  :label="this.$auth.user().full_name"
                   hint="Name on Card"
                   readonly
                 />
@@ -94,11 +93,11 @@
                       outlined
                       v-model="card.expirationDate"
                       label="MM/YY"
-                      hint="Expiration Date"
+                      hint="Card Expiration Date"
                       :rules="[
                         val =>
                           (val && val.length > 0) ||
-                          'Expiration Date is required'
+                          'Card Expiration Date is required'
                       ]"
                     />
                   </div>
@@ -111,11 +110,27 @@
                       outlined
                       v-model="card.cvv"
                       label="CVV"
-                      hint="Card Number"
+                      hint="CVV Number "
                       :rules="[
                         val => (val && val.length > 0) || 'CVV is required'
                       ]"
-                    />
+                    >
+                      <template v-slot:append>
+                        <q-icon name="help_outline" />
+                        <q-tooltip
+                          content-style="font-size: 13px"
+                          :offset="[10, 10]"
+                        >
+                          <q-img
+                            src="~assets/cvv.png"
+                            style="height: 35px; width: 55px"
+                          />
+                          This security code is the last 3 digits on the back of
+                          <br />
+                          your ATM card (Visa, MasterCard or Discover card)
+                        </q-tooltip>
+                      </template>
+                    </q-input>
                   </div>
                 </div>
 
@@ -154,7 +169,6 @@
                   <div class="col">
                     <q-select
                       dense
-                      rounded
                       rounded
                       outlined
                       class="q-pa-md"
@@ -218,7 +232,7 @@ export default {
       card1: true,
       payment_tab: true,
       card: {
-        name: "",
+        name: this.$auth.user().full_name,
         cardnumber: "",
         expirationDate: "",
         cvv: "",

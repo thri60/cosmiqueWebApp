@@ -5,7 +5,7 @@
         dim
         src="~assets/auction.jpg"
         class="q-pa-md bg-transparent banner"
-        style="height:100px"
+        style="height:200px"
       >
         <br />
         <div round class="q-pa-md text-white text-h5 text-bold ">

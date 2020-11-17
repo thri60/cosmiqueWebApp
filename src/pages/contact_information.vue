@@ -11,7 +11,7 @@
             <div class="row">
               <div class="col-12 col-md-4 q-pa-md">
                 <p class="text-bold text-grey-9">Account Information</p>
-                <q-input dense rounded standout="bg-primary text-white text-bold" class="q-pa-sm" outlined v-model="name" :label="this.$auth.user().full_name" hint="Full Name" readonly />
+                <q-input dense rounded standout="bg-primary text-white text-bold" class="q-pa-sm" outlined v-model="name" hint="Full Name" readonly />
                 <br>
                 <q-input type="tel" dense rounded  class="q-pa-sm" outlined v-model="phone" label="Enter Your Phone Number" hint="Phone Number" :rules="[val => (val && val.length > 0) || 'Phone Number is required']" />
               </div>
@@ -67,7 +67,7 @@ export default {
   },
   data() {
     return {
-      name: "",
+      name: this.$auth.user().full_name,
       phone: "",
       Residential:{
         address:"",

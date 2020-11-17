@@ -21,7 +21,6 @@
                 v-model="updateEmail.current_email"
                 readonly
                 type="text"
-                :label="this.$auth.user().email"
               />
               <br />
               <q-input
@@ -157,9 +156,12 @@ export default {
   data() {
     return {
       isPwd: true,
-      updateEmail: {},
+
+      updateEmail: {
+          current_email: this.$auth.user().email
+      },
       form: {
-        current_email: this.$auth.user().email
+
       }
     };
   },
