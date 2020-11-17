@@ -36,28 +36,32 @@
           >
             <div class="row">
               <div class="col-12 col-md-5 q-pa-md">
-                <div class="q-pa-xl text-primary text-h5 text-center text-bold">
-                  YOUR EXPECTED PRICE
-                  <q-range
-                    v-model="form.price"
-                    :left-label-value="'$' + form.price.min"
-                    :right-label-value="'$' + form.price.max"
-                    :min="500"
-                    :max="50000"
-                    :step="2"
-                    label
-                  />
-                </div>
                 <q-select
                   rounded
-                  use-input
-                  input-debounce="0"
+                  dense
+                  outlined
+                  v-model="form.price"
+                  label="Your Price Estimate"
+                  :options="priceOptions"
+                  lazy-rules
+                  :rules="[
+                    val =>
+                      (val && val.length > 0) || 'Price Estimate is Required'
+                  ]"
+                >
+                  <template v-slot:prepend>
+                    <q-icon name="monetization_on" />
+                  </template>
+                </q-select>
+                <q-select
+                  rounded
                   outlined
                   dense
                   transition-show="flip-up"
                   transition-hide="flip-down"
                   v-model="form.make"
-                  :options="options"
+                  :options="vehicleMakeptions"
+                  @filter="loadingModelOptions"
                   label="Enter Make *"
                   lazy-rules
                   :rules="[
@@ -71,7 +75,7 @@
                   transition-show="flip-up"
                   transition-hide="flip-down"
                   v-model="form.vehicle_year"
-                  :options="options"
+                  :options="yearOption"
                   label="Vehicle Manufacturer Year *"
                   lazy-rules
                   :rules="[
@@ -87,35 +91,29 @@
                   transition-show="flip-up"
                   transition-hide="flip-down"
                   v-model="form.seats"
-                  :options="options"
+                  :options="seatsoptions"
                   label="No. of Seats *"
                   lazy-rules
                   :rules="[
                     val => (val && val.length > 0) || 'No. of Seats  Please'
                   ]"
                 />
-                <q-select
+                <q-input
                   rounded
                   outlined
                   dense
-                  transition-show="flip-up"
-                  transition-hide="flip-down"
                   v-model="form.exterior_color"
-                  :options="options"
                   label="Select Exterior Color *"
                   lazy-rules
                   :rules="[
                     val => (val && val.length > 0) || 'Select Exterior Color *'
                   ]"
                 />
-                <q-select
+                <q-input
                   rounded
                   outlined
                   dense
-                  transition-show="flip-up"
-                  transition-hide="flip-down"
                   v-model="form.gears"
-                  :options="options"
                   label="Select No. of Gears *"
                   lazy-rules
                   :rules="[
@@ -129,35 +127,29 @@
                   outlined
                   dense
                   v-model="form.drive_type"
-                  :options="options"
+                  :options="driveTypeOptions"
                   label="Select Drive Type *"
                   lazy-rules
                   :rules="[
                     val => (val && val.length > 0) || 'Select Drive Type'
                   ]"
                 />
-                <q-select
+                <q-input
                   rounded
                   outlined
                   dense
-                  transition-show="flip-up"
-                  transition-hide="flip-down"
                   v-model="form.cylinders"
-                  :options="options"
                   label="Select No. of Cylinders *"
                   lazy-rules
                   :rules="[
                     val => (val && val.length > 0) || 'Select No. of Cylinders'
                   ]"
                 />
-                <q-select
+                <q-input
                   rounded
                   outlined
                   dense
-                  transition-show="flip-up"
-                  transition-hide="flip-down"
                   v-model="form.fuel"
-                  :options="options"
                   label="Select Fuel Type *"
                   lazy-rules
                   :rules="[
@@ -166,18 +158,6 @@
                 />
               </div>
               <div class="col-12 col-md-5 q-pa-md">
-                <div class="q-pa-xl text-primary text-h5 text-center text-bold">
-                  VEHICLE MILEAGE RANGE
-                  <q-range
-                    v-model="form.mileage"
-                    :left-label-value="form.mileage.min + ' MI'"
-                    :right-label-value="form.mileage.max + ' MI'"
-                    :min="0"
-                    :max="3000"
-                    :step="10"
-                    label
-                  />
-                </div>
                 <q-select
                   rounded
                   outlined
@@ -185,11 +165,26 @@
                   transition-show="flip-up"
                   transition-hide="flip-down"
                   v-model="form.model"
-                  :options="options"
+                  :options="modelOptions"
+                  @filter="loadingModelOptions"
                   label="Enter Vehicle Model *"
                   lazy-rules
                   :rules="[
-                    val => (val && val.length > 0) || 'Enter Vehicle Model'
+                    val => (val && val.length > 0) || 'Select Vehicle Model'
+                  ]"
+                />
+                <q-select
+                  rounded
+                  outlined
+                  dense
+                  transition-show="flip-up"
+                  transition-hide="flip-down"
+                  v-model="form.odometer"
+                  :options="odometerOptions"
+                  label="Enter Vehicle Odometer*"
+                  lazy-rules
+                  :rules="[
+                    val => (val && val.length > 0) || 'Select Vehicle Odometer'
                   ]"
                 />
                 <q-select
@@ -200,21 +195,18 @@
                   transition-show="flip-up"
                   transition-hide="flip-down"
                   v-model="form.body_type"
-                  :options="options"
+                  :options="BodyTypeoptions"
                   label="Select Body Type *"
                   lazy-rules
                   :rules="[
                     val => (val && val.length > 0) || 'Select Body Type'
                   ]"
                 />
-                <q-select
+                <q-input
                   rounded
                   outlined
                   dense
-                  transition-show="flip-up"
-                  transition-hide="flip-down"
                   v-model="form.seat_color"
-                  :options="options"
                   label="Enter Seats Color"
                   lazy-rules
                   :rules="[
@@ -222,14 +214,11 @@
                   ]"
                 />
 
-                <q-select
+                <q-input
                   rounded
                   outlined
                   dense
-                  transition-show="flip-up"
-                  transition-hide="flip-down"
                   v-model="form.interior_color"
-                  :options="options"
                   label="Select Interior Color *"
                   lazy-rules
                   :rules="[
@@ -237,26 +226,20 @@
                   ]"
                 />
 
-                <q-select
+                <q-input
                   rounded
                   outlined
                   dense
-                  transition-show="flip-up"
-                  transition-hide="flip-down"
                   v-model="form.doors"
-                  :options="options"
                   label="No. of Doors *"
                   lazy-rules
                   :rules="[val => (val && val.length > 0) || 'No. of Doors']"
                 />
-                <q-select
+                <q-input
                   rounded
                   outlined
                   dense
-                  transition-show="flip-up"
-                  transition-hide="flip-down"
                   v-model="form.transmission"
-                  :options="options"
                   label="Vehicle Transmission Type *"
                   lazy-rules
                   :rules="[
@@ -264,28 +247,22 @@
                       (val && val.length > 0) || 'Vehicle Transmission Type'
                   ]"
                 />
-                <q-select
+                <q-input
                   rounded
                   outlined
                   dense
-                  transition-show="flip-up"
-                  transition-hide="flip-down"
                   v-model="form.engine"
-                  :options="options"
                   label="Select Engine Type *"
                   lazy-rules
                   :rules="[
                     val => (val && val.length > 0) || 'Select Engine Type'
                   ]"
                 />
-                <q-select
+                <q-input
                   rounded
                   outlined
                   dense
-                  transition-show="flip-up"
-                  transition-hide="flip-down"
                   v-model="form.engine_capacity"
-                  :options="options"
                   label="Enter Engine Capacity *"
                   lazy-rules
                   :rules="[
@@ -475,28 +452,35 @@
               </q-input>
               <div class="col-12 col-md-5 q-pa-md">
                 <q-input
-
                   rounded
                   outlined
                   v-model="form.city"
                   label="City and State *"
                   dense
                   lazy-rules
-                  :rules="[val => (val && val.length > 0) || 'Enter Your City and State is required']"
+                  :rules="[
+                    val =>
+                      (val && val.length > 0) ||
+                      'Enter Your City and State is required'
+                  ]"
                 >
                   <template v-slot:prepend>
                     <q-icon name="location_city" />
                   </template>
                 </q-input>
                 <q-input
-                                rounded
+                  rounded
                   outlined
                   v-model="form.phone"
                   type="tel"
                   label="Enter Your Phone Number *"
                   dense
                   lazy-rules
-                  :rules="[val => (val && val.length > 0) || 'Enter Your Phone Number is required']"
+                  :rules="[
+                    val =>
+                      (val && val.length > 0) ||
+                      'Enter Your Phone Number is required'
+                  ]"
                 >
                   <template v-slot:prepend>
                     <q-icon name="call" />
@@ -516,7 +500,6 @@
                     val => (val && val.length > 0) || 'Zip Code is required'
                   ]"
                 >
-
                 </q-input>
                 <q-input
                   rounded
@@ -527,7 +510,9 @@
                   dense
                   lazy-rules
                   :rules="[
-                    val => (val && val.length > 0) || 'Enter Your Email Address is required'
+                    val =>
+                      (val && val.length > 0) ||
+                      'Enter Your Email Address is required'
                   ]"
                 >
                   <template v-slot:prepend>
@@ -546,7 +531,7 @@
                 rounded
                 type="submit"
                 :icon-right="step === 3 ? 'send' : 'fa fa-angle-right'"
-               :label="step === 3 ? 'Submit Request' : 'Continue'"
+                :label="step === 3 ? 'Submit Request' : 'Continue'"
               />
               <q-btn
                 v-if="step > 1"
@@ -589,51 +574,131 @@
 
 <script>
 export default {
+      props: ["search_data"],
   data() {
     return {
       form: {
-      address: null,
-      city: null,
-      zipcode: null,
-      phone: null,
-      email: null,
-      make: null,
-      seats: null,
-      vehicle_year: null,
-      exterior_color: null,
-      gears: null,
-      drive_type: null,
-      cylinders: null,
-      fuel: null,
-      model: null,
-      body_type: null,
-      seat_color: null,
-      interior_color: null,
-      doors: null,
-      transmission: null,
-      engine: null,
-      engine_capacity: null,
-        price: {
-        min: 500,
-        max: 50000
-      },
-      mileage: {
-        min: 0,
-        max: 3000
-      }
+        address: "",
+        city: "",
+        zipcode: "",
+        phone: "",
+        email: "",
+        price: "",
+        make: "",
+        model: "",
+        odometer: "",
+        seats: "",
+        vehicle_year: "",
+        exterior_color: "",
+        gears: "",
+        drive_type: "",
+        cylinders: "",
+        fuel: "",
+        body_type: "",
+        seat_color: "",
+        interior_color: "",
+        doors: "",
+        transmission: "",
+        engine: "",
+        engine_capacity: ""
       },
       step: 1,
-
-      options: ["Google", "Facebook", "Twitter", "Apple", "Oracle"],
-      checkbox: [],
-
+      vehicleMakeptions: [
+        "Acura",
+        "Alfa Romeo",
+        "Aston Martin",
+        "Audi",
+        "Bentley",
+        "Changzhou",
+        "Cherokee",
+        "Chevrolet",
+        "Chrysler",
+        "BMW",
+        "Buick",
+        "Cadillac",
+        "Datsun",
+        "Ferrari",
+        "Fiat",
+        "Ford",
+        "GMC",
+        "Honda",
+        "Hyundai",
+        "Infiniti",
+        "Isuzu",
+        "Jaguar",
+        "Jeep",
+        "Kia",
+        "Lexus",
+        "Mazda",
+        "Mercedes",
+        "Mercedes Benz",
+        "Mitsubishi",
+        "Nissan",
+        "Opel",
+        "Suzuki",
+        "Subaru",
+        "Tesla",
+        "Toyota",
+        "Volkswagen",
+        "Volvo"
+      ],
+      modelOptions:[],
+      yearOption: [
+        "2021",
+        "2020",
+        "2019",
+        "2018",
+        "2017",
+        "2016",
+        "2015",
+        "2014",
+        "2013",
+        "2012",
+        "2011",
+        "2010",
+        "2009",
+        "2008",
+        "2007",
+        "2006"
+      ],
+      seatsoptions: ["2", "4", "5", "6", "7", "8"],
+      BodyTypeoptions: [
+        "SEDAN",
+        "COUPE",
+        "SPORTS CAR",
+        "STATION WAGON",
+        "HATCHBACK",
+        "CONVERTIBLE",
+        "SPORT-UTILITY VEHICLE (SUV)",
+        "MINIVAN"
+      ],
+      driveTypeOptions: [
+        "All-wheel-drive (AWD)",
+        "Front wheel drive (FWD)",
+        "Rear wheel drive (RWD)",
+        "4WD (4 wheel drive)"
+      ],
+      odometerOptions: [
+        "All",
+        "Under 10,000 Miles",
+        "Under 25,000 Miles",
+        "Under 50,000 Miles",
+        "Under 100,000 Miles",
+        "Over 100,000 Miles"
+      ],
+      priceOptions: [
+        "Under $5,000",
+        "Under $10,000",
+        "Under $25,000",
+        "Over $50,000"
+      ],
+      checkbox: []
     };
   },
 
   methods: {
-     onSubmit() {
+    onSubmit() {
       this.$refs.form.validate();
-
 
       if (this.$refs.form.hasError) {
         this.formHasError = true;
@@ -644,7 +709,49 @@ export default {
           message: "Submitted"
         });
       }
-    }
-  },
+    },
+      loadingModelOptions(val, update) {
+      if (val === "") {
+        update(() => {
+          this.axios
+            .get(
+              "https://cors-anywhere.herokuapp.com/" +
+                "http://184.72.35.251/rest-api/v1.0/vehicles/models?types=CAR&makes=" +
+                this.form.make +
+                "&query="
+            )
+            .then(response => {
+              this.axios
+                .post("cosmique/make_options", { data: response.data })
+                .then(response => {
+                  this.modelOptions = response.data;
+                });
+            });
+        });
+        return;
+      }
+
+      update(() => {
+        const needle = val.toLowerCase();
+        this.axios
+          .get(
+            "https://cors-anywhere.herokuapp.com/" +
+              "http://184.72.35.251/rest-api/v1.0/vehicles/models?types=CAR&makes=" +
+              this.form.make +
+              "&query="
+          )
+          .then(response => {
+            this.axios
+              .post("cosmique/make_options", { data: response.data })
+              .then(response => {
+                this.modelOptions = response.data;
+                this.modelOptions = modelOptions.filter(
+                  v => v.toLowerCase().indexOf(needle) > -1
+                );
+              });
+          });
+      });
+    },
+  }
 };
 </script>
