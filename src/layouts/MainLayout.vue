@@ -6,7 +6,7 @@
           <div>
             <q-img
               src="~assets/logo.png"
-              style="height: 25px; max-width: 100px"
+              style="height: 35px; max-width: 100px"
               class="q-py-sm"
             />
             <br />

@@ -5,10 +5,9 @@
         dim
         src="~assets/auction.jpg"
         class="q-pa-md bg-transparent banner"
-        style="height:200px"
+        style="height:250px"
       >
-        <br />
-        <div round class="q-pa-md text-white text-h5 text-bold ">
+        <div round class="q-pa-md text-primary text-h5 text-bold ">
           <b>| AUCTION Cars For Sale (Bid Online) |</b>
         </div>
       </q-img>

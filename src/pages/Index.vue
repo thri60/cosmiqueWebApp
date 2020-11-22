@@ -15,6 +15,7 @@
             <q-carousel-slide :name="1" img-src="~assets/2.jpg" />
             <q-carousel-slide :name="3" img-src="~assets/1.jpg" />
             <q-carousel-slide :name="4" img-src="~assets/4.jpg" />
+            <q-carousel-slide :name="5" img-src="~assets/3.jpg" />
           </q-carousel>
         </q-responsive>
       </div>
@@ -32,6 +33,7 @@
           <q-carousel-slide :name="1" img-src="~assets/2.jpg" />
           <q-carousel-slide :name="3" img-src="~assets/1.jpg" />
           <q-carousel-slide :name="4" img-src="~assets/4.jpg" />
+          <q-carousel-slide :name="5" img-src="~assets/3.jpg" />
         </q-carousel>
       </div>
     </div>
@@ -566,6 +568,8 @@
       transition-show="flip-down"
       transition-hide="flip-up"
     >
+
+
       <div class="my-card1">
         <div class="row ">
           <strong class="text-primary text-h4 text-bold">Quick Preview</strong>
@@ -573,12 +577,13 @@
           <q-btn color="primary" dense flat icon="close" v-close-popup>
             <q-tooltip content-class="bg-primary text-white">Close</q-tooltip>
           </q-btn>
+
         </div>
 
         <div>
           <q-img
             :src="image"
-            class="lt-md"
+            class="lt-md full width"
             v-for="image in view_selected.images"
             :key="image"
             spinner-color="primary"
@@ -945,10 +950,5 @@ export default {
   height: auto
   width: 180px
 
-.shadow-box
-  width: 90px
-  height: 90px
-  margin: 25px
-  border-radius: 50%
-  font-size: 12px
+
 </style>

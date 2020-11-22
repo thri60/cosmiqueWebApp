@@ -41,7 +41,7 @@
                   dense
                   outlined
                   v-model="form.price"
-                  label="Your Price Estimate"
+                  label="Select Your Price Estimate"
                   :options="priceOptions"
                   lazy-rules
                   :rules="[
@@ -62,7 +62,7 @@
                   v-model="form.make"
                   :options="vehicleMakeptions"
                   @filter="loadingModelOptions"
-                  label="Enter Make *"
+                  label="Select Make *"
                   lazy-rules
                   :rules="[
                     val => (val && val.length > 0) || 'Enter Make Please'
@@ -76,12 +76,12 @@
                   transition-hide="flip-down"
                   v-model="form.vehicle_year"
                   :options="yearOption"
-                  label="Vehicle Manufacturer Year *"
+                  label="Select Vehicle Year *"
                   lazy-rules
                   :rules="[
                     val =>
                       (val && val.length > 0) ||
-                      'Vehicle Manufacturer Year Please'
+                      'Vehicle Year Please'
                   ]"
                 />
                 <q-select
@@ -92,7 +92,7 @@
                   transition-hide="flip-down"
                   v-model="form.seats"
                   :options="seatsoptions"
-                  label="No. of Seats *"
+                  label="Select No. of Seats *"
                   lazy-rules
                   :rules="[
                     val => (val && val.length > 0) || 'No. of Seats  Please'
@@ -103,21 +103,22 @@
                   outlined
                   dense
                   v-model="form.exterior_color"
-                  label="Select Exterior Color *"
+                  label="Enter Exterior Color *"
                   lazy-rules
                   :rules="[
-                    val => (val && val.length > 0) || 'Select Exterior Color *'
+                    val => (val && val.length > 0) || 'Enter Exterior Color *'
                   ]"
                 />
                 <q-input
                   rounded
                   outlined
                   dense
+                  mask="####"
                   v-model="form.gears"
-                  label="Select No. of Gears *"
+                  label="Enter No. of Gears *"
                   lazy-rules
                   :rules="[
-                    val => (val && val.length > 0) || 'Select No. of Gears'
+                    val => (val && val.length > 0) || 'Enter No. of Gears'
                   ]"
                 />
                 <q-select
@@ -138,11 +139,12 @@
                   rounded
                   outlined
                   dense
+                  mask="####"
                   v-model="form.cylinders"
-                  label="Select No. of Cylinders *"
+                  label="Enter No. of Cylinders *"
                   lazy-rules
                   :rules="[
-                    val => (val && val.length > 0) || 'Select No. of Cylinders'
+                    val => (val && val.length > 0) || 'Enter No. of Cylinders'
                   ]"
                 />
                 <q-input
@@ -150,10 +152,10 @@
                   outlined
                   dense
                   v-model="form.fuel"
-                  label="Select Fuel Type *"
+                  label="Enter Fuel Type *"
                   lazy-rules
                   :rules="[
-                    val => (val && val.length > 0) || 'Select Fuel Type'
+                    val => (val && val.length > 0) || 'Enter Fuel Type'
                   ]"
                 />
               </div>
@@ -167,7 +169,7 @@
                   v-model="form.model"
                   :options="modelOptions"
                   @filter="loadingModelOptions"
-                  label="Enter Vehicle Model *"
+                  label="Select Vehicle Model *"
                   lazy-rules
                   :rules="[
                     val => (val && val.length > 0) || 'Select Vehicle Model'
@@ -181,7 +183,7 @@
                   transition-hide="flip-down"
                   v-model="form.odometer"
                   :options="odometerOptions"
-                  label="Enter Vehicle Odometer*"
+                  label="Select Vehicle Odometer*"
                   lazy-rules
                   :rules="[
                     val => (val && val.length > 0) || 'Select Vehicle Odometer'
@@ -219,10 +221,10 @@
                   outlined
                   dense
                   v-model="form.interior_color"
-                  label="Select Interior Color *"
+                  label="Enter Interior Color *"
                   lazy-rules
                   :rules="[
-                    val => (val && val.length > 0) || 'Select Interior Color'
+                    val => (val && val.length > 0) || 'Enter Interior Color'
                   ]"
                 />
 
@@ -231,6 +233,7 @@
                   outlined
                   dense
                   v-model="form.doors"
+                  mask="####"
                   label="No. of Doors *"
                   lazy-rules
                   :rules="[val => (val && val.length > 0) || 'No. of Doors']"
@@ -252,10 +255,10 @@
                   outlined
                   dense
                   v-model="form.engine"
-                  label="Select Engine Type *"
+                  label="Enter Engine Type *"
                   lazy-rules
                   :rules="[
-                    val => (val && val.length > 0) || 'Select Engine Type'
+                    val => (val && val.length > 0) || 'Enter Engine Type'
                   ]"
                 />
                 <q-input
