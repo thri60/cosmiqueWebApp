@@ -20,6 +20,7 @@ import faqPage from "pages/faq_page.vue";
 import SearchResultsPage from "pages/search_results.vue";
 import newPartsPage from "pages/newPartsPage.vue";
 import usedPartsPage from "pages/usedPartsPage.vue";
+import reviewPage from "pages/reviewPage.vue";
 
 
 const routes = [{
@@ -50,6 +51,7 @@ const routes = [{
             { path: "/faq", name: "faq", component: faqPage },
             { path: "/newParts", name: "newParts", component: newPartsPage },
             { path: "/usedParts", name: "usedParts", component: usedPartsPage },
+            { path: "/CA_reviews", name: "reviews", component: reviewPage },
 
             // auth pages
             {

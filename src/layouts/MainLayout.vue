@@ -45,7 +45,7 @@
                     <q-item-label>Auction</q-item-label>
                   </q-item-section>
                 </q-item>
-                <q-item clickable :to="{name: 'usedCars'}">
+                <q-item clickable :to="{ name: 'usedCars' }">
                   <q-item-section>
                     <q-item-label>Used Autos</q-item-label>
                   </q-item-section>
@@ -60,12 +60,12 @@
               label="Auto Parts Inventory"
             >
               <q-list class="bg-white text-primary">
-                <q-item clickable :to="{name: 'newParts'}">
+                <q-item clickable :to="{ name: 'newParts' }">
                   <q-item-section>
                     <q-item-label>New Auto Parts</q-item-label>
                   </q-item-section>
                 </q-item>
-                <q-item clickable :to="{name:'usedParts'}">
+                <q-item clickable :to="{ name: 'usedParts' }">
                   <q-item-section>
                     <q-item-label>Used Auto Parts</q-item-label>
                   </q-item-section>
@@ -113,6 +113,11 @@
                 <q-item clickable :to="{ name: 'faq' }">
                   <q-item-section>
                     <q-item-label>FAQ</q-item-label>
+                  </q-item-section>
+                </q-item>
+                <q-item clickable :to="{ name: 'reviews' }">
+                  <q-item-section>
+                    <q-item-label>Customers Reviews</q-item-label>
                   </q-item-section>
                 </q-item>
               </q-list>
@@ -208,6 +213,11 @@
                           <q-item-label>FAQ</q-item-label>
                         </q-item-section>
                       </q-item>
+                      <q-item clickable :to="{ name: 'reviews' }">
+                        <q-item-section>
+                          <q-item-label>Customer Reviews</q-item-label>
+                        </q-item-section>
+                      </q-item>
                     </q-list>
                   </q-btn-dropdown>
                 </q-item>
@@ -293,7 +303,7 @@
         </div>
       </q-toolbar>
     </q-header>
-    <q-drawer v-model="leftDrawerOpen" bordered content-class="text-primary" >
+    <q-drawer v-model="leftDrawerOpen" bordered content-class="text-primary">
       <q-list>
         <q-item-label header class="text-white q-pa-md bg-primary">
           Cosmique Autos
@@ -302,7 +312,7 @@
         <div v-if="!$auth.check()">
           <q-item clickable v-ripple :to="{ name: 'homepage' }">
             <q-item-section avatar>
-              <q-icon color="primary" name="chrome_reader_mode" />
+              <q-icon color="primary" name="home" />
             </q-item-section>
             <q-item-section>Home</q-item-section>
           </q-item>
@@ -312,191 +322,235 @@
             icon="directions_car"
             label="Auto Inventory"
           >
+            <q-item :to="{ name: 'auction' }" clickable v-ripple>
+              <q-item-section avatar>
+                <q-icon color="primary" name="gavel directions_car" />
+              </q-item-section>
+              <q-item-section>Auctions</q-item-section>
+            </q-item>
             <q-item clickable v-ripple>
               <q-item-section avatar>
                 <q-icon color="primary" name="directions_car" />
               </q-item-section>
-              <q-item-section>New Autos</q-item-section>
-            </q-item>
-            <q-item :to="{ name: 'auction' }" clickable v-ripple>
-              <q-item-section avatar>
-                <q-icon color="primary" name="gavel" />
-              </q-item-section>
-              <q-item-section>Auctions</q-item-section>
+              <q-item-section>Used Dealership Autos</q-item-section>
             </q-item>
           </q-expansion-item>
           <q-expansion-item
             :content-inset-level="0.5"
             expand-separator
-            icon="view_carousel"
+            icon="fas fa-wrench"
             label="Auto Parts Inventory"
           >
-            <q-item clickable v-ripple>
+            <q-item clickable :to="{ name: 'newParts' }" v-ripple>
               <q-item-section avatar>
-                <q-icon color="primary" name="assessment" />
+                <q-icon color="primary" name="fas fa-wrench" />
               </q-item-section>
               <q-item-section>New Auto Parts</q-item-section>
             </q-item>
-            <q-item clickable v-ripple>
+            <q-item clickable :to="{ name: 'usedParts' }" v-ripple>
               <q-item-section avatar>
-                <q-icon color="primary" name="assessment" />
+                <q-icon color="primary" name="fas fa-wrench" />
               </q-item-section>
               <q-item-section>Used Auto Parts</q-item-section>
+            </q-item>
+          </q-expansion-item>
+          <q-item clickable v-ripple :to="{ name: 'shipping' }">
+            <q-item-section avatar>
+              <q-icon color="primary" name="directions_boat" />
+            </q-item-section>
+            <q-item-section>Shipping</q-item-section>
+          </q-item>
+          <q-item clickable v-ripple :to="{ name: 'request' }">
+            <q-item-section avatar>
+              <q-icon color="primary" name="comment" />
+            </q-item-section>
+            <q-item-section>Request</q-item-section>
+          </q-item>
+          <q-expansion-item
+            :content-inset-level="0.5"
+            expand-separator
+            icon="contact_support"
+            label="Support"
+          >
+            <q-item clickable :to="{ name: 'about' }" v-ripple>
+              <q-item-section avatar>
+                <q-icon color="primary" name="info" />
+              </q-item-section>
+              <q-item-section>About Us</q-item-section>
+            </q-item>
+            <q-item clickable :to="{ name: 'contact' }" v-ripple>
+              <q-item-section avatar>
+                <q-icon color="primary" name="support_agent" />
+              </q-item-section>
+              <q-item-section>Contact us</q-item-section>
+            </q-item>
+            <q-item clickable :to="{ name: 'faq' }" v-ripple>
+              <q-item-section avatar>
+                <q-icon color="primary" name="help_outline" />
+              </q-item-section>
+              <q-item-section>FAQ</q-item-section>
+            </q-item>
+            <q-item clickable :to="{ name: 'reviews' }" v-ripple>
+              <q-item-section avatar>
+                <q-icon color="primary" name="rate_review" />
+              </q-item-section>
+              <q-item-section>Customer Reviews</q-item-section>
             </q-item>
           </q-expansion-item>
 
           <q-separator />
           <q-item clickable v-ripple :to="{ name: 'login' }">
             <q-item-section avatar>
-              <q-icon color="primary" name="assessment" />
+              <q-icon color="primary" name="fas fa-sign-out-alt" />
             </q-item-section>
             <q-item-section>Login</q-item-section>
           </q-item>
         </div>
         <div v-else>
-          <q-btn-dropdown
-            class="q-ml-lg bg-tertiary q-pa-md"
+          <q-expansion-item
+            :content-inset-level="0.5"
+            expand-separator
             icon="list"
-            flat
-            no-caps
             label="Menu"
           >
-            <q-list>
-              <q-item clickable :to="{ name: 'homepage' }">
-                <q-item-section>
-                  <q-item-label>Home</q-item-label>
+            <q-item clickable :to="{ name: 'homepage' }" v-ripple>
+              <q-item-section avatar>
+                <q-icon color="primary" name="home" />
+              </q-item-section>
+              <q-item-section>Home</q-item-section>
+            </q-item>
+            <q-expansion-item
+              :content-inset-level="0.5"
+              expand-separator
+              icon="directions_car"
+              label="Auto Inventory"
+            >
+              <q-item :to="{ name: 'auction' }" clickable v-ripple>
+                <q-item-section avatar>
+                  <q-icon color="primary" name="gavel directions_car" />
                 </q-item-section>
+                <q-item-section>Auctions</q-item-section>
               </q-item>
-              <q-separator />
-              <q-item clickable>
-                <q-btn-dropdown no-caps flat dense label="Auto Inventory">
-                  <q-list class="bg-white">
-                    <q-item clickable :to="{ name: 'auction' }">
-                      <q-item-section>
-                        <q-item-label>Auction</q-item-label>
-                      </q-item-section>
-                    </q-item>
-                    <q-item clickable v-close-popup>
-                      <q-item-section>
-                        <q-item-label>Used Autos</q-item-label>
-                      </q-item-section>
-                    </q-item>
-                  </q-list>
-                </q-btn-dropdown>
-              </q-item>
-              <q-separator />
-              <q-item clickable>
-                <q-btn-dropdown no-caps flat dense label="Auto Parts Inventory">
-                  <q-list>
-                    <q-item clickable v-close-popup>
-                      <q-item-section>
-                        <q-item-label>New Auto Parts</q-item-label>
-                      </q-item-section>
-                    </q-item>
-                    <q-item clickable v-close-popup>
-                      <q-item-section>
-                        <q-item-label>Used Auto Parts</q-item-label>
-                      </q-item-section>
-                    </q-item>
-                  </q-list>
-                </q-btn-dropdown>
-              </q-item>
-              <q-separator />
-              <q-item clickable :to="{ name: 'shipping' }">
-                <q-item-section>
-                  <q-item-label>Shipping</q-item-label>
+              <q-item clickable v-ripple>
+                <q-item-section avatar>
+                  <q-icon color="primary" name="directions_car" />
                 </q-item-section>
+                <q-item-section>Used Dealership Autos</q-item-section>
               </q-item>
-              <q-separator />
-              <q-item clickable :to="{ name: 'request' }">
-                <q-item-section>
-                  <q-item-label>Request</q-item-label>
+            </q-expansion-item>
+            <q-expansion-item
+              :content-inset-level="0.5"
+              expand-separator
+              icon="fas fa-wrench"
+              label="Auto Parts Inventory"
+            >
+              <q-item clickable :to="{ name: 'newParts' }" v-ripple>
+                <q-item-section avatar>
+                  <q-icon color="primary" name="fas fa-wrench" />
                 </q-item-section>
+                <q-item-section>New Auto Parts</q-item-section>
               </q-item>
-              <q-separator />
-              <q-item clickable>
-                <q-btn-dropdown flat dense no-caps label="Support">
-                  <q-list class="bg-white">
-                    <q-item clickable :to="{ name: 'about' }">
-                      <q-item-section>
-                        <q-item-label>About Us</q-item-label>
-                      </q-item-section>
-                    </q-item>
-                    <q-item clickable :to="{ name: 'contact' }">
-                      <q-item-section>
-                        <q-item-label>Contact Us</q-item-label>
-                      </q-item-section>
-                    </q-item>
-                    <q-item clickable :to="{ name: 'faq' }">
-                      <q-item-section>
-                        <q-item-label>FAQ</q-item-label>
-                      </q-item-section>
-                    </q-item>
-                  </q-list>
-                </q-btn-dropdown>
+              <q-item clickable :to="{ name: 'usedParts' }" v-ripple>
+                <q-item-section avatar>
+                  <q-icon color="primary" name="fas fa-wrench" />
+                </q-item-section>
+                <q-item-section>Used Auto Parts</q-item-section>
               </q-item>
-            </q-list>
-          </q-btn-dropdown>
-          <q-separator />
-          <q-btn-dropdown
-            :label="this.$auth.user().full_name"
+            </q-expansion-item>
+            <q-item clickable v-ripple :to="{ name: 'shipping' }">
+              <q-item-section avatar>
+                <q-icon color="primary" name="directions_boat" />
+              </q-item-section>
+              <q-item-section>Shipping</q-item-section>
+            </q-item>
+            <q-item clickable v-ripple :to="{ name: 'request' }">
+              <q-item-section avatar>
+                <q-icon color="primary" name="comment" />
+              </q-item-section>
+              <q-item-section>Request</q-item-section>
+            </q-item>
+            <q-expansion-item
+              :content-inset-level="0.5"
+              expand-separator
+              icon="contact_support"
+              label="Support"
+            >
+              <q-item clickable :to="{ name: 'about' }" v-ripple>
+                <q-item-section avatar>
+                  <q-icon color="primary" name="info" />
+                </q-item-section>
+                <q-item-section>About Us</q-item-section>
+              </q-item>
+              <q-item clickable :to="{ name: 'contact' }" v-ripple>
+                <q-item-section avatar>
+                  <q-icon color="primary" name="support_agent" />
+                </q-item-section>
+                <q-item-section>Contact us</q-item-section>
+              </q-item>
+              <q-item clickable :to="{ name: 'faq' }" v-ripple>
+                <q-item-section avatar>
+                  <q-icon color="primary" name="help_outline" />
+                </q-item-section>
+                <q-item-section>FAQ</q-item-section>
+              </q-item>
+              <q-item clickable :to="{ name: 'reviews' }" v-ripple>
+                <q-item-section avatar>
+                  <q-icon color="primary" name="rate_review" />
+                </q-item-section>
+                <q-item-section>Customer Reviews</q-item-section>
+              </q-item>
+            </q-expansion-item>
+          </q-expansion-item>
+
+          <q-expansion-item
+            :content-inset-level="0.5"
+            expand-separator
             icon="person_pin"
-            class="q-ml-lg bg-tertiary q-pa-md"
-            no-caps
-            flat
+            :label="this.$auth.user().full_name"
           >
-            <q-list bordered separator>
-              <q-item clickable v-ripple :to="{ name: 'contact_information' }">
-                <q-item-section>Contact Information</q-item-section>
-              </q-item>
-              <q-item clickable v-ripple :to="{ name: 'billing_information' }">
-                <q-item-section>Billing Information</q-item-section>
-              </q-item>
-              <q-item clickable v-ripple :to="{ name: 'password_login' }">
-                <q-item-section>Password and Login</q-item-section>
-              </q-item>
-              <q-item clickable v-ripple :to="{ name: 'documents_and_ids' }">
-                <q-item-section>Document and IDs</q-item-section>
-              </q-item>
-              <q-item clickable v-ripple @click.native="logout">
-                <q-item-section>
-                  <q-item-label>Account Logout</q-item-label>
-                </q-item-section>
-              </q-item>
-            </q-list>
-          </q-btn-dropdown>
-          <q-separator inset />
-          <q-btn-dropdown
+            <q-item clickable v-ripple :to="{ name: 'contact_information' }">
+              <q-item-section>Contact Information</q-item-section>
+            </q-item>
+            <q-item clickable v-ripple :to="{ name: 'billing_information' }">
+              <q-item-section>Billing Information</q-item-section>
+            </q-item>
+            <q-item clickable v-ripple :to="{ name: 'password_login' }">
+              <q-item-section>Password and Login</q-item-section>
+            </q-item>
+            <q-item clickable v-ripple :to="{ name: 'documents_and_ids' }">
+              <q-item-section>Document and IDs</q-item-section>
+            </q-item>
+          </q-expansion-item>
+          <q-expansion-item
+            :content-inset-level="0.5"
+            expand-separator
+            icon="money"
             label="My Transaction Center"
-            icon="fas fa-gavel"
-            class="q-ml-lg bg-tertiary q-pa-md"
-            no-caps
-            flat
           >
-            <q-list bordered separator>
-              <q-item
-                clickable
-                v-ripple
-                :to="{ name: 'bidding_account_limit' }"
-              >
-                <q-item-section>Bidding Limit</q-item-section>
-              </q-item>
-              <q-item clickable v-ripple :to="{ name: 'watch_list' }">
-                <q-item-section>Watch-list</q-item-section>
-              </q-item>
-              <q-item clickable v-ripple :to="{ name: 'saved_searches' }">
-                <q-item-section>Saved Searches</q-item-section>
-              </q-item>
-              <q-item clickable v-ripple :to="{ name: 'my_bids' }">
-                <q-item-section>My Bids</q-item-section>
-              </q-item>
-              <q-item clickable v-ripple @click.native="logout">
-                <q-item-section>
-                  <q-item-label>Transactions</q-item-label>
-                </q-item-section>
-              </q-item>
-            </q-list>
-          </q-btn-dropdown>
+            <q-item clickable v-ripple :to="{ name: 'bidding_account_limit' }">
+              <q-item-section>Bidding Limit</q-item-section>
+            </q-item>
+            <q-item clickable v-ripple :to="{ name: 'watch_list' }">
+              <q-item-section>Watch-list</q-item-section>
+            </q-item>
+            <q-item clickable v-ripple :to="{ name: 'saved_searches' }">
+              <q-item-section>Saved Searches</q-item-section>
+            </q-item>
+            <q-item clickable v-ripple :to="{ name: 'my_bids' }">
+              <q-item-section>My Bids</q-item-section>
+            </q-item>
+            <q-item clickable v-ripple @click.native="logout">
+              <q-item-section>
+                <q-item-label>Transactions</q-item-label>
+              </q-item-section>
+            </q-item>
+          </q-expansion-item>
+          <q-item clickable v-ripple @click.native="logout">
+            <q-item-section avatar>
+              <q-icon color="primary" name="fas fa-sign-out-alt" />
+            </q-item-section>
+            <q-item-section>Logout</q-item-section>
+          </q-item>
         </div>
       </q-list>
     </q-drawer>
@@ -584,17 +638,27 @@
               <div class="">
                 <strong> ||<b class="text-primary"> Get Started </b>|| </strong>
                 <div v-if="!$auth.check()">
-                <p class="text-body2 text-weight-light">
-                  Join our Customer base and get access to bidding, and other amazing feautures today!
-                </p>
-                 <q-btn outline icon-right="person" :to="{ name: 'register' }" rounded text-color="white" label="Register Now" />
+                  <p class="text-body2 text-weight-light">
+                    Join our Customer base and get access to bidding, and other
+                    amazing feautures today!
+                  </p>
+                  <q-btn
+                    outline
+                    icon-right="person"
+                    :to="{ name: 'register' }"
+                    rounded
+                    text-color="white"
+                    label="Register Now"
+                  />
                 </div>
                 <div v-else>
-                <p class="text-body text-weight-light">
-                   Welcome to cosmique Autos
+                  <p class="text-body text-weight-light">
+                    Welcome to cosmique Autos
                   </p>
-                   <p class="text-primary text-bold"> <q-icon name="person_pin" size="sm"/>
-                    {{this.$auth.user().full_name}}</p>
+                  <p class="text-primary text-bold">
+                    <q-icon name="person_pin" size="sm" />
+                    {{ this.$auth.user().full_name }}
+                  </p>
                 </div>
               </div>
             </div>
@@ -628,7 +692,6 @@
             <div class="text-right q-pa-sm">
               <q-btn round flat color="primary" icon="facebook" />
               <q-btn round flat color="primary" icon="fab fa-twitter" />
-              <q-btn round flat color="primary" icon="fab fa-google-plus-g" />
               <q-btn round flat color="primary" icon="fab fa-instagram" />
               <q-btn round flat color="primary" icon="fab fa-youtube" />
             </div>
@@ -661,7 +724,7 @@
                       <q-item-label>Auction</q-item-label>
                     </q-item-section>
                   </q-item>
-                  <q-item clickable :to="{name: 'usedCars'}">
+                  <q-item clickable :to="{ name: 'usedCars' }">
                     <q-item-section>
                       <q-item-label>Used Autos</q-item-label>
                     </q-item-section>
@@ -678,12 +741,12 @@
                 label="Auto Parts Inventory"
               >
                 <q-list>
-                  <q-item clickable :to="{name: 'newParts'}">
+                  <q-item clickable :to="{ name: 'newParts' }">
                     <q-item-section>
                       <q-item-label>New Auto Parts</q-item-label>
                     </q-item-section>
                   </q-item>
-                  <q-item clickable :to="{name: 'usedParts'}"p>
+                  <q-item clickable :to="{ name: 'usedParts' }" p>
                     <q-item-section>
                       <q-item-label>Used Auto Parts</q-item-label>
                     </q-item-section>
@@ -733,6 +796,11 @@
                   <q-item clickable :to="{ name: 'faq' }">
                     <q-item-section>
                       <q-item-label>FAQ</q-item-label>
+                    </q-item-section>
+                  </q-item>
+                  <q-item clickable :to="{ name: 'reviews' }">
+                    <q-item-section>
+                      <q-item-label>Customer Reviews</q-item-label>
                     </q-item-section>
                   </q-item>
                 </q-list>

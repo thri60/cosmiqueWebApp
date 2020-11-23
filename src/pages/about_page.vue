@@ -63,8 +63,8 @@
           &nbsp; CUSTOMERS ARE IMPORTANT FOR US &nbsp;</b
         >
         <p class="q-pa-md text-weight-bold text-grey-9 text-h4">
-          <span class="text-primary">| &nbsp; &nbsp;</span> WHAT WE OFFER
-          <span class="text-primary">&nbsp;&nbsp; |</span>
+          WHAT WE OFFER
+
         </p>
       </div>
       <div class="row q-pa-md">
