@@ -3,14 +3,14 @@
     <q-header reveal elevated>
       <q-toolbar>
         <q-toolbar-title>
-          <div>
+          <div @click="open_index" class="q-pa-sm">
             <q-img
               src="~assets/logo.png"
               style="height: 35px; max-width: 100px"
               class="q-py-sm"
             />
             <br />
-            <b class="text-h6 text-bold text-black"
+            <b class="text-h5 text-bold text-black"
               >Cosmique <span class="text-white">Autos</span></b
             >
             <br />
@@ -62,12 +62,12 @@
               <q-list class="bg-white text-primary">
                 <q-item clickable :to="{ name: 'newParts' }">
                   <q-item-section>
-                    <q-item-label>New Auto Parts</q-item-label>
+                    <q-item-label>Auto Parts</q-item-label>
                   </q-item-section>
                 </q-item>
                 <q-item clickable :to="{ name: 'usedParts' }">
                   <q-item-section>
-                    <q-item-label>Used Auto Parts</q-item-label>
+                    <q-item-label>Accessories</q-item-label>
                   </q-item-section>
                 </q-item>
               </q-list>
@@ -174,12 +174,12 @@
                     <q-list bordered separator>
                       <q-item clickable :to="{ name: 'newParts' }">
                         <q-item-section>
-                          <q-item-label>New Auto Parts</q-item-label>
+                          <q-item-label>Auto Parts</q-item-label>
                         </q-item-section>
                       </q-item>
                       <q-item clickable :to="{ name: 'usedParts' }">
                         <q-item-section>
-                          <q-item-label>Used Auto Parts</q-item-label>
+                          <q-item-label>Accessories</q-item-label>
                         </q-item-section>
                       </q-item>
                     </q-list>
@@ -345,13 +345,13 @@
               <q-item-section avatar>
                 <q-icon color="primary" name="fas fa-wrench" />
               </q-item-section>
-              <q-item-section>New Auto Parts</q-item-section>
+              <q-item-section>Auto Parts</q-item-section>
             </q-item>
             <q-item clickable :to="{ name: 'usedParts' }" v-ripple>
               <q-item-section avatar>
                 <q-icon color="primary" name="fas fa-wrench" />
               </q-item-section>
-              <q-item-section>Used Auto Parts</q-item-section>
+              <q-item-section>Accessories</q-item-section>
             </q-item>
           </q-expansion-item>
           <q-item clickable v-ripple :to="{ name: 'shipping' }">
@@ -448,13 +448,13 @@
                 <q-item-section avatar>
                   <q-icon color="primary" name="fas fa-wrench" />
                 </q-item-section>
-                <q-item-section>New Auto Parts</q-item-section>
+                <q-item-section>Auto Parts</q-item-section>
               </q-item>
               <q-item clickable :to="{ name: 'usedParts' }" v-ripple>
                 <q-item-section avatar>
                   <q-icon color="primary" name="fas fa-wrench" />
                 </q-item-section>
-                <q-item-section>Used Auto Parts</q-item-section>
+                <q-item-section>Accessories</q-item-section>
               </q-item>
             </q-expansion-item>
             <q-item clickable v-ripple :to="{ name: 'shipping' }">
@@ -670,7 +670,7 @@
     <div class="bg-grey-10 text-grey-6 justify-between">
       <div class="row">
         <div class="self-center col-12 col-md-4">
-          <div class="q-pa-md">
+          <div class="q-pa-md" @click="open_index">
             <q-img
               class="text-center"
               v-ripple:primary
@@ -743,12 +743,12 @@
                 <q-list>
                   <q-item clickable :to="{ name: 'newParts' }">
                     <q-item-section>
-                      <q-item-label>New Auto Parts</q-item-label>
+                      <q-item-label>Auto Parts</q-item-label>
                     </q-item-section>
                   </q-item>
                   <q-item clickable :to="{ name: 'usedParts' }" p>
                     <q-item-section>
-                      <q-item-label>Used Auto Parts</q-item-label>
+                      <q-item-label>Accessories</q-item-label>
                     </q-item-section>
                   </q-item>
                 </q-list>
@@ -841,7 +841,10 @@ export default {
           this.$router.push({ name: "login" });
         }
       });
-    }
+    },
+  open_index(){
+    window.open('/', "_self")
+  }
   }
 };
 </script>

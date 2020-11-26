@@ -9,7 +9,7 @@
       >
         <br />
         <div round class="q-pa-md text-white text-h5 text-bold ">
-          <b>| Used Auto Parts |</b>
+          <b>|Accessories |</b>
         </div>
       </q-img>
     </div>
