@@ -30,18 +30,19 @@
       </q-item-section>
       <q-item-section>Transactions</q-item-section>
     </q-item>
-    <q-separator />
 
+    <q-separator class="q-pt-lg" />
+    
 
-    <q-item clickable v-ripple :to="{ name: ''}">
+    <q-item clickable v-ripple>
       <q-item-section avatar>
         <q-icon color="primary" name="assessment" />
       </q-item-section>
       <q-item-section>Auto Parts Information</q-item-section>
     </q-item>
 
+    <q-separator class="q-pt-lg" />
 
-    <q-separator />
     <q-item clickable v-ripple :to="{ name: 'contact_information'}">
       <q-item-section avatar>
         <q-icon color="primary" name="assessment" />

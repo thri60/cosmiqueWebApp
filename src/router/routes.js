@@ -35,7 +35,7 @@ const routes = [{
                 component: SearchResultsPage,
                 props: true
             },
-            { path: "/auction", name: "auction", component: AuctionPage },
+            { path: "/cars_auction", name: "auction", component: AuctionPage },
             { path: "/request", name: "request", component: RequestPage },
             { path: "/contact", name: "contact", component: ContactPage },
             { path: "/shipping", name: "shipping", component: shippingPage },

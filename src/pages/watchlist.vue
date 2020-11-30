@@ -20,11 +20,11 @@
       <q-card v-else class="my-card text-center q-pa-xl">
         <q-card-section>
           <q-icon name="favorite_border" size="4em" color="primary" />
-          <p class="text-bold text-h5">Watchlist is empty</p>
+          <p class="text-bold text-h5">Watch-list is empty</p>
           <p class="text-grey-9">
-            Sorry! You did not add any items to your watchlist
+            Sorry! You did not add any items to your watch-list
           </p>
-             <q-btn rounded :to="{ name: 'search' }" color="primary" text-color="white" label="Check Inventory" />
+             <q-btn rounded :to="{ name: 'auction' }" color="primary" text-color="white" label="Check Inventory" />
 </q-card-section>
       </q-card>
     </div>

@@ -113,10 +113,10 @@
                 v-for="sales in view_selected.vin_details"
                 :key="sales"
               >
-                <div class="col-3 text-primary">
+                <div class="col-4 text-primary">
                   <b>{{ sales.label }} </b>
                 </div>
-                <div class="col-8">
+                <div class="col-6 q-pl-md">
                   <b>{{ sales.value }}</b>
                 </div>
               </div>
@@ -182,10 +182,10 @@
               <div
                 v-for="(item, index) in view_selected.sale_information" :key="index"
                 class="row">
-                <div class="col-4 text-primary">
+                <div class="col-4 text-primary" size="sm">
                   <b>{{ item.label }}</b>
                 </div>
-                <div class="col-8">
+                <div class="col-7 q-pl-md">
                   <b v-if="item.value.address == null">{{ item.value }}</b>
                   <b v-else>
                     {{ item.value.address }},
@@ -210,7 +210,7 @@
                 <div class="col-4">
                   <b>{{ sales.label }}:: </b>
                 </div>
-                <div class="col-8">
+                <div class="col-6 q-pl-md">
                   <b>{{ sales.value }}</b>
                 </div>
               </div>
@@ -318,7 +318,7 @@ export default {
         .then(response => {
           this.view_selected = response.data;
           this.showLoading();
-          this.$q.cookies.set("selected_car", this.selected_car);
+          this.$q.localStorage.set("selected_car", this.selected_car);
         });
     },
 
@@ -340,7 +340,7 @@ export default {
         .get(
           "https://cors-anywhere.herokuapp.com/" +
             "http://184.72.35.251/rest-api/v2/lots/" +
-            this.$q.cookies.get("selected_car")
+            this.$q.localStorage.getItem("selected_car")
         )
         .then(response => {
           this.view_selected = response.data;
@@ -357,7 +357,7 @@ export default {
         .then(response => {
           this.view_selected = response.data;
           this.showLoading();
-          this.$q.cookies.set("selected_car", this.selected_car);
+          this.$q.localStorage.set("selected_car", this.selected_car);
         });
     },
 
