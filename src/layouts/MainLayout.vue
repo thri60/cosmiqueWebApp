@@ -45,11 +45,11 @@
                     <q-item-label>Auction</q-item-label>
                   </q-item-section>
                 </q-item>
-                <q-item clickable :to="{ name: 'usedCars' }">
+                <!-- <q-item clickable :to="{ name: 'usedCars' }">
                   <q-item-section>
                     <q-item-label>Used Autos</q-item-label>
                   </q-item-section>
-                </q-item>
+                </q-item> -->
               </q-list>
             </q-btn-dropdown>
             <q-btn-dropdown
@@ -328,12 +328,12 @@
               </q-item-section>
               <q-item-section>Auctions</q-item-section>
             </q-item>
-            <q-item clickable v-ripple>
+            <!-- <q-item clickable v-ripple>
               <q-item-section avatar>
                 <q-icon color="primary" name="directions_car" />
               </q-item-section>
               <q-item-section>Used Dealership Autos</q-item-section>
-            </q-item>
+            </q-item> -->
           </q-expansion-item>
           <q-expansion-item
             :content-inset-level="0.5"

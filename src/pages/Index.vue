@@ -379,7 +379,7 @@
           />
         </div>
         <q-btn
-          to="auction"
+          :to="{ name: 'auction' }"
           style="width:60%"
           rounded
           color="yellow-10"
@@ -389,10 +389,6 @@
         />
       </div>
     </div>
-    <br />
-    <br />
-    <br />
-    <br />
 
     <div class="q-pa-md row bg-primary text-white gt-sm">
       <div class="col-12 col-md-2">
@@ -568,8 +564,6 @@
       transition-show="flip-down"
       transition-hide="flip-up"
     >
-
-
       <div class="my-card1">
         <div class="row ">
           <strong class="text-primary text-h4 text-bold">Quick Preview</strong>
@@ -577,7 +571,6 @@
           <q-btn color="primary" dense flat icon="close" v-close-popup>
             <q-tooltip content-class="bg-primary text-white">Close</q-tooltip>
           </q-btn>
-
         </div>
 
         <div>
@@ -789,8 +782,7 @@ export default {
 
     view_selected_cars(id) {
       this.$router.push({
-        name: "auction_car_details",
-        params: { selected_car: id }
+        path: "auction_car_details/" + id,
       });
     },
 
@@ -949,6 +941,4 @@ export default {
 .box
   height: auto
   width: 180px
-
-
 </style>

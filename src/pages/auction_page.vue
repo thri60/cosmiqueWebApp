@@ -22,12 +22,10 @@
                 leave-active-class="animated fadeOut"
               >
                 <div v-show="showSimulatedReturnData">
-                  <q-card
+                  <div class="q-pb-lg" v-for="car in data" :key="car.id" >
+                      <q-card
                     class="my-card q-pa-md"
-                    bordered
-                    v-for="car in data"
-                    :key="car.id"
-                  >
+                    bordered>
                     <q-card-section horizontal>
                       <q-img
                         :src="car.images[0]"
@@ -105,6 +103,7 @@
                       </q-card-section>
                     </q-card-section>
                   </q-card>
+                  </div>
                   <div class="q-pa-lg flex flex-center">
                     <q-pagination
                       v-model="current"
@@ -127,9 +126,9 @@
         </div>
       </div>
       <div class="lt-md">
-        <q-card bordered class="my-card" v-for="car in data" :key="car.id">
+        <div v-for="car in data" :key="car.id" class="q-pb-lg">
+           <q-card bordered class="my-card q-pb-lg" >
           <q-img :src="car.images[0]" @click="selected(car.id)" />
-
           <q-card-section>
             <q-btn
               fab
@@ -199,6 +198,7 @@
             </q-btn>
           </q-card-actions>
         </q-card>
+        </div>
         <div>
           <div class="q-pa-lg flex flex-center">
             <q-pagination
@@ -400,6 +400,7 @@ export default {
 
   methods: {
     loading_cars() {
+      this.showTextLoading();
       this.axios
         .get(
           "https://cors-anywhere.herokuapp.com/" +
@@ -418,7 +419,7 @@ export default {
       setTimeout(() => {
         this.visible = false;
         this.showSimulatedReturnData = true;
-      }, 3000);
+      }, 4000);
     },
 
     loadingMakeOptions(val, update) {
@@ -468,8 +469,7 @@ export default {
 
     selected(id) {
       this.$router.push({
-        name: "auction_car_details",
-        params: { selected_car: id }
+        path: "auction_car_details/" + id,
       });
     },
 
@@ -529,7 +529,6 @@ export default {
 
   mounted() {
     this.loading_cars();
-    this.showTextLoading();
   }
 };
 </script>

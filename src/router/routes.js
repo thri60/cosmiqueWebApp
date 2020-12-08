@@ -42,12 +42,7 @@ const routes = [{
             { path: "/about", name: "about", component: aboutPage },
             { path: "/login", name: "login", component: loginPage },
             { path: "/register", name: "register", component: registerPage },
-            {
-                path: "/auction_car_details",
-                name: "auction_car_details",
-                component: CarDetailPage,
-                props: true
-            },
+            { path: "/auction_car_details/:id", name: "auction_car_details", component: CarDetailPage, props: true },
             { path: "/faq", name: "faq", component: faqPage },
             { path: "/newParts", name: "newParts", component: newPartsPage },
             { path: "/usedParts", name: "usedParts", component: usedPartsPage },

@@ -1,21 +1,42 @@
 <template>
   <div>
-    <div class="text-center bg-white">
+    <div class="text-center bg-white" style="height:120px">
       <q-img
         dim
-        src="~assets/2.jpg"
+        height="100%"
+        src="~assets/cosmique_badge.jpg"
         class="q-pa-md bg-transparent banner"
-        style="height:100px;"
       >
-        <div round class="q-pa-md text-white text-h5 text-bold q-pa-lg">
-          <b>| {{ view_selected.lot.vehicle_name }} (Details) |</b><br />
+        <div round class="q-pa-md text-white text-h6 text-bold q-pa-lg">
+          <b>| {{ view_selected.lot.vehicle_name }} |</b><br />
           <b>| VIN:: {{ view_selected.lot.vin }} |</b>
         </div>
       </q-img>
     </div>
     <div class="row">
       <div class="col-12 col-md-8">
-        <div class="q-pa-md">
+        <div class="lt-md">
+          <q-responsive :ratio="16 / 9" style="width: 500px; max-width: 100%;">
+            <q-carousel
+              swipeable
+              animated
+              navigation
+              arrows
+              v-model="slide"
+              infinite
+            >
+              <q-carousel-slide
+                :name="image"
+                v-for="(image, index) in view_selected.lot.images"
+                :key="index"
+                :img-src="image"
+                style="height: 100%"
+                transitions="rotate"
+              />
+            </q-carousel>
+          </q-responsive>
+        </div>
+        <div class="q-pa-md gt-sm">
           <q-carousel
             padding
             transition-prev="slide-right"
@@ -33,7 +54,8 @@
           >
             <q-carousel-slide
               :name="image"
-              v-for="(image, index) in view_selected.lot.images" :key="index"
+              v-for="(image, index) in view_selected.lot.images"
+              :key="index"
               :img-src="image"
               style="height: 100%"
               transitions="rotate"
@@ -83,10 +105,10 @@
                 <q-space />
               </div>
               <div>
-                VIN: <b> {{ view_selected.lot.vin }}</b>
+                VIN: &nbsp;&nbsp;<b> {{ view_selected.lot.vin }}</b>
               </div>
               <div>
-                <i class="fas fa-tachometer-alt"></i> MILEAGE
+                <i class="fas fa-tachometer-alt"></i> MILEAGE &nbsp;&nbsp;
                 <b>
                   {{ view_selected.lot.odometer_value }} -{{
                     view_selected.lot.odometer_type.toUpperCase()
@@ -95,11 +117,11 @@
               </div>
               <div>
                 <i class="fab fa-keycdn"></i>
-                START CODE
+                START CODE &nbsp;&nbsp;
                 <b>{{ view_selected.lot.start_code.toUpperCase() }}</b>
               </div>
               <div>
-                <i class="fas fa-car-crash"> </i> DAMAGE:
+                <i class="fas fa-car-crash"> </i> DAMAGE:&nbsp;&nbsp;
                 <b> {{ view_selected.lot.damage }}</b>
               </div>
             </q-card-section>
@@ -110,8 +132,8 @@
               <div class="text-h5 text-bold text-primary">VIN Details</div>
               <div
                 class="row"
-                v-for="sales in view_selected.vin_details"
-                :key="sales"
+                v-for="(sales, index) in view_selected.vin_details"
+                :key="index"
               >
                 <div class="col-4 text-primary">
                   <b>{{ sales.label }} </b>
@@ -161,65 +183,69 @@
             </q-card-section>
           </q-card-section>
         </q-card>
-        <br />
-        <q-card
-          class="my-card text-center bg-grey-3"
-          v-if="view_selected.lot.auction_in_progress == false"
-        >
-          <q-card-section>
-            <div class="text-subtitle2">Live Auction Starts In</div>
-          </q-card-section>
-          <q-card-section>
-            <flip-countdown :deadline="view_selected.lot.sale_date.date" />
-            <!-- {{ view_selected.lot.sale_date.date }} -->
-          </q-card-section>
-        </q-card>
-        <br />
-        <q-card bordered flat class="bg-grey-3 my-card">
-          <q-card-section>
+
+        <div class="q-pa-md">
+          <q-card
+            class="my-card text-center bg-grey-3"
+            v-if="view_selected.lot.auction_in_progress == false"
+          >
             <q-card-section>
-              <div class="text-h5 text-bold">Sale Information</div>
-              <div
-                v-for="(item, index) in view_selected.sale_information" :key="index"
-                class="row">
-                <div class="col-4 text-primary" size="sm">
-                  <b>{{ item.label }}</b>
-                </div>
-                <div class="col-7 q-pl-md">
-                  <b v-if="item.value.address == null">{{ item.value }}</b>
-                  <b v-else>
-                    {{ item.value.address }},
-                    {{ item.value.city }},
-                    {{ item.value.state }}
-                  </b>
-                </div>
-              </div>
+              <div class="text-subtitle2">Live Auction Starts In</div>
             </q-card-section>
-          </q-card-section>
-        </q-card>
-        <br />
-        <q-card bordered flat class="bg-grey-3 my-card">
-          <q-card-section>
             <q-card-section>
-              <div class="text-h5 text-bold">IAA Condition Details Stock</div>
-              <div
-                class="row"
-                v-for="sales in view_selected.iaa_condition"
-                :key="sales"
-              >
-                <div class="col-4">
-                  <b>{{ sales.label }}:: </b>
-                </div>
-                <div class="col-6 q-pl-md">
-                  <b>{{ sales.value }}</b>
-                </div>
-              </div>
+              <flip-countdown :deadline="view_selected.lot.sale_date.date" />
+              <!-- {{ view_selected.lot.sale_date.date }} -->
             </q-card-section>
-          </q-card-section>
-        </q-card>
+          </q-card>
+        </div>
+
+        <div class="q-pa-md">
+          <q-card bordered flat class="bg-grey-3 my-card">
+            <q-card-section>
+              <q-card-section>
+                <div class="text-h5 text-bold">Sale Information</div>
+                <div
+                  v-for="(item, index) in view_selected.sale_information"
+                  :key="index"
+                  class="row"
+                >
+                  <div class="col-4 text-primary" size="sm">
+                    <b>{{ item.label }}</b>
+                  </div>
+                  <div class="col-7 q-pl-md">
+                    <b v-if="item.value.address == null">{{ item.value }}</b>
+                    <b v-else>
+                      {{ item.value.address }}, {{ item.value.city }},
+                      {{ item.value.state }}
+                    </b>
+                  </div>
+                </div>
+              </q-card-section>
+            </q-card-section>
+          </q-card>
+        </div>
+
+        <div class="q-pa-md">
+          <q-card bordered flat class="bg-grey-3 my-card">
+            <q-card-section>
+              <q-card-section>
+                <div class="text-h5 text-bold">IAA Condition Details Stock</div>
+                <div
+                  class="row"
+                  v-for="(sales, index) in view_selected.iaa_condition" :key="index">
+                  <div class="col-4 text-orange-9">
+                    <b>{{ sales.label }}:: </b>
+                  </div>
+                  <div class="col-6 q-pl-md">
+                    <b>{{ sales.value }}</b>
+                  </div>
+                </div>
+              </q-card-section>
+            </q-card-section>
+          </q-card>
+        </div>
       </div>
     </div>
-
     <div class="q-pa-lg">
       <div class="bg bg-grey-3 q-pa-md">
         <div class="text-center">
@@ -234,9 +260,7 @@
             <div class="row q-pa-md">
               <div
                 class="col-12 col-md-4 q-pa-md"
-                v-for="similar in similar_selections"
-                :key="similar.id"
-              >
+                v-for="(similar, index) in similar_selections" :key="index">
                 <q-card>
                   <q-img
                     v-ripple
@@ -294,12 +318,10 @@ import { date } from "quasar";
 import FlipCountdown from "vue2-flip-countdown";
 
 export default {
-  props: ["selected_car"],
-
   components: { FlipCountdown },
-
   data() {
     return {
+      car_id: 0,
       view_selected: {},
       slide: 1,
       possible_bid: "",
@@ -307,46 +329,45 @@ export default {
     };
   },
 
+  created() {
+    this.vehicle_status();
+  },
+
   methods: {
-    async load_car_details() {
-      return this.axios
-        .get(
-          "https://cors-anywhere.herokuapp.com/" +
-          "http://184.72.35.251/rest-api/v2/lots/" +
-          this.selected_car
-        )
-        .then(response => {
-          this.view_selected = response.data;
-          this.showLoading();
-          this.$q.localStorage.set("selected_car", this.selected_car);
-        });
+    async loading_car_details() {
+      return new Promise(resolve => {
+        this.axios
+          .get(
+            "https://cors-anywhere.herokuapp.com/" +
+              "http://184.72.35.251/rest-api/v2/lots/" +
+              this.car_id
+          )
+          .then(response => {
+            this.view_selected = response.data;
+            this.showLoading();
+          });
+      });
     },
 
-    async loadingSimilarCars() {
-      return this.axios
-        .get(
-          "https://cors-anywhere.herokuapp.com/" +
-          "http://184.72.35.251/rest-api/v1.0/lots/" +
-          this.selected_car +
-          "/similar"
-        )
-        .then(response => {
-          this.similar_selections = response.data;
-        });
+    async vehicle_status() {
+      this.showLoading();
+      this.car_id = this.$route.fullPath.substring(21);
+      await this.loading_car_details();
+      // await this.loadingSimilarCars();
     },
 
-    find_id_storage() {
-      this.axios
-        .get(
-          "https://cors-anywhere.herokuapp.com/" +
-            "http://184.72.35.251/rest-api/v2/lots/" +
-            this.$q.localStorage.getItem("selected_car")
-        )
-        .then(response => {
-          this.view_selected = response.data;
-          this.showLoading();
-        });
-    },
+    // find_id_storage() {
+    //   this.axios
+    //     .get(
+    //       "https://cors-anywhere.herokuapp.com/" +
+    //         "http://184.72.35.251/rest-api/v2/lots/" +
+    //         this.car_id
+    //     )
+    //     .then(response => {
+    //       this.view_selected = response.data;
+    //       this.vehicle_status();
+    //     });
+    // },
 
     async selected(id) {
       return this.axios
@@ -357,9 +378,23 @@ export default {
         .then(response => {
           this.view_selected = response.data;
           this.showLoading();
-          this.$q.localStorage.set("selected_car", this.selected_car);
         });
     },
+
+    async loadingSimilarCars() {
+      return this.axios
+        .get(
+          "https://cors-anywhere.herokuapp.com/" +
+          "http://184.72.35.251/rest-api/v1.0/lots/" +
+          this.car_id +
+          "/similar"
+        )
+        .then(response => {
+          this.similar_selections = response.data;
+          console.log(response.data)
+        });
+    },
+
 
     showLoading() {
       this.$q.loading.show({
@@ -381,13 +416,6 @@ export default {
         }, 2000);
       }, 3000);
     }
-  },
-
-  mounted() {
-    this.load_car_details();
-    this.showLoading();
-    this.find_id_storage();
-    this.loadingSimilarCars();
   },
 
   beforeDestroy() {
