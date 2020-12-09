@@ -331,6 +331,7 @@ export default {
 
   created() {
     this.vehicle_status();
+    this.loadingSimilarCars();
   },
 
   methods: {
@@ -353,7 +354,6 @@ export default {
       this.showLoading();
       this.car_id = this.$route.fullPath.substring(21);
       await this.loading_car_details();
-      // await this.loadingSimilarCars();
     },
 
     // find_id_storage() {
@@ -382,17 +382,19 @@ export default {
     },
 
     async loadingSimilarCars() {
-      return this.axios
-        .get(
-          "https://cors-anywhere.herokuapp.com/" +
-          "http://184.72.35.251/rest-api/v1.0/lots/" +
-          this.car_id +
-          "/similar"
-        )
-        .then(response => {
-          this.similar_selections = response.data;
-          console.log(response.data)
-        });
+      return new Promise(resolve => {
+        this.axios
+          .get(
+            "https://cors-anywhere.herokuapp.com/" +
+            "http://184.72.35.251/rest-api/v1.0/lots/" +
+            this.car_id +
+            "/similar"
+          )
+          .then(response => {
+            this.similar_selections = response.data;
+            console.log(response.data)
+          });
+      });
     },
 
 
