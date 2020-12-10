@@ -190,14 +190,17 @@
             v-if="view_selected.lot.auction_in_progress == false"
           >
             <q-card-section>
-              <div class="text-subtitle2">Live Auction Starts In</div>
+              <div class="text-h5 text-orange-9">BIDS ENDS</div>
             </q-card-section>
+            <hr>
             <q-card-section>
-                <div v-if="(view_selected.lot.sale_date.date).substring(0,10)">
+                <div v-if="(view_selected.lot.sale_date.date).substring(0,19)">
 
                 </div>
-                 <flip-countdown :deadline="view_selected.lot.sale_date.date" />
-                 {{ (view_selected.lot.sale_date.date).substring(0,10) }}
+                 <flip-countdown :deadline="(view_selected.lot.sale_date.date).substring(0,19)" />
+                 {{ (view_selected.lot.sale_date.date).substring(0,19) }}
+                 <hr>
+                 {{ sales_date }}
             </q-card-section>
           </q-card>
           <q-card
@@ -205,7 +208,7 @@
             v-else
           >
             <q-card-section>
-                 <q-btn color="green" class="full-width" text-color="white" label="LIVE AUCTIONS" />                
+                 <q-btn color="green" class="full-width" text-color="white" label="LIVE AUCTIONS IN SESSION" />                
             </q-card-section>
           </q-card>
 
@@ -338,6 +341,7 @@ export default {
       slide: 1,
       possible_bid: "",
       similar_selections: {},
+      sales_date: ''
     };
   },
 
@@ -379,6 +383,7 @@ export default {
       var date = today.getFullYear()+'-'+(today.getMonth()+1)+'-'+today.getDate();
       var time = today.getHours() + ":" + today.getMinutes() + ":" + today.getSeconds();
       var dateTime = date + ' ' + time;
+      this.sales_date = dateTime
   
       console.log(dateTime);
       this.car_id = this.$route.fullPath.substring(21);

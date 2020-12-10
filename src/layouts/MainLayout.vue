@@ -37,19 +37,19 @@
               dense
               color="white"
               text-color="white"
-              label="Auto Inventory"
+              label="Find Vehicle"
             >
               <q-list class="bg-white text-primary">
                 <q-item clickable :to="{ name: 'auction' }">
                   <q-item-section>
-                    <q-item-label>Auction</q-item-label>
+                    <q-item-label>Auction Vehicles</q-item-label>
                   </q-item-section>
                 </q-item>
-                <!-- <q-item clickable :to="{ name: 'usedCars' }">
+                <q-item clickable :to="{ name: 'buy_it_now_vehicles' }">
                   <q-item-section>
-                    <q-item-label>Used Autos</q-item-label>
+                    <q-item-label>Buy it Now Vehicles</q-item-label>
                   </q-item-section>
-                </q-item> -->
+                </q-item>
               </q-list>
             </q-btn-dropdown>
             <q-btn-dropdown
@@ -149,16 +149,16 @@
                   </q-item-section>
                 </q-item>
                 <q-item clickable>
-                  <q-btn-dropdown no-caps flat dense label="Auto Inventory">
+                  <q-btn-dropdown no-caps flat dense label="Auto Parts Inventory">
                     <q-list separator bordered class="bg-white">
                       <q-item clickable :to="{ name: 'auction' }">
                         <q-item-section>
-                          <q-item-label>Auction</q-item-label>
+                          <q-item-label>Auction Vehicles</q-item-label>
                         </q-item-section>
                       </q-item>
-                      <q-item clickable v-close-popup>
+                      <q-item clickable :to="{ name: 'buy_it_now_vehicles'}">
                         <q-item-section>
-                          <q-item-label>Used Autos</q-item-label>
+                          <q-item-label>Buy it Now Vehicles</q-item-label>
                         </q-item-section>
                       </q-item>
                     </q-list>

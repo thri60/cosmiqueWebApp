@@ -21,6 +21,7 @@ import SearchResultsPage from "pages/search_results.vue";
 import newPartsPage from "pages/newPartsPage.vue";
 import usedPartsPage from "pages/usedPartsPage.vue";
 import reviewPage from "pages/reviewPage.vue";
+import buyNowPage from "pages/buy_it_now_vehicles.vue";
 
 
 const routes = [{
@@ -36,6 +37,7 @@ const routes = [{
                 props: true
             },
             { path: "/cars_auction", name: "auction", component: AuctionPage },
+            { path: "/buy_it_now_vehicles", name: "buy_it_now_vehicles", component: buyNowPage },
             { path: "/request", name: "request", component: RequestPage },
             { path: "/contact", name: "contact", component: ContactPage },
             { path: "/shipping", name: "shipping", component: shippingPage },
