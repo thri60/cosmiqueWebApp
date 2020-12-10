@@ -10,6 +10,8 @@
     },
     "dependencies": {
         "@quasar/extras": "^1.9.10",
+        "@sentry/tracing": "^5.29.0",
+        "@sentry/vue": "^5.29.0",
         "@websanova/vue-auth": "^2.21.14-beta",
         "axios": "^0.18.1",
         "core-js": "^3.6.5",

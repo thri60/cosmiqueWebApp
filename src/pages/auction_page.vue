@@ -399,18 +399,31 @@ export default {
   },
 
   methods: {
-    loading_cars() {
-      this.showTextLoading();
-      this.axios
-        .get(
-          "https://cors-anywhere.herokuapp.com/" +
-            "http://184.72.35.251/rest-api/v1.0/lots/search?page=" +
-            this.current +
-            "&per_page=26&type=CAR&make=*&model=*&search_id=&search_query=&year_from=1920&year_to=2021&sort_field=&sort_order=&sales_type=*&distance=*&destination_zip=&location_state=*&location_city=*&primary_damage=normal+wear+%26+tear*&title_name=*&exterior_color=*&odometer_min=*&odometer_max=*"
-        )
-        .then(response => {
-          this.data = response.data.lots;
-        });
+    async loading_cars() {
+      return new Promise(resolve => {
+        this.showTextLoading();
+        this.axios
+          .get(
+            "https://cors-anywhere.herokuapp.com/" +
+              "http://184.72.35.251/rest-api/v1.0/lots/search?page=" +
+              this.current +
+              "&per_page=26&type=CAR&make=*&model=*&search_id=&search_query=&year_from=1920&year_to=2021&sort_field=&sort_order=&sales_type=*&distance=*&destination_zip=&location_state=*&location_city=*&primary_damage=normal+wear+%26+tear*&title_name=*&exterior_color=*&odometer_min=*&odometer_max=*"
+          )
+          .then(response => {
+            this.data = response.data.lots;
+          });
+      },
+      reject => {
+        setTimeout(() => {
+          this.$q.notify({
+            progress: true,
+            message: 'Please refresh again',
+            icon: 'assessments',
+            color: 'negative',
+            textColor: 'white'
+          })
+        }, 2000)
+      })
     },
 
     showTextLoading() {

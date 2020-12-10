@@ -193,10 +193,22 @@
               <div class="text-subtitle2">Live Auction Starts In</div>
             </q-card-section>
             <q-card-section>
-              <flip-countdown :deadline="view_selected.lot.sale_date.date" />
-              <!-- {{ view_selected.lot.sale_date.date }} -->
+                <div v-if="(view_selected.lot.sale_date.date).substring(0,10)">
+
+                </div>
+                 <flip-countdown :deadline="view_selected.lot.sale_date.date" />
+                 {{ (view_selected.lot.sale_date.date).substring(0,10) }}
             </q-card-section>
           </q-card>
+          <q-card
+            class="my-card text-center bg-grey-3"
+            v-else
+          >
+            <q-card-section>
+                 <q-btn color="green" class="full-width" text-color="white" label="LIVE AUCTIONS" />                
+            </q-card-section>
+          </q-card>
+
         </div>
 
         <div class="q-pa-md">
@@ -325,11 +337,11 @@ export default {
       view_selected: {},
       slide: 1,
       possible_bid: "",
-      similar_selections: {}
+      similar_selections: {},
     };
   },
 
-  created() {
+  mounted() {
     this.vehicle_status();
     this.loadingSimilarCars();
   },
@@ -347,11 +359,28 @@ export default {
             this.view_selected = response.data;
             this.showLoading();
           });
+      },
+      reject => {
+        setTimeout(() => {
+          this.$q.notify({
+            progress: true,
+            message: 'Please refresh again',
+            icon: 'assessments',
+            color: 'negative',
+            textColor: 'white'
+          })
+        }, 2000)
       });
     },
 
     async vehicle_status() {
       this.showLoading();
+      var today = new Date();
+      var date = today.getFullYear()+'-'+(today.getMonth()+1)+'-'+today.getDate();
+      var time = today.getHours() + ":" + today.getMinutes() + ":" + today.getSeconds();
+      var dateTime = date + ' ' + time;
+  
+      console.log(dateTime);
       this.car_id = this.$route.fullPath.substring(21);
       await this.loading_car_details();
     },
@@ -392,7 +421,6 @@ export default {
           )
           .then(response => {
             this.similar_selections = response.data;
-            console.log(response.data)
           });
       });
     },
